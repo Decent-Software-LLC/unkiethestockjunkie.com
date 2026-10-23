@@ -158,6 +158,107 @@ function tidyBlankRuns(text) {
   return text.replace(/\n{3,}/g, '\n\n').replace(/[ \t]+$/gm, '');
 }
 
+// Front-matter field names the model sometimes restates as body text after a title echo.
+// Verified live against nemotron (thinking disabled): it emits "# Title" followed by literal
+// "difficulty: beginner" and "tags: risk-management, stocks, beginner" body lines. The layout
+// adds the real keys, so leaving these renders duplicated metadata at the top of the article --
+// the same class of leak as the original scaffolding bug on different fields, and invisible to
+// every rule above because such lines carry no "**" and no "#".
+const BODY_METADATA_KEYS = [
+  'title',
+  'description',
+  'date',
+  'difficulty',
+  'tags',
+  'related_articles',
+  'image',
+  'image_credit',
+  'image_credit_url',
+  'author',
+  'layout',
+  'slug',
+  'canonical_url',
+  'featured'
+];
+
+/**
+ * Remove "key: value" lines duplicating front-matter fields, but only from the block above the
+ * first line of real content. Restricting to that region is what makes this safe: prose that
+ * merely mentions its own tags, or a sentence like "Difficulty: hard mode", survives untouched.
+ */
+function stripMetadataEcho(lines) {
+  // Built as a literal rather than new RegExp(string) to avoid a second layer of escaping:
+  // an earlier version written via new RegExp('...\\S...') silently compiled \S to a literal
+  // "S" (verified by dumping keyRe.source), so nothing ever matched and metadata leaks passed
+  // the suite unnoticed.
+  const keyRe = new RegExp(
+    '^(?:' + BODY_METADATA_KEYS.join('|') + ')\\s*:\\s*\\S[^\\n]*$',
+    'i'
+  );
+
+  const out = [];
+  const removed = [];
+  let inLeadingBlock = true;
+
+  for (const line of lines) {
+    if (inLeadingBlock) {
+      const t = line.trim();
+      if (!t) {
+        out.push(line);
+        continue;
+      }
+      if (keyRe.test(t)) {
+        removed.push(t.slice(0, 42));
+        continue;
+      }
+      // A restated title heading sits ABOVE the metadata rows, so headings must not end the
+      // scan -- requiring prose first stopped at "# Title" and left "difficulty:" untouched
+      // two lines below it. Headings are still stripped only while no real paragraph has been
+      // seen; stripTitleEcho owns removing the heading itself, this guard handles the fields.
+      if (/^#{1,6}\s/.test(t) || /^\*\*[^*]+\*\*$/.test(t)) {
+        out.push(line);
+        continue;
+      }
+      // First genuine paragraph ends the leading block; nothing below it is ever touched.
+      inLeadingBlock = false;
+    }
+    out.push(line);
+  }
+
+  // Trailing metadata too. Models also sign off with "Tags: a, b, c" after the closing
+  // disclaimer -- seen in production on understanding-leveraged-etfs, sitting at the very end
+  // of the body where a leading-block scan could never see it.
+  //
+  // Only value shapes that cannot be prose are dropped: an empty value, or a comma/slash
+  // separated list of slug-ish tokens, or a bare URL. Requiring that is what keeps a genuine
+  // closing sentence like "Difficulty: advanced is overrated." intact -- the earlier version
+  // here matched any "key: ..." line and ate it.
+  const METADATA_VALUE = /^(?:|[A-Za-z0-9][\w+.-]*(?:[ \t]*,[ \t]*[A-Za-z0-9][\w+.-]*)*|https?:\/\/\S+)$/;
+  const looksLikeMetadataField = (t) => {
+    const m = /^([A-Za-z_]+)[ \t]*:[ \t]([\s\S]*)$/.exec(t);
+    if (!m || !BODY_METADATA_KEYS.includes(m[1].toLowerCase())) return false;
+    return METADATA_VALUE.test(m[2].trim());
+  };
+
+  const tail = [];
+  let dropTail = true;
+  for (let i = out.length - 1; i >= 0; i--) {
+    const t = out[i].trim();
+    if (!t) {
+      tail.unshift(out[i]);
+      continue;
+    }
+    if (dropTail && looksLikeMetadataField(t)) {
+      removed.push(t.slice(0, 42));
+      continue;
+    }
+    dropTail = false;
+    tail.unshift(out[i]);
+  }
+
+  return { lines: tail, removed };
+}
+
 /**
  * Clean one article body. Front matter is never touched.
  * Returns { text, changes: string[] }.
@@ -179,6 +280,14 @@ function cleanBody(raw) {
   if (echo.removed) {
     lines = echo.lines;
     changes.push('removed title echo');
+  }
+
+  // A restated title usually drags the sibling fields with it. Run unconditionally rather than
+  // only on echo.removed: models also emit the bare "key: value" rows without the heading.
+  const meta = stripMetadataEcho(lines);
+  if (meta.removed.length) {
+    lines = meta.lines;
+    for (const r of meta.removed) changes.push('dropped metadata echo "' + r + '"');
   }
 
   const kept = [];
@@ -273,9 +382,13 @@ if (require.main === module) main();
  */
 function cleanBodyText(text) {
   if (!text || !text.trim()) return { text: text || '', changes: [] };
-  const lines = text.split('\n');
+  // Same leading-block guard as cleanBody(): the generator passes model output whose front
+  // matter does not exist yet, so a "difficulty:" row in it is a leak by definition.
+  const strippedMeta = stripMetadataEcho(text.split('\n'));
+  const lines = strippedMeta.lines;
+
   const kept = [];
-  const changes = [];
+  const changes = strippedMeta.removed.map((r) => 'dropped metadata echo "' + r + '"');
   for (let i = 0; i < lines.length; i++) {
     const verdict = classifyLine(lines[i]);
     if (verdict === null) {
@@ -298,5 +411,7 @@ module.exports = {
   cleanBodyText,
   classifyLine,
   stripTitleEcho,
+  stripMetadataEcho,
+  BODY_METADATA_KEYS,
   INSTRUCTION_LABELS
 };
