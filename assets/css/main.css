@@ -845,6 +845,25 @@ a:hover {
   color: var(--text-muted);
 }
 
+/* Reading time, computed at build time in _includes/read-time.html. */
+.read-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border-radius: 999px;
+}
+
+.read-time::before {
+  content: '⏱';
+  /* Decorative: the text already says "min read". */
+  speak: none;
+}
+
 .article-title {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-md);
@@ -1052,6 +1071,31 @@ a:hover {
   .share-btn:hover {
     transform: none;
   }
+}
+
+/* Reading progress (assets/js/reading-progress.js) */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  /* Sits above the sticky header so it stays visible while reading. */
+  z-index: 101;
+  pointer-events: none;
+}
+
+.reading-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: width var(--transition-fast);
+}
+
+/* Applied when the reader prefers reduced motion; set by reading-progress.js. */
+.reading-progress-fill.no-transition {
+  transition: none;
 }
 
 /* Guide Page */

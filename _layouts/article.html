@@ -29,6 +29,8 @@ layout: default
         <time class="article-date" datetime="{{ page.date | date_to_xmlschema }}">
           {{ page.date | date: "%B %d, %Y" }}
         </time>
+
+        {% include read-time.html %}
       </div>
       
       <h1 class="article-title">{{ page.title }}</h1>

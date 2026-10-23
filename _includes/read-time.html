@@ -1,0 +1,9 @@
+{% comment %}
+Estimates reading time from the rendered article body.
+
+Computed at build time rather than in JS so the number is present without
+JavaScript and does not shift after images load. `strip_html` removes markup so
+headings/lists/code are not counted as prose; 200wpm is a conservative adult pace,
+appropriate here because the copy is deliberately simple but teens skim.
+Rounds up and floors at 1 minute - "0 min read" reads as broken.
+{% endcomment %}{% assign body_words = content | strip_html | newline_to_br | split: '<br />' | join: ' ' | number_of_words | default: 0 %}{% assign minutes = body_words | divided_by: 200 %}{% assign remainder = body_words | modulo: 200 %}{% if remainder > 0 %}{% assign minutes = minutes | plus: 1 %}{% endif %}{% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}<span class="read-time" title="About {{ body_words }} words">{{ minutes }} min read</span>
