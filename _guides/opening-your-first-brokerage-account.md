@@ -4,7 +4,6 @@ description: "How a US teenager actually gets an investing account, who has to c
 difficulty: beginner
 time: 12
 tags: ["getting-started", "custodial-account", "utma", "ugma", "beginner"]
-image: "/assets/images/articles/getting-started-hero.svg"
 prerequisites: "You need a bank account or debit card you can fund transfers from, and one adult willing to be the custodian on your paperwork."
 steps:
   - title: "Know which account type you're allowed to open"

@@ -4,7 +4,6 @@ description: "How to actually size and split a starter portfolio as a teen, incl
 difficulty: beginner
 time: 14
 tags: ["getting-started", "asset-allocation", "diversification", "index-funds", "beginner"]
-image: "/assets/images/articles/getting-started-hero.svg"
 prerequisites: "Two completed guides (opening an account, making a trade) and a specific amount of money you have decided is investable - not rent, not food, not next month's anything."
 steps:
   - title: "Decide what money is genuinely investable"

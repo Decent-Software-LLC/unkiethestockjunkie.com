@@ -4,7 +4,6 @@ description: "What actually happens between clicking buy and owning a share - or
 difficulty: beginner
 time: 10
 tags: ["getting-started", "order-types", "limit-order", "market-order", "beginner"]
-image: "/assets/images/articles/getting-started-hero.svg"
 prerequisites: "A funded account (see the account-opening guide) and a specific ticker in mind. Do not do this to 'see what happens' with money you need."
 steps:
   - title: "Check the market is actually open"

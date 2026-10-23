@@ -44,13 +44,9 @@ permalink: /contact/
         </div>
         
         <div class="info-card">
-          <h3>🐦 Social</h3>
-          <div class="social-links">
-            <a href="#" aria-label="Twitter">Twitter</a>
-            <a href="#" aria-label="YouTube">YouTube</a>
-            <a href="#" aria-label="Discord">Discord</a>
-          </div>
-          <p class="info-note">Coming soon!</p>
+          <h3>📖 The newsletter</h3>
+          <p><a href="{{ '/newsletter' | relative_url }}">One short investing explainer a day</a>, written for people who don't follow markets.</p>
+          <p class="info-note">We don't run social accounts. If that changes, it'll appear here first.</p>
         </div>
         
         <div class="info-card faq-cta">
