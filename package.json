@@ -22,13 +22,16 @@
     "backfill-related": "node scripts/backfill-related-articles.js",
     "docker:generate": "docker compose run --rm generate",
     "docker:fetch-fundamentals": "docker compose run --rm fundamentals",
-    "test": "npm run test:related && npm run test:search && npm run test:share && npm run test:bodies && npm run test:quiz && npm run test:quiz-render",
+    "test": "npm run test:related && npm run test:search && npm run test:share && npm run test:bodies && npm run test:quiz && npm run test:quiz-render && npm run test:prompt && npm run test:voice",
     "test:related": "node scripts/test-related-articles.js",
     "test:search": "node scripts/test-articles-search.js",
     "test:share": "node scripts/test-share.js",
     "test:bodies": "node scripts/test-clean-article-bodies.js",
     "test:quiz": "node scripts/test-quiz.js",
-    "test:quiz-render": "node scripts/test-quiz-render.js"
+    "test:quiz-render": "node scripts/test-quiz-render.js",
+    "test:prompt": "node scripts/test-prompt.js",
+    "test:voice": "node scripts/test-voice.js",
+    "voice-report": "node scripts/test-voice.js --report"
   },
   "keywords": [
     "investing",

@@ -259,11 +259,23 @@ async function generateArticleContent(topic) {
 }
 
 // Utility: Generate article prompt
+//
+// Why this brief is this specific: audited against the published corpus (101 articles), the
+// old prompt produced text no teenager would read to the end - 74% opened "As a teenager,
+// you...", 73% said "it's essential to", 40% announced "in this article, we'll explore",
+// 26 reused the same lemonade-stand analogy, and TikTok/YouTube each appeared in 1% of
+// articles despite being where this audience actually spends time. Every opening was
+// "Imagine you're at a [concert|football game|rollercoaster]". The bans below are those
+// exact findings; the examples are written, not described.
+//
+// It also previously contradicted itself: it banned "Why Should Teens Care" as a heading and
+// then told the model to use "Why Teens Should Care" as an example heading. That kind of
+// conflict is how scaffolding ended up published 95% of the time.
 function generateArticlePrompt(topic) {
   const difficultyNote = {
-    'beginner': 'Keep it simple with basic concepts and definitions. Use analogies teens can relate to.',
-    'intermediate': 'Build on basic knowledge with more detail and real-world examples.',
-    'advanced': 'Go deeper with technical concepts, metrics, and sophisticated strategies.'
+    'beginner': 'Assume zero finance vocabulary. Define a term the first time it appears, in passing, without stopping to lecture.',
+    'intermediate': 'The reader knows what a stock, an index and a dividend are. Do not re-explain those. Add real numbers and tradeoffs.',
+    'advanced': 'The reader can follow a formula. Show the math, name the failure modes, and say honestly when this gets complicated.'
   }[topic.difficulty] || 'Use appropriate level of detail.';
 
   const investorContext = topic.tags.includes('warren-buffett')
@@ -276,27 +288,71 @@ function generateArticlePrompt(topic) {
     ? ' Include Carl Icahn\'s activist investing strategies.'
     : '';
 
-  return `Write a single, polished educational article titled "${topic.title}".
+  return `Write one finished educational article titled "${topic.title}".
 
-Target audience: Teenagers aged 13-18 who are learning about investing.
-Difficulty level: ${topic.difficulty}
-${difficultyNote}${investorContext}
+WHO IS READING
+A 15-year-old in the US who has money sitting in a savings account doing nothing, or who just
+watched someone post about a stock on TikTok and wants to understand what they were talking
+about. They are smart and completely allergic to being talked down to. They will bounce off
+this in about ten seconds if it sounds like homework, a school assembly, or a bank ad.
 
-Write the article as flowing, engaging prose. Use friendly, encouraging language — like a cool uncle explaining things.
+They are NOT a demographic to be addressed. Do not describe them. Never write "as a teenager",
+"as a teen", "at your age", "when you get older", or "you might not think this is relevant
+yet". If a sentence only makes sense because the reader is young, cut the sentence.
 
-CRITICAL WRITING RULES:
-- Write ONLY the finished article. Do NOT include any headings, lists, or outlines that describe HOW you should structure the article.
-- DO NOT use numbered headings like "1. Introduction", "2. What Is It?", or any heading followed by a tagline in parentheses (e.g. never write "Introduction – Hook the reader").
-- Use natural section headings written as plain phrases (e.g. "What Is It?", "Why Teens Should Care") WITHOUT numbers and WITHOUT parenthetical taglines.
-- DO NOT write the words "Introduction", "Conclusion", "Key Takeaways", "Summary", "Further Reading", "Try It Yourself", "Key Concepts", "Why Should Teens Care", "Clear Definition", "Hook the Reader" as section headings.
-- DO NOT include any meta-commentary, instructions, or reminders about structure.
-- Include at least one teen-relatable analogy or example.
-- Emphasize that investing involves risk.
-- End the article with a brief "Not financial advice" disclaimer.
-- Include "difficulty: ${topic.difficulty}" and the tags: ${topic.tags.join(', ')} in the front matter.
-- Write 800-1200 words.
-- Use markdown formatting with headers.
-- Keep paragraphs short (2-4 sentences).`;
+VOICE
+You are an older friend who genuinely finds this interesting and is explaining it over food.
+Curious, direct, slightly funny. Concrete nouns and verbs. Short sentences that earn the long
+ones. Contractions always. You may say "honestly", "kind of absurd", "genuinely", "wild".
+Never say "fantastic", "exciting journey", "unlock", "superpower", "game-changer", "delve",
+"essential", "crucial", "it's important to note", "trust us", or "let's dive in".
+
+DO THIS
+- Open with the actual thing. A number, a weird fact, a small scene, a stake. First line must
+  be something a person said out loud, not a setup for the paragraph.
+    Good: "If you'd put $100 into the S&P 500 the month you were born and never touched it,
+           you'd probably have more than your car by now."
+    Bad:  "Imagine you're at a concert, and the energy is electric..."
+- Use ONE analogy and make it specific enough to picture. Pick from the reader's real life:
+  the resale app they check daily, dropping a battle pass, their data plan, sneaker drops,
+  a group project where one person does everything, a game's ranked tiers, the price of
+  McDonald's going up, a creator they watch. One good analogy beats three vague ones.
+- Name real companies, tickers and dollar amounts. "$10 a month since 15" lands; "a
+  meaningful sum" does not.
+- Say what goes wrong. Risk is not a footer formality here - mention the realistic bad
+  outcome near the advice that causes it.
+- Give one thing to actually do today, sized for someone with no income and no broker account
+  yet (paper trading, reading an earnings call, comparing two funds' fees).
+
+DO NOT DO THIS
+- No meta-writing. Never announce the article: "in this article", "we'll explore", "by the
+  end you'll understand", "let's break down", "first we need to understand". Just start.
+- No rhetorical-question hooks. No "Sound familiar?", "Sounds too good to be true, right?",
+  "But what if...?", "So, what does this all mean?"
+- No headings named after writing instructions. Forbidden words anywhere in a heading:
+  Introduction, Conclusion, Summary, Key Takeaways, Key Concepts, Further Reading, Resources,
+  Additional Resources, Recommended Reading, Try It Yourself, Hands-On Activity, Real-World
+  Examples, Why Should Teens Care, Why You Should Care, Why This Matters To You, Hook the
+  Reader, Clear Definition, What Is It, Overview, Bullet Points.
+  Headings are earned by the content underneath and phrased like that content, e.g.
+  "The math that makes 15 beat 30", not "Understanding Compounding".
+- No emoji, no exclamation marks, no ALL-CAPS emphasis, no "Hey there!".
+- Nothing invented. No fabricated statistics, quotes, studies, surveys or percentages. If you
+  don't know a figure, describe the relationship instead of making one up. Never cite
+  "studies show".
+- No fabricated social proof: never "thousands of teens", "most students", "join our community".
+
+STRUCTURE
+Front matter exactly as provided; body starts immediately with prose, no repeated title,
+no restating difficulty or tags (the page already shows them). 2-5 headings total, used only
+where the thought actually changes. Paragraphs 1-4 sentences. 800-1100 words.
+End with one short plain paragraph noting this is education, not financial advice, and that
+investing involves risk. No separate disclaimer heading unless the article genuinely needs one.
+
+TECHNICAL
+Difficulty: ${topic.difficulty}. ${difficultyNote}${investorContext}
+Include "difficulty: ${topic.difficulty}" and the tags: ${topic.tags.join(', ')} in front matter.
+Output markdown only - the finished article and nothing else.`;
 }
 
 // Strip AI prompt leakage from generated content.
@@ -507,8 +563,17 @@ async function main() {
   console.log(`3. Commit and push to trigger GitHub Pages deployment`);
 }
 
-// Run main
-main().catch(error => {
-  console.error('❌ Fatal error:', error);
-  process.exit(1);
-});
+// Run main only when invoked directly.
+//
+// This used to run unconditionally on require(), which made the generator impossible to
+// unit-test: importing generateArticlePrompt() would start hitting the NVIDIA API and then
+// exit the test process. The prompt is arguably the highest-leverage file in this repo (it
+// produces every future article), so it must be importable by scripts/test-prompt.js.
+if (require.main === module) {
+  main().catch((error) => {
+    console.error('❌ Fatal error:', error);
+    process.exit(1);
+  });
+}
+
+module.exports = { generateArticlePrompt, cleanArticleContent, generateSlug };
