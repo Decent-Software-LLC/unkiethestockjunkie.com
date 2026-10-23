@@ -1787,3 +1787,33 @@ ul.guides-grid {
 .featured-guide-card h3 a:hover {
   text-decoration: underline;
 }
+
+/* Article -> walkthrough cross-link (_includes/guide-callout.html) */
+.guide-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+}
+
+.guide-callout-text {
+  flex: 1 1 260px;
+  line-height: 1.5;
+}
+
+.guide-callout-time {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+  .guide-callout .btn { width: 100%; text-align: center; }
+}

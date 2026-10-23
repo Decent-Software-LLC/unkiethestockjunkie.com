@@ -229,6 +229,37 @@ async function headStatus(url) {
     });
   }
 
+  await test('article -> guide callout targets exist and are used', () => {
+    // _data/guide-links.json is keyed by article slug and names guides by title. Both sides
+    // can drift: rename an article (slug changes) or retitle a guide (lookup fails) and the
+    // include silently renders nothing - no error anywhere, just a missing cross-link.
+    const dataPath = path.join(__dirname, '..', '_data', 'guide-links.json');
+    if (!fs.existsSync(dataPath)) return;
+    const map = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    const problems = [];
+
+    const guideTitles = new Set();
+    for (const f of list) {
+      const fm = parsed.get(f);
+      if (fm) guideTitles.add(fm.get('title'));
+    }
+
+    const articleSlugs = new Set(
+      fs.readdirSync(path.join(__dirname, '..', '_articles'))
+        .filter((x) => x.endsWith('.md'))
+        .map((x) => x.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''))
+    );
+
+    for (const [slug, entry] of Object.entries(map)) {
+      if (!articleSlugs.has(slug)) problems.push(`guide-links.json key "${slug}" matches no article file`);
+      if (!entry.guide || !guideTitles.has(entry.guide)) {
+        problems.push(`"${slug}" points at guide "${entry.guide}" which no guide is titled`);
+      }
+      if (!entry.teaser || entry.teaser.length < 12) problems.push(`"${slug}" has no real teaser text`);
+    }
+    if (problems.length) throw new Error('\n   ' + problems.join('\n   '));
+  });
+
   console.log(`\n${passed} passed, ${failed} failed\n`);
   process.exit(failed ? 1 : 0);
 })();

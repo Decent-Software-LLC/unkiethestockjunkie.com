@@ -45,6 +45,8 @@ layout: default
     </div>
     
     <footer class="article-footer">
+      {% include guide-callout.html %}
+
       {% if page.quiz %}
         {% include quiz.html questions=page.quiz %}
       {% endif %}

@@ -1,0 +1,26 @@
+{%- comment -%}
+  Contextual link from an article to the step-by-step guide covering the same ground.
+
+  Driven by _data/guide-links.json rather than hard-coded Liquid, because the mapping is
+  editorial data that will grow (one entry per article that has a matching walkthrough) and
+  belongs in one reviewable file rather than scattered across templates.
+
+  Renders nothing when the article has no mapping, so it stays invisible on the ~90 articles
+  without a guide yet. Kept visually distinct from "Continue Learning" deliberately: this is
+  "do this next, hands-on", not "read another essay".
+{%- endcomment -%}
+{%- assign slug = page.url | split: '/' | last -%}
+{%- if slug == '' -%}{%- assign parts = page.url | split: '/' -%}{%- assign slug = parts[-2] -%}{%- endif -%}
+{%- assign map = site.data.guide-links[slug] -%}
+{%- if map -%}
+{%- assign target = site.guides | where: "title", map.guide | first -%}
+{%- if target -%}
+<aside class="guide-callout">
+  <div class="guide-callout-text">
+    <strong>{{ map.teaser }}</strong>
+    {%- if target.time %}<span class="guide-callout-time">{{ target.time }} min walkthrough</span>{% endif %}
+  </div>
+  <a class="btn btn-primary" href="{{ target.url | relative_url }}">{{ target.title }}</a>
+</aside>
+{%- endif -%}
+{%- endif -%}
