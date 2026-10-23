@@ -10,6 +10,19 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 
+// Shared with scripts/backfill-related-articles.js so a generated article and a backfilled
+// one can never disagree about what "related" means. Reusing rankRelated is deliberate:
+// reimplementing scoring here drifted once already, and pickRelatedArticles below used to be
+// imported from this module under a name that does not exist - destructuring a missing export
+// yields undefined rather than throwing, so it would have failed at call time, not load time.
+const { loadArticleIndex, rankRelated, toFrontMatter } = require('./lib/related-articles');
+// Single tested implementation of scaffolding removal. Importing rather than re-implementing
+// here matters: the inline regex version guarded every rule with a "##" prefix while the model
+// emits bold headings, so 95% of articles published their own writing instructions and no test
+// noticed. A missing binding here is a ReferenceError at generate time, which is why
+// scripts/test-prompt.js now exercises this function directly.
+const { cleanBodyText: stripScaffolding } = require('./clean-article-bodies');
+
 // Configuration
 const TOPICS_FILE = path.join(__dirname, '..', 'topics.json');
 const GENERATED_TOPICS_FILE = path.join(__dirname, '..', 'generated-topics.json');
@@ -482,6 +495,35 @@ image_credit_url: "https://build.nvidia.com/black-forest-labs/flux-3-image-klein
 `;
   }
 
+  // Related articles, or the "Continue Learning" block silently disappears from the page
+  // (_layouts/article.html gates it on this key existing). Scored by the same shared ranking
+  // the backfill uses. The new article is not yet on disk, so it is added to the corpus
+  // in-memory and excluded from its own results by slug.
+  try {
+    const corpus = loadArticleIndex();
+    const host = {
+      slug,
+      title: topic.title,
+      description: topic.description || '',
+      difficulty: topic.difficulty,
+      tags: topic.tags || [],
+      file: `${formattedDate}-${slug}.md`
+    };
+    const related = rankRelated(host, [...corpus, host]);
+    if (related.length) {
+      // toFrontMatter emits its own "related_articles:" key (it was written for the backfill,
+      // which replaces a whole block). Prefixing it here produced a duplicate key and Psych
+      // would then keep only one - caught by test-prompt.js assembling real front matter.
+      markdown += toFrontMatter(related);
+    } else {
+      console.warn(`⚠️  No related articles scored for "${topic.title}"; Continue Learning will be absent.`);
+    }
+  } catch (err) {
+    // Do not fail generation over this, but say so loudly - a missing block is invisible in
+    // the generated file itself and only shows up as an empty section on the built page.
+    console.warn(`⚠️  Could not compute related_articles: ${err.message}`);
+  }
+
   markdown += `---
 
 `;
@@ -576,4 +618,13 @@ if (require.main === module) {
   });
 }
 
-module.exports = { generateArticlePrompt, cleanArticleContent, generateSlug };
+module.exports = {
+  generateArticlePrompt,
+  cleanArticleContent,
+  generateSlug,
+  // Exported so scripts/test-prompt.js can assert the assembled front matter without an API
+  // key. Missing bindings here were previously only reachable by running the generator with a
+  // live key, which is why two regressions (a lost require, an omitted related_articles block)
+  // sat undetected.
+  generateMarkdownFile
+};

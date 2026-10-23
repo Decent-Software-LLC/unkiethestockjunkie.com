@@ -17,7 +17,7 @@
 'use strict';
 
 const assert = require('assert');
-const { generateArticlePrompt } = require('./generate-article.js');
+const { generateArticlePrompt, cleanArticleContent, generateMarkdownFile } = require('./generate-article.js');
 
 let passed = 0;
 let failed = 0;
@@ -221,6 +221,90 @@ test('does not instruct the model to restate title/difficulty/tags in the body',
   // Those render from front matter; duplicating them produced the duplicate header block.
   const p = beginner();
   assert.match(p, /no repeated title|body starts immediately/i);
+});
+
+
+console.log('\nfront-matter assembly (no API key needed)\n');
+
+// These tests exist because scripts/generate-article.js could not previously be imported at
+// all (main() ran on require), so nothing exercised the code that assembles a real article
+// file. Three separate regressions hid behind that: a lost require for the scaffolding cleaner
+// (ReferenceError only when generating), an import of pickRelatedArticles which does not exist
+// in lib/related-articles (destructuring a missing export yields undefined silently), and no
+// related_articles block at all - which silently deletes "Continue Learning" from every new
+// page. All three are invisible without an API key unless this path is called directly.
+
+const TOPIC = {
+  title: 'Options Basics For Teens',
+  description: 'Calls and puts explained without the jargon.',
+  difficulty: 'beginner',
+  tags: ['options', 'beginner']
+};
+const MODEL_BODY = '\n\n**Introduction**\n\nAn option is a contract, not a commitment.\n\n**Key Takeaways**\n\nLeverage cuts both ways.\n';
+
+let assembled;
+try {
+  const cleaned = cleanArticleContent(MODEL_BODY);
+  assembled = generateMarkdownFile(TOPIC, cleaned, null, new Date('2026-12-01'));
+} catch (e) {
+  assembled = e;
+}
+
+test('cleanArticleContent actually strips scaffolding (guards the shared-cleaner binding)', () => {
+  // Was a ReferenceError: stripScaffolding referenced but never required.
+  const out = cleanArticleContent(MODEL_BODY);
+  assert.ok(!/\*\*Introduction\*\*/.test(out), 'scaffolding survived');
+  assert.ok(out.includes('Leverage cuts both ways.'), 'real prose was removed');
+});
+
+test('generateMarkdownFile produces valid, complete front matter', () => {
+  if (assembled instanceof Error) throw assembled;
+  const fence = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(\r?\n|$)/.exec(assembled);
+  assert.ok(fence, 'no well-formed front-matter fence');
+  const fm = fence[1];
+  for (const k of ['layout: article', 'title:', 'description:', 'date:', 'difficulty:', 'tags:']) {
+    assert.ok(fm.includes(k), `front matter missing ${k}`);
+  }
+});
+
+test('new articles carry related_articles so Continue Learning renders', () => {
+  // _layouts/article.html gates the block on this key existing; without it every future
+  // article quietly loses its cross-links.
+  if (assembled instanceof Error) throw assembled;
+  assert.ok(/^related_articles:/m.test(assembled), 'no related_articles emitted');
+});
+
+test('no duplicated front-matter keys (Psych keeps only one, silently)', () => {
+  if (assembled instanceof Error) throw assembled;
+  const fm = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---/.exec(assembled)[1];
+  const keys = fm
+    .split('\n')
+    .filter((l) => /^[a-z_]+:/.test(l))
+    .map((l) => l.split(':')[0]);
+  const dupes = keys.filter((k, i) => keys.indexOf(k) !== i);
+  assert.deepStrictEqual(dupes, [], `duplicate keys: ${[...new Set(dupes)].join(', ')}`);
+});
+
+test('generated related links point at real slugs', () => {
+  if (assembled instanceof Error) throw assembled;
+  const urls = [...assembled.matchAll(/url: "(\/articles\/[^"]+)"/g)].map((m) => m[1]);
+  assert.ok(urls.length >= 1, 'expected at least one related link');
+  const fs = require('fs');
+  const path = require('path');
+  for (const u of urls) {
+    const slug = u.replace(/^\/articles\//, '').replace(/\/$/, '');
+    const hit = fs.readdirSync(path.join(__dirname, '..', '_articles')).some((f) => f.endsWith(`-${slug}.md`));
+    assert.ok(hit, `related url has no source article: ${u}`);
+  }
+});
+
+test('the generated article cannot self-reference', () => {
+  if (assembled instanceof Error) throw assembled;
+  const slug = 'options-basics-for-teens';
+  assert.ok(
+    !assembled.includes(`/articles/${slug}/`),
+    'article recommends itself in its own Continue Learning block'
+  );
 });
 
 console.log(`\n${passed} passed, ${failed} failed\n`);
