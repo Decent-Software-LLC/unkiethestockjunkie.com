@@ -1,0 +1,151 @@
+{
+  "compound-interest-the-eighth-wonder-of-the-world": [
+    {
+      "question": "Compound interest means your gains can start earning money too.",
+      "options": ["True", "False"],
+      "answer": 0,
+      "why": "That's the whole idea: returns get reinvested, so growth builds on growth instead of just on your original cash."
+    },
+    {
+      "question": "Two people invest the same total amount. Who usually ends up with more?",
+      "options": ["The one who started at 25", "The one who started at 18", "Whoever invested in bigger companies", "Whoever checked their account most often"],
+      "answer": 1,
+      "why": "More years of compounding matters more than most people expect, even when the total money in is identical."
+    }
+  ],
+
+  "index-funds-set-it-and-forget-it": [
+    {
+      "question": "What does an index fund actually do?",
+      "options": ["It tracks a list of stocks like the S&P 500", "It guarantees you won't lose money", "A manager picks the winners each week", "It only invests in one company"],
+      "answer": 0,
+      "why": "It copies an existing list, so you own a sliver of everything on it instead of betting on one name."
+    },
+    {
+      "question": "If the whole market drops 10% in a month, an index fund will...",
+      "options": ["Stay flat because it's diversified", "Drop roughly 10% too", "Automatically switch to bonds", "Get refunded by your broker"],
+      "answer": 1,
+      "why": "Diversification spreads your risk across many companies; it does not protect you from the whole market going down."
+    }
+  ],
+
+  "etfs-instant-diversification-made-easy": [
+    {
+      "question": "Buying one share of an ETF gives you...",
+      "options": ["Ownership of a single company", "A small piece of many holdings at once", "A promise of fixed interest", "A loan to the government"],
+      "answer": 1,
+      "why": "An ETF bundles lots of investments into one tradable share, which is why it's an easy starter position."
+    },
+    {
+      "question": "How is an ETF different from a mutual fund in this practical way?",
+      "options": ["You can buy and sell it during the trading day", "It never charges fees", "It can only hold stocks", "It's always safer"],
+      "answer": 0,
+      "why": "ETFs trade on an exchange like a stock, so you can transact any time the market is open."
+    }
+  ],
+
+  "what-is-the-s-p-500-and-why-should-you-care": [
+    {
+      "question": "The S&P 500 is...",
+      "options": ["A stock you can buy directly", "A list of about 500 large US companies", "A government savings account", "A trading app"],
+      "answer": 1,
+      "why": "It's an index, not a stock. You get exposure through a fund that tracks it."
+    },
+    {
+      "question": "Why do people quote the S&P 500 on the news?",
+      "options": ["It tracks the price of oil", "It's a rough thermometer for big-company performance", "It lists every stock ever traded", "It sets the interest rate on loans"],
+      "answer": 1,
+      "why": "It covers a huge slice of the US market, so it works as a quick read on how large companies are doing overall."
+    }
+  ],
+
+  "market-orders-vs-limit-orders": [
+    {
+      "question": "You want to pay no more than $50 for a stock. Which order fits?",
+      "options": ["Market order", "Limit order", "Stop loss", "Dividend order"],
+      "answer": 1,
+      "why": "A limit order says 'this price or better' and simply won't fill above your number."
+    },
+    {
+      "question": "A market order guarantees you get the best possible price.",
+      "options": ["True", "False"],
+      "answer": 1,
+      "why": "It guarantees speed, not price. You get whatever it costs right now, which can move against you between clicking and filling."
+    }
+  ],
+
+  "stock-splits-when-companies-multiply-your-shares": [
+    {
+      "question": "In a 2-for-1 split, your 10 shares become 20. What happened to the value of what you own?",
+      "options": ["It doubled", "It stayed the same", "It was cut in half", "It depends on the company's mood"],
+      "answer": 1,
+      "why": "Same pizza, more slices. Twice as many shares at roughly half the price each."
+    },
+    {
+      "question": "A company does a stock split because its shares became popular enough that investors wanted them accessible.",
+      "options": ["True", "False"],
+      "answer": 0,
+      "why": "Lower headline prices make shares easier to buy in small sizes, but the company isn't worth more after splitting."
+    }
+  ],
+
+  "paper-trading-practice-without-risk": [
+    {
+      "question": "Paper trading means investing real money in low-risk stocks.",
+      "options": ["True", "False"],
+      "answer": 1,
+      "why": "No real cash is involved. You track genuine market prices while practising decisions."
+    },
+    {
+      "question": "What's the main thing paper trading helps you build?",
+      "options": ["Guaranteed profits", "Better judgement before real money is at risk", "Tax deductions", "A higher credit score"],
+      "answer": 1,
+      "why": "You learn how your decisions behave without paying tuition to the market."
+    }
+  ],
+
+  "from-lemonade-stand-to-shareholder-understanding-business-ownership": [
+    {
+      "question": "Owning one share of a company makes you...",
+      "options": ["A part-owner, however tiny", "An employee", "A creditor the company must repay", "A customer with perks"],
+      "answer": 0,
+      "why": "Stock is equity. Even one share is a fractional claim on the business itself."
+    },
+    {
+      "question": "If the company you own a share of does well, shareholders can benefit through...",
+      "options": ["Paychecks from the company", "Share price growth and sometimes dividends", "Free products", "Government bailouts"],
+      "answer": 1,
+      "why": "Owners get paid through rising value and profit distributions, not wages."
+    }
+  ],
+
+  "diversification-don-t-put-all-your-eggs-in-one-basket": [
+    {
+      "question": "Diversification mainly reduces...",
+      "options": ["Your trading fees", "The damage one bad investment can do", "Taxes on gains", "How long you have to wait to sell"],
+      "answer": 1,
+      "why": "Spreading out means a single failure hurts less. It doesn't remove market-wide risk."
+    },
+    {
+      "question": "Which portfolio is most diversified?",
+      "options": ["Ten shares of one sneaker company", "Funds covering many industries and company sizes", "Five crypto coins", "One very large bank"],
+      "answer": 1,
+      "why": "Diversification is about owning things that don't all sink together, not merely owning several tickers."
+    }
+  ],
+
+  "what-is-volatility-riding-the-roller-coaster": [
+    {
+      "question": "A volatile stock is one that...",
+      "options": ["Moves up and down a lot", "Always goes up", "Has a low share price", "Pays big dividends"],
+      "answer": 0,
+      "why": "Volatility measures how much the price swings, in either direction."
+    },
+    {
+      "question": "Higher volatility automatically means higher returns over time.",
+      "options": ["True", "False"],
+      "answer": 1,
+      "why": "You're being exposed to more swing, not promised more reward. Bumpy can still go nowhere."
+    }
+  ]
+}

@@ -51,12 +51,15 @@ function setQuizFrontMatter(raw, quiz) {
 /** Emit YAML matching the corpus style (double-quoted strings, 2-space indent). */
 function toYaml(quiz) {
   const esc = (s) => String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  const q = (s) => `"${esc(s)}"`;
   const lines = ['quiz:'];
-  for (const q of quiz) {
-    lines.push(`  - question: "${esc(q.question)}"`);
-    lines.push(`    options:${q.options.map((o) => ` "${esc(o)}"`).join(',')}`);
-    lines.push(`    answer: ${q.answer}`);
-    if (q.why) lines.push(`    why: "${esc(q.why)}"`);
+  for (const item of quiz) {
+    lines.push(`  - question: ${q(item.question)}`);
+    // Must be a flow sequence: `options: "a", "b"` is NOT valid YAML and made Psych abort
+    // the whole build under --strict_front_matter. Brackets are required.
+    lines.push(`    options: [${item.options.map(q).join(', ')}]`);
+    lines.push(`    answer: ${item.answer}`);
+    if (item.why) lines.push(`    why: ${q(item.why)}`);
   }
   return lines.join('\n');
 }

@@ -216,6 +216,28 @@ test('idempotent: cleaning already-clean output changes nothing', () => {
 
 const ARTICLES = path.join(__dirname, '..', '_articles');
 
+test('corpus: every article has parseable front matter', () => {
+  if (!fs.existsSync(ARTICLES)) return;
+
+  // The compound-interest article had lost its closing "---" entirely (body text was glued on:
+  // ---Imagine if your money...), so Jekyll treated the WHOLE file as body - no layout, no
+  // title, no quiz, silently unstyled. Nothing else in the suite would have noticed because
+  // every other test only inspects whatever follows a fence it could find.
+  const FENCE = /^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(\r?\n|$)/;
+  const broken = [];
+  for (const file of fs.readdirSync(ARTICLES)) {
+    if (!file.endsWith('.md')) continue;
+    const raw = fs.readFileSync(path.join(ARTICLES, file), 'utf8');
+    if (!FENCE.test(raw)) broken.push(file);
+  }
+  assert.deepStrictEqual(
+    broken,
+    [],
+    `\n${broken.length} file(s) with no well-formed front-matter fence:\n  ${broken.join('\n  ')}`
+  );
+});
+
+
 test('corpus: no prose words are lost on any article', () => {
   if (!fs.existsSync(ARTICLES)) return; // unit-only environment
 
