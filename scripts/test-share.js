@@ -54,11 +54,14 @@ let passed = 0;
 let failed = 0;
 
 /** Build a page with the given browser capabilities, returning the document + hooks. */
-function makeDom({ canShare = true, clipboard = 'grant', shareImpl } = {}) {
+function makeDom({ canShare = true, clipboard = 'grant', shareImpl, secure = true, query, fragment } = {}) {
   // runScripts: 'outside-only' is required for window.eval() to execute in the page
   // realm; without it, globals like `document` are not visible inside eval'd code.
   const dom = new JSDOM(html, {
-    url: 'https://unkiethestockjunkie.com/articles/what-is-a-stock-a-teen-s-first-guide/',
+    url:
+      'https://unkiethestockjunkie.com/articles/what-is-a-stock-a-teen-s-first-guide/' +
+      (query || '') +
+      (fragment || ''),
     runScripts: 'outside-only'
   });
   const { window } = dom;
@@ -89,7 +92,7 @@ function makeDom({ canShare = true, clipboard = 'grant', shareImpl } = {}) {
   }
 
   // isSecureContext drives which copy path is taken.
-  Object.defineProperty(window, 'isSecureContext', { value: true, configurable: true });
+  Object.defineProperty(window, 'isSecureContext', { value: secure, configurable: true });
 
   // Execute the injected script now that navigator/window are patched.
   window.eval(shareScript);
@@ -239,6 +242,40 @@ const tick = (ms = 30) => new Promise((r) => setTimeout(r, ms));
     const guided = /Copied|⌘|Ctrl/.test(label);
     console.log(`  ${guided ? '✓' : '✗'} denied permission still guides the user (${label})`);
     guided ? passed++ : (failed++, console.error('      silent failure'));
+  }
+
+  // Fragment must never reach the clipboard: "...#frag" is not a shareable permalink and
+  // jsdom keeps it in href. Query strings are deliberately PRESERVED (an inbound campaign
+  // param is the reader's business, and stripping one would break links people shared on
+  // purpose). These two were untested until an ad-hoc harness assumed otherwise.
+  {
+    const { doc, copied } = makeDom({ query: '?utm_source=tiktok', fragment: '#section-2' });
+    click(doc.querySelector('[data-copy-role="link"]'));
+    await tick();
+    const ok =
+      copied.length === 1 &&
+      copied[0].includes('utm_source=tiktok') &&
+      !copied[0].includes('#');
+    console.log(`  ${ok ? '✓' : '✗'} copy drops the fragment but preserves the query string (${JSON.stringify(copied[0])})`);
+    ok ? passed++ : (failed++, console.error('      got ' + JSON.stringify(copied)));
+  }
+
+  // Insecure context (plain HTTP / some in-app browsers): navigator.clipboard is unusable,
+  // so copy must degrade to visible guidance rather than throw or fail silently.
+  {
+    const { doc, copied } = makeDom({ secure: false });
+    const btn = doc.querySelector('[data-copy-role="link"]');
+    let threw = false;
+    try {
+      click(btn);
+      await tick();
+    } catch (e) {
+      threw = true;
+    }
+    const label = btn.querySelector('span').textContent;
+    const ok = !threw && /⌘|Ctrl|Copied/.test(label) && copied.length === 0;
+    console.log(`  ${ok ? '✓' : '✗'} insecure context degrades to manual-copy guidance (${label})`);
+    ok ? passed++ : (failed++, console.error(`      threw=${threw} copied=${JSON.stringify(copied)} label=${label}`));
   }
 
   console.log(`\n${passed} passed, ${failed} failed\n`);
