@@ -20,19 +20,11 @@ related_articles:
     description: "Identifying undervalued companies ripe for change."
 ---
 
----------------
-
 Imagine you're at school, and your friend's parent is the CEO of a popular gaming company. They mention that the company is about to release a new game that's going to be a huge hit. Your friend tells you about it, and you're tempted to buy the company's stock because you think it's going to go up in value. But is that okay? This scenario is related to insider trading, a complex topic that's essential to understand as you learn about investing.
-
-----------------
 
 Insider trading refers to the buying or selling of a company's stock by someone who has access to confidential information about the company. This information can be about upcoming events, financial results, or other sensitive data that could affect the stock price. Insider trading can be both legal and illegal, depending on the circumstances.
 
----------------------------
-
 As a teenager, you might not be investing in stocks yet, but understanding insider trading is crucial for your future. As you start to invest, you'll need to know what's allowed and what's not. Moreover, insider trading affects the integrity of the financial markets, which can impact the economy as a whole. By learning about insider trading, you'll become a more informed investor and a more responsible citizen.
-
------------------
 
 ### Insider Trading Laws
 
@@ -50,8 +42,6 @@ Trading on MNPI without proper authorization is considered illegal insider tradi
 
 In 2003, Martha Stewart, the famous businesswoman, was accused of insider trading. She sold her ImClone Systems stock after receiving information from her broker that the company's CEO was selling his shares. Stewart claimed she had a pre-existing agreement to sell the stock, but the SEC charged her with insider trading. She eventually settled the case and paid a fine.
 
-------------------------
-
 ### Tesla and Elon Musk
 
 In 2018, Elon Musk tweeted about taking Tesla private, which caused the stock price to surge. The SEC investigated Musk for potential insider trading, but he claimed he was simply expressing his opinion. The case was eventually settled, with Musk agreeing to step down as Tesla's chairman.
@@ -59,8 +49,6 @@ In 2018, Elon Musk tweeted about taking Tesla private, which caused the stock pr
 ### Theranos and Elizabeth Holmes
 
 Theranos, a healthcare company, was accused of insider trading in 2018. The company's CEO, Elizabeth Holmes, was charged with using confidential information to trade the company's stock. The case is ongoing.
-
---------------------
 
 Imagine you're a journalist working for a financial news outlet. You receive a tip about a company's upcoming merger, but it's not publicly announced yet. What would you do?
 
@@ -71,8 +59,6 @@ Imagine you're a journalist working for a financial news outlet. You receive a t
 
 The correct answer is C) Ignore the tip and wait for the official announcement. As a journalist, you have a responsibility to maintain confidentiality and avoid using MNPI for personal gain.
 
------------------
-
 * Insider trading can be both legal and illegal, depending on the circumstances
 * Company insiders must follow specific rules when buying or selling the company's stock
 * Trading on material nonpublic information (MNPI) without proper authorization is considered illegal insider trading
@@ -82,8 +68,6 @@ The correct answer is C) Ignore the tip and wait for the official announcement. 
 -------------------------
 
 This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
-
---------------------
 
 * "Insider Trading" by the Securities and Exchange Commission (SEC)
 * "The Insider Trading Handbook" by the Financial Industry Regulatory Authority (FINRA)

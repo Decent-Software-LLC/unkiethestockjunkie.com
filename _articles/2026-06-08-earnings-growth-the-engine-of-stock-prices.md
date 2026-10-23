@@ -20,19 +20,11 @@ related_articles:
     description: "How to read the story of a company's profitability."
 ---
 
----------------
-
 Imagine you're a teenager with a lemonade stand, and your goal is to grow your business and make more money. To do this, you focus on increasing sales, reducing costs, and innovating your product. As your business grows, more people become interested in investing in your lemonade stand. This is similar to how companies work, and one key driver of their stock prices is earnings growth. In this article, we'll explore what earnings growth is, why it matters, and how it affects stock prices.
-
-----------------
 
 Earnings growth refers to the increase in a company's profits over time. It's a fundamental metric that investors use to evaluate a company's financial health and potential for future growth. Earnings growth is calculated by comparing a company's net income (profits) from one period to another, usually quarter-over-quarter or year-over-year.
 
----------------------------
-
 As a teenager, you might be thinking, "Why does earnings growth matter to me?" Well, if you're interested in investing in the stock market or starting your own business, understanding earnings growth is crucial. It can help you make informed decisions about where to invest your money or how to grow your own business. Plus, many companies that experience strong earnings growth can provide jobs, create new products, and contribute to the overall economy.
-
------------------
 
 Here are some key concepts related to earnings growth:
 
@@ -41,15 +33,11 @@ Here are some key concepts related to earnings growth:
 * **Earnings per share (EPS)**: A company's net income divided by the number of outstanding shares.
 * **Growth rate**: The rate at which a company's earnings are increasing over time.
 
-------------------------
-
 Let's look at some examples:
 
 * **Amazon**: Amazon's revenue growth has been impressive, with a 5-year compound annual growth rate (CAGR) of 20%. This growth has been driven by the expansion of its e-commerce platform, cloud computing services, and advertising business.
 * **Netflix**: Netflix's earnings growth has been fueled by its increasing subscriber base and revenue from its streaming services. However, the company faces intense competition from other streaming services, which can impact its earnings growth.
 * **Walmart**: Walmart's earnings growth has been driven by its efforts to expand its e-commerce platform, improve its supply chain efficiency, and reduce costs.
-
--------------------
 
 Let's say you're considering investing in a company called "GreenTech," which produces solar panels. You want to evaluate its earnings growth potential. Here's what you can do:
 
@@ -60,16 +48,12 @@ Let's say you're considering investing in a company called "GreenTech," which pr
 3. Evaluate GreenTech's growth rates compared to its industry peers and the overall market.
 4. Consider factors that could impact GreenTech's earnings growth, such as changes in government policies, competition, and technological advancements.
 
------------------
-
 Here are the main lessons from this article:
 
 * Earnings growth is a key driver of stock prices and a fundamental metric for evaluating a company's financial health.
 * Revenue growth, margin expansion, and earnings per share are important concepts related to earnings growth.
 * Companies with strong earnings growth can provide jobs, create new products, and contribute to the overall economy.
 * Evaluating earnings growth involves researching a company's financial statements, calculating growth rates, and considering external factors that can impact its growth.
-
----------------------
 
 If you want to learn more about earnings growth and investing, here are some resources:
 

@@ -20,16 +20,11 @@ related_articles:
     description: "How to read the story of a company's profitability."
 ---
 
-=============================
-
-=============================================
 ---------------
 
 Imagine you're the CEO of your own lemonade stand. You've got a solid business plan, a tasty recipe, and a prime location. But, how do you know if your lemonade stand is actually making money? You need to look beyond just the revenue and focus on the cash that's left over after you've paid all your expenses. This is where free cash flow comes in – the money that matters.
 
 As a teenager learning about investing, understanding free cash flow is crucial. It's a fundamental concept that can help you evaluate companies and make informed investment decisions. So, let's dive in and explore what free cash flow is all about.
-
-----------------
 
 Free cash flow (FCF) is the amount of cash a company generates from its operations after deducting capital expenditures (the money spent on assets like equipment, property, and investments). It's the cash left over after a company has paid all its expenses, taxes, and investments. Think of it like the money you have in your pocket after you've paid for all your monthly expenses, like your phone bill, streaming services, and snacks.
 
@@ -42,13 +37,9 @@ Where:
 * Operating Cash Flow is the cash generated from a company's core business operations.
 * Capital Expenditures are the investments made in assets, like property, equipment, and technology.
 
----------------------------
-
 As a teenager, you might not be investing in stocks just yet, but understanding free cash flow can help you make informed decisions about your own money. Think about it like this: if you're planning to start a business or invest in a friend's startup, you'll want to know if they have enough cash to sustain their operations.
 
 Free cash flow is also essential for evaluating companies you might be interested in investing in. It can help you determine if a company is generating enough cash to pay its debts, invest in growth initiatives, and return value to shareholders.
-
------------------
 
 Let's break down some key concepts related to free cash flow:
 
@@ -56,14 +47,10 @@ Let's break down some key concepts related to free cash flow:
 * **Capital Expenditures**: These are investments made in assets, like property, equipment, and technology. They can be a significant expense for companies, especially those in industries with high equipment costs, like manufacturing or construction.
 * **Cash Flow Margin**: This is the percentage of revenue that a company converts into free cash flow. A higher cash flow margin indicates that a company is generating more cash from its operations.
 
--------------------------
-
 Let's look at a few real-world examples to illustrate the concept of free cash flow:
 
 * **Apple Inc.**: In 2020, Apple generated $80.4 billion in operating cash flow, but spent $13.4 billion on capital expenditures, resulting in $67 billion in free cash flow. This is a significant amount of cash that Apple can use to invest in new products, pay dividends, or buy back shares.
 * **Amazon.com**: In 2020, Amazon generated $38.7 billion in operating cash flow, but spent $40.1 billion on capital expenditures, resulting in -$1.4 billion in free cash flow. This might seem like a negative, but Amazon is investing heavily in its growth initiatives, like expanding its cloud computing business and building new warehouses.
-
----------------------
 
 Now it's your turn to practice calculating free cash flow. Let's use a simple example:
 
@@ -76,16 +63,12 @@ Free Cash Flow = Operating Cash Flow - Capital Expenditures
 
 **Not financial advice**: This is an educational exercise only. Please do not use this example to make investment decisions.
 
-------------------
-
 Here are the main lessons from this article:
 
 * Free cash flow is the cash generated from a company's operations after deducting capital expenditures.
 * It's essential for evaluating companies and making informed investment decisions.
 * Operating cash flow, capital expenditures, and cash flow margin are key concepts related to free cash flow.
 * Companies with high free cash flow can invest in growth initiatives, pay dividends, or buy back shares.
-
----------------------
 
 If you want to learn more about free cash flow and investing, here are some resources to check out:
 

@@ -20,25 +20,15 @@ related_articles:
     description: "Lessons from the internet boom and bust of the late 1990s."
 ---
 
-=======================
-
----------------
-
 Imagine you're at a giant mall with all your favorite tech stores – Apple, Amazon, Google, and Facebook. This "mall" is called the Nasdaq, a place where people buy and sell pieces of these tech giants. As a teenager, you might be wondering why this matters to you. Well, the Nasdaq is a key part of the stock market, where companies raise money to grow and innovate. Understanding the Nasdaq can help you make informed decisions about your own money and future.
-
----------------
 
 The Nasdaq (National Association of Securities Dealers Automated Quotations) is a stock exchange, similar to a marketplace where people trade shares of companies. It's the second-largest stock exchange in the world, after the New York Stock Exchange (NYSE). The Nasdaq is home to over 3,000 listed companies, including many tech giants.
 
 Think of the Nasdaq like a big store where people can buy and sell shares of companies. Just as you might buy a new video game or a pair of sneakers, investors buy and sell shares of companies like Apple or Amazon.
 
--------------------------
-
 As a teenager, you might not be thinking about investing just yet, but it's essential to understand the basics. The Nasdaq is where many tech companies are listed, and these companies are shaping your future. They're creating new technologies, jobs, and opportunities that will impact your life.
 
 Moreover, the Nasdaq is a place where people can invest in companies they believe in. If you're passionate about a particular company or industry, you might consider investing in it one day. By understanding the Nasdaq, you'll be better equipped to make informed decisions about your own money and future.
-
-----------------
 
 Here are some key concepts to understand:
 
@@ -47,14 +37,10 @@ Here are some key concepts to understand:
 * **Shares**: Units of ownership in a company.
 * **Investors**: People who buy and sell shares of companies.
 
-----------------------
-
 Let's look at some real-world examples:
 
 * **Apple (AAPL)**: Apple is listed on the Nasdaq, and its shares are traded by investors around the world. If you own a share of Apple, you own a tiny piece of the company.
 * **Amazon (AMZN)**: Amazon is another tech giant listed on the Nasdaq. Its shares have grown significantly over the years, making it one of the most valuable companies in the world.
-
-------------------
 
 Here's a hands-on activity:
 
@@ -62,8 +48,6 @@ Here's a hands-on activity:
 2. Look up its stock symbol (e.g., TSLA or NFLX).
 3. Check the company's stock price on a website like Yahoo Finance or Google Finance.
 4. Imagine you own a share of the company. How would you feel if the stock price went up or down?
-
-----------------
 
 Here are the main lessons:
 
@@ -73,8 +57,6 @@ Here are the main lessons:
 * Investing involves risk, and it's essential to do your research before making any decisions.
 
 **Not financial advice**: This article is for educational purposes only and should not be considered as financial advice.
-
-------------------
 
 Here are some resources to learn more:
 

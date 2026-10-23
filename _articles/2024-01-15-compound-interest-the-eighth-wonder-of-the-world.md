@@ -94,6 +94,4 @@ Let's do a quick exercise:
 - [SEC Investor.gov](https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator) - Official compound interest calculator
 - Book: "The Compound Effect" by Darren Hardy - How small actions compound over time
 
----
-
 **Remember**: This article is for educational purposes only. Not financial advice. Investing involves risk, including loss of principal. Past performance doesn't guarantee future results. The examples above use hypothetical returns for illustration purposes.

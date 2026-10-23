@@ -20,19 +20,11 @@ related_articles:
     description: "Different types of brokers and what to look for when opening an account."
 ---
 
----------------
-
 Imagine you're at a music festival, and you want to buy a merchandise T-shirt. You find a vendor selling your favorite band's shirt for $20. But, when you're about to pay, the vendor tells you that you need to pay an extra $5 as a "service fee" just for buying the shirt. You'd probably think that's unfair, right? Well, in the world of investing, something similar used to happen. But then, a company called Robinhood came along and changed the game.
-
----------------
 
 Commission-free trading is a way of buying and selling investments, like stocks or ETFs, without paying a fee to a broker. Think of a broker like a middleman who helps you buy or sell something. In the past, brokers would charge a commission, or a fee, for their services. This commission could range from a few dollars to hundreds of dollars, depending on the type of investment and the broker.
 
--------------------------
-
 As a teenager, you might not be investing yet, but you will be soon. Maybe you're already thinking about saving for college or a car. Commission-free trading matters because it can help you keep more of your money. Imagine you invest $1,000 in the stock market, and you earn a 5% return. That's $50 in profit. But, if you had to pay a $20 commission, your profit would be reduced to $30. That's a big difference!
-
-----------------
 
 Here are some key concepts to understand:
 
@@ -41,15 +33,11 @@ Here are some key concepts to understand:
 * **Trading:** Buying or selling investments, like stocks or ETFs.
 * **Platform:** A website or app that allows you to trade investments.
 
-----------------------
-
 Let's look at some examples:
 
 * **Robinhood:** A popular trading platform that offers commission-free trading. Robinhood makes money by collecting interest on the cash in your account and by selling order flow to market makers.
 * **Fidelity:** A well-established online broker that also offers commission-free trading for certain investments, like ETFs.
 * **E\*TRADE:** A online broker that charges a commission for some investments, but offers commission-free trading for others.
-
--------------------
 
 Imagine you have $1,000 to invest. You want to buy shares of your favorite company, let's say Apple (AAPL). You have two options:
 
@@ -57,8 +45,6 @@ Imagine you have $1,000 to invest. You want to buy shares of your favorite compa
 2. Use a commission-free trading platform like Robinhood.
 
 Which option would you choose? Why?
-
-----------------
 
 Here are the main lessons:
 
@@ -71,8 +57,6 @@ Here are the main lessons:
 -------------------------
 
 This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and you could lose some or all of your money. Always do your own research and consider consulting with a financial advisor before making investment decisions.
-
--------------------
 
 If you want to learn more, check out these resources:
 

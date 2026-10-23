@@ -20,22 +20,14 @@ related_articles:
     description: "Companies that have increased dividends for decades."
 ---
 
----------------
-
 Imagine you're at a music festival, and your favorite artist is about to perform. You really want to see them live, but the tickets are sold out. A friend offers you a "ticket option" – they'll reserve a ticket for you, but you have to decide whether to buy it from them later. If the artist's popularity increases, the ticket price might go up, and you'll be glad you have the option to buy it at a lower price. But if the artist's popularity decreases, the ticket price might drop, and you might not want to buy it anymore. This is similar to how options work in the stock market. In this article, we'll explore the basics of options, including calls and puts, and how they can be used in investing.
-
-----------------
 
 An option is a contract that gives the buyer the right, but not the obligation, to buy or sell an underlying asset (like a stock) at a predetermined price (strike price) before a certain date (expiration date). Options are a type of derivative, meaning their value is derived from the value of the underlying asset. There are two main types of options: calls and puts.
 
 *   A **call option** gives the buyer the right to buy an underlying asset at the strike price.
 *   A **put option** gives the buyer the right to sell an underlying asset at the strike price.
 
----------------------------
-
 As a teenager, you might not be thinking about investing in the stock market just yet, but it's essential to understand the basics of options and how they work. Options can be a powerful tool for investors, allowing them to manage risk and potentially earn profits. By learning about options, you'll gain a deeper understanding of the stock market and be better equipped to make informed decisions when you start investing. Plus, options can be used in various ways, such as hedging (reducing risk) or speculating (trying to profit from price movements).
-
------------------
 
 Here are some key concepts to understand when it comes to options:
 
@@ -46,13 +38,9 @@ Here are some key concepts to understand when it comes to options:
 *   **In-the-money**: When the option's strike price is favorable compared to the current market price of the underlying asset.
 *   **Out-of-the-money**: When the option's strike price is not favorable compared to the current market price of the underlying asset.
 
-------------------------
-
 Let's say you think the stock price of Company X (currently $50) will increase in the next few months. You buy a call option with a strike price of $55 and an expiration date in three months. If the stock price rises to $60, you can exercise your option and buy the stock at $55, then sell it at $60, earning a profit of $5 per share. However, if the stock price falls to $40, your option will expire worthless, and you'll lose the premium you paid for the option.
 
 On the other hand, let's say you own shares of Company Y (currently $100) and are worried the stock price might drop. You buy a put option with a strike price of $90 and an expiration date in two months. If the stock price falls to $80, you can exercise your option and sell your shares at $90, limiting your losses. However, if the stock price rises to $110, your option will expire worthless, and you'll lose the premium you paid for the option.
-
---------------------
 
 Imagine you're an investor with $1,000 to invest. You think the stock price of Company Z (currently $20) will increase in the next few months. You can either:
 
@@ -61,14 +49,10 @@ B) Buy a call option with a strike price of $22 and an expiration date in three 
 
 Assuming the stock price rises to $25, calculate the potential profit for each option. Keep in mind that options involve risk, and there are no guarantees of profits.
 
-------------------
-
 *   Options are contracts that give the buyer the right, but not the obligation, to buy or sell an underlying asset at a predetermined price.
 *   Calls and puts are the two main types of options.
 *   Options can be used for hedging or speculating.
 *   Understanding options can help you make informed investment decisions.
-
----------------------
 
 1.  "Options: Essential Concepts and Trading Strategies" by The Options Clearing Corporation
 2.  "Trading Options For Dummies" by George Fontanills

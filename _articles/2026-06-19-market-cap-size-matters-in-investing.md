@@ -20,11 +20,7 @@ related_articles:
     description: "How to read and understand stock ticker symbols."
 ---
 
----------------
-
 Imagine you're at a school fair, and you see two lemonade stands. One is small, with a sign that says "Lily's Lemonade" and has a few cups on a tiny table. The other is huge, with a sign that says "Sam's Super Lemonade" and has a long line of people waiting to buy. Which one would you think is more valuable? In the world of investing, the size of a company matters, and that's where market capitalization, or market cap, comes in. In this article, we'll explore what market cap is, why it matters to teens, and how to use it to make informed investment decisions.
-
-----------------
 
 Market capitalization, or market cap, is the total value of a company's outstanding shares. It's calculated by multiplying the total number of shares by the current stock price. Think of it like the total value of all the cups of lemonade Sam's Super Lemonade stand can sell.
 
@@ -34,11 +30,7 @@ For example, if a company has 1 million shares and the current stock price is $1
 
 Market Cap = 1,000,000 shares x $10 = $10,000,000
 
----------------------------
-
 As a teen, you might not be investing in the stock market yet, but understanding market cap can help you make informed decisions when you do start investing. It's essential to know the size of a company and how it affects its value. Imagine you're considering investing in a company that's just starting out, like Lily's Lemonade stand. You might be excited about its potential, but you should also consider the risks of investing in a small company.
-
------------------
 
 Here are some key concepts to understand about market cap:
 
@@ -47,8 +39,6 @@ Here are some key concepts to understand about market cap:
 * **Small-cap companies**: These companies have a market cap between $300 million and $2 billion. They're like the small lemonade stands at the fair.
 * **Micro-cap companies**: These companies have a market cap of less than $300 million. They're like the tiny stands selling handmade crafts.
 
-------------------------
-
 Let's look at some real-world examples of companies with different market caps:
 
 * **Large-cap**: Apple has a market cap of over $2 trillion. That's like the entire school fair being owned by one company!
@@ -56,15 +46,11 @@ Let's look at some real-world examples of companies with different market caps:
 * **Small-cap**: The video game company, GameStop, has a market cap of around $1 billion. That's like a small lemonade stand with a loyal customer base.
 * **Micro-cap**: The small tech company, Castlight Health, has a market cap of around $100 million. That's like a tiny stand selling handmade crafts.
 
----------------------
-
 Let's practice calculating market cap:
 
 * Imagine you own a small business, and you want to calculate its market cap. You have 10,000 shares, and the current stock price is $5.
 * Calculate the market cap using the formula: Market Cap = Total Number of Shares x Current Stock Price
 * Market Cap = 10,000 shares x $5 = $50,000
-
-------------------
 
 Here are the main lessons to take away from this article:
 
@@ -74,8 +60,6 @@ Here are the main lessons to take away from this article:
 * Mid-cap companies have a market cap between $2 billion and $10 billion.
 * Small-cap companies have a market cap between $300 million and $2 billion.
 * Micro-cap companies have a market cap of less than $300 million.
-
----------------------
 
 If you want to learn more about market cap and investing, here are some resources to check out:
 

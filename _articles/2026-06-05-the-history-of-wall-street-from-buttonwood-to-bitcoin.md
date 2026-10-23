@@ -22,21 +22,13 @@ related_articles:
 
 **Disclaimer:** This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
 
----------------
-
 Imagine a place where people from all over the world come together to buy and sell pieces of companies, hoping to make a profit. This place is called Wall Street, and it's been around for over two centuries. As a teenager, you might be wondering why Wall Street matters to you. The truth is, understanding the history of Wall Street can help you make informed decisions about your own financial future.
 
---------------
-
 So, what is Wall Street? Simply put, Wall Street is a street in New York City where the New York Stock Exchange (NYSE) is located. The NYSE is a marketplace where people can buy and sell stocks, which are essentially pieces of companies. Think of it like a big store where people can trade ownership in companies like Apple, Amazon, or Google.
-
--------------------------
 
 You might be thinking, "Why should I care about Wall Street? I'm not going to be a stockbroker or investor anytime soon." But here's the thing: understanding how Wall Street works can help you make smart decisions about your own money. As you start earning money from part-time jobs or summer internships, you'll want to know how to save and invest it wisely.
 
 Think of it like this: imagine you're saving up for a new gaming console or a car. You want to make sure your money grows over time, so you can afford the things you want. That's where investing comes in. By understanding how Wall Street works, you can make informed decisions about where to put your money.
-
-----------------
 
 Let's break down some key concepts related to Wall Street:
 
@@ -45,13 +37,9 @@ Let's break down some key concepts related to Wall Street:
 * **Trading:** Trading is the act of buying and selling stocks, bonds, or other investments.
 * **Broker:** A broker is like a middleman who helps you buy and sell investments.
 
-----------------------
-
 Let's look at a real-world example: Apple Inc. Imagine you bought Apple stock back in 2001, when the iPhone was just a rumor. Today, Apple is one of the most valuable companies in the world, and your investment would be worth a lot more.
 
 Another example is the rise of Bitcoin. Bitcoin is a type of cryptocurrency that was created in 2009. It's like a digital coin that can be bought and sold online. Some people invested in Bitcoin early on, and their investments paid off big time.
-
-------------------
 
 Now, let's try a simple exercise to help you understand how Wall Street works:
 
@@ -64,8 +52,6 @@ Now, let's try a simple exercise to help you understand how Wall Street works:
 
 Congratulations, you just made a profit!
 
------------------
-
 Here are the main lessons from this article:
 
 * Wall Street is a marketplace where people buy and sell stocks, bonds, and other investments.
@@ -73,8 +59,6 @@ Here are the main lessons from this article:
 * Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
 * Stocks, bonds, and trading are key concepts related to Wall Street.
 * Real-world examples like Apple and Bitcoin can help you understand how investing works.
-
--------------------
 
 If you're interested in learning more about Wall Street and investing, here are some resources to check out:
 

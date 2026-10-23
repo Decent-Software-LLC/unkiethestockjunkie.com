@@ -1,0 +1,57 @@
+{%- comment -%}
+  End-of-article check-for-understanding.
+
+  Front matter shape (see scripts/lib/quiz.js for validation):
+
+    quiz:
+      - question: "Compound interest means your earnings start earning too."
+        options: ["True", "False"]
+        answer: 0
+        why: "Returns get reinvested, which is why starting early matters so much."
+
+  Design constraints, in order of importance:
+
+  1. The correct answer index lives ONLY in a data attribute that assets/js/quiz.js reads;
+     it is never rendered as visible text. A print stylesheet or "show source" must not be
+     able to spoil it by reading markup a student can see while answering.
+  2. No option is visually distinguished before answering. Nothing here pre-sorts or marks
+     the first choice.
+  3. Rendered server-side (not built by JS) so the questions are readable without
+     JavaScript and crawlable. Without JS the block still shows the questions plus a note,
+     and nothing looks broken.
+  4. aria-live on the feedback region only, never on the question list: grading announces
+     one result per interaction rather than re-announcing every option.
+  5. Deliberately NOT scored out of anything and no streak/points. localStorage is
+     per-device and clears easily, so any persisted "you're on a 5-day streak" claim would
+     eventually be a lie we told a teenager.
+{%- endcomment -%}
+{%- assign items = include.questions -%}
+{%- if items and items.size > 0 -%}
+<section class="quiz" aria-labelledby="quiz-heading">
+  <h2 id="quiz-heading">Quick check</h2>
+  <p class="quiz-intro">Two quick questions before you move on. No score, no streak &mdash; just a gut check.</p>
+
+  {%- for q in items -%}
+    {%- assign idx = forloop.index0 -%}
+    <div class="quiz-question" data-correct="{{ q.answer }}" data-qid="{{ idx }}">
+      <p class="quiz-prompt">{{ q.question }}</p>
+
+      <div class="quiz-options" role="group" aria-label="{{ q.question }}">
+        {%- for opt in q.options -%}
+          <button type="button" class="quiz-option" data-index="{{ forloop.index0 }}" aria-pressed="false">
+            {{ opt }}
+          </button>
+        {%- endfor -%}
+      </div>
+
+      <p class="quiz-feedback" aria-live="polite"></p>
+
+      {%- if q.why -%}
+        <p class="quiz-why" hidden>{{ q.why }}</p>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+
+  <noscript><p class="quiz-note">Turn on JavaScript to check your answers, or keep reading either way.</p></noscript>
+</section>
+{%- endif -%}

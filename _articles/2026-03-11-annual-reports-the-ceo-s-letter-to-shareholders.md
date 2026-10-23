@@ -20,19 +20,11 @@ related_articles:
     description: "Why Buffett loves companies with consistent high ROE."
 ---
 
----------------
-
 Imagine you're the owner of a lemonade stand, and you want to know how your business is doing. You'd want to know how much lemonade you sold, how much money you made, and what plans you have to grow your business, right? Well, when you invest in a company, you're essentially becoming a part-owner of that business. And just like you want to know how your lemonade stand is doing, you want to know how the company you invested in is performing. That's where the annual report comes in, and specifically, the CEO's letter to shareholders.
-
-----------------
 
 An annual report is a document that publicly traded companies must publish every year. It's a comprehensive overview of the company's financial performance, business operations, and future plans. The CEO's letter to shareholders is the opening section of the annual report, where the CEO (Chief Executive Officer) writes a letter to the company's shareholders, including individual investors like you.
 
----------------------------
-
 As a teen, you might be thinking, "Why do I care about some boring report?" Well, if you're interested in investing or starting your own business, understanding annual reports is crucial. By reading the CEO's letter to shareholders, you can gain insights into the company's vision, goals, and challenges. This can help you make informed investment decisions and even inspire you to create your own successful business.
-
------------------
 
 Here are the main ideas to focus on when reading the CEO's letter to shareholders:
 
@@ -41,14 +33,10 @@ Here are the main ideas to focus on when reading the CEO's letter to shareholder
 * **Future plans**: The CEO will outline the company's goals and strategies for growth, innovation, and expansion.
 * **Challenges and risks**: The CEO will discuss any challenges or risks the company is facing, such as competition, regulation, or economic uncertainty.
 
------------------------
-
 Let's take a look at the CEO's letter to shareholders from two well-known companies:
 
 * **Apple Inc.**: In Apple's 2020 annual report, CEO Tim Cook wrote about the company's focus on innovation, sustainability, and customer experience. He highlighted the success of the iPhone 12 and the growth of Apple's services segment.
 * **Amazon.com, Inc.**: In Amazon's 2020 annual report, CEO Jeff Bezos wrote about the company's commitment to customer obsession, innovation, and long-term thinking. He discussed the growth of Amazon Web Services (AWS) and the company's investments in emerging technologies like artificial intelligence and robotics.
-
--------------------
 
 Choose a company you're interested in, such as Tesla, Nike, or Disney. Go to the company's investor relations website and download the latest annual report. Read the CEO's letter to shareholders and take note of the following:
 
@@ -57,16 +45,12 @@ Choose a company you're interested in, such as Tesla, Nike, or Disney. Go to the
 * What are the company's goals and strategies for growth?
 * What risks or challenges is the company facing?
 
------------------
-
 Here are the main lessons to take away from the CEO's letter to shareholders:
 
 * The CEO's letter provides an overview of the company's business, financial performance, and future plans.
 * Understanding the company's vision, goals, and challenges can help you make informed investment decisions.
 * The CEO's letter can provide insights into the company's culture, values, and leadership.
 * Reading the CEO's letter can help you develop your critical thinking and analytical skills.
-
----------------------
 
 If you want to learn more about annual reports and the CEO's letter to shareholders, check out these resources:
 

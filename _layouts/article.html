@@ -45,6 +45,10 @@ layout: default
     </div>
     
     <footer class="article-footer">
+      {% if page.quiz %}
+        {% include quiz.html questions=page.quiz %}
+      {% endif %}
+
       {% if page.related_articles %}
         <div class="related-articles">
           <h3>Continue Learning</h3>

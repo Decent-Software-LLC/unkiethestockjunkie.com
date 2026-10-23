@@ -20,23 +20,13 @@ related_articles:
     description: "Understanding P/E and what it tells you about stock prices."
 ---
 
-=====================
-
 **Not Financial Advice: This article is for educational purposes only. Investing involves risk, and you should consult a financial advisor before making any investment decisions.**
-
----------------
 
 Imagine you're the CEO of your own life, and you're making decisions about how to allocate your resources (time, money, energy) to achieve your goals. One of the most important skills you can develop is the ability to value the future – to estimate the worth of a project, investment, or opportunity. In the world of finance, this skill is crucial for making informed decisions. In this article, we'll dive into the concept of Discounted Cash Flow (DCF) – a powerful tool for valuing the future.
 
---------------
-
 Discounted Cash Flow is a valuation method that estimates the present value of future cash flows. It's a way to calculate the worth of a project or investment by forecasting its future cash inflows and outflows, and then discounting them to their present value. Think of it like this: imagine you're promised $100 in a year. That sounds great, but you can't use that money today. To calculate its present value, you need to discount it – to reduce its value to reflect the fact that you can't use it yet.
 
--------------------------
-
 As a teenager, you're probably not thinking about investing in stocks or real estate just yet. But the concept of DCF is still relevant to your life. Think about it like this: when you're deciding whether to take a part-time job, pursue a hobby, or invest in a education, you're making a decision about how to allocate your resources. By understanding DCF, you can make more informed decisions about how to value your time and money.
-
-----------------
 
 Here are the main ideas behind DCF:
 
@@ -45,13 +35,9 @@ Here are the main ideas behind DCF:
 * **Present Value**: The current worth of a future cash flow, discounted to reflect the time value of money.
 * **Terminal Value**: The estimated value of a project or investment at the end of its useful life.
 
-----------------------
-
 Let's say you're considering investing in a small business that's expected to generate $100,000 in cash flow per year for the next 5 years. You expect the business to grow at a rate of 5% per year, and you want to estimate its present value. Using a DCF model, you might estimate the present value of the business to be around $400,000.
 
 Another example: imagine you're considering taking out a student loan to pursue a college education. You expect the education to increase your earning potential by $20,000 per year for the next 10 years. Using a DCF model, you might estimate the present value of the education to be around $150,000.
-
-------------------
 
 Let's say you're considering investing in a project that's expected to generate the following cash flows:
 
@@ -63,16 +49,12 @@ Let's say you're considering investing in a project that's expected to generate 
 
 Using a discount rate of 10%, estimate the present value of the project. You can use a spreadsheet or calculator to help you with the calculations.
 
------------------
-
 Here are the main lessons from this article:
 
 * DCF is a powerful tool for valuing the future by estimating the present value of future cash flows.
 * The key concepts behind DCF include cash flow, discount rate, present value, and terminal value.
 * DCF can be used to make informed decisions about investments, projects, and opportunities.
 * The time value of money is a critical concept in DCF – money today is worth more than money in the future.
-
--------------------
 
 If you want to learn more about DCF and valuation, here are some resources to check out:
 

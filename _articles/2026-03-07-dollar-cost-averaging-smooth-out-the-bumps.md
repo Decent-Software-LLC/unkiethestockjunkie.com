@@ -20,23 +20,15 @@ related_articles:
     description: "Why spreading your investments reduces risk."
 ---
 
----------------
-
 Imagine you're on a rollercoaster ride, and the ups and downs are making your stomach drop. That's what it can feel like when you're investing in the stock market. But what if you could smooth out those bumps and make the ride less intense? That's where dollar-cost averaging comes in. This investment strategy can help you navigate the ups and downs of the market and make the most of your money. In this article, we'll explore what dollar-cost averaging is, why it matters, and how you can use it to your advantage.
 
---------------
-
 Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals, regardless of the market's performance. This means that you'll be buying more shares when prices are low and fewer shares when prices are high. By doing so, you'll be averaging out the cost of your investments over time, which can help reduce the impact of market volatility.
-
--------------------------
 
 As a teenager, you might not be thinking about investing just yet, but it's essential to start learning about it now. The earlier you start investing, the more time your money has to grow. Dollar-cost averaging can be an excellent strategy for teens because it helps you:
 
 * Reduce risk: By investing a fixed amount regularly, you'll be spreading out your risk over time.
 * Avoid market timing: You won't have to worry about trying to time the market or predict its ups and downs.
 * Develop a habit: Investing regularly can help you develop a habit of saving and investing, which is crucial for long-term financial success.
-
-----------------
 
 Here are the key concepts you need to understand about dollar-cost averaging:
 
@@ -48,13 +40,9 @@ Let's use an example to illustrate this:
 
 Suppose you invest $100 every month in a stock that costs $50 per share. In the first month, you'll buy 2 shares (100/50). In the second month, the stock price drops to $40, so you'll buy 2.5 shares (100/40). In the third month, the stock price rises to $60, so you'll buy 1.67 shares (100/60). Over time, the average cost of your shares will be lower than the average market price.
 
-----------------------
-
 Let's look at a real-world example:
 
 Suppose you invested $100 every month in Amazon (AMZN) stock from 2015 to 2020. During this period, the stock price fluctuated wildly, from around $300 to over $2,000. If you had invested a lump sum of $6,000 in 2015, you would have bought around 20 shares. However, if you had invested $100 every month using dollar-cost averaging, you would have bought around 24 shares, with an average cost per share of around $450.
-
--------------------
 
 Here's a hands-on activity to help you understand dollar-cost averaging:
 
@@ -64,8 +52,6 @@ Here's a hands-on activity to help you understand dollar-cost averaging:
 4. Calculate the average cost per share over the year.
 5. Compare your results with a lump sum investment.
 
------------------
-
 Here are the main lessons from this article:
 
 * Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals.
@@ -73,8 +59,6 @@ Here are the main lessons from this article:
 * By investing a fixed amount regularly, you'll be averaging out the cost of your investments over time.
 * It's essential to understand the key concepts, including fixed investment amount, regular intervals, and averaging out costs.
 * Real-world examples can help illustrate the benefits of dollar-cost averaging.
-
--------------------
 
 Here are some resources to help you learn more about dollar-cost averaging:
 

@@ -43,6 +43,13 @@ function article(body, extraFm = '') {
   ].join('\n');
 }
 
+/** Body after the closing front-matter fence. indexOf('\n---', 4) is unsafe here: this
+ *  file's fixtures include a blank line before '---', which can match the open fence area. */
+function bodyOfArticle(s) {
+  const m = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(\r?\n|$)/.exec(s);
+  return m ? s.slice(m[0].length) : s;
+}
+
 const SCAFFOLD = [
   '**Introduction**',
   '**What Is It?**',
@@ -89,7 +96,7 @@ test('removes the duplicated title echo at the top of the body', () => {
   const { text, changes } = cleanBody(src);
   assert.ok(changes.some((c) => /title echo/.test(c)), 'no title echo reported');
   // Title appears once (front matter) rather than twice in body markup.
-  const body = text.slice(text.indexOf('\n---', 4));
+  const body = bodyOfArticle(text);
   const occurrences = (body.match(/Understanding Compound Interest/g) || []).length;
   assert.strictEqual(occurrences, 0, `title still echoed ${occurrences}x in body`);
 });
@@ -97,7 +104,7 @@ test('removes the duplicated title echo at the top of the body', () => {
 test('collapses blank runs left by deletions', () => {
   const src = article('**Introduction**\n\n\n\n**Key Concepts**\n\n\n\nSome content.');
   const { text } = cleanBody(src);
-  assert.ok(!/\n{3,}/.test(text.slice(text.indexOf('\n---', 4))), 'triple newlines remain');
+  assert.ok(!/\n{3,}/.test(bodyOfArticle(text)), 'triple newlines remain');
 });
 
 // --- what must SURVIVE ----------------------------------------------------
@@ -146,7 +153,7 @@ test('removes the colon-inside-bold variant ("**Difficulty:** Beginner")', () =>
   );
   const { text } = cleanBody(src);
   // Scope to the body: front matter legitimately carries difficulty/tags.
-  const body = text.slice(text.indexOf('\n---', 4));
+  const body = bodyOfArticle(text);
   assert.ok(!/Difficulty:/i.test(body), 'Difficulty line survived');
   assert.ok(!/Tags:/i.test(body), 'Tags line survived');
   assert.ok(body.includes('More prose.'));
@@ -159,10 +166,41 @@ test('inline bold inside a real sentence does not count as a heading', () => {
   assert.ok(text.includes(line), 'prose with inline bold was deleted');
 });
 
+test('setext underlines separated by a blank line are removed (they render as <hr>)', () => {
+  // Verified against Kramdown directly: "para\n\n-----\n\npara" -> <hr />. Those rules were
+  // the visible debris left behind when scaffolding headings were deleted.
+  const src = article(
+    'First real paragraph about bonds.\n\n---------------\n\nSecond real paragraph about bonds.'
+  );
+  const { text } = cleanBody(src);
+  assert.ok(!/^\s*-{3,}\s*$/m.test(bodyOfArticle(text)), 'orphan underline survived');
+  const body = bodyOfArticle(text);
+  assert.ok(body.includes('First real paragraph') && body.includes('Second real paragraph'), 'prose lost');
+});
+
+test('TIGHT setext underlines are KEPT (they become real h1/h2 headings)', () => {
+  // Same Kramdown check: "Title\n-----" -> <h2>. Deleting these would erase structure.
+  const src = article('Bonds explained\n-----------------\n\nBond prose here.');
+  const { text } = cleanBody(src);
+  const body = bodyOfArticle(text);
+  const nonBlank = body.split('\n').map((l) => l.trim()).filter(Boolean);
+  assert.ok(nonBlank[1] === '-----------------', 'tight underline was deleted: ' + JSON.stringify(nonBlank.slice(0, 3)));
+  assert.ok(body.includes('Bonds explained'), 'heading text lost');
+});
+
+test('deleted heading takes its own underline with it (no orphan pair survives)', () => {
+  const src = article('**Key Concepts**\n---------------\n\nActual concept text.');
+  const { text } = cleanBody(src);
+  const body = bodyOfArticle(text);
+  assert.ok(!/Key Concepts/.test(body), 'label survived');
+  assert.ok(!/^\s*-{3,}\s*$/m.test(body), 'its underline was orphaned');
+  assert.ok(body.includes('Actual concept text.'));
+});
+
 test('front matter is never modified', () => {
   const src = article('**Introduction**\n\nProse.');
-  const before = src.slice(0, src.indexOf('\n---', 4) + 4);
-  const after = cleanBody(src).text.slice(0, src.indexOf('\n---', 4) + 4);
+  const before = /^---[\s\S]*?\n---/.exec(src)[0];
+  const after = /^---[\s\S]*?\n---/.exec(cleanBody(src).text)[0];
   assert.strictEqual(after, before, 'front matter changed');
 });
 
@@ -181,7 +219,7 @@ const ARTICLES = path.join(__dirname, '..', '_articles');
 test('corpus: no prose words are lost on any article', () => {
   if (!fs.existsSync(ARTICLES)) return; // unit-only environment
 
-  const bodyOf = (s) => s.slice(s.indexOf('\n---', 4) + 4);
+  const bodyOf = (s) => bodyOfArticle(s);
   const tokens = (s) =>
     (bodyOf(s).match(/[A-Za-z][A-Za-z'’-]+/g) || []).map((w) => w.toLowerCase());
 
@@ -247,7 +285,7 @@ test('corpus: no prose words are lost on any article', () => {
 test('corpus: no scaffolding survives in any published body', () => {
   if (!fs.existsSync(ARTICLES)) return;
 
-  const bodyOf = (s) => s.slice(s.indexOf('\n---', 4) + 4);
+  const bodyOf = (s) => bodyOfArticle(s);
   const bad = [];
 
   // Files where a *bare, unmarked* metadata line survives in the body. cleanBody refuses to

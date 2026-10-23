@@ -20,23 +20,15 @@ related_articles:
     description: "How to read the story of a company's profitability."
 ---
 
----------------
-
 Imagine you're buying a lemonade stand. The owner wants $100 for it, but you're not sure if it's worth that much. You ask how much money the stand makes each year, and the owner says it makes $10. You think to yourself, "Is it worth paying $100 for a stand that only makes $10 per year?" This is similar to how investors think about buying stocks. They want to know if the price they pay is reasonable compared to the company's earnings. That's where the Price-to-Earnings (P/E) ratio comes in.
-
----------------
 
 The Price-to-Earnings (P/E) ratio is a metric that helps investors understand how much they're paying for a company's stock compared to its earnings. It's calculated by dividing the current stock price by the company's earnings per share (EPS). The result is a number that shows how many times investors are willing to pay for each dollar of earnings.
 
 P/E Ratio = Current Stock Price ÷ Earnings Per Share (EPS)
 
--------------------------
-
 As a teenager, you might not be investing in stocks yet, but understanding the P/E ratio can help you make informed decisions when you start investing. It's essential to know how to evaluate companies and determine if their stock prices are reasonable. This skill will serve you well in the future when you're managing your own investments.
 
 Think of it like buying a car. You wouldn't pay $50,000 for a car that's only worth $20,000, right? Similarly, investors don't want to overpay for a company's stock. The P/E ratio helps them determine if the price is fair.
-
-----------------
 
 Here are some key concepts to understand when it comes to the P/E ratio:
 
@@ -45,14 +37,10 @@ Here are some key concepts to understand when it comes to the P/E ratio:
 * **Industry Comparison:** Compare the P/E ratio of a company to its industry average to determine if it's overvalued or undervalued.
 * **Growth Rate:** Companies with high growth rates often have higher P/E ratios because investors expect their earnings to increase in the future.
 
-----------------------
-
 Let's look at two companies: Amazon (AMZN) and Walmart (WMT).
 
 * **Amazon (AMZN):** Amazon's P/E ratio is around 80, which means investors are willing to pay $80 for each dollar of earnings. This is because Amazon is growing rapidly, and investors expect its earnings to increase in the future.
 * **Walmart (WMT):** Walmart's P/E ratio is around 20, which means investors are willing to pay $20 for each dollar of earnings. This is because Walmart is a more established company with slower growth rates.
-
--------------------
 
 Let's calculate the P/E ratio for a fictional company, Lemonade Inc.
 
@@ -63,14 +51,10 @@ P/E Ratio = $50 ÷ $5 = 10
 
 This means investors are willing to pay $10 for each dollar of earnings. Now, let's compare this to the industry average P/E ratio for lemonade stands, which is 15. This suggests that Lemonade Inc. might be undervalued.
 
-----------------
-
 * The P/E ratio helps investors determine if a company's stock price is reasonable compared to its earnings.
 * A high P/E ratio doesn't necessarily mean a company is overvalued; it might be growing rapidly.
 * Compare the P/E ratio to the industry average to determine if a company is overvalued or undervalued.
 * The P/E ratio is just one metric; consider other factors like growth rate and industry trends when evaluating a company.
-
--------------------
 
 * "A Random Walk Down Wall Street" by Burton G. Malkiel
 * "The Little Book of Common Sense Investing" by John C. Bogle

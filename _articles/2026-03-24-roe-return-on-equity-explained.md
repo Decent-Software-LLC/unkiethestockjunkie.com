@@ -20,21 +20,13 @@ related_articles:
     description: "How to read the story of a company's profitability."
 ---
 
----------------
-
 Imagine you're the owner of a lemonade stand. You invested $100 to start the business, and after a year, you made a profit of $20. That's a 20% return on your investment! Now, imagine you want to grow your lemonade stand into a huge company. To do that, you'll need to know how to measure the performance of your business. One key metric to track is the Return on Equity (ROE). In this article, we'll break down what ROE is, why it matters to teens, and how to calculate it with real-world examples.
 
-----------------
-
 Return on Equity (ROE) is a financial metric that shows how much profit a company generates from the money shareholders have invested in it. It's calculated by dividing the company's net income by its total shareholder equity. ROE is usually expressed as a percentage.
-
----------------------------
 
 As a teenager, you might not be investing in the stock market yet, but understanding ROE can help you make informed decisions when you do start investing. ROE can give you an idea of how well a company is using its resources to generate profits. It's like checking the report card of a company to see how well it's performing.
 
 Imagine you're considering investing in a company that makes your favorite video games. If the company has a high ROE, it might be a good sign that it's using its resources efficiently to create popular games and make a profit. On the other hand, if the ROE is low, it might be a red flag that the company is struggling to generate profits.
-
-----------------
 
 To understand ROE, you need to know the following key concepts:
 
@@ -46,14 +38,10 @@ For example, let's say a company has a net income of $100,000 and shareholder eq
 
 $100,000 ÷ $500,000 = 0.20 or 20%
 
-------------------------
-
 Let's look at some real-world examples of companies with high and low ROE:
 
 * **High ROE**: Amazon has a high ROE of around 25%. This means that for every dollar invested in Amazon, the company generates 25 cents in profit.
 * **Low ROE**: Tesla has a relatively low ROE of around 5%. This might be because the company is investing heavily in research and development, which can reduce its short-term profits.
-
---------------------
 
 Let's practice calculating ROE with a simple example:
 
@@ -63,14 +51,10 @@ ROE = Net Income ÷ Shareholder Equity
 = $200 ÷ $1,000
 = 0.20 or 20%
 
------------------
-
 * ROE measures a company's profitability from shareholder equity.
 * A high ROE indicates a company is using its resources efficiently to generate profits.
 * A low ROE might indicate a company is struggling to generate profits.
 * ROE is just one metric to consider when evaluating a company's performance.
-
---------------------
 
 * Investopedia: Return on Equity (ROE)
 * The Motley Fool: What Is Return on Equity?

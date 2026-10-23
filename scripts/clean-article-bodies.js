@@ -182,17 +182,44 @@ function cleanBody(raw) {
   }
 
   const kept = [];
-  for (const line of lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const verdict = classifyLine(line);
-    if (verdict === '') {
-      const label = line.trim().slice(0, 42);
-      changes.push(`dropped "${label}"`);
+
+    if (verdict === null) {
+      kept.push(line);
       continue;
     }
-    kept.push(verdict === null ? line : verdict);
+
+    changes.push(`dropped "${line.trim().slice(0, 42)}"`);
+
+    // A setext heading spans two lines: the label, then a run of - or =. Deleting only the
+    // label leaves an orphan underline, which Kramdown renders as a visible <hr>; one article
+    // ended up with eight rules sliced through its prose. Consume a following underline run
+    // (blank lines in between allowed) so the pair disappears together.
+    let j = i + 1;
+    while (j < lines.length && lines[j].trim() === '') j++;
+    if (j < lines.length && /^[=-]{3,}$/.test(lines[j].trim())) i = j;
   }
 
-  let out = kept.join('\n');
+  // Orphan underlines left behind by earlier passes (and by the original corpus, where the
+  // model emitted a blank line between a paragraph and its "-----"). Kramdown's rule, checked
+  // against it directly: an underline with a BLANK line above becomes <hr /> - visible debris,
+  // so those go. An underline TIGHT against the line above becomes <h1>/<h2>, which is real
+  // structure and must survive. Deleting either one blindly would either leave rules in the
+  // prose or quietly erase headings.
+  const finalLines = [];
+  for (let i = 0; i < kept.length; i++) {
+    const t = kept[i].trim();
+    if (/^[=-]{3,}$/.test(t)) {
+      const prev = i > 0 ? kept[i - 1] : '';
+      const blankAbove = i === 0 || prev.trim() === '';
+      if (blankAbove) continue; // <hr /> debris
+    }
+    finalLines.push(kept[i]);
+  }
+
+  let out = finalLines.join('\n');
   // Leading whitespace/newlines exposed by deletions.
   out = out.replace(/^\s+/, '\n');
   out = tidyBlankRuns(out);

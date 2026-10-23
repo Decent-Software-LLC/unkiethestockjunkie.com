@@ -20,27 +20,19 @@ related_articles:
     description: "How investing regularly reduces the impact of market volatility."
 ---
 
----
-
 Imagine you see a pizza shop advertising “50% off every slice!” – that sounds amazing, right? But if the shop never actually makes a pizza and just promises a discount, you’ll be disappointed. The same idea applies to stocks that brag about a high dividend yield. A big number can be tempting, but the real question is: **Is the dividend safe?**
 
 In this article we’ll go beyond the headline yield and learn how to judge whether a dividend is truly secure. Understanding dividend safety helps you avoid nasty surprises and makes your investing journey smoother.
 
----
-
 A **dividend** is a cash payment a company sends to its shareholders, usually quarterly. **Dividend safety** means the company can keep paying that cash consistently, even when the economy wiggles. It’s not just about how much is paid (the yield); it’s about whether the company can keep paying it year after year.
 
 Think of it like a water faucet: the flow rate (yield) is important, but you also need to know if the water pressure will stay steady (safety).
-
----
 
 You might be thinking, “I’m still in school; why worry about dividends now?”
 
 1. **Future wealth:** If you start investing early, even small, safe dividends can grow into a sizable nest egg by the time you’re 30 or 40.
 2. **Learning discipline:** Checking dividend safety teaches you to look at the whole picture, not just the flashy numbers.
 3. **Real‑world relevance:** Many companies you hear about—like tech giants or consumer brands—pay dividends. Knowing how safe they are helps you decide if they belong in your portfolio.
-
----
 
 ### 1. Dividend Yield vs. Payout Ratio
 - **Yield** = Annual dividend per share ÷ Current share price. A 5% yield looks great.
@@ -59,8 +51,6 @@ High debt can squeeze cash that would otherwise go to dividends. Check the **deb
 
 ### 5. Dividend History
 A long track record of paying (and ideally increasing) dividends signals reliability. Look for **Dividend Aristocrats**—companies that have raised dividends for 25+ consecutive years.
-
----
 
 ### Example 1: Coca‑Cola (KO)
 
@@ -85,8 +75,6 @@ Even though the yield looks juicy, NovaTech can’t sustain that payout. It’s 
 
 If your part‑time job pays $200 a week but you spend $180 on rent, $30 on food, and $50 on fun, you only have $40 left for savings. If you promised to give your friend $150 every week, you’d be in trouble. The same math applies to companies: if the “expenses” (costs, debt, taxes) eat up most of the earnings, the dividend may not survive.
 
----
-
 Grab a recent financial news article about a company that pays a dividend. Follow these steps:
 
 1. **Find the dividend amount** (annual or quarterly).
@@ -101,7 +89,5 @@ Not financial advice
 
   ー   ー   ー 1<unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk> Nobody reads the fine print.
 The truth is, a lot of people just see a big number and think “I’m set.”
-
----
 
 <unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk><unk>

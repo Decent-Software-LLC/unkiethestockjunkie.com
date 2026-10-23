@@ -20,19 +20,11 @@ related_articles:
     description: "The Buffett/Graham method of determining true company value."
 ---
 
----------------
-
 Imagine you're at a garage sale, and you stumble upon a brand new, still-in-the-box video game console for a fraction of its original price. You know it's a steal, and you can't wait to take it home and start playing. Now, imagine applying this same mindset to the stock market. Benjamin Graham, the father of value investing, developed a strategy that helps investors find undervalued companies at bargain prices. This strategy is called the Net-Net strategy, and it's a powerful tool for extreme value investing.
-
---------------
 
 Graham's Net-Net strategy involves buying companies at a price significantly lower than their net current assets (NCA) per share. NCA is calculated by subtracting a company's total liabilities from its total current assets. The idea is that if a company's stock price is lower than its NCA, it's likely undervalued and could be a good investment opportunity.
 
--------------------------
-
 As a teenager, you might not be thinking about investing just yet, but it's essential to understand the basics of value investing. The Net-Net strategy can help you develop a long-term perspective and a disciplined approach to investing. By learning about this strategy, you'll gain a deeper understanding of the stock market and how to make informed investment decisions.
-
-----------------
 
 To understand the Net-Net strategy, you need to grasp the following key concepts:
 
@@ -45,13 +37,9 @@ Let's break it down with an example:
 
 Suppose you're analyzing a company called XYZ Inc. Its total current assets are $100 million, and its total liabilities are $50 million. The NCA would be $50 million ($100 million - $50 million). If the company has 10 million shares outstanding, the NCA per share would be $5 ($50 million ÷ 10 million shares). If the stock price is $3, the margin of safety would be $2 ($5 - $3).
 
-----------------------
-
 In the 1970s, Benjamin Graham applied the Net-Net strategy to his investment portfolio. One of his notable investments was in a company called GEICO, which was trading at a significant discount to its NCA. Graham's investment in GEICO generated impressive returns, and it's a classic example of the Net-Net strategy in action.
 
 Another example is the investment firm, Third Avenue Management, which has successfully applied the Net-Net strategy to its investment portfolio. The firm's founder, Martin Whitman, is a well-known value investor who has written extensively on the topic.
-
--------------------
 
 Let's practice applying the Net-Net strategy to a real-world example. Choose a company you're interested in, and follow these steps:
 
@@ -61,14 +49,10 @@ Let's practice applying the Net-Net strategy to a real-world example. Choose a c
 4. Compare the NCA per share to the current stock price.
 5. If the stock price is lower than the NCA per share, it might be a potential investment opportunity.
 
-----------------
-
 * The Net-Net strategy involves buying companies at a price significantly lower than their NCA per share.
 * A higher margin of safety indicates a lower risk investment.
 * Graham's Formula can be used to estimate a company's intrinsic value.
 * The Net-Net strategy requires a disciplined approach and a long-term perspective.
-
--------------------
 
 * "Security Analysis" by Benjamin Graham and David Dodd
 * "The Intelligent Investor" by Benjamin Graham

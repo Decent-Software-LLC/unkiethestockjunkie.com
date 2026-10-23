@@ -22,11 +22,7 @@ related_articles:
 
 **Not Financial Advice:** This article is for educational purposes only. Investing involves risk, and it's essential to do your own research and consider your own financial goals before making any investment decisions.
 
----------------
-
 Imagine you're at a garage sale, and you stumble upon a brand-new, still-in-the-box pair of sneakers for 50% off the original price. You know they're worth more, but the seller is willing to let them go for a steal. That's basically what Benjamin Graham's stock screener helps you find in the stock market – undervalued companies with growth potential. In this article, we'll explore what the Graham Screener is, why it matters to teens, and how to use it to find bargain stocks.
-
-----------------
 
 The Graham Screener is a stock screen developed by Benjamin Graham, a legendary investor and mentor to Warren Buffett. It's a set of criteria that helps identify undervalued companies with a margin of safety, meaning they have a lower risk of losing value. The screener looks for companies with:
 
@@ -36,11 +32,7 @@ The Graham Screener is a stock screen developed by Benjamin Graham, a legendary 
 * Strong financial health
 * Low debt
 
----------------------------
-
 As a teenager, you might not be thinking about investing just yet, but it's essential to start learning about it. The earlier you start, the more time your money has to grow. Imagine having a head start on your financial goals, whether it's saving for college, a car, or a dream vacation. By understanding the Graham Screener, you'll gain a valuable tool to help you make informed investment decisions and potentially achieve your financial goals faster.
-
------------------
 
 Let's break down the main ideas behind the Graham Screener with examples:
 
@@ -50,8 +42,6 @@ Let's break down the main ideas behind the Graham Screener with examples:
 * **Strong Financial Health:** A company with strong financial health has a solid balance sheet, generates consistent earnings, and has a low debt-to-equity ratio.
 * **Low Debt:** Companies with low debt are less likely to default on their obligations and have more flexibility to invest in growth opportunities.
 
------------------------
-
 Let's look at a real-world example:
 
 * **Company A:** A well-established retail company with a P/E ratio of 12, P/B ratio of 1.8, dividend yield of 3.5%, and a debt-to-equity ratio of 0.5. The company has a strong track record of consistent earnings and a solid balance sheet.
@@ -59,18 +49,12 @@ Let's look at a real-world example:
 
 Using the Graham Screener, Company A would likely pass the criteria, indicating it might be undervalued and a potential bargain stock. Company B, on the other hand, would likely fail the criteria due to its high P/E ratio, high debt, and lack of dividend yield.
 
--------------------
-
 Now it's your turn to try the Graham Screener! Choose a company you're interested in and look up its financial data. Calculate its P/E ratio, P/B ratio, and debt-to-equity ratio. Research its dividend yield and financial health. Does the company pass the Graham Screener criteria? What does this tell you about its potential as a bargain stock?
-
------------------
 
 * The Graham Screener helps identify undervalued companies with a margin of safety.
 * The screener looks for companies with low P/E and P/B ratios, high dividend yield, strong financial health, and low debt.
 * Understanding the Graham Screener can help you make informed investment decisions and potentially achieve your financial goals faster.
 * Investing involves risk, and it's essential to do your own research and consider your own financial goals before making any investment decisions.
-
--------------------
 
 * **"The Intelligent Investor" by Benjamin Graham:** A classic investing book that provides a comprehensive guide to value investing.
 * **"Security Analysis" by Benjamin Graham and David Dodd:** A detailed guide to analyzing stocks and bonds.

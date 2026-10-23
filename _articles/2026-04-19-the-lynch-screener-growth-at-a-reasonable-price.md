@@ -20,19 +20,11 @@ related_articles:
     description: "How to find stocks trading below their intrinsic value."
 ---
 
----------------
-
 Imagine you're at the mall, and you see a new store opening up. It's packed with people, and everyone's buzzing about the latest gadgets. You think to yourself, "This store is going to be huge!" But, as you look closer, you notice the prices are a bit steep. You start to wonder, "Is it worth paying a premium for this trendy store?" This is similar to what happens in the stock market when investors look for growth stocks. They want to find companies that are growing fast, but not overpaying for them. That's where the Lynch Screener comes in – a tool to help you find growth at a reasonable price.
-
-----------------
 
 The Lynch Screener is a stock screen developed by Peter Lynch, a legendary investor and former manager of the Fidelity Magellan Fund. Lynch is known for his "invest in what you know" philosophy, which encourages investors to look for opportunities in companies they understand and use in their daily lives. The screener is designed to identify growth stocks that are reasonably priced, based on a set of criteria that Lynch developed.
 
----------------------------
-
 As a teenager, you might not be investing in the stock market just yet, but it's essential to understand how it works and how to make informed decisions about your money. The Lynch Screener is a valuable tool to learn about growth investing and how to evaluate companies. By understanding how to use the screener, you'll be better equipped to make smart investment decisions in the future.
-
-----------------
 
 The Lynch Screener is based on several key concepts:
 
@@ -41,14 +33,10 @@ The Lynch Screener is based on several key concepts:
 * **Debt-to-equity ratio**: The company should have a low debt-to-equity ratio, indicating a healthy balance sheet.
 * **Institutional ownership**: Look for companies with low institutional ownership, indicating that the stock is not overhyped.
 
-----------------------
-
 Let's look at a few examples of companies that might pass the Lynch Screener:
 
 * **Shopify**: This e-commerce platform has a growth rate of 30%, a P/E ratio of 20, and a debt-to-equity ratio of 0.1. It's a company that many teens use and understand.
 * **Netflix**: This streaming service has a growth rate of 20%, a P/E ratio of 15, and a debt-to-equity ratio of 0.5. It's a company that many teens love and use daily.
-
-------------------
 
 Now it's your turn to try the Lynch Screener. Choose a company you're interested in, and evaluate it based on the key concepts above. You can use online tools like Yahoo Finance or Google Finance to find the necessary data.
 
@@ -56,16 +44,12 @@ Now it's your turn to try the Lynch Screener. Choose a company you're interested
 * Evaluate whether the company passes the Lynch Screener criteria.
 * Consider whether you think the company is a good investment opportunity.
 
------------------
-
 Here are the main lessons to take away from the Lynch Screener:
 
 * Growth investing involves finding companies with high growth rates, but not overpaying for them.
 * The Lynch Screener is a tool to help you evaluate growth stocks based on key criteria.
 * It's essential to understand the key concepts behind the screener, including growth rate, P/E ratio, debt-to-equity ratio, and institutional ownership.
 * Always do your own research and consider multiple perspectives before making investment decisions.
-
-------------------
 
 If you're interested in learning more about the Lynch Screener and growth investing, here are some resources to check out:
 

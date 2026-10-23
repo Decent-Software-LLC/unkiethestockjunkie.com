@@ -20,27 +20,17 @@ related_articles:
     description: "How owning stock means owning a piece of a business."
 ---
 
----------------
-
 Imagine you're at a huge music festival with hundreds of bands playing simultaneously. You want to find the perfect band to listen to, but it's overwhelming. That's kind of like what it's like when you're trying to find your first investment in the stock market. There are thousands of companies to choose from, and it's hard to know where to start. That's where stock screeners come in – they're like a music festival guide that helps you find the perfect investment for you.
-
-----------------
 
 A stock screener is a tool that helps you filter through thousands of stocks to find the ones that match your investment criteria. It's like a search engine for stocks. You can input specific criteria, such as industry, market capitalization, or dividend yield, and the screener will give you a list of stocks that fit those criteria.
 
----------------------------
-
 As a teenager, you might be thinking, "Why do I need to worry about investing now?" But the truth is, investing is a powerful way to build wealth over time. By starting early, you can take advantage of compound interest and potentially grow your money exponentially. Plus, investing can be a fun and educational way to learn about business and economics.
-
------------------
 
 Here are some key concepts to understand when using stock screeners:
 
 * **Market capitalization**: This refers to the total value of a company's outstanding shares. Think of it like the size of a school. A small school might have 100 students, while a large school might have 10,000 students. Similarly, a small-cap company might have a market capitalization of $100 million, while a large-cap company might have a market capitalization of $100 billion.
 * **Dividend yield**: This refers to the ratio of the annual dividend payment to the stock's current price. Think of it like a coupon book. If you buy a stock with a high dividend yield, you're essentially getting a coupon book that pays you a certain amount of money each year.
 * **Industry**: This refers to the sector or category that a company operates in. Think of it like a music genre. Just as you might prefer rock music over hip-hop, you might prefer investing in companies in the tech industry over the healthcare industry.
-
--------------------------
 
 Let's say you're interested in investing in companies that are leaders in the renewable energy space. You could use a stock screener to filter for companies that fit the following criteria:
 
@@ -49,8 +39,6 @@ Let's say you're interested in investing in companies that are leaders in the re
 * Dividend yield: 2%+
 
 The screener might give you a list of companies like Vestas Wind Systems (VWDRY), Siemens Gamesa Renewable Energy (GCTAF), and SunPower Corporation (SPWR). You could then research each company to determine which one is the best fit for your investment goals.
-
---------------------
 
 Now it's your turn to try using a stock screener! Here's a simple exercise:
 
@@ -62,16 +50,12 @@ Now it's your turn to try using a stock screener! Here's a simple exercise:
 3. See the list of companies that the screener gives you.
 4. Research each company to determine which one you think is the most promising investment opportunity.
 
-------------------
-
 Here are the main lessons from this article:
 
 * Stock screeners are powerful tools that can help you find your first investment.
 * Market capitalization, dividend yield, and industry are key concepts to understand when using stock screeners.
 * Investing involves risk, and it's essential to do your research before making any investment decisions.
 * Starting early and being consistent can help you build wealth over time.
-
---------------------
 
 If you want to learn more about stock screeners and investing, here are some resources to check out:
 

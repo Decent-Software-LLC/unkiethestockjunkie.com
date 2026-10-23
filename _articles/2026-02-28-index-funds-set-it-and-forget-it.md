@@ -20,23 +20,15 @@ related_articles:
     description: "How to use stock screeners to find companies worth investigating."
 ---
 
----------------
-
 Imagine having a superpower that allows you to invest in the entire stock market with just a few clicks. Sounds cool, right? Welcome to the world of index funds! As a teenager, you might not think about investing just yet, but trust us, it's essential to start learning about it. By the end of this article, you'll understand what index funds are, why they're awesome, and how to get started.
-
-----------------
 
 An index fund is a type of investment that tracks a specific stock market index, like the S&P 500 or the Dow Jones. Think of it like a playlist that includes a little bit of every song in the top 100 chart. When you invest in an index fund, you're essentially buying a tiny piece of the entire market.
 
 Imagine you're at a music festival, and you want to listen to all the popular songs. Instead of buying individual song downloads, you can buy a festival pass that gives you access to all the music. That's basically what an index fund does for you in the stock market.
 
----------------------------
-
 As a teenager, you might not have a lot of money to invest, but it's essential to start learning about it. Investing is like planting a tree – the earlier you start, the more time it has to grow. By understanding index funds, you'll be better equipped to make informed decisions about your money in the future.
 
 Think about it like this: if you start investing just $10 per month at age 15, you'll have invested over $1,000 by the time you're 25. That's a great head start on building wealth!
-
------------------
 
 Here are the main ideas to understand about index funds:
 
@@ -44,14 +36,10 @@ Here are the main ideas to understand about index funds:
 * **Passive investing**: Index funds don't try to beat the market; they just track it. This means you don't need to constantly monitor and adjust your investments.
 * **Low costs**: Index funds often have lower fees than actively managed funds. This means more of your money stays invested, rather than going towards management fees.
 
--------------------------
-
 Let's look at some real-world examples:
 
 * **Vanguard 500 Index Fund**: This fund tracks the S&P 500 index, which includes top companies like Apple, Amazon, and Google. By investing in this fund, you'll own a tiny piece of all these companies.
 * **SPDR S&P 500 ETF Trust**: This fund is similar to the Vanguard fund but is traded on the stock market like a single stock. It's like buying a single share of the entire S&P 500 index!
-
---------------------
 
 Here's a fun activity to help you understand index funds:
 
@@ -61,16 +49,12 @@ Here's a fun activity to help you understand index funds:
 4. Use a pretend investment platform or a spreadsheet to simulate investing your $100 in the index fund.
 5. Track your investment over time to see how it performs.
 
------------------
-
 Here are the main lessons to remember:
 
 * Index funds allow you to invest in the entire stock market with a single investment.
 * They provide diversification, which helps reduce risk.
 * Index funds often have lower costs than actively managed funds.
 * Investing early and consistently can help you build wealth over time.
-
---------------------
 
 If you're interested in learning more, check out these resources:
 

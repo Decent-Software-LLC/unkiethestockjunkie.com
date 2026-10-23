@@ -20,10 +20,6 @@ related_articles:
     description: "How to read and learn from annual reports like Buffett does."
 ---
 
-==========================
-
-===========================================================
-
 Imagine you're the manager of a lemonade stand. You've got a lot of money coming in from sales, but you've also got expenses like cups, sugar, and lemons. How do you keep track of all that money? That's where a cash flow statement comes in. It's like a report card for your lemonade stand's finances, showing where your money is coming from and where it's going. In this article, we'll explore what a cash flow statement is, why it matters, and how to read one.
 
 A cash flow statement is one of the three main financial statements that companies use to report their financial performance. The other two are the income statement and the balance sheet. The cash flow statement shows the inflows and outflows of cash and cash equivalents over a specific period of time. It's divided into three main sections:

@@ -20,22 +20,13 @@ related_articles:
     description: "How to avoid only seeing evidence that supports your views."
 ---
 
-=====================
-
-=============================================
 ------------
 
 Imagine you're at a music festival, and your favorite artist just announced a surprise concert. The crowd goes wild, and everyone rushes to get a spot close to the stage. In the chaos, some people might get trampled, while others might score an amazing spot. This is similar to what happens in the stock market when fear and greed take over. As a teenager learning about investing, understanding market psychology can help you make informed decisions and avoid getting trampled by the crowd.
 
---------------
-
 Market psychology refers to the study of how emotions and crowd behavior influence financial markets. It's a subfield of behavioral finance that explores how investors' feelings and thoughts impact their investment decisions. In other words, market psychology examines how fear and greed drive market trends.
 
--------------------------
-
 As a teenager, you might not be investing in the stock market yet, but understanding market psychology can benefit you in the long run. By recognizing how emotions influence investment decisions, you'll be better equipped to make rational choices when you start investing. Plus, understanding market psychology can help you navigate other areas of life, such as decision-making and risk management.
-
-----------------
 
 ### 1. Herd Behavior
 
@@ -53,8 +44,6 @@ Anchoring bias occurs when we rely too heavily on the first piece of information
 
 Loss aversion refers to the fear of losses outweighing the excitement of gains. In investing, this can lead to risk aversion, causing us to miss out on potential gains. Think of it like being afraid to try a new rollercoaster ride because you might not enjoy it, even if it could be an exhilarating experience.
 
-----------------------
-
 ### 1. The Dot-Com Bubble
 
 In the late 1990s, the dot-com bubble formed as investors enthusiastically invested in internet-based companies, without considering their financials. This led to a massive market crash in 2000. It's like buying a trendy new gadget without reading reviews or considering its price.
@@ -62,8 +51,6 @@ In the late 1990s, the dot-com bubble formed as investors enthusiastically inves
 ### 2. The COVID-19 Pandemic
 
 During the pandemic, fear and greed drove market fluctuations. Some investors panicked and sold their stocks, while others took advantage of low prices to buy. It's like rushing to buy toilet paper during a pandemic, only to realize you already had enough.
-
------------------
 
 **Exercise:**
 
@@ -74,14 +61,10 @@ Imagine you're considering investing in a new sustainable energy company. The co
 * Consider alternative perspectives and potential risks.
 * Decide whether to invest, and explain your reasoning.
 
-----------------
-
 * Market psychology is the study of how emotions and crowd behavior influence financial markets.
 * Herd behavior, confirmation bias, anchoring bias, and loss aversion are key concepts in market psychology.
 * Understanding market psychology can help you make informed investment decisions and avoid common pitfalls.
 * Always consider alternative perspectives and potential risks before making investment decisions.
-
-------------------
 
 * "A Random Walk Down Wall Street" by Burton G. Malkiel
 * "The Psychology of Money" by Morgan Housel

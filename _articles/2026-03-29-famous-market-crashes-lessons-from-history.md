@@ -20,19 +20,11 @@ related_articles:
     description: "Lessons from the internet boom and bust of the late 1990s."
 ---
 
----------------
-
 Imagine you're at a theme park, and you're waiting in line for the biggest rollercoaster ride. As you climb up the steep incline, you feel a rush of excitement and anticipation. But just as you're about to reach the top, the ride suddenly drops, and you're plummeting downwards at breakneck speed. That's what it's like when a market crash happens. The value of your investments can drop rapidly, leaving you feeling scared and unsure of what to do. In this article, we'll explore some of the most famous market crashes in history, and what lessons we can learn from them.
-
-----------------
 
 A market crash is a sudden and significant decline in the value of a particular market or asset class. It's like a big wave that crashes onto the shore, wiping out everything in its path. Market crashes can happen in any market, including stocks, bonds, real estate, or even cryptocurrencies.
 
----------------------------
-
 As a teenager, you might be thinking, "Why should I care about market crashes? I'm not even investing yet!" But here's the thing: understanding market crashes can help you make informed decisions about your own financial future. Imagine you're planning to go to college in a few years, and you're counting on your parents' investments to help pay for it. If a market crash happens, those investments might be worth less than expected. By learning from history, you can be better prepared for the ups and downs of the market.
-
------------------
 
 Before we dive into some real-world examples, let's break down some key concepts:
 
@@ -40,8 +32,6 @@ Before we dive into some real-world examples, let's break down some key concepts
 * **Bear market**: A period of time when the market is going down, down, down!
 * **Diversification**: Spreading your investments across different asset classes to reduce risk.
 * **Risk management**: Strategies to minimize losses in case of a market crash.
-
--------------------------
 
 ### The Great Crash of 1929
 
@@ -55,8 +45,6 @@ Remember the internet craze of the late 1990s? Everyone was investing in dot-com
 
 Imagine you're living in a world where housing prices are skyrocketing, and everyone's buying homes they can't afford. But when the housing market crashes, the whole financial system comes crashing down. It's like a row of dominoes, where one fall causes a chain reaction.
 
---------------------
-
 Let's play a game to illustrate the concept of diversification. Imagine you have $100 to invest in three different asset classes: stocks, bonds, and real estate.
 
 * Stocks: 40% chance of a 20% return, 30% chance of a 10% loss
@@ -65,14 +53,10 @@ Let's play a game to illustrate the concept of diversification. Imagine you have
 
 How would you allocate your $100? Would you put it all in one asset class, or spread it across all three? Try calculating the potential returns and losses for each scenario.
 
------------------
-
 * Market crashes can happen suddenly and unexpectedly.
 * Diversification can help reduce risk.
 * Risk management strategies can minimize losses.
 * Understanding market crashes can help you make informed decisions about your financial future.
-
---------------------
 
 * "A Random Walk Down Wall Street" by Burton G. Malkiel
 * "The Intelligent Investor" by Benjamin Graham

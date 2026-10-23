@@ -20,27 +20,17 @@ related_articles:
     description: "How and why companies sell shares to the public for the first time."
 ---
 
----------------
-
 Imagine you're at a music festival with your friends, and you want to know what the most popular songs are right now. You could ask around, but a better way would be to check the top 100 chart on your favorite music streaming app. That's kind of like what the S&P 500 does, but instead of songs, it tracks the top 500 companies in the US stock market. As a teenager learning about investing, understanding the S&P 500 is crucial for making informed decisions about your financial future.
-
-----------------
 
 The S&P 500, short for Standard & Poor's 500, is an index that represents the performance of the 500 largest publicly traded companies in the US. Think of it like a report card for the US stock market. It's a way to measure how well the biggest and most successful companies are doing. The S&P 500 is widely considered the benchmark for the US stock market, and its performance is often seen as a reflection of the overall health of the economy.
 
--------------------------
-
 As a teenager, you might be thinking, "Why should I care about some boring stock market index?" But here's the thing: the S&P 500 is like a snapshot of the US economy, and understanding it can help you make informed decisions about your own financial future. By learning about the S&P 500, you'll gain insights into how the stock market works, how companies grow and succeed, and how you can potentially invest in the companies you love.
-
------------------
 
 Here are some key concepts to understand about the S&P 500:
 
 * **Index**: An index is like a basket that holds a group of things, in this case, 500 companies. The S&P 500 is an index because it tracks the performance of these companies.
 * **Market capitalization**: This refers to the total value of a company's outstanding shares. The S&P 500 only includes companies with a market capitalization of at least $8.2 billion.
 * **Weighting**: The companies in the S&P 500 are weighted by their market capitalization, which means that bigger companies have a bigger impact on the index's performance.
-
-----------------------
 
 Let's look at some real-world examples of companies in the S&P 500:
 
@@ -50,8 +40,6 @@ Let's look at some real-world examples of companies in the S&P 500:
 
 These companies are all part of the S&P 500, and their performance affects the index's overall performance.
 
--------------------
-
 Here's a fun exercise to help you understand the S&P 500:
 
 1. Choose a company you love, like Nike or Disney.
@@ -59,8 +47,6 @@ Here's a fun exercise to help you understand the S&P 500:
 3. Imagine you own a small piece of the company (a share).
 4. Track the company's stock price over time to see how it performs.
 5. Compare its performance to the S&P 500 index.
-
-------------------
 
 Here are the main lessons from this article:
 
@@ -70,8 +56,6 @@ Here are the main lessons from this article:
 * The companies in the S&P 500 are weighted by their market capitalization.
 
 **Not financial advice**: Remember, this article is for educational purposes only and should not be considered as financial advice. Investing always involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
-
--------------------
 
 If you want to learn more about the S&P 500 and investing, here are some resources to check out:
 

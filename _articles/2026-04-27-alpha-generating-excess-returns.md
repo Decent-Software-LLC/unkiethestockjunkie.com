@@ -20,10 +20,6 @@ related_articles:
     description: "How much you can safely spend from investments in retirement."
 ---
 
-=========================
-
-=============================================
-
 Imagine you're a gamer, and you've just discovered a secret cheat code that gives you an edge over your friends. In the world of investing, there's a similar concept called "alpha" that can help you outperform the market. But what is alpha, and how can you use it to generate excess returns? In this article, we'll dive into the world of alpha and explore how it can help you become a better investor.
 
 **Not financial advice:** Before we begin, remember that investing always involves risk, and this article is for educational purposes only. Never invest without doing your own research and considering your own financial goals and risk tolerance.

@@ -20,19 +20,11 @@ related_articles:
     description: "Understanding P/E and what it tells you about stock prices."
 ---
 
----------------
-
 Imagine you're at a garage sale, and you stumble upon a vintage bike that's still in great condition. The owner is willing to sell it to you for a fraction of its original price. You know that with some minor repairs, you can resell it online for a significant profit. That's essentially what happens in an asset play in the stock market. In this article, we'll explore what asset plays are, why they matter to teens, and how to identify them.
-
----------------
 
 An asset play is a type of investment strategy where investors buy a company's stock because its assets are undervalued. Assets can include things like cash, real estate, equipment, or even brands. The idea is that the company's stock price doesn't reflect the true value of its assets. By buying the stock, investors are essentially buying the assets at a discount.
 
--------------------------
-
 As a teenager, you might not have a lot of money to invest, but understanding asset plays can help you make informed decisions when you do start investing. Plus, it's a great way to learn about business and finance. Think of it like being a savvy shopper who can spot a good deal. In the stock market, asset plays can be a way to buy a company's stock at a discount and potentially sell it for a profit later.
-
-----------------
 
 Here are some key concepts to understand about asset plays:
 
@@ -44,18 +36,12 @@ Here are some key concepts to understand about asset plays:
 
 Let's use a simple example to illustrate this. Imagine a company called "BikeCo" that has a book value of $100 million. However, its stock price is only $80 million. This means that investors can buy the company's assets for $80 million, which is a discount to its book value.
 
-----------------------
-
 Here are some real-world examples of asset plays:
 
 * **Carnival Corporation**: In 2020, the cruise line company's stock price plummeted due to the COVID-19 pandemic. However, investors noticed that the company's assets, including its ships and real estate, were still valuable. By buying the stock at a discount, investors were essentially buying the assets at a low price.
 * **General Motors**: In the early 2000s, investors bought General Motors' stock because of its valuable assets, including its brand and real estate. Although the company was struggling financially, investors believed that its assets were worth more than its stock price.
 
-------------------
-
 Let's try a simple exercise to identify potential asset plays. Choose a company that you're interested in, and look up its financial statements online. Calculate the company's book value by subtracting its liabilities from its assets. Then, compare the book value to the company's stock price. If the stock price is lower than the book value, it might be an asset play.
-
-----------------
 
 Here are the main lessons from this article:
 
@@ -65,8 +51,6 @@ Here are the main lessons from this article:
 * Asset plays can be a way to buy a company's stock at a discount and potentially sell it for a profit later.
 
 **Not financial advice**: This article is for educational purposes only and should not be considered as investment advice.
-
-------------------
 
 If you want to learn more about asset plays and investing, here are some resources to check out:
 

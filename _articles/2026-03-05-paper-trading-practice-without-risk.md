@@ -22,21 +22,13 @@ related_articles:
 
 **Not financial advice. This article is for educational purposes only. Investing involves risk.**
 
----------------
-
 Imagine you're playing a game where you get to be the boss of a virtual company. You make decisions, and you see how they play out. But, instead of a game, it's the stock market. That's basically what paper trading is – a way to practice investing without risking real money. In this article, we'll explore what paper trading is, why it matters, and how you can try it out for yourself.
 
-----------------
-
 Paper trading, also known as simulated trading or virtual trading, is a way to practice buying and selling stocks, bonds, or other investments without using real money. It's like a simulation game where you make trades, and the outcome is based on real market data. You can try out different strategies, see how they work, and learn from your mistakes without losing any actual money.
-
----------------------------
 
 As a teenager, you might not think that investing is relevant to you yet. But, the truth is, the sooner you start learning about investing, the better. Paper trading is a great way to get started because it's risk-free. You can try out different investment strategies, learn from your mistakes, and develop good habits that will serve you well when you start investing with real money.
 
 Think of it like practicing a sport. You wouldn't jump into a professional game without practicing first, right? Paper trading is like practicing your investment skills before you start playing with real money.
-
------------------
 
 Here are some key concepts to understand when it comes to paper trading:
 
@@ -44,13 +36,9 @@ Here are some key concepts to understand when it comes to paper trading:
 * **Simulation software**: There are many online platforms and apps that offer paper trading simulations. These platforms use real market data to simulate the outcome of your trades.
 * **Risk-free**: Since you're not using real money, you can't lose any actual money. But, you can still learn from your mistakes and develop good investment habits.
 
--------------------------
-
 Let's say you're interested in investing in the tech industry. You've heard about companies like Apple and Amazon, but you're not sure which one to invest in. With paper trading, you can create a virtual portfolio and buy shares of both companies. You can then see how they perform over time and learn from your experience.
 
 Another example is the rise of Tesla. If you had invested in Tesla a few years ago, you would have seen your investment grow significantly. But, if you had invested in a different electric car company, you might not have done as well. With paper trading, you can try out different investment strategies and see how they would have worked out.
-
----------------------
 
 Now it's your turn to try paper trading! Here's a simple exercise to get you started:
 
@@ -60,8 +48,6 @@ Now it's your turn to try paper trading! Here's a simple exercise to get you sta
 4. Decide how much of your virtual money to invest in the company. You can buy shares, bonds, or other investments.
 5. Track your investment over time. See how it performs and learn from your experience.
 
------------------
-
 Here are the main lessons from this article:
 
 * Paper trading is a way to practice investing without risking real money.
@@ -69,8 +55,6 @@ Here are the main lessons from this article:
 * You can try out different investment strategies and see how they work.
 * Paper trading is risk-free, but it's still important to do your research and make informed decisions.
 * You can use online platforms and apps to simulate trading and track your virtual portfolio.
-
--------------------
 
 If you want to learn more about paper trading and investing, here are some resources to check out:
 

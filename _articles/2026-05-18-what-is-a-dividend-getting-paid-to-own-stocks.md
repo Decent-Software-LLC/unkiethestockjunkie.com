@@ -20,24 +20,17 @@ related_articles:
     description: "How to read and understand stock ticker symbols."
 ---
 
-=====================================================
 ------------
 
 Imagine owning a lemonade stand, and every quarter, the owner gives you a portion of the profits just because you're a loyal customer. Sounds cool, right? That's basically what happens when you own stocks that pay dividends. In this article, we'll explore what dividends are, why they matter to teens, and how they work.
-
--------------
 
 A dividend is a payment made by a company to its shareholders, usually quarterly or annually, as a way to distribute some of its profits. When you own shares of a company, you essentially become a part-owner of that business. Dividends are a way for companies to reward their shareholders for investing in them.
 
 Think of it like renting out a spare room on Airbnb. You're essentially renting out a part of your home, and in return, you get paid by the guests. Similarly, when you own shares of a company, you're "renting out" your money to help the business grow, and dividends are the "rent" you receive.
 
--------------------------
-
 As a teenager, you might not think that dividends directly affect you, but they can have a significant impact on your future finances. By understanding dividends, you'll gain insight into how companies work and how to make informed investment decisions.
 
 Imagine you start investing in the stock market with a small amount of money, and over time, your investments grow. Dividends can provide a regular stream of income, which can help you achieve your long-term financial goals, such as saving for college, a car, or even retirement.
-
-----------------
 
 Here are some essential concepts to grasp:
 
@@ -45,15 +38,11 @@ Here are some essential concepts to grasp:
 * **Payout ratio**: This is the percentage of a company's earnings that are paid out as dividends. It's like the percentage of your lemonade stand's profits that you give to your loyal customers.
 * **Dividend frequency**: Companies can pay dividends quarterly, semiannually, or annually. It's like deciding how often you want to receive payments from your lemonade stand.
 
----------------------
-
 Let's look at some examples:
 
 * **Coca-Cola**: This iconic beverage company has been paying dividends for over 100 years! If you owned 100 shares of Coca-Cola stock, you'd receive around $140 in dividend payments per year.
 * **Apple**: Apple pays dividends quarterly, and if you owned 100 shares, you'd receive around $77 in dividend payments per year.
 * **Real Estate Investment Trusts (REITs)**: REITs are companies that own or finance real estate properties and provide a way for individuals to invest in real estate without directly owning physical properties. Many REITs pay dividends, providing a regular income stream for investors.
-
------------------
 
 Let's do a simple exercise:
 
@@ -63,16 +52,12 @@ Let's do a simple exercise:
 4. Calculate how much you'd receive in dividend payments per year.
 5. Think about how you could use this income stream to achieve your financial goals.
 
-----------------
-
 Here are the main lessons:
 
 * Dividends are payments made by companies to their shareholders as a way to distribute profits.
 * Dividends can provide a regular income stream, helping you achieve your long-term financial goals.
 * Understanding dividend yield, payout ratio, and dividend frequency is essential for making informed investment decisions.
 * Investing involves risk, and it's essential to do your research and consider your financial goals before investing in the stock market.
-
-------------------
 
 If you want to learn more, check out these resources:
 
