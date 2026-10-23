@@ -9,7 +9,10 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
+# package-lock.json is deliberately COMMITTED, not ignored. validate-build.yml installs with
+# `npm ci`, which refuses to run without a lockfile -- it failed on the first push with
+# EUSAGE while passing locally, where the file existed untracked. Ignoring it also means CI and
+# local dev resolve different dependency versions, so a green run proves nothing about prod.
 yarn.lock
 
 # Ruby
