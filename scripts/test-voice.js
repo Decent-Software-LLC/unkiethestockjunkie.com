@@ -104,7 +104,12 @@ function main() {
     return;
   }
 
-  console.log(`\n${failed === 0 ? '✅' : '❌'} ${failed} budget violation(s)\n`);
+  // Print an "N passed" line like every other suite: the CI log is scanned for that pattern,
+  // and a suite that reports only violations can be skipped without anything noticing.
+  // Both arrays assert (MINIMUMS increments the same `failed` counter), so the total has to
+  // cover both or the suite under-reports its own checks.
+  console.log(`${BUDGETS.length + MINIMUMS.length - failed} passed, ${failed} failed\n`);
+  console.log(`${failed === 0 ? '✅' : '❌'} ${failed} budget violation(s)\n`);
   console.log('If the number went UP, a regressed prompt shipped bulk content.');
   console.log('If you just improved the corpus, tighten the budget in scripts/test-voice.js.');
   console.log('');
