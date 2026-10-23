@@ -20,8 +20,6 @@ related_articles:
     description: "How to read the story of a company's profitability."
 ---
 
----------------
-
 Imagine you're the CEO of your own lemonade stand. You've got a solid business plan, a tasty recipe, and a prime location. But, how do you know if your lemonade stand is actually making money? You need to look beyond just the revenue and focus on the cash that's left over after you've paid all your expenses. This is where free cash flow comes in – the money that matters.
 
 As a teenager learning about investing, understanding free cash flow is crucial. It's a fundamental concept that can help you evaluate companies and make informed investment decisions. So, let's dive in and explore what free cash flow is all about.

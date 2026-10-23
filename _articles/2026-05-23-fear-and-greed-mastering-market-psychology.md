@@ -20,8 +20,6 @@ related_articles:
     description: "How to avoid only seeing evidence that supports your views."
 ---
 
-------------
-
 Imagine you're at a music festival, and your favorite artist just announced a surprise concert. The crowd goes wild, and everyone rushes to get a spot close to the stage. In the chaos, some people might get trampled, while others might score an amazing spot. This is similar to what happens in the stock market when fear and greed take over. As a teenager learning about investing, understanding market psychology can help you make informed decisions and avoid getting trampled by the crowd.
 
 Market psychology refers to the study of how emotions and crowd behavior influence financial markets. It's a subfield of behavioral finance that explores how investors' feelings and thoughts impact their investment decisions. In other words, market psychology examines how fear and greed drive market trends.

@@ -20,8 +20,6 @@ related_articles:
     description: "How to read and understand stock ticker symbols."
 ---
 
-------------
-
 Imagine owning a lemonade stand, and every quarter, the owner gives you a portion of the profits just because you're a loyal customer. Sounds cool, right? That's basically what happens when you own stocks that pay dividends. In this article, we'll explore what dividends are, why they matter to teens, and how they work.
 
 A dividend is a payment made by a company to its shareholders, usually quarterly or annually, as a way to distribute some of its profits. When you own shares of a company, you essentially become a part-owner of that business. Dividends are a way for companies to reward their shareholders for investing in them.

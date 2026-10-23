@@ -262,4 +262,41 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { cleanBody, classifyLine, stripTitleEcho, INSTRUCTION_LABELS };
+/**
+ * Clean bare body text with no front matter.
+ *
+ * scripts/generate-article.js passes model output before any front matter exists. That caller
+ * previously used cleanBody(), which returns input unchanged when it finds no fence - so
+ * scaffolding removal silently did nothing on every newly generated article. The original 95%
+ * leak could therefore persist even with this cleaner in place, and nothing caught it because
+ * the only tested caller was the whole-file CLI.
+ */
+function cleanBodyText(text) {
+  if (!text || !text.trim()) return { text: text || '', changes: [] };
+  const lines = text.split('\n');
+  const kept = [];
+  const changes = [];
+  for (let i = 0; i < lines.length; i++) {
+    const verdict = classifyLine(lines[i]);
+    if (verdict === null) {
+      kept.push(lines[i]);
+      continue;
+    }
+    changes.push(`dropped "${lines[i].trim().slice(0, 42)}"`);
+    // Consume a setext underline TIGHT beneath the label so the pair disappears together;
+    // a blank line in between means they were never one heading. Same rule as cleanBody().
+    let j = i + 1;
+    while (j < lines.length && lines[j].trim() === '') j++;
+    if (j < lines.length && /^[=-]{3,}$/.test(lines[j].trim())) i = j;
+  }
+  return { text: tidyBlankRuns(kept.join('\n')), changes };
+}
+
+/* Whole files from disk. Use cleanBodyText() for body-only text that has no fence yet. */
+module.exports = {
+  cleanBody,
+  cleanBodyText,
+  classifyLine,
+  stripTitleEcho,
+  INSTRUCTION_LABELS
+};

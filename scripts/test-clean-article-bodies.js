@@ -304,6 +304,18 @@ test('corpus: no prose words are lost on any article', () => {
   );
 });
 
+test('cleaning is idempotent (a rerun changes nothing already clean)', () => {
+  // Guards a failure mode hit repeatedly while building this: an earlier version re-derived each
+  // underline's context from post-deletion neighbours, so pass 2 deleted a divider pass 1 had
+  // left as an <hr>, and the CLI reported "would clean 3 files" forever against clean content.
+  // A non-idempotent cleaner makes it impossible to tell a genuine fix from churn on rerun.
+  const fs = require('fs');
+  for (const f of fs.readdirSync(ARTICLES).filter((x) => x.endsWith('.md'))) {
+    const once = cleanBody(fs.readFileSync(path.join(ARTICLES, f), 'utf8')).text;
+    assert.strictEqual(cleanBody(once).text, once, `${f} is not stable under repeated cleaning`);
+  }
+});
+
 test('corpus: no scaffolding survives in any published body', () => {
   if (!fs.existsSync(ARTICLES)) return;
 
