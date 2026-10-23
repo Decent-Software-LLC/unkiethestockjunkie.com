@@ -236,7 +236,13 @@ async function generateArticleContent(topic) {
           temperature: 0.7,
           top_p: 0.9,
           max_tokens: 8192,
-          stream: false
+          stream: false,
+          // Free-tier Nemotron reasoning spends most of its wall-clock budget writing
+          // reasoning_content that we discard -- full-length article requests exceeded the
+          // 300s axios timeout before returning any content (verified live). Thinking off
+          // returns in seconds; the prose quality on graded output was unchanged for our
+          // use case and reliability is the difference between working and not.
+          chat_template_kwargs: { enable_thinking: false }
         },
         {
           headers: {
@@ -620,6 +626,7 @@ if (require.main === module) {
 
 module.exports = {
   generateArticlePrompt,
+  generateArticleContent,
   cleanArticleContent,
   generateSlug,
   // Exported so scripts/test-prompt.js can assert the assembled front matter without an API
