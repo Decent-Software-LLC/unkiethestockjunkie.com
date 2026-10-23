@@ -244,19 +244,56 @@ test('corpus: no prose words are lost on any article', () => {
   );
 });
 
-test('corpus: published scaffolding actually disappears', () => {
+test('corpus: no scaffolding survives in any published body', () => {
   if (!fs.existsSync(ARTICLES)) return;
+
+  const bodyOf = (s) => s.slice(s.indexOf('\n---', 4) + 4);
   const bad = [];
+
+  // Files where a *bare, unmarked* metadata line survives in the body. cleanBody refuses to
+  // delete unmarked plain text because "difficulty: advanced" and a real sentence starting
+  // with a lowercase word are indistinguishable at scale - deleting those across 101 files
+  // risks eating prose. These need a human edit; listing them here keeps the gate honest
+  // (a NEW file appearing is a regression) without blocking every build.
+  const KNOWN_BARE_METADATA = new Set([
+    '2026-10-19-understanding-leveraged-etfs-the-math-that-eats-returns.md'
+  ]);
+
   for (const file of fs.readdirSync(ARTICLES)) {
     if (!file.endsWith('.md')) continue;
     const raw = fs.readFileSync(path.join(ARTICLES, file), 'utf8');
-    const { text } = cleanBody(raw);
-    const body = text.slice(text.indexOf('\n---', 4));
-    if (/^\s*\*\*(Introduction|Key Concepts|Why Should Teens Care|Try It Yourself|Further Reading)\*\*\s*$/im.test(body)) {
-      bad.push(file);
+    const { text } = cleanBody(raw); // what would actually be published
+    const body = bodyOf(text);
+
+    const labels = /\*\*\s*(Introduction|What Is It\??|Why Should Teens Care\??|Key Concepts|Key Takeaways|Try It Yourself|Further Reading|Real-World Examples|Hook the Reader)\s*\*\*\s*$/im;
+    // Body-only: front matter legitimately carries difficulty:/tags: keys.
+    const dupMeta = /^\s{0,3}(?:#{1,6}\s*|\*\*)?\s*(Difficulty|Tags)\s*:/im;
+
+    if (labels.test(body)) bad.push(`${file}: scaffolding heading`);
+    else if (/^(As an AI|I cannot assist|Language model)/im.test(body)) bad.push(`${file}: AI self-reference`);
+    else if (dupMeta.test(body) && !KNOWN_BARE_METADATA.has(file)) {
+      bad.push(`${file}: duplicated difficulty/tags`);
     }
   }
-  assert.deepStrictEqual(bad, [], `scaffolding remains in ${bad.length} files: ${bad.slice(0, 5).join(', ')}`);
+
+  // If someone cleans a known-bad file, shrink the allow-list rather than let it rot.
+  const stillPresent = [...KNOWN_BARE_METADATA].filter((f) => fs.existsSync(path.join(ARTICLES, f)));
+  const cleanedUp = stillPresent.filter((f) => {
+    const raw = fs.readFileSync(path.join(ARTICLES, f), 'utf8');
+    return !/^\s{0,3}(?:#{1,6}\s*|\*\*)?\s*(Difficulty|Tags)\s*:/im.test(bodyOf(cleanBody(raw).text));
+  });
+  assert.deepStrictEqual(
+    bad,
+    [],
+    `\n${bad.length} publishable problems:\n  ${bad.slice(0, 8).join('\n  ')}\nRun: npm run clean-article-bodies`
+  );
+
+  if (cleanedUp.length) {
+    console.log(
+      `  ℹ ${cleanedUp.length} allow-listed bare-metadata file(s) now look clean; ` +
+        `remove from KNOWN_BARE_METADATA: ${cleanedUp.join(', ')}`
+    );
+  }
 });
 
 console.log(`\n${passed} passed, ${failed} failed\n`);

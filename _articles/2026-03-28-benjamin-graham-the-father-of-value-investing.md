@@ -20,8 +20,6 @@ related_articles:
     description: "How the Oracle of Omaha became the world's most successful investor."
 ---
 
-**Tags: benjamin-graham, value-investing, history, intermediate**
-
 ---------------
 
 Imagine you're at a mall, and you see a brand-new pair of sneakers you really want. The price tag says $150, but you think they're worth $100. Would you buy them? Probably not. Now, imagine you see the same sneakers on sale for $80. You think they're a great deal, and you buy them. That's kind of like what Benjamin Graham, the father of value investing, did with stocks. He looked for companies that were undervalued, or priced lower than they were worth, and bought them at a discount. In this article, we'll explore Graham's teachings and how they can help you make smart investment decisions.

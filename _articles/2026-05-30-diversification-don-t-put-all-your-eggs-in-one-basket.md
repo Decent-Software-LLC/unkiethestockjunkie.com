@@ -20,8 +20,6 @@ related_articles:
     description: "How stocks are grouped by industry and why it matters."
 ---
 
-**Tags: Diversification, Risk-Management, Strategy, Beginner**
-
 ---------------
 
 Imagine you're at a music festival, and your favorite artist is performing. You're so excited that you decide to put all your money on a bet that they'll play your favorite song next. But, what if they don't? You'll lose all your money. This is kind of like what happens when you put all your investments in one place – you're taking a big risk. In this article, we'll explore a key investing concept that can help you avoid this problem: diversification.

@@ -77,15 +77,15 @@ const LABEL_SET = new Set(INSTRUCTION_LABELS.map(NORMALISE));
  */
 const HEADING_LINE = /^\s{0,3}(?:#{1,6}\s*)?\*{0,2}(.+?)\*{0,2}\s*:?\s*$/;
 
+// Metadata lines duplicate front matter and can be long (a full tag list), so they are
+// matched before the generic short-line guard below. Structurally unambiguous: a marked
+// "Difficulty:"/"Tags:" line is never prose.
+const METADATA_LINE = /^(difficulty|tags)\s*:/i;
+
 /** Decide whether one source line is leaked scaffolding. Returns '' to delete, null to keep. */
 function classifyLine(line) {
   const trimmed = line.trim();
   if (!trimmed) return null;
-
-  // Must be short: real prose is not a single fragment. Long lines are content even when
-  // they begin with a bolded label, e.g. "**Not financial advice.** This article ..." is
-  // legitimately part of the body in some articles.
-  if (trimmed.length > 60) return null;
 
   const m = HEADING_LINE.exec(trimmed);
   if (!m) return null;
@@ -100,7 +100,13 @@ function classifyLine(line) {
   if (!isMarked) return null;
 
   // "Difficulty: Beginner" / "Tags: stocks, basics" duplicate the front matter.
-  if (/^(difficulty|tags)\b/i.test(inner)) return '';
+  // Checked before the length guard: tag lists are routinely longer than prose fragments.
+  if (METADATA_LINE.test(inner)) return '';
+
+  // Must be short: real prose is not a single fragment. Long lines are content even when
+  // they begin with a bolded label, e.g. "**Not financial advice.** This article ..." is
+  // legitimately part of the body in some articles.
+  if (trimmed.length > 60) return null;
 
   // Strip a trailing em/en dash tagline: "Introduction – Hook the Reader".
   const base = inner.split(/\s+[–—-]\s+/)[0];

@@ -22,7 +22,6 @@ related_articles:
 
 ==========================
 
-**Tags: confirmation-bias, psychology, behavioral-finance, advanced**
 =============================================================
 
 **Not Financial Advice**

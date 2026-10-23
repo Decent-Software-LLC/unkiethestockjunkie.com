@@ -20,8 +20,6 @@ related_articles:
     description: "Understanding market irrationality through Graham's story."
 ---
 
-**Tags: benjamin-graham, screeners, value-investing, intermediate**
-
 **Not Financial Advice:** This article is for educational purposes only. Investing involves risk, and it's essential to do your own research and consider your own financial goals before making any investment decisions.
 
 ---------------

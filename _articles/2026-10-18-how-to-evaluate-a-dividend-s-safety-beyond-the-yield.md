@@ -20,8 +20,6 @@ related_articles:
     description: "How investing regularly reduces the impact of market volatility."
 ---
 
-**Tags:** dividends, payout-ratio, dividend-safety, intermediate
-
 ---
 
 Imagine you see a pizza shop advertising “50% off every slice!” – that sounds amazing, right? But if the shop never actually makes a pizza and just promises a discount, you’ll be disappointed. The same idea applies to stocks that brag about a high dividend yield. A big number can be tempting, but the real question is: **Is the dividend safe?**

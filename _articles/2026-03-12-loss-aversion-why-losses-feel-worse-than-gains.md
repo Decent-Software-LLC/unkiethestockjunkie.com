@@ -20,8 +20,6 @@ related_articles:
     description: "How emotions drive markets and how to stay rational."
 ---
 
-**Tags: loss-aversion, psychology, behavioral-finance, advanced**
-
 **Not financial advice. This article is for educational purposes only. Investing involves risk, and you should not make investment decisions based on this content.**
 
 Imagine you're at a basketball game, and your favorite team is down by one point with only seconds left. The other team scores, and you feel a pang of disappointment. Now, imagine your team scores, and you win the game. Which feeling is stronger? For most people, the disappointment of losing is more intense than the joy of winning. This phenomenon is called loss aversion, and it's a crucial concept in investing.

@@ -22,8 +22,6 @@ related_articles:
 
 =====================================================
 
-**Tags: benjamin-graham, psychology, market-behavior, intermediate**
-
 **Disclaimer: Not financial advice. Investing involves risk.**
 
 ---------------

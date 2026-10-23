@@ -20,8 +20,6 @@ related_articles:
     description: "Meet Warren Buffett's teacher and author of The Intelligent Investor."
 ---
 
-**Tags: warren-buffett, biography, value-investing, intermediate**
-
 **Not Financial Advice:** This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
 
 ---------------

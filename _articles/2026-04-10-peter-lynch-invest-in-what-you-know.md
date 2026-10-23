@@ -20,8 +20,6 @@ related_articles:
     description: "Finding stocks that multiply your investment tenfold or more."
 ---
 
-**Tags: peter-lynch, growth-investing, biography, intermediate**
-
 ---------------
 
 Imagine you're hanging out with friends at the mall, and you notice a new store that's always packed with people. You've never seen anything like it before, and you can't help but wonder, "What's going on here?" As it turns out, that store is a brand-new retail chain that's about to disrupt the entire industry. You're one of the first to notice its potential, and you start thinking, "I wish I could invest in this company." Well, that's exactly what legendary investor Peter Lynch would encourage you to do.

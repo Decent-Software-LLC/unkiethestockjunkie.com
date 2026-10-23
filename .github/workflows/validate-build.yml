@@ -61,18 +61,11 @@ jobs:
             exit 1
           fi
 
-      - name: Fail on leaked AI meta-commentary in article bodies
+      - name: Fail on leaked AI scaffolding in article bodies
         run: |
-          # cleanArticleContent() strips prompt phrasing after the fact; these patterns
-          # surviving into a body means the stripper regressed. Failing here beats
-          # publishing an article that shows a teenager our writing instructions.
-          status=0
-          while IFS= read -r file; do
-            echo "::warning file=$file::leaked structural headings present"
-            status=1
-          done < <(grep -lE '^#{2,3} (Introduction|Conclusion|Key Takeaways|Further Reading|Try It Yourself|Hook the Reader|Why Should Teens Care)\b' _articles/*.md || true)
-          if grep -lE '^(As an AI|I cannot assist|Language model)' _articles/*.md >/dev/null 2>&1; then
-            echo "::error::AI self-reference found in article bodies"
-            status=1
-          fi
-          exit $status
+          # Content guards live in scripts/test-clean-article-bodies.js, which understands
+          # front matter vs body (a plain grep over these files would flag the legitimate
+          # difficulty:/tags: keys in every article's front matter). The suite asserts each
+          # deleted line is positively identifiable as scaffolding, and that none survives.
+          # Keeping the rules in JS also shares one label list with the cleaner itself.
+          node scripts/test-clean-article-bodies.js

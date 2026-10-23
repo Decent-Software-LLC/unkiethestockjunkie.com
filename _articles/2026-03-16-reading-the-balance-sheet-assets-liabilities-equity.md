@@ -20,8 +20,6 @@ related_articles:
     description: "Why cash flow is the ultimate truth in business."
 ---
 
-**Tags: balance-sheet, financial-statements, fundamentals, intermediate**
-
 ---------------
 
 Imagine you're the manager of your school's student store. You have to keep track of the money you make from selling snacks, the amount you owe to suppliers, and the value of the store itself. That's kind of like what a company's balance sheet does. It shows the financial health of a business at a specific point in time. As a future investor, understanding the balance sheet is crucial to making informed decisions. In this article, we'll break down the key concepts, provide real-world examples, and give you a chance to try it yourself.

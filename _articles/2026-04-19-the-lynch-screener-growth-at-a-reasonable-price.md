@@ -20,8 +20,6 @@ related_articles:
     description: "How to find stocks trading below their intrinsic value."
 ---
 
-**Tags: peter-lynch, screeners, growth-investing, intermediate**
-
 ---------------
 
 Imagine you're at the mall, and you see a new store opening up. It's packed with people, and everyone's buzzing about the latest gadgets. You think to yourself, "This store is going to be huge!" But, as you look closer, you notice the prices are a bit steep. You start to wonder, "Is it worth paying a premium for this trendy store?" This is similar to what happens in the stock market when investors look for growth stocks. They want to find companies that are growing fast, but not overpaying for them. That's where the Lynch Screener comes in – a tool to help you find growth at a reasonable price.

@@ -20,8 +20,6 @@ related_articles:
     description: "How to read and learn from annual reports like Buffett does."
 ---
 
-**Tags: income-statement, financial-statements, fundamentals, intermediate**
-
 ---------------
 
 Imagine you're running a lemonade stand. You've got a great recipe, a catchy name, and a prime spot in front of the school. But, how do you know if your business is making money? That's where the income statement comes in – a crucial tool for tracking revenue, expenses, and profits. In this article, we'll break down the income statement, explore its key concepts, and show you how it applies to real-world companies. By the end of this, you'll be a pro at reading income statements and making informed decisions about your own financial future.

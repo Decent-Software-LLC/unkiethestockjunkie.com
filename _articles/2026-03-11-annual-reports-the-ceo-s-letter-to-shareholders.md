@@ -20,8 +20,6 @@ related_articles:
     description: "Why Buffett loves companies with consistent high ROE."
 ---
 
-**Tags: annual-reports, research, fundamentals, intermediate**
-
 ---------------
 
 Imagine you're the owner of a lemonade stand, and you want to know how your business is doing. You'd want to know how much lemonade you sold, how much money you made, and what plans you have to grow your business, right? Well, when you invest in a company, you're essentially becoming a part-owner of that business. And just like you want to know how your lemonade stand is doing, you want to know how the company you invested in is performing. That's where the annual report comes in, and specifically, the CEO's letter to shareholders.
