@@ -34,7 +34,8 @@
     "test:guides": "node scripts/test-guides.js",
     "test:links": "node scripts/test-links.js",
     "test:claims": "node scripts/test-claims.js",
-    "voice-report": "node scripts/test-voice.js --report"
+    "voice-report": "node scripts/test-voice.js --report",
+    "verify-content": "node scripts/verify-content.js"
   },
   "keywords": [
     "investing",
