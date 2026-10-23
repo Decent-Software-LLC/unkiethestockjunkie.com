@@ -24,7 +24,7 @@ related_articles:
   - title: "Compound Interest: The Eighth Wonder of the World"
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"
     description: "Why starting early gives you a massive advantage in investing. Learn how Einstein's favorite force can make you wealthy."
-  - title: "From Lemonade Stand to Shareholder: Understanding Business Ownership"
+  - title: "What Owning a Share Actually Gets You"
     url: "/articles/from-lemonade-stand-to-shareholder-understanding-business-ownership/"
     description: "How owning stock means owning a piece of a business."
 ---

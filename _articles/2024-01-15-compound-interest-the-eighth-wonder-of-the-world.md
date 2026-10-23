@@ -22,7 +22,7 @@ related_articles:
   - title: "The Rule of 72: Quick Mental Math for Investors"
     url: "/articles/the-rule-of-72-quick-mental-math-for-investors/"
     description: "A simple trick to calculate how long it takes to double your money."
-  - title: "From Lemonade Stand to Shareholder: Understanding Business Ownership"
+  - title: "What Owning a Share Actually Gets You"
     url: "/articles/from-lemonade-stand-to-shareholder-understanding-business-ownership/"
     description: "How owning stock means owning a piece of a business."
   - title: "Stock Screeners: Finding Your First Investment"
