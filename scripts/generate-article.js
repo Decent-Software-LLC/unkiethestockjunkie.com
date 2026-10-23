@@ -381,8 +381,11 @@ Output markdown only - the finished article and nothing else.`;
 // emits BOLD headings ("**Introduction**", "**Key Concepts**"), so nothing matched and
 // 95% of published articles shipped visible writing instructions. Keep the rules in one
 // place; do not re-add regexes here.
-function cleanArticleContent(content) {
-  return stripScaffolding(content).text;
+function cleanArticleContent(content, title) {
+  // Pass the title so a restated "# Title" line is removed too. The layout renders front-matter
+  // title itself; verified live that the model emits its own H1, which previously shipped as a
+  // duplicate heading directly under the real one.
+  return stripScaffolding(content, title).text;
 }
 
 // Utility: Parse AI response into structured article
@@ -582,7 +585,7 @@ async function main() {
   
   // Generate article
   const rawContent = await generateArticleContent(topic);
-  const content = cleanArticleContent(rawContent);
+  const content = cleanArticleContent(rawContent, topic.title);
   
   // Create markdown
   const date = new Date();

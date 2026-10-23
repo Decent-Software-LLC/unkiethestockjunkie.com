@@ -380,15 +380,27 @@ if (require.main === module) main();
  * leak could therefore persist even with this cleaner in place, and nothing caught it because
  * the only tested caller was the whole-file CLI.
  */
-function cleanBodyText(text) {
+function cleanBodyText(text, title) {
   if (!text || !text.trim()) return { text: text || '', changes: [] };
   // Same leading-block guard as cleanBody(): the generator passes model output whose front
   // matter does not exist yet, so a "difficulty:" row in it is a leak by definition.
   const strippedMeta = stripMetadataEcho(text.split('\n'));
-  const lines = strippedMeta.lines;
+  let lines = strippedMeta.lines;
+  const changes = strippedMeta.removed.map((r) => 'dropped metadata echo "' + r + '"');
+
+  // The article layout renders front-matter title itself, so a "# Title" line the model wrote
+  // duplicates the heading on the page. Without this the generator path -- which has always
+  // called cleanBodyText, never cleanBody -- shipped both. Reuses stripTitleEcho rather than
+  // adding a second rule, so both entry points agree on what an echo looks like.
+  if (title) {
+    const echo = stripTitleEcho(lines, title);
+    if (echo.removed) {
+      lines = echo.lines;
+      changes.push('removed title echo');
+    }
+  }
 
   const kept = [];
-  const changes = strippedMeta.removed.map((r) => 'dropped metadata echo "' + r + '"');
   for (let i = 0; i < lines.length; i++) {
     const verdict = classifyLine(lines[i]);
     if (verdict === null) {

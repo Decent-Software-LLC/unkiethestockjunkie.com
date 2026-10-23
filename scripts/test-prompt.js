@@ -307,5 +307,21 @@ test('the generated article cannot self-reference', () => {
   );
 });
 
+test('a model-restated "# Title" is removed so the heading is not duplicated', () => {
+  // The article layout renders front-matter title itself. Live generation showed the model also
+  // writing its own H1, which previously survived into the body as a second heading under the
+  // real one -- cleanArticleContent had no way to know the title, so nothing could match it.
+  const TITLE = 'Options Basics For Teens';
+  const out = cleanArticleContent('\n\n# ' + TITLE + '\n\nAn option is a contract, not a commitment.\n', TITLE);
+  assert.ok(!/^#\s/m.test(out), 'H1 echo survived cleaning');
+  assert.ok(out.includes('contract, not a commitment'), 'prose lost while removing the echo');
+});
+
+test('cleaning without a title still leaves unrelated headings alone', () => {
+  // Guard against overreach: passing no title must not become "strip every heading".
+  const out = cleanArticleContent('\n\n## When Your Broker Says No\n\nCustodial rules vary by state.\n');
+  assert.ok(out.includes('## When Your Broker Says No'), 'legitimate section heading removed');
+});
+
 console.log(`\n${passed} passed, ${failed} failed\n`);
 process.exit(failed ? 1 : 0);
