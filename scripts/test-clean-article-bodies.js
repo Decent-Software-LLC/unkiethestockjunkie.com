@@ -10,7 +10,8 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-const { cleanBody, classifyLine } = require('./clean-article-bodies.js');
+const { cleanBody, cleanBodyText, classifyLine, stripMetadataEcho, BODY_METADATA_KEYS } =
+  require('./clean-article-bodies.js');
 
 let passed = 0;
 let failed = 0;
@@ -304,6 +305,68 @@ test('corpus: no prose words are lost on any article', () => {
   );
 });
 
+
+console.log('\nmetadata echo (front-matter fields restated as body text)\n');
+
+// Live API verification found nemotron emitting "# Title" then literal "difficulty: beginner"
+// and "tags: a, b, c" lines below it. These carry no "**" and no "#", so every scaffolding rule
+// above missed them, and one published article (understanding-leveraged-etfs) had shipped
+// "difficulty: advanced" as visible body text for months.
+
+test('stripMetadataEcho removes front-matter field rows from the leading block', () => {
+  const input = ['', 'difficulty: beginner  ', 'tags: risk-management, stocks, beginner  ', '', 'Real opening paragraph.'];
+  const r = stripMetadataEcho(input);
+  assert.deepStrictEqual(r.removed.length, 2, `expected 2 removals, got ${JSON.stringify(r.removed)}`);
+  assert.ok(!r.lines.some((l) => /^difficulty:/i.test(l.trim())), 'difficulty survived');
+  assert.ok(r.lines.includes('Real opening paragraph.'), 'prose was removed');
+});
+
+test('the metadata regex actually compiles with its escapes intact', () => {
+  // THE regression this file exists for. An earlier version built the pattern with
+  // new RegExp('[ \\t]*:[ \\t]*\\S') written from a script that did not double the backslashes,
+  // so keyRe.source came out as "[ <space><tab>]*:[...]*S[^\n]*$" -- \S collapsed to a literal
+  // "S" and nothing ever matched. The function returned [] forever and its callers looked fine.
+  // Asserting on behaviour alone was not enough because a no-op filter passes "does not crash".
+  const src = stripMetadataEcho.toString();
+  assert.ok(/\\s\*|\\t/.test(src) || /\bs\*/.test(src), 'pattern lost its escape sequences');
+  // Behavioural twin: an underscore-free value and a spaced colon must both match.
+  for (const line of ['difficulty: advanced', 'tags : a, b', 'image_credit_url: "x"']) {
+    assert.strictEqual(
+      stripMetadataEcho(['', line, '', 'body']).removed.length,
+      1,
+      `should drop "${line}"`
+    );
+  }
+});
+
+test('prose mentioning a field name mid-article is left alone', () => {
+  // The whole safety of this filter is that it stops at the first real paragraph. A guide that
+  // writes "Difficulty: hard mode is worth avoiding." must keep that sentence.
+  const input = ['', 'Opening paragraph that is clearly prose.', '', 'difficulty: advanced is overrated.', ''];
+  const r = stripMetadataEcho(input);
+  assert.deepStrictEqual(r.removed, [], 'stripped below the leading block');
+  assert.ok(r.lines.includes('difficulty: advanced is overrated.'), 'legitimate prose deleted');
+});
+
+test('cleanBodyText strips metadata echoes from fence-less model output', () => {
+  // The generator path: no front matter exists yet, so any field row in the text is a leak.
+  const raw = '\n# What Is A Stop-Loss Order\ndifficulty: beginner\ntags: risk-management, stocks\n\nA stop-loss is a preset sell trigger.\n';
+  const r = cleanBodyText(raw);
+  assert.ok(!/^difficulty:/m.test(r.text), 'difficulty leaked through the generator path');
+  assert.ok(!/^tags:/m.test(r.text), 'tags leaked through the generator path');
+  assert.ok(r.text.includes('preset sell trigger'), 'real content lost');
+  assert.ok(r.changes.some((c) => c.includes('metadata echo')), 'removal not reported in changes');
+});
+
+test('cleanBody removes a metadata echo after the title echo is taken out', () => {
+  // Regression pinned to the real corpus find.
+  const doc = '---\ntitle: "Leveraged ETFs"\ndifficulty: advanced\n---\n\n# Leveraged ETFs\n\ndifficulty: advanced\n\nBody prose here.\n';
+  const r = cleanBody(doc);
+  const body = r.text.slice(r.text.lastIndexOf('---') + 3);
+  assert.ok(!/^difficulty:/m.test(body), `body still carries difficulty: ${JSON.stringify(body.split('\n').slice(0, 5))}`);
+  assert.ok(body.includes('Body prose here.'), 'prose lost');
+});
+
 test('cleaning is idempotent (a rerun changes nothing already clean)', () => {
   // Guards a failure mode hit repeatedly while building this: an earlier version re-derived each
   // underline's context from post-deletion neighbours, so pass 2 deleted a divider pass 1 had
@@ -314,6 +377,27 @@ test('cleaning is idempotent (a rerun changes nothing already clean)', () => {
     const once = cleanBody(fs.readFileSync(path.join(ARTICLES, f), 'utf8')).text;
     assert.strictEqual(cleanBody(once).text, once, `${f} is not stable under repeated cleaning`);
   }
+});
+
+test('corpus: no published body restates front-matter fields', () => {
+  // The scaffolding audit checked bold headings only, so a "difficulty: advanced" row sitting
+  // under the closing fence in understanding-leveraged-etfs stayed published until the regex
+  // that removes it was actually fixed. Assert the whole field set, not just what we noticed.
+  const fs = require('fs');
+  const offenders = [];
+  for (const file of fs.readdirSync(ARTICLES)) {
+    if (!file.endsWith('.md')) continue;
+    const raw = fs.readFileSync(path.join(ARTICLES, file), 'utf8');
+    const fence = /^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(\r?\n|$)/.exec(raw);
+    if (!fence) continue;
+    const body = raw.slice(fence[0].length);
+    const hits = body
+      .split('\n')
+      .map((l) => l.trim())
+      .filter((l) => new RegExp('^(?:' + BODY_METADATA_KEYS.join('|') + ')\\s*:', 'i').test(l));
+    if (hits.length) offenders.push(`${file}: ${JSON.stringify(hits[0].slice(0, 46))}`);
+  }
+  assert.deepStrictEqual(offenders, [], `metadata leaked into published bodies:\n  ${offenders.join('\n  ')}`);
 });
 
 test('corpus: no scaffolding survives in any published body', () => {
@@ -327,9 +411,12 @@ test('corpus: no scaffolding survives in any published body', () => {
   // with a lowercase word are indistinguishable at scale - deleting those across 101 files
   // risks eating prose. These need a human edit; listing them here keeps the gate honest
   // (a NEW file appearing is a regression) without blocking every build.
-  const KNOWN_BARE_METADATA = new Set([
-    '2026-10-19-understanding-leveraged-etfs-the-math-that-eats-returns.md'
-  ]);
+  // Allow-list for bodies still carrying duplicated difficulty:/Tags: rows. Kept empty: the
+  // one entry here masked a live leak on understanding-leveraged-etfs (a trailing "Tags: ..."
+  // line published to teens) long after stripMetadataEcho existed but while its regex was a
+  // no-op. Prefer fixing the file and shrinking this list -- an allow-list in a content-integrity
+  // test is a TODO with a passing grade.
+  const KNOWN_BARE_METADATA = new Set();
 
   for (const file of fs.readdirSync(ARTICLES)) {
     if (!file.endsWith('.md')) continue;
