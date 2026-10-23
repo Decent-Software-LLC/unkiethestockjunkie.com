@@ -55,9 +55,11 @@ author:
   email: "hello@unkiethestockjunkie.com"
 
 # Social
+# Fill these in when accounts exist; templates hide any link still set to "#" so a
+# placeholder never renders as a dead icon.
 social:
   twitter: "#"
-  github: "#"
+  github: "https://github.com/Decent-Software-LLC/unkiethestockjunkie.com"
   youtube: "#"
 
 # Analytics

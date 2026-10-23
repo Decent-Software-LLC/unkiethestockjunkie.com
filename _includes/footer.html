@@ -8,8 +8,12 @@
         </a>
         <p class="footer-description">Teaching teenagers the art and science of investing through legendary strategies and real-world examples.</p>
         <div class="footer-social">
-          <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
-          <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank" rel="noopener" aria-label="GitHub">💻</a>
+          <!-- Only link accounts that exist. A 📺 icon resolving to youtube.com's homepage
+               reads as an abandoned site, which is fatal with a teenage audience. -->
+          {% if site.social.youtube and site.social.youtube != "#" %}
+          <a href="{{ site.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
+          {% endif %}
+          <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank" rel="noopener" aria-label="GitHub repository">💻</a>
         </div>
       </div>
       

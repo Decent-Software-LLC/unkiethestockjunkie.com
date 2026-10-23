@@ -66,46 +66,34 @@ layout: default
       
       <div class="article-share">
         <h3>Share this article</h3>
-        <div class="share-buttons">
-          <a href="https://www.tiktok.com/share?url={{ page.url | absolute_url | url_encode }}"
-             target="_blank" rel="noopener" class="share-btn tiktok" aria-label="Share on TikTok">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.88 2.88 0 0 1-5.2 1.74 2.88 2.88 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        <p class="share-hint">Pass it on to someone who should start early.</p>
+        <div class="share-buttons" id="share-buttons">
+          <!-- Controls are buttons driven by assets/js/share.js. Rationale for removing
+               per-platform share links lives in that file's header comment rather than
+               here: an HTML comment ships to every reader, and duplicating it across all
+               article pages adds dead bytes while tripping link audits. -->
+          <button type="button" class="share-btn native-share" id="native-share" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/>
             </svg>
-            <span>TikTok</span>
-          </a>
-          <a href="https://www.instagram.com/"
-             target="_blank" rel="noopener" class="share-btn instagram" aria-label="Share on Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span>Instagram</span>
-          </a>
-          <a href="https://www.snapchat.com/add/{{ page.url | absolute_url | url_encode }}"
-             target="_blank" rel="noopener" class="share-btn snapchat" aria-label="Share on Snapchat">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-              <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.438.003.891-.104 1.36-.317.191-.08.378-.114.542-.114.602 0 1.025.332 1.183.91.16.584-.108 1.122-.714 1.475-.241.138-.484.242-.715.342-.475.209-.899.391-.832.83.06.387.472.628 1.146.917.736.317 1.828.804 2.091 1.983.13.597.065 2.074-1.81 2.8-.579.216-1.213.326-1.885.326-.97 0-1.838-.181-2.59-.345-.255-.057-.493-.107-.707-.147-.309-.057-.559-.085-.82-.085-.707 0-1.302.342-2.129.804-1.142.626-2.503 1.382-4.405 1.382h-.023c-1.736 0-3.124-.558-4.167-1.663-1.365-1.448-1.736-3.701-1.508-6.941.055-.788.506-1.48 1.267-1.937.435-.262.96-.361 1.38-.449.347-.073.685-.144.952-.262.303-.135.569-.291.81-.46.436-.302.76-.555.882-.976.14-.483.038-1.042-.078-1.687-.06-.329-.124-.672-.175-1.032C6.821 3.656 7.37 1.663 8.773.987 9.693.537 10.733.793 12.206.793zM11.99 18.645c1.575 0 2.71-.555 3.744-1.124.694-.392 1.329-.756 2.049-.839.16-.018.324-.028.491-.028.293 0 .585.03.873.086.226.043.474.096.738.155.77.167 1.557.34 2.44.34.557 0 1.07-.09 1.533-.263 1.127-.441 1.285-.936 1.225-1.166-.136-.534-.753-.861-1.489-1.205-.622-.29-1.399-.647-1.522-1.385-.168-1.033.667-1.495 1.267-1.779.199-.092.393-.178.57-.291.308-.177.257-.352.223-.478-.045-.165-.168-.228-.322-.228-.084 0-.176.016-.274.056-.627.277-1.24.413-1.813.41-.405 0-.747-.082-1.006-.242-.247-.152-.413-.386-.472-.678-.04-.193-.044-.41-.003-.664.01-.168.02-.338.032-.522.103-1.6.227-3.558-.21-4.558-1.32-2.968-4.07-3.208-5.284-3.208h-.013c-1.272 0-2.213-.203-2.837.118-.967.511-1.402 2.231-1.287 4.092.044.664.104 1.35.166 1.784.13.763.256 1.483.078 2.097-.255.886-.914 1.332-1.421 1.672-.316.209-.619.407-.928.541-.396.17-.816.257-1.205.337-.386.079-.755.154-1.005.304-.42.248-.687.625-.726 1.057-.203 2.886.116 4.874 1.235 6.072.858.912 1.998 1.375 3.47 1.375z"/>
-            </svg>
-            <span>Snapchat</span>
-          </a>
-          <button onclick="copyArticleLink(this)" class="share-btn copy-link" aria-label="Copy link to clipboard">
+            <span>Share</span>
+          </button>
+          <button type="button" class="share-btn copy-link" data-copy-role="link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
               <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
               <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
             </svg>
             <span>Copy Link</span>
           </button>
+          <button type="button" class="share-btn copy-text" data-copy-role="text">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h10"/>
+            </svg>
+            <span>Copy Title + Link</span>
+          </button>
         </div>
       </div>
-      <script>
-        function copyArticleLink(btn) {
-          navigator.clipboard.writeText(window.location.href).then(function() {
-            var span = btn.querySelector('span');
-            span.textContent = 'Copied!';
-            setTimeout(function() { span.textContent = 'Copy Link'; }, 2000);
-          });
-        }
-      </script>
     </footer>
   </div>
 </article>
