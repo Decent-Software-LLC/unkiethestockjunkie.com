@@ -1,0 +1,55 @@
+name: unkie-jekyll
+
+services:
+  site:
+    build: .
+    image: unkie-jekyll:1
+    working_dir: /srv/jekyll
+    # Bind-mount only what Jekyll needs. node_modules is intentionally excluded:
+    # it holds npm deps for the article generators and is absent from the image,
+    # so mounting it would be pointless; _site is written back for inspection.
+    volumes:
+      - .:/srv/jekyll
+      - jekyll_cache:/tmp/.cache
+    environment:
+      JEKYLL_CACHE_DIR: /tmp/.cache
+    ports:
+      - "4000:4000"   # site
+      - "35729:35729" # livereload
+    command: bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling --trace
+
+  # One-off production build: docker compose run --rm build
+  build:
+    image: unkie-jekyll:1
+    working_dir: /srv/jekyll
+    volumes:
+      - .:/srv/jekyll
+      - jekyll_cache:/tmp/.cache
+    environment:
+      JEKYLL_CACHE_DIR: /tmp/.cache
+    # --strict_front_matter turns malformed article front matter into a hard failure
+    # instead of a silent partial render.
+    command: bundle exec jekyll build --strict_front_matter
+    profiles: ["tools"]
+
+  # Content pipeline (needs NVIDIA_API_KEY in .env).
+  generate:
+    image: unkie-jekyll:1
+    working_dir: /srv/jekyll
+    env_file: [.env]
+    volumes:
+      - .:/srv/jekyll
+    command: node scripts/generate-article.js
+    profiles: ["tools"]
+
+  # Screener fundamentals refresh (Yahoo Finance, no API key needed).
+  fundamentals:
+    image: unkie-jekyll:1
+    working_dir: /srv/jekyll
+    volumes:
+      - .:/srv/jekyll
+    command: node scripts/fetch-fundamentals.js
+    profiles: ["tools"]
+
+volumes:
+  jekyll_cache:

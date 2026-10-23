@@ -1,0 +1,1033 @@
+---
+layout: default
+title: "Greenblatt Screener - The Magic Formula"
+description: "Joel Greenblatt's Magic Formula investing criteria. Rank companies by earnings yield and return on capital to find cheap, high-quality businesses."
+permalink: /screeners/greenblatt/
+---
+
+<section class="page-header screener-header">
+  <div class="container">
+    <div class="screener-title">
+      <div class="screener-emoji">🪄</div>
+      <h1>The Greenblatt Screener</h1>
+      <p class="tagline">"The Magic Formula: buy great companies at great prices."</p>
+      <p class="attribution">— Joel Greenblatt</p>
+    </div>
+  </div>
+</section>
+
+<section class="screener-info">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-main">
+        <h2>Joel Greenblatt's Philosophy</h2>
+        <p>Joel Greenblatt is a Yale professor and hedge fund manager who discovered the 'Magic Formula' — a simple, mechanical way to find stocks that are both high-quality AND cheap. His formula beats the S&P 500 most years by ranking every company on two numbers: earnings yield (how cheap it is) and return on capital (how good it is).</p>
+
+        <h3>Key Principles</h3>
+        <ul>
+                    <li><strong>Two Numbers Only:</strong> Earnings yield and return on capital — nothing else</li>
+          <li><strong>Rank Everything:</strong> Score all companies, then buy the top-ranked basket</li>
+          <li><strong>Diversification:</strong> Buy 20-30 stocks, not one or two</li>
+          <li><strong>Hold & Rotate:</strong> Hold for a year, then re-rank and swap</li>
+          <li><strong>Discipline Over Opinion:</strong> The formula removes emotion from investing</li>
+        </ul>
+
+        <div class="fun-fact">
+          <h4>💡 Did You Know?</h4>
+          <p>Greenblatt's Magic Formula returned 30% per year (vs. 16% for the S&P 500) over a 20-year period in his book 'The Little Book That Beats the Market'. He says the secret isn't genius — it's doing the boring math that other investors are too lazy or emotional to do.</p>
+        </div>
+      </div>
+
+      <div class="info-sidebar">
+        <div class="criteria-card">
+          <h3>Screener Criteria</h3>
+          
+          <div class="criterion">
+            <div class="criterion-name">Earnings Yield (EBIT/EV)</div>
+            <div class="criterion-value">> 10%</div>
+            <div class="criterion-desc">Cheap relative to earnings</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Return on Capital (EBIT/NWC)</div>
+            <div class="criterion-value">> 15%</div>
+            <div class="criterion-desc">High-quality capital use</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Enterprise Value</div>
+            <div class="criterion-value">Any</div>
+            <div class="criterion-desc">Price minus cash plus debt</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Net Working Capital</div>
+            <div class="criterion-value">Positive</div>
+            <div class="criterion-desc">Operating efficiency</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Rank Position</div>
+            <div class="criterion-value">Top 20</div>
+            <div class="criterion-desc">Buy the highest-ranked basket</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ticker-analyzer">
+  <div class="container">
+    <h2 class="section-title">📊 Analyze Any Stock</h2>
+    <p class="section-description">Enter a ticker symbol to see how it measures up against Greenblatt's criteria</p>
+
+    <div class="analyzer-card">
+      <div class="ticker-input-section">
+        <div class="input-group">
+          <input type="text" id="ticker-input" placeholder="Enter ticker (e.g., COST, MCD, ORCL)" maxlength="5">
+          <button id="analyze-btn" class="btn btn-primary" onclick="analyzeStock()">
+            <span id="btn-text">Analyze Stock</span>
+            <span id="btn-loading" style="display: none;">Analyzing...</span>
+          </button>
+        </div>
+        <p class="input-help">Try: COST, MCD, ORCL, UNH, CAT, or any US stock ticker</p>
+        <div id="api-status" class="api-status"></div>
+      </div>
+
+      <div id="analysis-results" class="analysis-results" style="display: none;">
+        <div class="result-header">
+          <h3 id="company-name">Company Name</h3>
+          <span id="result-ticker" class="result-ticker">TICKER</span>
+        </div>
+
+        <div class="metrics-grid">
+          
+          <div class="metric-card" data-metric="ey">
+            <div class="metric-label">Earnings Yield (EBIT/EV)</div>
+            <div class="metric-value" id="metric-ey">--</div>
+            <div class="metric-status" id="status-ey">Loading...</div>
+            <div class="metric-target">Target: > 10%</div>
+          </div>
+          <div class="metric-card" data-metric="roc">
+            <div class="metric-label">Return on Capital</div>
+            <div class="metric-value" id="metric-roc">--</div>
+            <div class="metric-status" id="status-roc">Loading...</div>
+            <div class="metric-target">Target: > 15%</div>
+          </div>
+          <div class="metric-card" data-metric="ev">
+            <div class="metric-label">Enterprise Value</div>
+            <div class="metric-value" id="metric-ev">--</div>
+            <div class="metric-status" id="status-ev">Loading...</div>
+            <div class="metric-target">Target: Any size</div>
+          </div>
+          <div class="metric-card" data-metric="nwc">
+            <div class="metric-label">Net Working Capital</div>
+            <div class="metric-value" id="metric-nwc">--</div>
+            <div class="metric-status" id="status-nwc">Loading...</div>
+            <div class="metric-target">Target: Positive</div>
+          </div>
+          <div class="metric-card" data-metric="rank">
+            <div class="metric-label">Magic Formula Rank</div>
+            <div class="metric-value" id="metric-rank">--</div>
+            <div class="metric-status" id="status-rank">Loading...</div>
+            <div class="metric-target">Target: Top 20</div>
+          </div>
+        </div>
+
+        <div class="overall-score">
+          <div class="score-header">
+            <h4>Magic Formula Score</h4>
+            <div class="score-value" id="greenblatt-score">--/5</div>
+          </div>
+          <div class="score-bar">
+            <div class="score-fill" id="score-fill" style="width: 0%"></div>
+          </div>
+          <p class="score-verdict" id="score-verdict">Enter a ticker to see results</p>
+        </div>
+
+        <div class="result-disclaimer">
+          <p><strong>Demo Mode:</strong> This is an educational demonstration that generates realistic sample data. Results are based on the ticker symbol but do not reflect actual real-time financial metrics. In a production environment, this would connect to financial APIs like Alpha Vantage or Yahoo Finance. Always verify with official sources before making investment decisions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screener-demo">
+  <div class="container">
+    <h2 class="section-title">Example Results</h2>
+    <p class="section-description">Companies matching Greenblatt's criteria (for educational purposes only)</p>
+
+    <div class="results-table-container">
+      <div class="results-header">
+        <span class="disclaimer-badge">📚 Educational Data</span>
+        <span class="update-time">Updated: Delayed data for learning purposes</span>
+      </div>
+
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Ticker</th>
+            <th>Earnings Yield</th><th>Return on Cap</th><th>EV</th><th>Rank</th>
+            <th>Magic Pick</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>Costco</strong><br><span class="company-desc">Warehouse retail</span></td>
+            <td class="ticker">COST</td>
+            <td class="metric good">14.2%</td><td class="metric good">28.5%</td><td class="metric good">$400B</td><td class="metric good">#3</td>
+            <td><span class="magic-badge strong">Top Pick</span></td>
+          </tr>
+          <tr>
+            <td><strong>McDonald's</strong><br><span class="company-desc">Fast food</span></td>
+            <td class="ticker">MCD</td>
+            <td class="metric good">11.8%</td><td class="metric good">19.2%</td><td class="metric good">$190B</td><td class="metric good">#7</td>
+            <td><span class="magic-badge strong">Top Pick</span></td>
+          </tr>
+          <tr>
+            <td><strong>Caterpillar</strong><br><span class="company-desc">Heavy machinery</span></td>
+            <td class="ticker">CAT</td>
+            <td class="metric good">12.5%</td><td class="metric good">16.8%</td><td class="metric good">$140B</td><td class="metric good">#12</td>
+            <td><span class="magic-badge strong">Top Pick</span></td>
+          </tr>
+          <tr>
+            <td><strong>Netflix</strong><br><span class="company-desc">Streaming</span></td>
+            <td class="ticker">NFLX</td>
+            <td class="metric warn">4.1%</td><td class="metric good">22.3%</td><td class="metric good">$300B</td><td class="metric warn">#45</td>
+            <td><span class="magic-badge moderate">Watch</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-legend">
+        <div class="legend-item">
+          <span class="legend-dot good"></span>
+          <span>Meets Criteria</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot warn"></span>
+          <span>Below Threshold</span>
+        </div>
+        <div class="legend-item">
+          <span class="magic-badge strong">Top Pick</span>
+          <span>Ranks in the top basket</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screener-actions">
+      <a href="/screeners" class="btn btn-secondary">← Back to Screeners</a>
+      <a href="/articles" class="btn btn-primary">Learn More About Greenblatt</a>
+    </div>
+  </div>
+</section>
+
+<section class="learn-more">
+  <div class="container">
+    <h2>Deep Dive: Understanding Greenblatt's Criteria</h2>
+
+    <div class="criteria-explanations">
+      
+      <div class="explanation-card">
+        <h3>🪄 The Magic Formula Explained</h3>
+        <p>Greenblatt's formula ranks every company on two numbers, then combines the ranks:</p>
+        <ul>
+                    <li><strong>Earnings Yield:</strong> EBIT ÷ Enterprise Value — like a bond yield, higher is cheaper</li>
+          <li><strong>Return on Capital:</strong> EBIT ÷ Net Working Capital — higher means the business is excellent at using money</li>
+          <li><strong>Combine Ranks:</strong> Add the two ranks together; the lowest total wins</li>
+          <li><strong>Buy the Basket:</strong> Buy the top 20-30 companies, hold for a year, then re-rank</li>
+        </ul>
+      </div>
+      <div class="explanation-card">
+        <h3>💵 Enterprise Value: The Real Price</h3>
+        <p>Greenblatt doesn't use market cap — he uses Enterprise Value, the true cost of buying the whole company:</p>
+        <ul>
+                    <li><strong>The Formula:</strong> EV = Market Cap + Debt − Cash</li>
+          <li><strong>Why It Matters:</strong> A company with $10B in cash is cheaper than one without, at the same stock price</li>
+          <li><strong>EBIT:</strong> Earnings Before Interest and Taxes — profit from operations alone</li>
+          <li><strong>Net Working Capital:</strong> Current assets minus current liabilities — the money needed to run daily operations</li>
+        </ul>
+      </div>
+      <div class="explanation-card">
+        <h3>📊 Why It Beats the Market</h3>
+        <p>The Magic Formula works because it forces you to buy what most investors avoid:</p>
+        <ul>
+                    <li><strong>Boring Wins:</strong> The top-ranked stocks are usually unglamorous companies nobody talks about</li>
+          <li><strong>Cheap + Good:</strong> Most investors pick either cheap OR good — the formula requires both</li>
+          <li><strong>Discipline:</strong> It removes your ability to cherry-pick favorites</li>
+          <li><strong>The Catch:</strong> It still has losing years — the key is staying the course for decades</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.screener-header {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.screener-title {
+  text-align: center;
+  color: white;
+}
+
+.screener-emoji {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.screener-title h1 {
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.attribution {
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.screener-info {
+  padding: var(--spacing-3xl) 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.info-main h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-main p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-main ul {
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-main li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.fun-fact h4 {
+  color: #92400e;
+  margin-bottom: var(--spacing-sm);
+}
+
+.fun-fact p {
+  color: #78350f;
+  margin: 0;
+}
+
+.criteria-card {
+  background: var(--bg-card);
+  border: 2px solid #059669;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  position: sticky;
+  top: 6rem;
+}
+
+.criteria-card h3 {
+  margin-bottom: var(--spacing-lg);
+  color: #059669;
+}
+
+.criterion {
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.criterion:last-child {
+  border-bottom: none;
+}
+
+.criterion-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.criterion-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #059669;
+  margin: var(--spacing-xs) 0;
+}
+
+.criterion-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.screener-demo {
+  padding: var(--spacing-3xl) 0;
+  background: var(--bg-secondary);
+}
+
+.section-description {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.results-table-container {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.disclaimer-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.update-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th {
+  background: var(--bg-secondary);
+  padding: var(--spacing-md);
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.results-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.company-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ticker {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.metric {
+  font-weight: 600;
+}
+
+.metric.good {
+  color: #10b981;
+}
+
+.metric.warn {
+  color: #f59e0b;
+}
+
+.magic-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.magic-badge.strong {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.magic-badge.moderate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.table-legend {
+  display: flex;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.legend-dot.good {
+  background: #10b981;
+}
+
+.legend-dot.warn {
+  background: #f59e0b;
+}
+
+.screener-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+}
+
+.learn-more {
+  padding: var(--spacing-3xl) 0;
+}
+
+.learn-more h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.criteria-explanations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.explanation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.explanation-card h3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.explanation-card p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.explanation-card ul {
+  margin: 0;
+}
+
+.explanation-card li {
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .criteria-card {
+    position: static;
+  }
+
+  .table-legend {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-table {
+    font-size: 0.875rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: var(--spacing-sm);
+  }
+
+  .screener-actions {
+    flex-direction: column;
+  }
+}
+
+/* Ticker Analyzer Styles */
+.ticker-analyzer {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.analyzer-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ticker-input-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.input-group {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  transition: border-color var(--transition-fast);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input-help {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.api-status {
+  margin-top: var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+.api-status.error {
+  color: var(--color-danger);
+}
+
+.api-status.success {
+  color: var(--color-secondary);
+}
+
+.analysis-results {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.result-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.result-ticker {
+  background: var(--color-primary);
+  color: var(--text-on-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.metric-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border-left: 4px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.metric-card.pass {
+  border-left-color: var(--color-secondary);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.metric-card.fail {
+  border-left-color: var(--color-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.metric-card.loading {
+  border-left-color: var(--color-accent);
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-mono);
+}
+
+.metric-status {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.metric-status.pass {
+  color: var(--color-secondary);
+}
+
+.metric-status.fail {
+  color: var(--color-danger);
+}
+
+.metric-target {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.overall-score {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.score-header h4 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+.score-bar {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-danger) 0%, var(--color-accent) 50%, var(--color-secondary) 100%);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.score-verdict {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.result-disclaimer {
+  background: var(--color-warning-bg);
+  border-left: 4px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+}
+
+.result-disclaimer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group input {
+    width: 100%;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+<script src="/assets/js/fundamentals.js"></script>
+<script>// Real data + demo fallback
+async function analyzeStock() {
+  const tickerInput = document.getElementById('ticker-input');
+  const ticker = tickerInput.value.trim().toUpperCase();
+  
+  if (!ticker) {
+    showError('Please enter a ticker symbol');
+    return;
+  }
+  
+  resetResults();
+  showLoading(true);
+  hideError();
+  
+  await loadFundamentals();
+  await new Promise(resolve => setTimeout(resolve, 400));
+  
+  const realData = getFundamentals(ticker);
+  let metrics;
+  let companyName;
+  let isReal = false;
+  
+  if (realData) {
+    companyName = realData.name;
+    isReal = true;
+    const d = realData;
+    
+      const evEbitda = d.enterpriseToEbitda;
+      const ey = evEbitda != null ? (1 / evEbitda) * 100 : null;
+      const roc = d.roa != null ? d.roa * 100 : null;
+      const ev = ((d.marketCap || 0) + (d.totalDebt || 0) - (d.totalCash || 0)) / 1e9;
+      const nwc = d.currentRatio != null ? (d.currentRatio - 1) * (d.marketCap || 0) / 1e9 : null;
+      let rank = null;
+      if (ey != null && roc != null) {
+        const score = (100 - Math.min(ey, 50) * 2) + (100 - Math.min(roc, 50) * 2);
+        rank = Math.max(1, Math.min(100, Math.round(score / 2)));
+      }
+    metrics = { ey: ey, roc: roc, ev: ev, nwc: nwc, rank: rank };
+  } else {
+    companyName = ticker + ' Corp.';
+    const hash = ticker.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    const sr = (min, max) => {
+      const x = Math.sin(hash + min) * 10000;
+      return min + (x - Math.floor(x)) * (max - min);
+    };
+    
+      const ey = sr(2, 25);
+      const roc = sr(3, 45);
+      const ev = sr(1, 3000);
+      const nwc = sr(-3, 30);
+      const rank = sr(1, 100);
+    metrics = { ey: ey, roc: roc, ev: ev, nwc: nwc, rank: rank };
+  }
+  
+  const statusEl = document.getElementById('api-status');
+  if (isReal) {
+    const status = getDataStatus();
+    statusEl.textContent = '📊 Real data as of ' + (status ? status.date : 'last close');
+    statusEl.className = 'api-status';
+  } else {
+    statusEl.textContent = '🎮 Demo mode — try: ' + getDemoTickers().join(', ');
+    statusEl.className = 'api-status';
+  }
+  
+  displayResults(ticker, companyName, metrics);
+  showLoading(false);
+}
+
+// Helper functions
+function computeRS(price, high52, low52) {
+  if (!price || !high52 || !low52 || high52 === low52) return 50;
+  const position = (price - low52) / (high52 - low52);
+  return Math.round(20 + position * 79);
+}
+function computeVolTrend(price, high52, low52) {
+  if (!price || !high52 || !low52) return 50;
+  const position = (price - low52) / (high52 - low52);
+  return Math.round(20 + position * 70);
+}
+function getDemoTickers() {
+  if (typeof fundamentalsData === 'undefined' || !fundamentalsData) return ['AAPL', 'KO', 'NVDA'];
+  return Object.keys(fundamentalsData.tickers).slice(0, 5);
+}
+
+function displayResults(ticker, companyName, metrics) {
+  const resultsDiv = document.getElementById('analysis-results');
+  resultsDiv.style.display = 'block';
+
+  // Update header
+  document.getElementById('company-name').textContent = companyName;
+  document.getElementById('result-ticker').textContent = ticker;
+
+  // Evaluate each metric against Greenblatt's criteria
+  const evaluations = {
+    ey: { value: metrics.ey, threshold: 10, pass: metrics.ey > 10 },
+    roc: { value: metrics.roc, threshold: 15, pass: metrics.roc > 15 },
+    ev: { value: metrics.ev, threshold: 0, pass: metrics.ev > 0 },
+    nwc: { value: metrics.nwc, threshold: 0, pass: metrics.nwc > 0 },
+    rank: { value: metrics.rank, threshold: 20, pass: metrics.rank <= 20 }
+  };
+
+  // Update metric displays
+  updateMetric('ey', evaluations.ey.value.toFixed(1) + '%', evaluations.ey.pass);
+  updateMetric('roc', evaluations.roc.value.toFixed(1) + '%', evaluations.roc.pass);
+  updateMetric('ev', evaluations.ev.value.toFixed(0) + 'B', evaluations.ev.pass);
+  updateMetric('nwc', evaluations.nwc.value >= 0 ? '+$' + evaluations.nwc.value.toFixed(1) + 'B' : '-$' + Math.abs(evaluations.nwc.value).toFixed(1) + 'B', evaluations.nwc.pass);
+  updateMetric('rank', evaluations.rank.value.toFixed(0), evaluations.rank.pass);
+
+  // Calculate overall score
+  const score = Object.values(evaluations).filter(e => e.pass).length;
+  const maxScore = 5;
+  const percentage = (score / maxScore) * 100;
+
+  // Update score display
+  document.getElementById('greenblatt-score').textContent = `${score}/${maxScore}`;
+  document.getElementById('score-fill').style.width = `${percentage}%`;
+
+  // Generate verdict
+  let verdict = '';
+if (score === 5) verdict = '🪄 Excellent! This stock meets all of Greenblatt\'s Magic Formula criteria!';
+  else if (score >= 4) verdict = '✅ Good match! This stock meets most of the Magic Formula criteria.';
+  else if (score >= 3) verdict = '⚠️ Partial match. Some criteria are met, but not all.';
+  else verdict = '❌ Doesn\'t rank well in the Magic Formula. Consider other options.';
+
+  document.getElementById('score-verdict').textContent = verdict;
+
+  // Scroll to results
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateMetric(metricName, value, passed) {
+  const card = document.querySelector(`[data-metric="${metricName}"]`);
+  const statusEl = document.getElementById(`status-${metricName}`);
+
+  document.getElementById(`metric-${metricName}`).textContent = value;
+
+  // Remove loading state
+  card.classList.remove('loading');
+
+  if (passed) {
+    card.classList.add('pass');
+    statusEl.textContent = '✓ Pass';
+    statusEl.classList.add('pass');
+  } else {
+    card.classList.add('fail');
+    statusEl.textContent = '✗ Below Target';
+    statusEl.classList.add('fail');
+  }
+}
+
+function resetResults() {
+  // Reset all metric cards
+  document.querySelectorAll('.metric-card').forEach(card => {
+    card.classList.remove('pass', 'fail', 'loading');
+    card.classList.add('loading');
+  });
+
+  // Reset status texts
+  document.querySelectorAll('.metric-status').forEach(el => {
+    el.textContent = 'Loading...';
+    el.classList.remove('pass', 'fail');
+  });
+
+  // Reset metric values
+  ['ey', 'roc', 'ev', 'nwc', 'rank'].forEach(metric => {
+    document.getElementById(`metric-${metric}`).textContent = '--';
+  });
+}
+
+function showLoading(show) {
+  document.getElementById('btn-text').style.display = show ? 'none' : 'inline';
+  document.getElementById('btn-loading').style.display = show ? 'inline' : 'none';
+  document.getElementById('analyze-btn').disabled = show;
+}
+
+function showError(message) {
+  const statusEl = document.getElementById('api-status');
+  statusEl.textContent = '❌ ' + message;
+  statusEl.className = 'api-status error';
+}
+
+function hideError() {
+  const statusEl = document.getElementById('api-status');
+  statusEl.textContent = '';
+  statusEl.className = 'api-status';
+}
+
+// Allow Enter key to trigger analysis
+document.addEventListener('DOMContentLoaded', function() {
+  const tickerInput = document.getElementById('ticker-input');
+  if (tickerInput) {
+    tickerInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        analyzeStock();
+      }
+    });
+  }
+});
+
+</script>

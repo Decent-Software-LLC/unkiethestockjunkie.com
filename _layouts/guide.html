@@ -1,0 +1,106 @@
+---
+layout: default
+---
+
+<article class="guide">
+  <div class="container">
+    <header class="guide-header">
+      {% if page.image %}
+        <div class="guide-image">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        </div>
+      {% endif %}
+      
+      <div class="guide-meta">
+        {% if page.difficulty %}
+          <span class="difficulty-badge difficulty-{{ page.difficulty }}">
+            {{ page.difficulty | capitalize }}
+          </span>
+        {% endif %}
+        
+        {% if page.time %}
+          <span class="guide-time">⏱️ {{ page.time }} min read</span>
+        {% endif %}
+        
+        {% if page.tags %}
+          <div class="guide-tags">
+            {% for tag in page.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <h1 class="guide-title">{{ page.title }}</h1>
+      
+      {% if page.description %}
+        <p class="guide-description">{{ page.description }}</p>
+      {% endif %}
+      
+      {% if page.prerequisites %}
+        <div class="guide-prerequisites">
+          <strong>Before you start:</strong> {{ page.prerequisites }}
+        </div>
+      {% endif %}
+    </header>
+    
+    <div class="guide-content-wrapper">
+      {% if page.steps %}
+        <nav class="guide-toc">
+          <h3>Steps</h3>
+          <ol>
+            {% for step in page.steps %}
+              <li><a href="#step-{{ forloop.index }}">{{ step.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </nav>
+      {% endif %}
+      
+      <div class="guide-content">
+        {{ content }}
+      </div>
+    </div>
+    
+    <footer class="guide-footer">
+      {% if page.try_it_yourself %}
+        <div class="try-it-box">
+          <h3>🎯 Try It Yourself</h3>
+          <p>{{ page.try_it_yourself }}</p>
+        </div>
+      {% endif %}
+      
+      {% if page.key_takeaways %}
+        <div class="key-takeaways">
+          <h3>📝 Key Takeaways</h3>
+          <ul>
+            {% for takeaway in page.key_takeaways %}
+              <li>{{ takeaway }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      
+      {% if page.further_reading %}
+        <div class="further-reading">
+          <h3>📚 Further Reading</h3>
+          <ul>
+            {% for resource in page.further_reading %}
+              <li>
+                <a href="{{ resource.url }}" target="_blank" rel="noopener">
+                  {{ resource.title }}
+                </a>
+                - {{ resource.description }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      
+      <div class="guide-disclaimer">
+        <strong>⚠️ Educational Purpose Only:</strong> 
+        This guide is for educational purposes only. Not financial advice. 
+        Investing involves risk. Always do your own research.
+      </div>
+    </footer>
+  </div>
+</article>

@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="{{ '/' | relative_url }}" class="site-logo">
+        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Unkie The Stock Junkie" class="logo-img">
+        <span class="logo-text">Unkie<span class="logo-accent">The</span>Stock<span class="logo-accent">Junkie</span></span>
+      </a>
+      
+      <nav class="site-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+        
+        <ul class="nav-menu">
+          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+          <li><a href="{{ '/articles' | relative_url }}" {% if page.url contains '/articles' %}class="active"{% endif %}>Articles</a></li>
+          <li><a href="{{ '/screeners' | relative_url }}" {% if page.url contains '/screeners' %}class="active"{% endif %}>Screeners</a></li>
+          <li><a href="{{ '/about' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About</a></li>
+        </ul>
+        
+        <div class="header-actions">
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,18 @@
+# Keep the build context small and reproducible.
+# node_modules holds npm deps (axios/cheerio) used by the article generators,
+# not by Jekyll, so it must never enter the image build context.
+node_modules/
+.git/
+.gems/
+_site/
+_screeners_data/
+_articles.bak.*/
+*.log
+.env
+.dockerignore
+Dockerfile
+docker-compose.yml
+.jekyll-cache/
+.jekyll-metadata
+.vscode/
+.DS_Store

@@ -1,0 +1,68 @@
+# Unkie The Stock Junkie - Jekyll Configuration
+title: "Unkie The Stock Junkie"
+subtitle: "Investing Education for Smart Teens"
+description: "Learn investing from the legends. Stock market education simplified for teenagers by Uncle Unkie."
+url: "https://unkiethestockjunkie.com"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /articles/:title/
+
+# Collections
+collections:
+  articles:
+    output: true
+    permalink: /articles/:title/
+  guides:
+    output: true
+    permalink: /guides/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - node_modules
+  - scripts/
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - "*.gemspec"
+
+# Site settings
+author:
+  name: "Unkie"
+  email: "hello@unkiethestockjunkie.com"
+
+# Social
+social:
+  twitter: "#"
+  github: "#"
+  youtube: "#"
+
+# Analytics
+google_analytics: ""
+
+# Features
+enable_search: true
+enable_dark_mode: true

@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-mascot">
+        <img src="{{ '/assets/images/unkie-mascot.svg' | relative_url }}" alt="Unkie the Stock Junkie" class="mascot-img">
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-title">{{ site.title }}</h1>
+        <p class="hero-subtitle">{{ site.subtitle }}</p>
+        <p class="hero-description">{{ site.description }}</p>
+        <div class="hero-cta">
+          <a href="#articles" class="btn btn-primary">Start Learning</a>
+          <a href="/screeners" class="btn btn-secondary">Try Screeners</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">What You'll Learn</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Investing Basics</h3>
+        <p>Master the fundamentals: stocks, bonds, ETFs, and how markets work. Perfect for beginners aged 13-15.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Legendary Strategies</h3>
+        <p>Learn from the greats: Buffett's value investing, Graham's margin of safety, Lynch's growth approach.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Interactive Screeners</h3>
+        <p>Practice with educational screeners based on famous investor criteria. No real money required!</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h3>Real-World Examples</h3>
+        <p>Case studies from Apple to Tesla. See how legendary investors spotted opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="articles" class="recent-articles">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Fresh from Unkie</h2>
+      <a href="/articles" class="view-all">View All Articles →</a>
+    </div>
+    <div class="articles-grid">
+      {% assign recent_articles = site.articles | reverse %}
+      {% for article in recent_articles limit:6 %}
+        {% include article-card.html article=article %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="investor-spotlight">
+  <div class="container">
+    <h2 class="section-title">Meet the Legends</h2>
+    <div class="investors-grid">
+      <a href="/screeners/buffett" class="investor-card">
+        <div class="investor-avatar">🎯</div>
+        <h3>Warren Buffett</h3>
+        <p>The Oracle of Omaha. Value investing master who turned $10,000 into billions.</p>
+        <span class="investor-cta">Try the Buffett Screener →</span>
+      </a>
+      <a href="/screeners/graham" class="investor-card">
+        <div class="investor-avatar">📖</div>
+        <h3>Benjamin Graham</h3>
+        <p>Father of value investing. Wrote "The Intelligent Investor" - the bible of investing.</p>
+        <span class="investor-cta">Try the Graham Screener →</span>
+      </a>
+      <a href="/screeners/lynch" class="investor-card">
+        <div class="investor-avatar">🚀</div>
+        <h3>Peter Lynch</h3>
+        <p>Invest in what you know. Turned $18 million into $14 billion at Fidelity.</p>
+        <span class="investor-cta">Try the Lynch Screener →</span>
+      </a>
+      <a href="/screeners/icahn" class="investor-card">
+        <div class="investor-avatar">⚡</div>
+        <h3>Carl Icahn</h3>
+        <p>The activist investor. Finds undervalued companies and pushes for change.</p>
+        <span class="investor-cta">Try the Icahn Screener →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Get Smarter About Money</h2>
+      <p>New articles every day, straight to your inbox. No spam, just pure investing education.</p>
+      <p class="newsletter-disclaimer"><a href="/articles" class="btn btn-primary">Browse All Articles</a></p>
+      <p class="newsletter-disclaimer">New articles published daily. Check back tomorrow!</p>
+    </div>
+  </div>
+</section>

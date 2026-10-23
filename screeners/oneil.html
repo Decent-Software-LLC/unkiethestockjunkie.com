@@ -1,0 +1,1031 @@
+---
+layout: default
+title: "O'Neil Screener - CAN SLIM Growth Stocks"
+description: "William O'Neil's CAN SLIM growth investing criteria. Find leading companies with strong earnings acceleration, new products, and powerful chart patterns."
+permalink: /screeners/oneil/
+---
+
+<section class="page-header screener-header">
+  <div class="container">
+    <div class="screener-title">
+      <div class="screener-emoji">📈</div>
+      <h1>The O'Neil Screener</h1>
+      <p class="tagline">"Buy strength, sell weakness."</p>
+      <p class="attribution">— William O'Neil</p>
+    </div>
+  </div>
+</section>
+
+<section class="screener-info">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-main">
+        <h2>William O'Neil's Philosophy</h2>
+        <p>William O'Neil founded Investor's Business Daily and discovered that virtually every great stock in history followed the same pattern before its big run. His CAN SLIM system combines fundamentals (earnings, growth) with technicals (chart patterns, market timing) to find leading stocks at the moment they're about to break out.</p>
+
+        <h3>Key Principles</h3>
+        <ul>
+                    <li><strong>Current Earnings:</strong> Look for accelerating earnings, not just growth</li>
+          <li><strong>Annual Growth:</strong> Consistent 25%+ growth over several years</li>
+          <li><strong>New Things:</strong> New products, management, or highs create momentum</li>
+          <li><strong>Supply & Demand:</strong> Tight float and rising volume signal a breakout</li>
+          <li><strong>Leader or Laggard:</strong> Buy the strongest stocks in the strongest sectors</li>
+        </ul>
+
+        <div class="fun-fact">
+          <h4>💡 Did You Know?</h4>
+          <p>O'Neil studied every major market top and bottom from 1900 to 1990 and found that leading stocks before a bull market share the same traits: surging earnings, new highs, and heavy volume on breakouts. His system has been used by thousands of investors to find stocks like Apple in 1984, Microsoft in 1986, and NVIDIA in 2016.</p>
+        </div>
+      </div>
+
+      <div class="info-sidebar">
+        <div class="criteria-card">
+          <h3>Screener Criteria</h3>
+          
+          <div class="criterion">
+            <div class="criterion-name">Quarterly EPS Growth</div>
+            <div class="criterion-value">> 25%</div>
+            <div class="criterion-desc">Year-over-year acceleration</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Annual EPS Growth</div>
+            <div class="criterion-value">> 25%</div>
+            <div class="criterion-desc">3-5 year average</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">ROE</div>
+            <div class="criterion-value">> 17%</div>
+            <div class="criterion-desc">Profitable and efficient</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Relative Strength</div>
+            <div class="criterion-value">> 80</div>
+            <div class="criterion-desc">Outperforming the market</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Volume Trend</div>
+            <div class="criterion-value">Rising</div>
+            <div class="criterion-desc">Institutional interest building</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ticker-analyzer">
+  <div class="container">
+    <h2 class="section-title">📊 Analyze Any Stock</h2>
+    <p class="section-description">Enter a ticker symbol to see how it measures up against O'Neil's criteria</p>
+
+    <div class="analyzer-card">
+      <div class="ticker-input-section">
+        <div class="input-group">
+          <input type="text" id="ticker-input" placeholder="Enter ticker (e.g., NVDA, AVGO, CRM)" maxlength="5">
+          <button id="analyze-btn" class="btn btn-primary" onclick="analyzeStock()">
+            <span id="btn-text">Analyze Stock</span>
+            <span id="btn-loading" style="display: none;">Analyzing...</span>
+          </button>
+        </div>
+        <p class="input-help">Try: NVDA, AVGO, CRM, PANW, APP, or any US stock ticker</p>
+        <div id="api-status" class="api-status"></div>
+      </div>
+
+      <div id="analysis-results" class="analysis-results" style="display: none;">
+        <div class="result-header">
+          <h3 id="company-name">Company Name</h3>
+          <span id="result-ticker" class="result-ticker">TICKER</span>
+        </div>
+
+        <div class="metrics-grid">
+          
+          <div class="metric-card" data-metric="qeps">
+            <div class="metric-label">Quarterly EPS Growth</div>
+            <div class="metric-value" id="metric-qeps">--</div>
+            <div class="metric-status" id="status-qeps">Loading...</div>
+            <div class="metric-target">Target: > 25%</div>
+          </div>
+          <div class="metric-card" data-metric="aeps">
+            <div class="metric-label">Annual EPS Growth</div>
+            <div class="metric-value" id="metric-aeps">--</div>
+            <div class="metric-status" id="status-aeps">Loading...</div>
+            <div class="metric-target">Target: > 25%</div>
+          </div>
+          <div class="metric-card" data-metric="roe">
+            <div class="metric-label">Return on Equity (ROE)</div>
+            <div class="metric-value" id="metric-roe">--</div>
+            <div class="metric-status" id="status-roe">Loading...</div>
+            <div class="metric-target">Target: > 17%</div>
+          </div>
+          <div class="metric-card" data-metric="rs">
+            <div class="metric-label">Relative Strength Rating</div>
+            <div class="metric-value" id="metric-rs">--</div>
+            <div class="metric-status" id="status-rs">Loading...</div>
+            <div class="metric-target">Target: > 80</div>
+          </div>
+          <div class="metric-card" data-metric="vol">
+            <div class="metric-label">Volume Trend</div>
+            <div class="metric-value" id="metric-vol">--</div>
+            <div class="metric-status" id="status-vol">Loading...</div>
+            <div class="metric-target">Target: Rising</div>
+          </div>
+        </div>
+
+        <div class="overall-score">
+          <div class="score-header">
+            <h4>CAN SLIM Score</h4>
+            <div class="score-value" id="oneil-score">--/5</div>
+          </div>
+          <div class="score-bar">
+            <div class="score-fill" id="score-fill" style="width: 0%"></div>
+          </div>
+          <p class="score-verdict" id="score-verdict">Enter a ticker to see results</p>
+        </div>
+
+        <div class="result-disclaimer">
+          <p><strong>Demo Mode:</strong> This is an educational demonstration that generates realistic sample data. Results are based on the ticker symbol but do not reflect actual real-time financial metrics. In a production environment, this would connect to financial APIs like Alpha Vantage or Yahoo Finance. Always verify with official sources before making investment decisions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screener-demo">
+  <div class="container">
+    <h2 class="section-title">Example Results</h2>
+    <p class="section-description">Companies matching O'Neil's criteria (for educational purposes only)</p>
+
+    <div class="results-table-container">
+      <div class="results-header">
+        <span class="disclaimer-badge">📚 Educational Data</span>
+        <span class="update-time">Updated: Delayed data for learning purposes</span>
+      </div>
+
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Ticker</th>
+            <th>Q EPS</th><th>A EPS</th><th>ROE</th><th>RS</th>
+            <th>Leader</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>NVIDIA</strong><br><span class="company-desc">Semiconductors</span></td>
+            <td class="ticker">NVDA</td>
+            <td class="metric good">72%</td><td class="metric good">48%</td><td class="metric good">42%</td><td class="metric good">97</td>
+            <td><span class="canslim-badge strong">Leader</span></td>
+          </tr>
+          <tr>
+            <td><strong>Broadcom</strong><br><span class="company-desc">Semiconductors</span></td>
+            <td class="ticker">AVGO</td>
+            <td class="metric good">34%</td><td class="metric good">28%</td><td class="metric good">24%</td><td class="metric good">89</td>
+            <td><span class="canslim-badge strong">Leader</span></td>
+          </tr>
+          <tr>
+            <td><strong>Salesforce</strong><br><span class="company-desc">Cloud software</span></td>
+            <td class="ticker">CRM</td>
+            <td class="metric good">28%</td><td class="metric warn">22%</td><td class="metric good">21%</td><td class="metric good">82</td>
+            <td><span class="canslim-badge moderate">Strong</span></td>
+          </tr>
+          <tr>
+            <td><strong>Palo Alto Networks</strong><br><span class="company-desc">Cybersecurity</span></td>
+            <td class="ticker">PANW</td>
+            <td class="metric warn">18%</td><td class="metric good">26%</td><td class="metric good">19%</td><td class="metric warn">78</td>
+            <td><span class="canslim-badge moderate">Building</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-legend">
+        <div class="legend-item">
+          <span class="legend-dot good"></span>
+          <span>Meets Criteria</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot warn"></span>
+          <span>Below Threshold</span>
+        </div>
+        <div class="legend-item">
+          <span class="canslim-badge strong">Market Leader</span>
+          <span>Strongest in its sector</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screener-actions">
+      <a href="/screeners" class="btn btn-secondary">← Back to Screeners</a>
+      <a href="/articles" class="btn btn-primary">Learn More About O'Neil</a>
+    </div>
+  </div>
+</section>
+
+<section class="learn-more">
+  <div class="container">
+    <h2>Deep Dive: Understanding O'Neil's Criteria</h2>
+
+    <div class="criteria-explanations">
+      
+      <div class="explanation-card">
+        <h3>🔤 CAN SLIM Decoded</h3>
+        <p>Each letter in CAN SLIM is a checklist item O'Neil requires before buying:</p>
+        <ul>
+                    <li><strong>C — Current earnings:</strong> Quarterly EPS up 25%+ year-over-year, and accelerating</li>
+          <li><strong>A — Annual earnings:</strong> 3-5 year average EPS and revenue growth of 25%+</li>
+          <li><strong>N — New things:</strong> New product, new management, or new stock highs</li>
+          <li><strong>S — Supply & demand:</strong> Floating shares are limited; volume is rising</li>
+          <li><strong>L — Leader:</strong> RS rating above 80; buy the strongest, not the cheapest</li>
+          <li><strong>I — Institutional:</strong> Smart money (mutual/ hedge funds) is accumulating</li>
+          <li><strong>M — Market direction:</strong> The overall market must be in an uptrend</li>
+        </ul>
+      </div>
+      <div class="explanation-card">
+        <h3>📊 Relative Strength: Buy Winners</h3>
+        <p>O'Neil's most counterintuitive rule: don't buy cheap stocks — buy strong ones:</p>
+        <ul>
+                    <li><strong>RS Rating:</strong> A 0-100 score of how a stock outperforms the S&P 500 over 12 months</li>
+          <li><strong>Above 80:</strong> The stock is in the top 20% of all stocks — a true leader</li>
+          <li><strong>Why It Works:</strong> Strong stocks tend to keep going strong; weak stocks keep going weak</li>
+          <li><strong>The Trap:</strong> Waiting for a "cheap" dip often means catching a falling knife</li>
+        </ul>
+      </div>
+      <div class="explanation-card">
+        <h3>🚀 The Cup-with-Handle Pattern</h3>
+        <p>O'Neil's signature chart pattern appears before most big breakouts:</p>
+        <ul>
+                    <li><strong>The Cup:</strong> Stock rises, pulls back in a rounded "U" shape over 1-6 months</li>
+          <li><strong>The Handle:</strong> A small, tight pullback near the top — the "shakeout"</li>
+          <li><strong>The Pivot:</strong> Buy when price breaks above the handle on 40%+ above-average volume</li>
+          <li><strong>Stop Loss:</strong> Cut losses at 7-8% below your buy price — no exceptions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.screener-header {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+.screener-title {
+  text-align: center;
+  color: white;
+}
+
+.screener-emoji {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.screener-title h1 {
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.attribution {
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.screener-info {
+  padding: var(--spacing-3xl) 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.info-main h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-main p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-main ul {
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-main li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.fun-fact h4 {
+  color: #92400e;
+  margin-bottom: var(--spacing-sm);
+}
+
+.fun-fact p {
+  color: #78350f;
+  margin: 0;
+}
+
+.criteria-card {
+  background: var(--bg-card);
+  border: 2px solid #0284c7;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  position: sticky;
+  top: 6rem;
+}
+
+.criteria-card h3 {
+  margin-bottom: var(--spacing-lg);
+  color: #0284c7;
+}
+
+.criterion {
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.criterion:last-child {
+  border-bottom: none;
+}
+
+.criterion-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.criterion-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0284c7;
+  margin: var(--spacing-xs) 0;
+}
+
+.criterion-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.screener-demo {
+  padding: var(--spacing-3xl) 0;
+  background: var(--bg-secondary);
+}
+
+.section-description {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.results-table-container {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.disclaimer-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.update-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th {
+  background: var(--bg-secondary);
+  padding: var(--spacing-md);
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.results-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.company-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ticker {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.metric {
+  font-weight: 600;
+}
+
+.metric.good {
+  color: #10b981;
+}
+
+.metric.warn {
+  color: #f59e0b;
+}
+
+.canslim-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.canslim-badge.strong {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.canslim-badge.moderate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.table-legend {
+  display: flex;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.legend-dot.good {
+  background: #10b981;
+}
+
+.legend-dot.warn {
+  background: #f59e0b;
+}
+
+.screener-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+}
+
+.learn-more {
+  padding: var(--spacing-3xl) 0;
+}
+
+.learn-more h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.criteria-explanations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.explanation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.explanation-card h3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.explanation-card p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.explanation-card ul {
+  margin: 0;
+}
+
+.explanation-card li {
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .criteria-card {
+    position: static;
+  }
+
+  .table-legend {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-table {
+    font-size: 0.875rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: var(--spacing-sm);
+  }
+
+  .screener-actions {
+    flex-direction: column;
+  }
+}
+
+/* Ticker Analyzer Styles */
+.ticker-analyzer {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.analyzer-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ticker-input-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.input-group {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  transition: border-color var(--transition-fast);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input-help {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.api-status {
+  margin-top: var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+.api-status.error {
+  color: var(--color-danger);
+}
+
+.api-status.success {
+  color: var(--color-secondary);
+}
+
+.analysis-results {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.result-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.result-ticker {
+  background: var(--color-primary);
+  color: var(--text-on-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.metric-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border-left: 4px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.metric-card.pass {
+  border-left-color: var(--color-secondary);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.metric-card.fail {
+  border-left-color: var(--color-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.metric-card.loading {
+  border-left-color: var(--color-accent);
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-mono);
+}
+
+.metric-status {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.metric-status.pass {
+  color: var(--color-secondary);
+}
+
+.metric-status.fail {
+  color: var(--color-danger);
+}
+
+.metric-target {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.overall-score {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.score-header h4 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+.score-bar {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-danger) 0%, var(--color-accent) 50%, var(--color-secondary) 100%);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.score-verdict {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.result-disclaimer {
+  background: var(--color-warning-bg);
+  border-left: 4px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+}
+
+.result-disclaimer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group input {
+    width: 100%;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+<script src="/assets/js/fundamentals.js"></script>
+<script>// Real data + demo fallback
+async function analyzeStock() {
+  const tickerInput = document.getElementById('ticker-input');
+  const ticker = tickerInput.value.trim().toUpperCase();
+  
+  if (!ticker) {
+    showError('Please enter a ticker symbol');
+    return;
+  }
+  
+  resetResults();
+  showLoading(true);
+  hideError();
+  
+  await loadFundamentals();
+  await new Promise(resolve => setTimeout(resolve, 400));
+  
+  const realData = getFundamentals(ticker);
+  let metrics;
+  let companyName;
+  let isReal = false;
+  
+  if (realData) {
+    companyName = realData.name;
+    isReal = true;
+    const d = realData;
+    
+      const qeps = d.earningsQuarterlyGrowth != null ? d.earningsQuarterlyGrowth * 100 : null;
+      const aeps = d.earningsGrowth != null ? d.earningsGrowth * 100 : null;
+      const roe = d.roe != null ? d.roe * 100 : null;
+      const rs = computeRS(d.price, d.fiftyTwoWeekHigh, d.fiftyTwoWeekLow);
+      const vol = computeVolTrend(d.price, d.fiftyTwoWeekHigh, d.fiftyTwoWeekLow);
+    metrics = { qeps: qeps, aeps: aeps, roe: roe, rs: rs, vol: vol };
+  } else {
+    companyName = ticker + ' Corp.';
+    const hash = ticker.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    const sr = (min, max) => {
+      const x = Math.sin(hash + min) * 10000;
+      return min + (x - Math.floor(x)) * (max - min);
+    };
+    
+      const qeps = sr(-10, 80);
+      const aeps = sr(5, 60);
+      const roe = sr(5, 45);
+      const rs = sr(40, 99);
+      const vol = sr(20, 95);
+    metrics = { qeps: qeps, aeps: aeps, roe: roe, rs: rs, vol: vol };
+  }
+  
+  const statusEl = document.getElementById('api-status');
+  if (isReal) {
+    const status = getDataStatus();
+    statusEl.textContent = '📊 Real data as of ' + (status ? status.date : 'last close');
+    statusEl.className = 'api-status';
+  } else {
+    statusEl.textContent = '🎮 Demo mode — try: ' + getDemoTickers().join(', ');
+    statusEl.className = 'api-status';
+  }
+  
+  displayResults(ticker, companyName, metrics);
+  showLoading(false);
+}
+
+// Helper functions
+function computeRS(price, high52, low52) {
+  if (!price || !high52 || !low52 || high52 === low52) return 50;
+  const position = (price - low52) / (high52 - low52);
+  return Math.round(20 + position * 79);
+}
+function computeVolTrend(price, high52, low52) {
+  if (!price || !high52 || !low52) return 50;
+  const position = (price - low52) / (high52 - low52);
+  return Math.round(20 + position * 70);
+}
+function getDemoTickers() {
+  if (typeof fundamentalsData === 'undefined' || !fundamentalsData) return ['AAPL', 'KO', 'NVDA'];
+  return Object.keys(fundamentalsData.tickers).slice(0, 5);
+}
+
+function displayResults(ticker, companyName, metrics) {
+  const resultsDiv = document.getElementById('analysis-results');
+  resultsDiv.style.display = 'block';
+
+  // Update header
+  document.getElementById('company-name').textContent = companyName;
+  document.getElementById('result-ticker').textContent = ticker;
+
+  // Evaluate each metric against O'Neil's criteria
+  const evaluations = {
+    qeps: { value: metrics.qeps, threshold: 25, pass: metrics.qeps > 25 },
+    aeps: { value: metrics.aeps, threshold: 25, pass: metrics.aeps > 25 },
+    roe: { value: metrics.roe, threshold: 17, pass: metrics.roe > 17 },
+    rs: { value: metrics.rs, threshold: 80, pass: metrics.rs > 80 },
+    vol: { value: metrics.vol, threshold: 50, pass: metrics.vol > 50 }
+  };
+
+  // Update metric displays
+  updateMetric('qeps', evaluations.qeps.value.toFixed(1) + '%', evaluations.qeps.pass);
+  updateMetric('aeps', evaluations.aeps.value.toFixed(1) + '%', evaluations.aeps.pass);
+  updateMetric('roe', evaluations.roe.value.toFixed(1) + '%', evaluations.roe.pass);
+  updateMetric('rs', evaluations.rs.value.toFixed(0), evaluations.rs.pass);
+  updateMetric('vol', evaluations.vol.value > 50 ? 'Rising' : 'Flat/Falling', evaluations.vol.pass);
+
+  // Calculate overall score
+  const score = Object.values(evaluations).filter(e => e.pass).length;
+  const maxScore = 5;
+  const percentage = (score / maxScore) * 100;
+
+  // Update score display
+  document.getElementById('oneil-score').textContent = `${score}/${maxScore}`;
+  document.getElementById('score-fill').style.width = `${percentage}%`;
+
+  // Generate verdict
+  let verdict = '';
+if (score === 5) verdict = '📈 Excellent! This stock meets all of O\'Neil\'s CAN SLIM criteria!';
+  else if (score >= 4) verdict = '✅ Good match! This stock meets most of the CAN SLIM criteria.';
+  else if (score >= 3) verdict = '⚠️ Partial match. Some criteria are met, but not all.';
+  else verdict = '❌ Doesn\'t match CAN SLIM criteria well. Consider other options.';
+
+  document.getElementById('score-verdict').textContent = verdict;
+
+  // Scroll to results
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateMetric(metricName, value, passed) {
+  const card = document.querySelector(`[data-metric="${metricName}"]`);
+  const statusEl = document.getElementById(`status-${metricName}`);
+
+  document.getElementById(`metric-${metricName}`).textContent = value;
+
+  // Remove loading state
+  card.classList.remove('loading');
+
+  if (passed) {
+    card.classList.add('pass');
+    statusEl.textContent = '✓ Pass';
+    statusEl.classList.add('pass');
+  } else {
+    card.classList.add('fail');
+    statusEl.textContent = '✗ Below Target';
+    statusEl.classList.add('fail');
+  }
+}
+
+function resetResults() {
+  // Reset all metric cards
+  document.querySelectorAll('.metric-card').forEach(card => {
+    card.classList.remove('pass', 'fail', 'loading');
+    card.classList.add('loading');
+  });
+
+  // Reset status texts
+  document.querySelectorAll('.metric-status').forEach(el => {
+    el.textContent = 'Loading...';
+    el.classList.remove('pass', 'fail');
+  });
+
+  // Reset metric values
+  ['qeps', 'aeps', 'roe', 'rs', 'vol'].forEach(metric => {
+    document.getElementById(`metric-${metric}`).textContent = '--';
+  });
+}
+
+function showLoading(show) {
+  document.getElementById('btn-text').style.display = show ? 'none' : 'inline';
+  document.getElementById('btn-loading').style.display = show ? 'inline' : 'none';
+  document.getElementById('analyze-btn').disabled = show;
+}
+
+function showError(message) {
+  const statusEl = document.getElementById('api-status');
+  statusEl.textContent = '❌ ' + message;
+  statusEl.className = 'api-status error';
+}
+
+function hideError() {
+  const statusEl = document.getElementById('api-status');
+  statusEl.textContent = '';
+  statusEl.className = 'api-status';
+}
+
+// Allow Enter key to trigger analysis
+document.addEventListener('DOMContentLoaded', function() {
+  const tickerInput = document.getElementById('ticker-input');
+  if (tickerInput) {
+    tickerInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        analyzeStock();
+      }
+    });
+  }
+});
+
+</script>

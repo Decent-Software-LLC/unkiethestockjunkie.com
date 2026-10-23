@@ -1,0 +1,63 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="{{ '/' | relative_url }}" class="footer-logo">
+          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Unkie The Stock Junkie" class="logo-img">
+          <span class="logo-text">Unkie<span class="logo-accent">The</span>Stock<span class="logo-accent">Junkie</span></span>
+        </a>
+        <p class="footer-description">Teaching teenagers the art and science of investing through legendary strategies and real-world examples.</p>
+        <div class="footer-social">
+          <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
+          <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank" rel="noopener" aria-label="GitHub">💻</a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="{{ '/articles' | relative_url }}">All Articles</a></li>
+            <li><a href="{{ '/screeners' | relative_url }}">Stock Screeners</a></li>
+            <li><a href="{{ '/about' | relative_url }}">About</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Investors</h4>
+          <ul>
+            <li><a href="{{ '/screeners/buffett' | relative_url }}">Warren Buffett</a></li>
+            <li><a href="{{ '/screeners/graham' | relative_url }}">Benjamin Graham</a></li>
+            <li><a href="{{ '/screeners/lynch' | relative_url }}">Peter Lynch</a></li>
+            <li><a href="{{ '/screeners/icahn' | relative_url }}">Carl Icahn</a></li>
+            <li><a href="{{ '/screeners/munger' | relative_url }}">Charlie Munger</a></li>
+            <li><a href="{{ '/screeners/greenblatt' | relative_url }}">Joel Greenblatt</a></li>
+            <li><a href="{{ '/screeners/oneil' | relative_url }}">William O'Neil</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="{{ '/about' | relative_url }}">About Unkie</a></li>
+            <li><a href="{{ '/faq' | relative_url }}">FAQ</a></li>
+            <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a>
+        <a href="{{ '/terms' | relative_url }}">Terms of Use</a>
+        <a href="{{ '/disclaimer' | relative_url }}">Disclaimer</a>
+      </div>
+      <p class="disclaimer">
+        <strong>Not Financial Advice:</strong> This site is for educational purposes only. 
+        Not investment advice. Investing involves risk of loss.
+      </p>
+    </div>
+  </div>
+</footer>

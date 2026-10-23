@@ -1,0 +1,1034 @@
+---
+layout: default
+title: "Buffett Screener - Find Wonderful Companies"
+description: "Warren Buffett's value investing criteria. Find companies with strong competitive advantages, consistent ROE, and sustainable business models."
+permalink: /screeners/buffett/
+---
+
+<section class="page-header screener-header">
+  <div class="container">
+    <div class="screener-title">
+      <div class="screener-emoji">🎯</div>
+      <h1>The Buffett Screener</h1>
+      <p class="tagline">"It's far better to buy a wonderful company at a fair price than a fair company at a wonderful price."</p>
+      <p class="attribution">— Warren Buffett</p>
+    </div>
+  </div>
+</section>
+
+<section class="screener-info">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-main">
+        <h2>Warren Buffett's Philosophy</h2>
+        <p>Warren Buffett, the "Oracle of Omaha," is widely considered the most successful investor of all time. With a net worth exceeding $100 billion, he's proven that patient, disciplined value investing works.</p>
+        
+        <h3>Key Principles</h3>
+        <ul>
+          <li><strong>Circle of Competence:</strong> Only invest in businesses you understand</li>
+          <li><strong>Economic Moats:</strong> Look for durable competitive advantages</li>
+          <li><strong>Long-term Thinking:</strong> Buy and hold quality companies forever</li>
+          <li><strong>Management Quality:</strong> Honest, capable leadership is essential</li>
+          <li><strong>Margin of Safety:</strong> Don't overpay, even for great companies</li>
+        </ul>
+        
+        <div class="fun-fact">
+          <h4>💡 Did You Know?</h4>
+          <p>Buffett bought his first stock at age 11 and filed his first tax return at age 13. He read every book in the Omaha Public Library on investing by age 15!</p>
+        </div>
+      </div>
+      
+      <div class="info-sidebar">
+        <div class="criteria-card">
+          <h3>Screener Criteria</h3>
+          <div class="criterion">
+            <div class="criterion-name">Return on Equity (ROE)</div>
+            <div class="criterion-value">> 15%</div>
+            <div class="criterion-desc">Consistent over 5+ years</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Debt-to-Equity</div>
+            <div class="criterion-value">< 0.5</div>
+            <div class="criterion-desc">Low debt, strong balance sheet</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Free Cash Flow</div>
+            <div class="criterion-value">Positive</div>
+            <div class="criterion-desc">Consistent cash generation</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Profit Margin</div>
+            <div class="criterion-value">> 10%</div>
+            <div class="criterion-desc">Sustainable profitability</div>
+          </div>
+          <div class="criterion">
+            <div class="criterion-name">Earnings Growth</div>
+            <div class="criterion-value">Consistent</div>
+            <div class="criterion-desc">5-10 year track record</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ticker-analyzer">
+<div class="container">
+<h2 class="section-title">📊 Analyze Any Stock</h2>
+<p class="section-description">Enter a ticker symbol to see how it measures up against Buffett's criteria</p>
+
+<div class="analyzer-card">
+<div class="ticker-input-section">
+<div class="input-group">
+<input type="text" id="ticker-input" placeholder="Enter ticker (e.g., AAPL, MSFT, JPM)" maxlength="5">
+<button id="analyze-btn" class="btn btn-primary" onclick="analyzeStock()">
+<span id="btn-text">Analyze Stock</span>
+<span id="btn-loading" style="display: none;">Analyzing...</span>
+</button>
+</div>
+<p class="input-help">Try: AAPL, MSFT, JPM, KO, PG, or any US stock ticker</p>
+<div id="api-status" class="api-status"></div>
+</div>
+
+<div id="analysis-results" class="analysis-results" style="display: none;">
+<div class="result-header">
+<h3 id="company-name">Company Name</h3>
+<span id="result-ticker" class="result-ticker">TICKER</span>
+</div>
+
+<div class="metrics-grid">
+<div class="metric-card" data-metric="roe">
+<div class="metric-label">Return on Equity (ROE)</div>
+<div class="metric-value" id="metric-roe">--</div>
+<div class="metric-status" id="status-roe">Loading...</div>
+<div class="metric-target">Target: > 15%</div>
+</div>
+
+<div class="metric-card" data-metric="debt">
+<div class="metric-label">Debt-to-Equity</div>
+<div class="metric-value" id="metric-debt">--</div>
+<div class="metric-status" id="status-debt">Loading...</div>
+<div class="metric-target">Target: < 0.5</div>
+</div>
+
+<div class="metric-card" data-metric="fcf">
+<div class="metric-label">Free Cash Flow</div>
+<div class="metric-value" id="metric-fcf">--</div>
+<div class="metric-status" id="status-fcf">Loading...</div>
+<div class="metric-target">Target: Positive</div>
+</div>
+
+<div class="metric-card" data-metric="margin">
+<div class="metric-label">Profit Margin</div>
+<div class="metric-value" id="metric-margin">--</div>
+<div class="metric-status" id="status-margin">Loading...</div>
+<div class="metric-target">Target: > 10%</div>
+</div>
+</div>
+
+<div class="overall-score">
+<div class="score-header">
+<h4>Buffett Score</h4>
+<div class="score-value" id="buffett-score">--/4</div>
+</div>
+<div class="score-bar">
+<div class="score-fill" id="score-fill" style="width: 0%"></div>
+</div>
+<p class="score-verdict" id="score-verdict">Enter a ticker to see results</p>
+</div>
+
+<div class="result-disclaimer">
+<p><strong>Demo Mode:</strong> This is an educational demonstration that generates realistic sample data. Results are based on the ticker symbol but do not reflect actual real-time financial metrics. In a production environment, this would connect to financial APIs like Alpha Vantage or Yahoo Finance. Always verify with official sources before making investment decisions.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="screener-demo">
+<div class="container">
+<h2 class="section-title">Example Results</h2>
+<p class="section-description">Companies that match Buffett's criteria (for educational purposes only)</p>
+
+<div class="results-table-container">
+      <div class="results-header">
+        <span class="disclaimer-badge">📚 Educational Data</span>
+        <span class="update-time">Updated: Delayed data for learning purposes</span>
+      </div>
+      
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Ticker</th>
+            <th>ROE</th>
+            <th>Debt/Equity</th>
+            <th>FCF</th>
+            <th>Margin</th>
+            <th>Moat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Apple Inc.</strong><br><span class="company-desc">Consumer electronics</span></td>
+            <td class="ticker">AAPL</td>
+            <td class="metric good">160%</td>
+            <td class="metric good">1.8</td>
+            <td class="metric good">$99B</td>
+            <td class="metric good">25%</td>
+            <td><span class="moat-badge strong">Strong</span></td>
+          </tr>
+          <tr>
+            <td><strong>Coca-Cola</strong><br><span class="company-desc">Beverages</span></td>
+            <td class="ticker">KO</td>
+            <td class="metric good">42%</td>
+            <td class="metric good">2.5</td>
+            <td class="metric good">$9B</td>
+            <td class="metric good">23%</td>
+            <td><span class="moat-badge strong">Strong</span></td>
+          </tr>
+          <tr>
+            <td><strong>American Express</strong><br><span class="company-desc">Financial services</span></td>
+            <td class="ticker">AXP</td>
+            <td class="metric good">31%</td>
+            <td class="metric warn">3.8</td>
+            <td class="metric good">$12B</td>
+            <td class="metric good">16%</td>
+            <td><span class="moat-badge moderate">Moderate</span></td>
+          </tr>
+          <tr>
+            <td><strong>Procter & Gamble</strong><br><span class="company-desc">Consumer goods</span></td>
+            <td class="ticker">PG</td>
+            <td class="metric good">32%</td>
+            <td class="metric good">0.6</td>
+            <td class="metric good">$15B</td>
+            <td class="metric good">18%</td>
+            <td><span class="moat-badge strong">Strong</span></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="table-legend">
+        <div class="legend-item">
+          <span class="legend-dot good"></span>
+          <span>Meets Criteria</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot warn"></span>
+          <span>Below Threshold</span>
+        </div>
+        <div class="legend-item">
+          <span class="moat-badge strong">Strong</span>
+          <span>Durable competitive advantage</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="screener-actions">
+      <a href="/screeners" class="btn btn-secondary">← Back to Screeners</a>
+      <a href="/articles" class="btn btn-primary">Learn More About Buffett</a>
+    </div>
+  </div>
+</section>
+
+<section class="learn-more">
+  <div class="container">
+    <h2>Deep Dive: Understanding Buffett's Criteria</h2>
+    
+    <div class="criteria-explanations">
+      <div class="explanation-card">
+        <h3>🏆 Economic Moats</h3>
+        <p>Buffett looks for companies with "moats" - competitive advantages that protect them from competition:</p>
+        <ul>
+          <li><strong>Brand Power:</strong> Like Coca-Cola or Apple</li>
+          <li><strong>Network Effects:</strong> More users make the product more valuable</li>
+          <li><strong>Cost Advantages:</strong> Cheaper to produce than competitors</li>
+          <li><strong>Switching Costs:</strong> Hard for customers to leave</li>
+          <li><strong>Regulatory Barriers:</strong> Licenses or patents that block competition</li>
+        </ul>
+      </div>
+      
+      <div class="explanation-card">
+        <h3>📊 Return on Equity (ROE)</h3>
+        <p>ROE measures how efficiently a company generates profit from shareholder equity:</p>
+        <ul>
+          <li><strong>Calculation:</strong> Net Income ÷ Shareholder Equity</li>
+          <li><strong>Buffett's Standard:</strong> Consistently > 15% over 5+ years</li>
+          <li><strong>Why It Matters:</strong> Shows management can deploy capital effectively</li>
+          <li><strong>Watch Out For:</strong> High debt can artificially inflate ROE</li>
+        </ul>
+      </div>
+      
+      <div class="explanation-card">
+        <h3>💰 Free Cash Flow</h3>
+        <p>Cash is king. Free cash flow shows how much money a business actually generates:</p>
+        <ul>
+          <li><strong>Calculation:</strong> Operating Cash Flow - Capital Expenditures</li>
+          <li><strong>Why Buffett Loves It:</strong> Can't be manipulated like earnings</li>
+          <li><strong>Uses:</strong> Can fund growth, pay dividends, or buy back stock</li>
+          <li><strong>Red Flag:</strong> Profits without cash flow</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.screener-header {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.screener-title {
+  text-align: center;
+  color: white;
+}
+
+.screener-emoji {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.screener-title h1 {
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.attribution {
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+.screener-info {
+  padding: var(--spacing-3xl) 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.info-main h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-main p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-main ul {
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-main li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.fun-fact h4 {
+  color: #92400e;
+  margin-bottom: var(--spacing-sm);
+}
+
+.fun-fact p {
+  color: #78350f;
+  margin: 0;
+}
+
+.criteria-card {
+  background: var(--bg-card);
+  border: 2px solid #6366f1;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  position: sticky;
+  top: 6rem;
+}
+
+.criteria-card h3 {
+  margin-bottom: var(--spacing-lg);
+  color: #6366f1;
+}
+
+.criterion {
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.criterion:last-child {
+  border-bottom: none;
+}
+
+.criterion-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.criterion-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin: var(--spacing-xs) 0;
+}
+
+.criterion-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.screener-demo {
+  padding: var(--spacing-3xl) 0;
+  background: var(--bg-secondary);
+}
+
+.section-description {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.results-table-container {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.disclaimer-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.update-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th {
+  background: var(--bg-secondary);
+  padding: var(--spacing-md);
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.results-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.company-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ticker {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.metric {
+  font-weight: 600;
+}
+
+.metric.good {
+  color: #10b981;
+}
+
+.metric.warn {
+  color: #f59e0b;
+}
+
+.moat-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.moat-badge.strong {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.moat-badge.moderate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.table-legend {
+  display: flex;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.legend-dot.good {
+  background: #10b981;
+}
+
+.legend-dot.warn {
+  background: #f59e0b;
+}
+
+.screener-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+}
+
+.learn-more {
+  padding: var(--spacing-3xl) 0;
+}
+
+.learn-more h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.criteria-explanations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.explanation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.explanation-card h3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.explanation-card p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.explanation-card ul {
+  margin: 0;
+}
+
+.explanation-card li {
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .criteria-card {
+    position: static;
+  }
+  
+  .table-legend {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-table {
+    font-size: 0.875rem;
+  }
+  
+  .results-table th,
+  .results-table td {
+    padding: var(--spacing-sm);
+  }
+  
+.screener-actions {
+  flex-direction: column;
+}
+}
+
+/* Ticker Analyzer Styles */
+.ticker-analyzer {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.analyzer-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ticker-input-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.input-group {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  transition: border-color var(--transition-fast);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input-help {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.api-status {
+  margin-top: var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+.api-status.error {
+  color: var(--color-danger);
+}
+
+.api-status.success {
+  color: var(--color-secondary);
+}
+
+.analysis-results {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.result-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.result-ticker {
+  background: var(--color-primary);
+  color: var(--text-on-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.metric-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border-left: 4px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.metric-card.pass {
+  border-left-color: var(--color-secondary);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.metric-card.fail {
+  border-left-color: var(--color-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.metric-card.loading {
+  border-left-color: var(--color-accent);
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-mono);
+}
+
+.metric-status {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.metric-status.pass {
+  color: var(--color-secondary);
+}
+
+.metric-status.fail {
+  color: var(--color-danger);
+}
+
+.metric-target {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.overall-score {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.score-header h4 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+.score-bar {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-danger) 0%, var(--color-accent) 50%, var(--color-secondary) 100%);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.score-verdict {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.result-disclaimer {
+  background: var(--color-warning-bg);
+  border-left: 4px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+}
+
+.result-disclaimer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group input {
+    width: 100%;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+<script src="/assets/js/fundamentals.js"></script>
+<script>// Real data + demo fallback
+async function analyzeStock() {
+  const tickerInput = document.getElementById('ticker-input');
+  const ticker = tickerInput.value.trim().toUpperCase();
+  
+  if (!ticker) {
+    showError('Please enter a ticker symbol');
+    return;
+  }
+  
+  resetResults();
+  showLoading(true);
+  hideError();
+  
+  await loadFundamentals();
+  await new Promise(resolve => setTimeout(resolve, 400));
+  
+  const realData = getFundamentals(ticker);
+  let metrics;
+  let companyName;
+  let isReal = false;
+  
+  if (realData) {
+    companyName = realData.name;
+    isReal = true;
+    const d = realData;
+    
+      const roe = d.roe != null ? d.roe * 100 : null;
+      const debt = d.debtToEquity != null ? d.debtToEquity / 100 : null;
+      const fcf = d.freeCashFlow;
+      const margin = d.profitMargin != null ? d.profitMargin * 100 : null;
+    metrics = { roe: roe, debt: debt, fcf: fcf, margin: margin };
+  } else {
+    companyName = ticker + ' Corp.';
+    const hash = ticker.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    const sr = (min, max) => {
+      const x = Math.sin(hash + min) * 10000;
+      return min + (x - Math.floor(x)) * (max - min);
+    };
+    
+      const roe = sr(5, 40);
+      const debt = sr(0.1, 3.0);
+      const fcf = sr(1000000000, 50000000000);
+      const margin = sr(3, 35);
+    metrics = { roe: roe, debt: debt, fcf: fcf, margin: margin };
+  }
+  
+  const statusEl = document.getElementById('api-status');
+  if (isReal) {
+    const status = getDataStatus();
+    statusEl.textContent = '📊 Real data as of ' + (status ? status.date : 'last close');
+    statusEl.className = 'api-status';
+  } else {
+    statusEl.textContent = '🎮 Demo mode — try: ' + getDemoTickers().join(', ');
+    statusEl.className = 'api-status';
+  }
+  
+  displayResults(ticker, companyName, metrics);
+  showLoading(false);
+}
+
+// Helper functions
+function computeRS(price, high52, low52) {
+  if (!price || !high52 || !low52 || high52 === low52) return 50;
+  const position = (price - low52) / (high52 - low52);
+  return Math.round(20 + position * 79);
+}
+function computeVolTrend(price, high52, low52) {
+  if (!price || !high52 || !low52) return 50;
+  const position = (price - low52) / (high52 - low52);
+  return Math.round(20 + position * 70);
+}
+function getDemoTickers() {
+  if (typeof fundamentalsData === 'undefined' || !fundamentalsData) return ['AAPL', 'KO', 'NVDA'];
+  return Object.keys(fundamentalsData.tickers).slice(0, 5);
+}
+
+function displayResults(ticker, companyName, metrics) {
+  const resultsDiv = document.getElementById('analysis-results');
+  resultsDiv.style.display = 'block';
+  
+  // Update header
+  document.getElementById('company-name').textContent = companyName;
+  document.getElementById('result-ticker').textContent = ticker;
+  
+  // Evaluate each metric against Buffett's criteria
+  const evaluations = {
+    roe: { value: metrics.roe, threshold: 15, pass: metrics.roe > 15 },
+    debt: { value: metrics.debt, threshold: 0.5, pass: metrics.debt < 0.5 },
+    fcf: { value: metrics.fcf, threshold: 0, pass: metrics.fcf > 0 },
+    margin: { value: metrics.margin, threshold: 10, pass: metrics.margin > 10 }
+  };
+  
+  // Update metric displays
+  updateMetric('roe', evaluations.roe.value.toFixed(1) + '%', evaluations.roe.pass);
+  updateMetric('debt', evaluations.debt.value.toFixed(2), evaluations.debt.pass);
+  updateMetric('fcf', '$' + (evaluations.fcf.value / 1000000000).toFixed(1) + 'B', evaluations.fcf.pass);
+  updateMetric('margin', evaluations.margin.value.toFixed(1) + '%', evaluations.margin.pass);
+  
+  // Calculate overall score
+  const score = Object.values(evaluations).filter(e => e.pass).length;
+  const maxScore = 4;
+  const percentage = (score / maxScore) * 100;
+  
+  // Update score display
+  document.getElementById('buffett-score').textContent = `${score}/${maxScore}`;
+  document.getElementById('score-fill').style.width = `${percentage}%`;
+  
+  // Generate verdict
+  let verdict = '';
+  if (score === 4) verdict = '🌟 Excellent! This stock meets all of Buffett\'s key criteria!';
+  else if (score >= 3) verdict = '✅ Good match! This stock meets most of Buffett\'s criteria.';
+  else if (score >= 2) verdict = '⚠️ Partial match. Some criteria are met, but not all.';
+  else verdict = '❌ Doesn\'t match Buffett\'s criteria well. Consider other options.';
+  
+  document.getElementById('score-verdict').textContent = verdict;
+  
+  // Scroll to results
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateMetric(metricName, value, passed) {
+  const card = document.querySelector(`[data-metric="${metricName}"]`);
+  const statusEl = document.getElementById(`status-${metricName}`);
+  
+  document.getElementById(`metric-${metricName}`).textContent = value;
+  
+  // Remove loading state
+  card.classList.remove('loading');
+  
+  if (passed) {
+    card.classList.add('pass');
+    statusEl.textContent = '✓ Pass';
+    statusEl.classList.add('pass');
+  } else {
+    card.classList.add('fail');
+    statusEl.textContent = '✗ Below Target';
+    statusEl.classList.add('fail');
+  }
+}
+
+function resetResults() {
+  // Reset all metric cards
+  document.querySelectorAll('.metric-card').forEach(card => {
+    card.classList.remove('pass', 'fail', 'loading');
+    card.classList.add('loading');
+  });
+  
+  // Reset status texts
+  document.querySelectorAll('.metric-status').forEach(el => {
+    el.textContent = 'Loading...';
+    el.classList.remove('pass', 'fail');
+  });
+  
+  // Reset metric values
+  ['roe', 'debt', 'fcf', 'margin'].forEach(metric => {
+    document.getElementById(`metric-${metric}`).textContent = '--';
+  });
+}
+
+function showLoading(show) {
+  document.getElementById('btn-text').style.display = show ? 'none' : 'inline';
+  document.getElementById('btn-loading').style.display = show ? 'inline' : 'none';
+  document.getElementById('analyze-btn').disabled = show;
+}
+
+function showError(message) {
+  const statusEl = document.getElementById('api-status');
+  statusEl.textContent = '❌ ' + message;
+  statusEl.className = 'api-status error';
+}
+
+function hideError() {
+  const statusEl = document.getElementById('api-status');
+  statusEl.textContent = '';
+  statusEl.className = 'api-status';
+}
+
+// Allow Enter key to trigger analysis
+document.addEventListener('DOMContentLoaded', function() {
+  const tickerInput = document.getElementById('ticker-input');
+  if (tickerInput) {
+    tickerInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        analyzeStock();
+      }
+    });
+  }
+});
+</script>

@@ -1,0 +1,60 @@
+name: Fetch Market Fundamentals
+
+on:
+  schedule:
+    # 4:15 PM ET (20:15 UTC) on weekdays — right after market close
+    # Note: GitHub Actions cron is in UTC. ET is UTC-5 (EST) or UTC-4 (EDT).
+    # We use 20:15 UTC which is 4:15 PM EST / 3:15 PM EDT.
+    # During EDT (summer), this is 1 hour before close, which is fine since
+    # the data is "as of last close" anyway.
+    - cron: '15 20 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch fundamentals from Yahoo Finance
+        run: npm run fetch-fundamentals
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push updated data
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add assets/data/fundamentals.json
+          git commit -m "📊 Update market fundamentals: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase
+          git push
+
+      - name: Trigger GitHub Pages rebuild
+        if: steps.check_changes.outputs.changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.requestPagesBuild({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })

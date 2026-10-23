@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unkiethestockjunkie.com/sitemap.xml

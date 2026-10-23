@@ -1,0 +1,36 @@
+<article class="article-card" data-difficulty="{{ include.article.difficulty }}">
+  {% if include.article.image %}
+    <a href="{{ include.article.url | relative_url }}" class="article-card-image">
+      <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.title }}">
+    </a>
+  {% endif %}
+  
+  <div class="article-card-content">
+    <div class="article-card-meta">
+      {% if include.article.difficulty %}
+        <span class="difficulty-badge difficulty-{{ include.article.difficulty }}">
+          {{ include.article.difficulty | capitalize }}
+        </span>
+      {% endif %}
+      <time datetime="{{ include.article.date | date_to_xmlschema }}">
+        {{ include.article.date | date: "%b %d, %Y" }}
+      </time>
+    </div>
+    
+    <h3 class="article-card-title">
+      <a href="{{ include.article.url | relative_url }}">{{ include.article.title }}</a>
+    </h3>
+    
+    {% if include.article.description %}
+      <p class="article-card-description">{{ include.article.description | truncate: 120 }}</p>
+    {% endif %}
+    
+    {% if include.article.tags %}
+      <div class="article-card-tags">
+        {% for tag in include.article.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</article>
