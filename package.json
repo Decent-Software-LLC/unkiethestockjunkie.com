@@ -18,7 +18,7 @@
     "backfill-related": "node scripts/backfill-related-articles.js",
     "docker:generate": "docker compose run --rm generate",
     "docker:fetch-fundamentals": "docker compose run --rm fundamentals",
-    "test": "node scripts/test-related-articles.js"
+    "test": "node scripts/test-related-articles.js && node scripts/test-articles-search.js"
   },
   "keywords": [
     "investing",

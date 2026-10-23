@@ -28,6 +28,8 @@ jobs:
       # Pins the Ruby used for preview locally and in this job. System Ruby on macOS is
       # too old for modern rouge, which is why the repo carries a Dockerfile; reusing
       # that image here keeps "works locally" and "passes CI" the same statement.
+      # _site is written into the workspace because test-articles-search.js inspects the
+      # generated /articles page (it must assert against real output, not a copy of the logic).
       - name: Build site (strict)
         uses: docker://ruby:3.3-slim
         with:

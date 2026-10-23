@@ -16,6 +16,22 @@ permalink: /articles/
   <div class="container">
 
     <div class="articles-toolbar">
+      <div class="search-row">
+        <label class="search-label" for="article-search">Search articles</label>
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="article-search"
+            class="search-input"
+            placeholder="Try &quot;dividends&quot;, &quot;Buffett&quot;, or &quot;ETF&quot;"
+            autocomplete="off"
+            aria-describedby="results-count"
+          />
+          <button type="button" class="search-clear" id="article-search-clear" hidden aria-label="Clear search">✕</button>
+        </div>
+      </div>
+
       <div class="filter-row">
         <div class="filter-buttons">
           <button class="filter-btn active" data-filter="all" onclick="filterArticles('all')">All Articles</button>
@@ -39,6 +55,12 @@ permalink: /articles/
           <p>Articles are generated automatically each day. Check back soon!</p>
         </div>
       {% endfor %}
+    </div>
+
+    <div class="no-results" id="no-results" role="status" hidden>
+      <h3>No matches</h3>
+      <p id="no-results-text">Nothing matched that search.</p>
+      <button type="button" class="btn btn-secondary" id="no-results-reset">Show all articles</button>
     </div>
 
   </div>
@@ -240,37 +262,239 @@ permalink: /articles/
     display: none;
   }
 }
+
+/* Search */
+.search-row {
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 32rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--spacing-md);
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 2.75rem 0.75rem 2.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Native clear button in WebKit/Safari conflicts with our own control. */
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.search-clear:hover {
+  color: var(--text-primary);
+}
+
+.no-results {
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-md);
+  color: var(--text-secondary);
+}
+
+.no-results h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.no-results p {
+  margin-bottom: var(--spacing-lg);
+}
 </style>
 
 <script>
-function filterArticles(filter) {
-  const resultsCount = document.getElementById('results-count');
-  const buttons = document.querySelectorAll('.filter-btn');
-  const articles = document.querySelectorAll('.article-card');
+/**
+ * Article filtering by difficulty + free-text search.
+ *
+ * Both filters run through applyArticleFilters() so they compose instead of fighting:
+ * separate handlers each calling style.display would let one undo the other.
+ *
+ * Searches the text already present in each card (title, description, tags) rather than
+ * fetching an index. The /articles page is ~128KB and already contains every field we
+ * want to match, so a search.json would re-download roughly 24KB of duplicated data and
+ * add a request that can fail. This also keeps GitHub Pages support trivial - no build
+ * step, no service, no query endpoint.
+ */
+(function () {
+  var list = document.getElementById('articles-list');
+  if (!list) return;
 
-  buttons.forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.dataset.filter === filter) {
-      btn.classList.add('active');
-    }
+  var cards = Array.prototype.slice.call(list.querySelectorAll('.article-card'));
+  var resultsCount = document.getElementById('results-count');
+  var searchInput = document.getElementById('article-search');
+  var clearBtn = document.getElementById('article-search-clear');
+  var noResults = document.getElementById('no-results');
+  var noResultsText = document.getElementById('no-results-text');
+  var resetBtn = document.getElementById('no-results-reset');
+
+  // Pre-index each card's searchable text once at load instead of walking the DOM per keystroke.
+  var records = cards.map(function (card) {
+    var title = card.querySelector('.article-card-title');
+    var desc = card.querySelector('.article-card-description');
+    // Tags are read from data-tags, not the rendered .tag pills: article-card.html shows
+    // only the first three for layout reasons, which would have left ~23% of all tags
+    // unfindable - including hyphenated ones like compound-interest.
+    return {
+      card: card,
+      haystack: [
+        title ? title.textContent : '',
+        desc ? desc.textContent : '',
+        card.getAttribute('data-tags') || '',
+        card.getAttribute('data-difficulty') || ''
+      ].join(' ').toLowerCase()
+    };
   });
 
-  let visibleCount = 0;
-  articles.forEach(article => {
-    const articleDifficulty = article.dataset.difficulty;
-    if (filter === 'all' || articleDifficulty === filter) {
-      article.style.display = '';
-      visibleCount++;
-    } else {
-      article.style.display = 'none';
-    }
-  });
+  var currentFilter = 'all';
+  var currentQuery = '';
 
-  if (filter === 'all') {
-    resultsCount.textContent = `Showing all ${visibleCount} articles`;
-  } else {
-    const filterLabel = filter.charAt(0).toUpperCase() + filter.slice(1);
-    resultsCount.textContent = `Showing ${visibleCount} ${filterLabel} articles`;
+  function labelFor(filter) {
+    return filter.charAt(0).toUpperCase() + filter.slice(1);
   }
-}
+
+  function apply() {
+    var terms = currentQuery.split(/\s+/).filter(Boolean);
+    var visible = 0;
+
+    records.forEach(function (rec) {
+      var matchesDifficulty =
+        currentFilter === 'all' || rec.card.getAttribute('data-difficulty') === currentFilter;
+      // All terms must appear (AND), so "dividend safety" narrows rather than widens.
+      var matchesQuery = terms.every(function (term) {
+        return rec.haystack.indexOf(term) !== -1;
+      });
+
+      var show = matchesDifficulty && matchesQuery;
+      rec.card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    if (resultsCount) {
+      if (terms.length || currentFilter !== 'all') {
+        var bits = [visible];
+        bits.push(currentFilter === 'all' ? 'articles' : labelFor(currentFilter) + ' articles');
+        if (terms.length) bits.push('matching "' + currentQuery + '"');
+        resultsCount.textContent = 'Showing ' + bits.join(' ');
+      } else {
+        resultsCount.textContent = 'Showing all ' + visible + ' articles';
+      }
+    }
+
+    if (noResults) {
+      noResults.hidden = visible !== 0;
+      if (visible === 0 && noResultsText) {
+        noResultsText.textContent = terms.length
+          ? 'Nothing matched "' + currentQuery + '"'
+          + (currentFilter === 'all' ? '.' : ' at the ' + labelFor(currentFilter) + ' level.')
+          : 'There are no ' + labelFor(currentFilter) + ' articles yet.';
+      }
+    }
+
+    if (clearBtn) clearBtn.hidden = !currentQuery;
+  }
+
+  // Exposed for the existing difficulty buttons in the toolbar.
+  window.filterArticles = function (filter) {
+    currentFilter = filter || 'all';
+    document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.filter === currentFilter);
+    });
+    apply();
+  };
+
+  if (searchInput) {
+    var timer;
+    searchInput.addEventListener('input', function (e) {
+      clearTimeout(timer);
+      var value = e.target.value;
+      // Debounced: filtering 101 cards per keystroke is wasteful on low-end phones,
+      // which is much of this audience.
+      timer = setTimeout(function () {
+        currentQuery = value.trim().toLowerCase();
+        apply();
+      }, 150);
+    });
+
+    // Escape clears, matching what people expect from a search field.
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        currentQuery = '';
+        apply();
+      }
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      if (searchInput) searchInput.value = '';
+      currentQuery = '';
+      apply();
+      if (searchInput) searchInput.focus();
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function () {
+      if (searchInput) searchInput.value = '';
+      currentQuery = '';
+      window.filterArticles('all');
+    });
+  }
+
+  apply();
+})();
 </script>

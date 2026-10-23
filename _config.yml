@@ -64,5 +64,8 @@ social:
 google_analytics: ""
 
 # Features
+# enable_search/enable_dark_mode are documentation of what the site does today;
+# no template reads them (search lives in articles.md, dark mode in main.js).
+# Kept as self-documenting config rather than a switch - remove only alongside the UI.
 enable_search: true
 enable_dark_mode: true

@@ -45,7 +45,7 @@ market data (with a demo fallback when data is unavailable):
 - 🎨 **Modern, Teen-Friendly Design** with dark/light mode
 - 📱 **Fully Responsive** works on all devices
 - ⚡ **Fast Performance** static site generation
-- 🔍 **Filter by difficulty** find articles at your level
+- 🔍 **Search & Filter** type to find articles, or narrow by difficulty level
 
 ## 🛠️ Technology Stack
 

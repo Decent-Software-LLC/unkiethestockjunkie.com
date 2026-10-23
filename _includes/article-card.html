@@ -1,4 +1,4 @@
-<article class="article-card" data-difficulty="{{ include.article.difficulty }}">
+<article class="article-card" data-difficulty="{{ include.article.difficulty }}"{% if include.article.tags %} data-tags="{{ include.article.tags | join: ',' }}"{% endif %}>
   {% if include.article.image %}
     <a href="{{ include.article.url | relative_url }}" class="article-card-image">
       <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.title }}">
