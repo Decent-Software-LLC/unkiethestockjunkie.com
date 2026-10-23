@@ -20,24 +20,17 @@ related_articles:
     description: "The Buffett/Graham method of determining true company value."
 ---
 
-**ESG Investing: Profits with Purpose**
-=====================================================
-
-**Difficulty: Advanced**
 ==========================
 
-**Tags: ESG, Sustainability, Ethical-Investing, Advanced**
 =============================================
 
 **Disclaimer: Not Financial Advice**
 ------------------------------------
 
-**Introduction**
 ---------------
 
 Imagine you're a young entrepreneur, passionate about making a difference in the world. You've got a brilliant business idea that not only generates profits but also helps the environment and promotes social justice. Sounds like a dream, right? Well, this is exactly what ESG (Environmental, Social, and Governance) investing is all about. It's a way to align your values with your investments, making a positive impact while growing your wealth.
 
-**What Is It?**
 ----------------
 
 ESG investing is an investment strategy that considers the environmental, social, and governance performance of a company alongside its financial performance. It's not just about avoiding "bad" companies, but also about seeking out those that are making a positive difference. ESG factors can include things like:
@@ -46,12 +39,10 @@ ESG investing is an investment strategy that considers the environmental, social
 * Social: labor practices, human rights, community engagement
 * Governance: board diversity, executive pay, audit practices
 
-**Why Should Teens Care?**
 ---------------------------
 
 As a teenager, you're likely to be concerned about the state of the world and want to make a difference. ESG investing is a way to do just that. By investing in companies that share your values, you can help create a more sustainable and equitable future. Plus, research shows that ESG investing can be a smart financial move, as companies with strong ESG performance tend to outperform those with weak ESG track records.
 
-**Key Concepts**
 -----------------
 
 Let's break down some key ESG concepts:
@@ -61,14 +52,12 @@ Let's break down some key ESG concepts:
 * **Sustainable investing**: This approach considers ESG factors alongside financial performance to make investment decisions.
 * **Divestment**: This involves selling or avoiding investments in companies that don't align with your values, such as those involved in fossil fuels or tobacco.
 
-**Real-World Examples**
 -------------------------
 
 * **Patagonia**: This outdoor apparel company is a leader in environmental responsibility, using sustainable materials and manufacturing processes. Its strong ESG performance has helped drive financial success.
 * **Tesla**: As a pioneer in electric vehicles, Tesla is reducing carbon emissions and promoting sustainable transportation. Its ESG-focused business model has attracted investors and driven growth.
 * **Vanguard's ESG ETFs**: These exchange-traded funds (ETFs) track ESG indexes, providing investors with a diversified portfolio of companies with strong ESG performance.
 
-**Try It Yourself**
 --------------------
 
 Let's say you're interested in investing in a company that promotes renewable energy. Here's a simple exercise:
@@ -79,7 +68,6 @@ Let's say you're interested in investing in a company that promotes renewable en
 4. Evaluate their financial performance, including revenue growth and profitability.
 5. Decide whether you'd like to invest in one of these companies, considering both their ESG and financial performance.
 
-**Key Takeaways**
 -----------------
 
 * ESG investing is about aligning your values with your investments.
@@ -88,7 +76,6 @@ Let's say you're interested in investing in a company that promotes renewable en
 * Consider ESG scores, impact investing, sustainable investing, and divestment when making investment decisions.
 * Always evaluate both ESG and financial performance when investing.
 
-**Further Reading**
 -------------------
 
 1. **"ESG 101" by Investopedia**: A comprehensive guide to ESG investing, covering key concepts and strategies.

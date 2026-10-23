@@ -20,20 +20,14 @@ related_articles:
     description: "How much you can safely spend from investments in retirement."
 ---
 
-**Circle of Competence: Stay in Your Lane**
-=====================================================
-
-**Introduction**
 ---------------
 
 Imagine you're playing a game of basketball with your friends. You're not the best shooter, but you're awesome at dunking. If you focus on dunking, you'll probably score more points and have more fun. But if you try to shoot from half court, you might end up losing the game. The same idea applies to investing. Knowing your strengths and weaknesses, and staying within your "circle of competence," is crucial to making smart investment decisions. In this article, we'll dive into this concept, explore its importance, and learn from the wisdom of Warren Buffett.
 
-**What Is It?**
 ----------------
 
 The Circle of Competence is a concept coined by Warren Buffett, the legendary investor and CEO of Berkshire Hathaway. It refers to the area where your knowledge, skills, and experience overlap, making you more likely to make informed and successful investment decisions. Think of it like a Venn diagram: the intersection of what you know, what you're good at, and what you're passionate about.
 
-**Why Should Teens Care?**
 ---------------------------
 
 As a teenager, you're probably thinking about your future and how to make smart financial decisions. Understanding your Circle of Competence can help you:
@@ -42,14 +36,12 @@ As a teenager, you're probably thinking about your future and how to make smart 
 * Focus on areas where you have a genuine interest and expertise, leading to more informed decisions.
 * Develop a long-term strategy that aligns with your values and goals.
 
-**Key Concepts**
 -----------------
 
 1. **Knowledge**: What do you know about the investment? Have you researched the company, industry, and market trends?
 2. **Skills**: Do you have the necessary skills to analyze and evaluate the investment? Can you read financial statements, assess risks, and predict future performance?
 3. **Experience**: Have you invested in similar assets or industries before? Do you have a track record of success or failure that can inform your decisions?
 
-**Real-World Examples**
 ------------------------
 
 Warren Buffett's investment philosophy is a great example of the Circle of Competence in action. He has stated that he only invests in companies that:
@@ -63,7 +55,6 @@ Buffett has also been known to avoid investments that fall outside his Circle of
 * Technology stocks (he has said he doesn't understand the industry).
 * International investments (he prefers to focus on US-based companies).
 
-**Try It Yourself**
 --------------------
 
 Take a piece of paper and draw three overlapping circles:
@@ -74,7 +65,6 @@ Take a piece of paper and draw three overlapping circles:
 
 Where do the circles intersect? This is your Circle of Competence. Write down a few investment ideas that fall within this area.
 
-**Key Takeaways**
 -----------------
 
 * Know your strengths and weaknesses when it comes to investing.
@@ -82,7 +72,6 @@ Where do the circles intersect? This is your Circle of Competence. Write down a 
 * Avoid investments that fall outside your Circle of Competence.
 * Develop a long-term strategy that aligns with your values and goals.
 
-**Further Reading**
 --------------------
 
 1. **"The Essays of Warren Buffett: Lessons for Corporate America"** by Warren Buffett and Lawrence Cunningham.
@@ -93,5 +82,3 @@ Where do the circles intersect? This is your Circle of Competence. Write down a 
 --------------
 
 This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
-
-**Tags**: competence, warren-buffett, strategy, advanced

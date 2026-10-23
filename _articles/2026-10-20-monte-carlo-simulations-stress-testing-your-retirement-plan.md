@@ -20,131 +20,128 @@ related_articles:
     description: "Tax-advantaged accounts and why teens should start early."
 ---
 
-**Difficulty:** advanced  
-**Tags:** monte-carlo, simulation, retirement, advanced  
+---
+
+## 1. Introduction – Hook the Reader
+
+Imagine you’re planning a road trip across the country. You’d love to know exactly how long it will take, but weather, traffic, and detours can change everything. A *Monte Carlo simulation* is like a super‑smart GPS that runs thousands of possible routes in a split second, giving you a realistic range of arrival times.
+
+When it comes to retirement, the “road” is your money, the “weather” is market ups and downs, and the “traffic” is life’s unexpected events. Stress‑testing your retirement plan with Monte Carlo lets you see the odds of reaching your goals before you actually start the journey.
+
+> **Not financial advice** – this is educational content only.
 
 ---
 
-## 1. Introduction – Hook the Reader  
+## 2. What Is It? – Clear Definition and Explanation
 
-Imagine you’re planning a road trip across the country. You’d love to know exactly how long it will take, but weather, traffic, and detours can change everything. A *Monte Carlo simulation* is like a super‑smart GPS that runs thousands of possible routes in a split second, giving you a realistic range of arrival times.  
+A Monte Carlo simulation is a computer‑driven method that repeatedly draws random numbers to model the behavior of a system. In finance, it builds thousands of possible future price paths for assets like stocks, bonds, or a whole portfolio.
 
-When it comes to retirement, the “road” is your money, the “weather” is market ups and downs, and the “traffic” is life’s unexpected events. Stress‑testing your retirement plan with Monte Carlo lets you see the odds of reaching your goals before you actually start the journey.  
+Each “run” uses a random draw for returns, volatility, and other variables, then calculates the final retirement balance. By aggregating the results, you get a distribution of outcomes—best case, worst case, and most likely.
 
-> **Not financial advice** – this is educational content only.  
-
----
-
-## 2. What Is It? – Clear Definition and Explanation  
-
-A Monte Carlo simulation is a computer‑driven method that repeatedly draws random numbers to model the behavior of a system. In finance, it builds thousands of possible future price paths for assets like stocks, bonds, or a whole portfolio.  
-
-Each “run” uses a random draw for returns, volatility, and other variables, then calculates the final retirement balance. By aggregating the results, you get a distribution of outcomes—best case, worst case, and most likely.  
-
-Think of it as tossing a coin 10,000 times to see the spread of heads you might get; the spread tells you how unpredictable the process really is.  
+Think of it as tossing a coin 10,000 times to see the spread of heads you might get; the spread tells you how unpredictable the process really is.
 
 ---
 
-## 3. Why Should Teens Care? – Connect to Their Life and Future  
+## 3. Why Should Teens Care? – Connect to Their Life and Future
 
-Even though retirement feels far away, the habits you form now shape the financial landscape you’ll inherit later. A small difference in the rate of return—say, 5 % versus 7 %—can mean hundreds of thousands of dollars after 40 years.  
+Even though retirement feels far away, the habits you form now shape the financial landscape you’ll inherit later. A small difference in the rate of return—say, 5 % versus 7 %—can mean hundreds of thousands of dollars after 40 years.
 
-Monte Carlo shows how sensitive your future balance is to things like contribution size, investment mix, and market volatility. Knowing this helps you make smarter choices today, like picking a low‑cost index fund or increasing your monthly savings.  
+Monte Carlo shows how sensitive your future balance is to things like contribution size, investment mix, and market volatility. Knowing this helps you make smarter choices today, like picking a low‑cost index fund or increasing your monthly savings.
 
-Plus, the exercise builds a habit of thinking in probabilities, a skill that’s valuable for any career, from video‑game design to entrepreneurship.  
-
----
-
-## 4. Key Concepts – Break Down the Main Ideas with Examples  
-
-### a. Input Variables  
-
-- **Expected Return:** The average annual growth you assume for each asset class.  
-- **Volatility:** How wildly the return swings; measured by standard deviation.  
-- **Correlation:** How assets move together (e.g., stocks and bonds often move opposite).  
-
-### b. Random Sampling  
-
-Each simulation draws a random return for every year from a probability distribution (usually normal or log‑normal). This injects uncertainty, mimicking real market randomness.  
-
-### c. Time Steps  
-
-You break the horizon into yearly (or monthly) intervals. At each step, the portfolio’s value is updated using the random return for that period.  
-
-### d. Distribution of Outcomes  
-
-After thousands of runs, you plot the results. The median, 5th percentile (worst‑case), and 95th percentile (best‑case) give you a sense of risk.  
-
-### e. Sensitivity Analysis  
-
-You can change one variable at a time—like increasing contributions by 10 %—to see how the outcome shifts. This reveals which levers have the biggest impact.  
+Plus, the exercise builds a habit of thinking in probabilities, a skill that’s valuable for any career, from video‑game design to entrepreneurship.
 
 ---
 
-## 5. Real‑World Examples – Actual Companies, Situations, or Scenarios  
+## 4. Key Concepts – Break Down the Main Ideas with Examples
 
-**Example 1: The “Average” Investor**  
-Suppose a 25‑year‑old contributes $5,000 a year into a mixed portfolio of 60 % U.S. stocks (average 8 % return, 15 % volatility) and 40 % bonds (3 % return, 5 % volatility). A Monte Carlo run of 10,000 simulations shows a 90 % chance of ending with at least $1.2 million by age 65, but a 5 % chance of falling below $800,000.  
+### a. Input Variables
 
-**Example 2: The “Late‑Start” Scenario**  
-A 35‑year‑old begins saving $10,000 annually. With the same portfolio assumptions, the median final balance is $950,000, yet the 10 % worst‑case is only $500,000. This illustrates why starting earlier can dramatically improve the odds of success.  
+- **Expected Return:** The average annual growth you assume for each asset class.
+- **Volatility:** How wildly the return swings; measured by standard deviation.
+- **Correlation:** How assets move together (e.g., stocks and bonds often move opposite).
 
-**Example 3: The “High‑Risk” Gamer**  
-A teen decides to allocate 90 % to a volatile tech stock with 12 % expected return and 30 % volatility, and 10 % to cash. Monte Carlo shows a 70 % chance the portfolio will be under $1 million at retirement, highlighting the danger of concentrating risk.  
+### b. Random Sampling
 
-These examples show how the same inputs can lead to very different outcomes, underscoring the value of diversification and realistic expectations.  
+Each simulation draws a random return for every year from a probability distribution (usually normal or log‑normal). This injects uncertainty, mimicking real market randomness.
 
----
+### c. Time Steps
 
-## 6. Try It Yourself – A Hands‑On Activity  
+You break the horizon into yearly (or monthly) intervals. At each step, the portfolio’s value is updated using the random return for that period.
 
-**Materials:** A spreadsheet (Google Sheets or Excel) and a basic understanding of percentages.  
+### d. Distribution of Outcomes
 
-1. **Set Up the Model**  
-   - Column A: Years (1 to 40).  
-   - Column B: Starting balance (enter your current savings).  
-   - Columns C–F: Expected returns for stocks, bonds, cash, and a combined portfolio (you can use 7 % for stocks, 3 % for bonds, 0 % for cash).  
+After thousands of runs, you plot the results. The median, 5th percentile (worst‑case), and 95th percentile (best‑case) give you a sense of risk.
 
-2. **Add Randomness**  
-   - In a new column, generate a random number using `=NORM.INV(RAND(), mean, stdev)`.  
-   - For stocks, use a mean of 0.07 and stdev of 0.15; for bonds, mean 0.03 and stdev 0.05.  
+### e. Sensitivity Analysis
 
-3. **Simulate One Year**  
-   - Multiply the previous year’s balance by (1 + random return).  
-   - Add the annual contribution (e.g., $5,000).  
-
-4. **Copy the Row**  
-   - Drag the formulas down for 40 rows to simulate 40 years.  
-
-5. **Repeat**  
-   - Use the “Copy‑Paste” trick to duplicate the entire sheet many times (or use the Data Table feature) to run 5,000–10,000 simulations.  
-
-6. **Analyze**  
-   - Calculate the median, 5th, and 95th percentiles of the final balance.  
-   - See how changing the contribution or the stock proportion shifts the distribution.  
-
-This exercise turns abstract math into a concrete picture of retirement risk.  
+You can change one variable at a time—like increasing contributions by 10 %—to see how the outcome shifts. This reveals which levers have the biggest impact.
 
 ---
 
-## 7. Key Takeaways – Bullet Points Summarizing the Main Lessons  
+## 5. Real‑World Examples – Actual Companies, Situations, or Scenarios
 
-- **Monte Carlo = many random “what‑ifs.”** It turns a single forecast into a probability distribution.  
-- **Inputs matter.** Expected returns, volatility, and contribution levels drive the results.  
-- **Diversification reduces risk.** Spreading money across uncorrelated assets smooths the outcome curve.  
-- **Starting early compounds odds.** Even a modest increase in early contributions can shift the median balance dramatically.  
-- **The 5 % and 95 % percentiles are your safety nets.** The 5 % worst‑case shows the downside you must be prepared for.  
-- **You can run the simulation yourself.** A simple spreadsheet lets you experiment with different scenarios.  
+**Example 1: The “Average” Investor**
+Suppose a 25‑year‑old contributes $5,000 a year into a mixed portfolio of 60 % U.S. stocks (average 8 % return, 15 % volatility) and 40 % bonds (3 % return, 5 % volatility). A Monte Carlo run of 10,000 simulations shows a 90 % chance of ending with at least $1.2 million by age 65, but a 5 % chance of falling below $800,000.
+
+**Example 2: The “Late‑Start” Scenario**
+A 35‑year‑old begins saving $10,000 annually. With the same portfolio assumptions, the median final balance is $950,000, yet the 10 % worst‑case is only $500,000. This illustrates why starting earlier can dramatically improve the odds of success.
+
+**Example 3: The “High‑Risk” Gamer**
+A teen decides to allocate 90 % to a volatile tech stock with 12 % expected return and 30 % volatility, and 10 % to cash. Monte Carlo shows a 70 % chance the portfolio will be under $1 million at retirement, highlighting the danger of concentrating risk.
+
+These examples show how the same inputs can lead to very different outcomes, underscoring the value of diversification and realistic expectations.
 
 ---
 
-## 8. Further Reading – 3‑5 Resources for Learning More  
+## 6. Try It Yourself – A Hands‑On Activity
 
-1. **“Monte Carlo Methods in Finance”** – Paul Glasserman, *Springer* (classic textbook, clear examples).  
-2. **Investopedia’s “Monte Carlo Simulation” article** – beginner‑friendly overview with step‑by‑step guides.  
-3. **“The Randomness Edge”** – blog series by *The Motley Fool* on using Monte Carlo for retirement planning.  
-4. **Google Sheets “Monte Carlo Simulation” template** – free downloadable file that you can copy and modify.  
-5. **“A Random Walk Down Wall Street”** by Burton Malkiel – chapters on simulation and risk illustrate why randomness matters.  
+**Materials:** A spreadsheet (Google Sheets or Excel) and a basic understanding of percentages.
+
+1. **Set Up the Model**
+   - Column A: Years (1 to 40).
+   - Column B: Starting balance (enter your current savings).
+   - Columns C–F: Expected returns for stocks, bonds, cash, and a combined portfolio (you can use 7 % for stocks, 3 % for bonds, 0 % for cash).
+
+2. **Add Randomness**
+   - In a new column, generate a random number using `=NORM.INV(RAND(), mean, stdev)`.
+   - For stocks, use a mean of 0.07 and stdev of 0.15; for bonds, mean 0.03 and stdev 0.05.
+
+3. **Simulate One Year**
+   - Multiply the previous year’s balance by (1 + random return).
+   - Add the annual contribution (e.g., $5,000).
+
+4. **Copy the Row**
+   - Drag the formulas down for 40 rows to simulate 40 years.
+
+5. **Repeat**
+   - Use the “Copy‑Paste” trick to duplicate the entire sheet many times (or use the Data Table feature) to run 5,000–10,000 simulations.
+
+6. **Analyze**
+   - Calculate the median, 5th, and 95th percentiles of the final balance.
+   - See how changing the contribution or the stock proportion shifts the distribution.
+
+This exercise turns abstract math into a concrete picture of retirement risk.
+
+---
+
+## 7. Key Takeaways – Bullet Points Summarizing the Main Lessons
+
+- **Monte Carlo = many random “what‑ifs.”** It turns a single forecast into a probability distribution.
+- **Inputs matter.** Expected returns, volatility, and contribution levels drive the results.
+- **Diversification reduces risk.** Spreading money across uncorrelated assets smooths the outcome curve.
+- **Starting early compounds odds.** Even a modest increase in early contributions can shift the median balance dramatically.
+- **The 5 % and 95 % percentiles are your safety nets.** The 5 % worst‑case shows the downside you must be prepared for.
+- **You can run the simulation yourself.** A simple spreadsheet lets you experiment with different scenarios.
+
+---
+
+## 8. Further Reading – 3‑5 Resources for Learning More
+
+1. **“Monte Carlo Methods in Finance”** – Paul Glasserman, *Springer* (classic textbook, clear examples).
+2. **Investopedia’s “Monte Carlo Simulation” article** – beginner‑friendly overview with step‑by‑step guides.
+3. **“The Randomness Edge”** – blog series by *The Motley Fool* on using Monte Carlo for retirement planning.
+4. **Google Sheets “Monte Carlo Simulation” template** – free downloadable file that you can copy and modify.
+5. **“A Random Walk Down Wall Street”** by Burton Malkiel – chapters on simulation and risk illustrate why randomness matters.
 
 ---
 

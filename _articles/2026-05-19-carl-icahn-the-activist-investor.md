@@ -20,28 +20,18 @@ related_articles:
     description: "How Fidelity's legendary manager turned $18M into $14B."
 ---
 
-**Carl Icahn: The Activist Investor**
-=====================================================
-
-**Difficulty: Intermediate**
-**Tags: carl-icahn, activist, biography, intermediate**
-
-**Introduction**
 ---------------
 
 Imagine you're at a school meeting, and you think the administration is making some decisions that aren't in the best interest of the students. You decide to speak up and try to make some changes. That's kind of like what Carl Icahn does, but instead of a school, he targets big companies. As an activist investor, Icahn buys a significant stake in a company and then tries to influence its direction to increase its value. In this article, we'll explore what activist investing is, why it matters to you, and how Carl Icahn has used this strategy to make a name for himself in the business world.
 
-**What Is It?**
 --------------
 
 Activist investing is a type of investing where an individual or group buys a significant stake in a company and then tries to influence its direction to increase its value. This can involve meeting with the company's management, proposing changes to the company's strategy, or even trying to replace the company's leadership. The goal is to make the company more profitable, which can lead to higher stock prices and bigger returns for the investor.
 
-**Why Should Teens Care?**
 -------------------------
 
 You might be thinking, "Why should I care about some rich guy buying and selling companies?" But here's the thing: the companies that activist investors target are often big names that you interact with every day. For example, Icahn has invested in companies like Apple, eBay, and even the video game company, Take-Two Interactive (maker of Grand Theft Auto). If you own an iPhone or play video games, you might be interested in knowing how activist investors like Icahn can shape the direction of these companies.
 
-**Key Concepts**
 ----------------
 
 So, how does Carl Icahn's activist investing strategy work? Here are some key concepts:
@@ -51,17 +41,14 @@ So, how does Carl Icahn's activist investing strategy work? Here are some key co
 * **Engaging with management**: Icahn meets with the company's management team to discuss his ideas for improving the company's performance. This can involve proposing changes to the company's strategy, suggesting cost-cutting measures, or even recommending new leadership.
 * **Proxy battles**: If Icahn doesn't get the response he wants from management, he might engage in a proxy battle. This involves trying to convince other shareholders to vote for his proposals, which can lead to changes in the company's leadership or strategy.
 
-**Real-World Examples**
 ----------------------
 
 One notable example of Icahn's activist investing is his campaign against Apple. In 2013, Icahn bought a significant stake in Apple and began pushing the company to return more cash to shareholders. He believed that Apple had too much cash on its balance sheet and that it should be used to buy back shares or pay out dividends. After a series of meetings with Apple's management team, the company eventually agreed to increase its share buyback program and pay out more dividends. This led to a significant increase in Apple's stock price, benefiting Icahn and other shareholders.
 
-**Try It Yourself**
 ------------------
 
 Imagine you own a small stake in your favorite company (let's say, a video game company). You think the company is doing some things that aren't in the best interest of its shareholders (e.g., spending too much money on marketing, not innovating enough). Write a letter to the company's CEO outlining your concerns and proposing some changes. What would you suggest, and why? This exercise can help you think critically about the companies you invest in and how you can influence their direction.
 
-**Key Takeaways**
 ----------------
 
 Here are the main lessons from Carl Icahn's activist investing strategy:
@@ -71,7 +58,6 @@ Here are the main lessons from Carl Icahn's activist investing strategy:
 * Engaging with management and other shareholders can be an effective way to drive change.
 * Proxy battles can be a powerful tool for influencing a company's leadership or strategy.
 
-**Further Reading**
 -------------------
 
 If you're interested in learning more about Carl Icahn and activist investing, here are some resources to check out:

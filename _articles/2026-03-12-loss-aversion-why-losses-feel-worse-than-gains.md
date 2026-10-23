@@ -20,10 +20,6 @@ related_articles:
     description: "How emotions drive markets and how to stay rational."
 ---
 
-**Loss Aversion: Why Losses Feel Worse Than Gains**
-=====================================================
-
-**Difficulty: Advanced**
 **Tags: loss-aversion, psychology, behavioral-finance, advanced**
 
 **Not financial advice. This article is for educational purposes only. Investing involves risk, and you should not make investment decisions based on this content.**
@@ -39,8 +35,6 @@ Let's break down the main ideas behind loss aversion:
 * **Loss aversion ratio**: This is a measure of how much more we value avoiding losses than acquiring gains. Research suggests that the loss aversion ratio is around 1.5 to 2.5, meaning that we value avoiding a loss 1.5 to 2.5 times more than acquiring a gain.
 * **Framing effect**: The way information is presented (or framed) can influence our decisions. For example, a product that is described as "90% fat-free" is more appealing than one that is described as "10% fat."
 * **Sunk cost fallacy**: This is the tendency to continue investing in a losing proposition because of the resources we've already committed. Think of it like throwing good money after bad.
-
-### Real-World Examples
 
 * **Kodak**: In the early 2000s, Kodak was struggling to adapt to the digital camera market. Despite the company's efforts to innovate, investors held onto the stock, hoping it would rebound. This is an example of the sunk cost fallacy, where investors continued to invest in a losing proposition because of their emotional attachment to the company.
 * **Apple**: In 2013, Apple's stock price dropped significantly due to concerns about the company's growth prospects. However, the company's loyal fan base and investors who understood the company's fundamentals held onto the stock, which eventually rebounded. This is an example of how a strong brand and loyal customer base can help mitigate the effects of loss aversion.

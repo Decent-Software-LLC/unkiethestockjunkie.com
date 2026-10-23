@@ -60,8 +60,6 @@ Where:
 
 But honestly? Use a compound interest calculator online. The important thing is understanding the concept, not doing the math by hand.
 
-## Real-World Examples
-
 ### The 16-Year-Old Investor
 Emma gets a part-time job at 16 and invests $100/month ($1,200/year) in a simple index fund earning 7% annually. By age 65, that money grows to approximately **$1.2 million**.
 

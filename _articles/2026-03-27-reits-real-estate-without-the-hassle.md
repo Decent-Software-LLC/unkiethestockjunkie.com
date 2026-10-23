@@ -20,18 +20,10 @@ related_articles:
     description: "Why smart investors look at stocks worldwide."
 ---
 
-**REITs: Real Estate Without the Hassle**
-=====================================
-
-**Difficulty: Advanced**
-**Tags: REITs, Real-Estate, Income, Advanced**
-
-**Introduction**
 ------------
 
 Imagine owning a piece of your favorite shopping mall, a trendy apartment complex, or even a skyscraper in a bustling city. Sounds exciting, right? But, you might be thinking, "Isn't investing in real estate a rich person's game?" Not necessarily. Enter REITs (Real Estate Investment Trusts), a way to invest in real estate without directly managing properties. In this article, we'll dive into the world of REITs, exploring what they are, why you should care, and how to get started.
 
-**What Is It?**
 -------------
 
 A REIT is a company that owns or finances real estate properties and provides a way for individuals to invest in them. REITs can be publicly traded, allowing anyone to buy shares, or privately held, requiring a larger investment. They can focus on various types of properties, such as:
@@ -42,7 +34,6 @@ A REIT is a company that owns or finances real estate properties and provides a 
 
 Think of REITs like a mutual fund for real estate. Instead of directly buying a property, you invest in a company that manages a portfolio of properties, providing a diversified and potentially lower-risk investment.
 
-**Why Should Teens Care?**
 -------------------------
 
 As a teenager, you might not be thinking about investing in real estate just yet, but here's why you should care:
@@ -51,7 +42,6 @@ As a teenager, you might not be thinking about investing in real estate just yet
 * **Diversification**: Adding REITs to your investment portfolio can help spread risk and potentially increase returns.
 * **Real estate exposure**: REITs offer a way to invest in real estate without directly managing properties, which can be a significant advantage.
 
-**Key Concepts**
 ----------------
 
 To understand REITs, you need to know some key concepts:
@@ -63,7 +53,6 @@ To understand REITs, you need to know some key concepts:
 
 These metrics can help you evaluate a REIT's performance and make informed investment decisions.
 
-**Real-World Examples**
 ----------------------
 
 Let's look at some actual REITs:
@@ -74,7 +63,6 @@ Let's look at some actual REITs:
 
 These REITs demonstrate different investment strategies and property types, showcasing the diversity within the REIT universe.
 
-**Try It Yourself**
 ------------------
 
 Imagine you're a real estate investor with $10,000 to invest. You're considering two REITs:
@@ -84,7 +72,6 @@ Imagine you're a real estate investor with $10,000 to invest. You're considering
 
 Using the metrics discussed earlier, evaluate these REITs and decide which one you'd invest in. Consider factors like dividend yield, FFO, and the REIT's focus.
 
-**Key Takeaways**
 -----------------
 
 * REITs offer a way to invest in real estate without directly managing properties.
@@ -94,7 +81,6 @@ Using the metrics discussed earlier, evaluate these REITs and decide which one y
 
 **Not financial advice**: This article is for educational purposes only and should not be considered investment advice.
 
-**Further Reading**
 ------------------
 
 1. **"REITs: A Guide to Real Estate Investment Trusts"** by the National Association of Real Estate Investment Trusts (NAREIT)

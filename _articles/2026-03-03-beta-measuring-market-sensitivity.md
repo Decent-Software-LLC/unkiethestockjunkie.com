@@ -20,13 +20,6 @@ related_articles:
     description: "Why crypto is different from traditional stock investing."
 ---
 
-**Beta: Measuring Market Sensitivity**
-=====================================
-
-**Difficulty: Advanced**
-
-**Tags: beta, risk, metrics, advanced**
-
 **Not financial advice. This article is for educational purposes only. Investing involves risk, and it's essential to do your own research and consider your own financial goals and risk tolerance before making any investment decisions.**
 
 Imagine you're on a rollercoaster ride with your friends. The twists and turns are unpredictable, and you're not sure what's around the corner. That's kind of like what happens in the stock market. But, just like how you can prepare for the ride by knowing the twists and turns, investors can use a metric called beta to measure how sensitive a stock is to market movements. In this article, we'll dive into the world of beta, explore what it means, and why it matters to you as a teenager learning about investing.
@@ -44,8 +37,6 @@ Here are some key concepts to understand about beta:
 * **Beta can change over time**: A stock's beta can change as the company's business and market conditions change.
 
 Let's look at an example. Suppose you're considering investing in two stocks: Apple (AAPL) and Tesla (TSLA). If the market goes up by 10%, and AAPL goes up by 10%, its beta would be 1. But, if TSLA goes up by 20%, its beta would be 2. This means that TSLA is more sensitive to market movements than AAPL.
-
-### Real-World Examples
 
 Here are some real-world examples of companies with different betas:
 

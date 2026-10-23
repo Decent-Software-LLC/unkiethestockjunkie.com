@@ -20,28 +20,20 @@ related_articles:
     description: "How to read and learn from annual reports like Buffett does."
 ---
 
-**Income Statement: Revenue, Expenses, Profits**
-=====================================================
-
-**Difficulty: Intermediate**
 **Tags: income-statement, financial-statements, fundamentals, intermediate**
 
-**Introduction**
 ---------------
 
 Imagine you're running a lemonade stand. You've got a great recipe, a catchy name, and a prime spot in front of the school. But, how do you know if your business is making money? That's where the income statement comes in – a crucial tool for tracking revenue, expenses, and profits. In this article, we'll break down the income statement, explore its key concepts, and show you how it applies to real-world companies. By the end of this, you'll be a pro at reading income statements and making informed decisions about your own financial future.
 
-**What Is It?**
 ----------------
 
 An income statement, also known as a profit and loss statement (P&L), is a financial statement that summarizes a company's revenues, expenses, and profits over a specific period, usually a quarter or a year. It's like a snapshot of a company's financial performance, showing how much money came in (revenue), how much was spent (expenses), and how much was left over (profit).
 
-**Why Should Teens Care?**
 ---------------------------
 
 As a teenager, you might not be running a business just yet, but understanding income statements will help you make informed decisions about your own financial future. When you start investing or even just managing your own money, you'll need to analyze companies' financial performance to make smart choices. Plus, understanding income statements will give you a solid foundation in finance and accounting, which can be useful in many areas of life.
 
-**Key Concepts**
 -----------------
 
 Let's break down the main components of an income statement:
@@ -53,7 +45,6 @@ Let's break down the main components of an income statement:
 * **Operating Income**: The profit earned from running the business, after deducting operating expenses. This is like the money you have left over after paying all the costs of running your lemonade stand.
 * **Net Income**: The company's total profit, after deducting all expenses, including taxes and interest. This is like the money you get to keep after paying all the costs and taxes on your lemonade stand.
 
-**Real-World Examples**
 -------------------------
 
 Let's look at a real-world example: Apple Inc.'s income statement for 2020.
@@ -69,7 +60,6 @@ Let's look at a real-world example: Apple Inc.'s income statement for 2020.
 
 As you can see, Apple's revenue was massive, but they also had significant expenses. Their net income was still impressive, but it's a good example of how expenses can eat into profits.
 
-**Try It Yourself**
 ------------------
 
 Let's say you're running a small online business selling handmade jewelry. Your revenue for the quarter is $10,000, and your COGS is $3,000. Your operating expenses are $2,000. Calculate your gross profit, operating income, and net income.
@@ -83,7 +73,6 @@ Let's say you're running a small online business selling handmade jewelry. Your 
 | Operating Income | $5,000 |
 | Net Income | $5,000 |
 
-**Key Takeaways**
 -----------------
 
 * An income statement shows a company's revenue, expenses, and profits over a specific period.
@@ -94,7 +83,6 @@ Let's say you're running a small online business selling handmade jewelry. Your 
 * Operating income is the profit earned from running the business.
 * Net income is the company's total profit, after deducting all expenses.
 
-**Further Reading**
 --------------------
 
 * Investopedia: [Income Statement](https://www.investopedia.com/terms/i/incomestatement.asp)

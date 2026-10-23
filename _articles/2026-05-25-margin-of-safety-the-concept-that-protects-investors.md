@@ -20,37 +20,28 @@ related_articles:
     description: "How to find stocks trading below their intrinsic value."
 ---
 
-**Margin of Safety: The Concept That Protects Investors**
-===========================================================
-
-**Difficulty: Intermediate**
-
 **Tags: margin-of-safety, benjamin-graham, risk-management, intermediate**
 
 **Not financial advice:** This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
 
-**Introduction**
 ---------------
 
 Imagine you're buying a new pair of shoes online, but you're not sure if they'll fit. You've heard great things about the brand, but you're worried that the shoes might be too small or too big. To avoid this uncertainty, you look for a store that offers a flexible return policy, so you can try the shoes on and return them if they don't fit. This way, you minimize the risk of losing money on a purchase that might not work out.
 
 In investing, there's a similar concept that helps minimize risk: the margin of safety. It's a principle developed by Benjamin Graham, the father of value investing, to protect investors from losses. In this article, we'll explore what the margin of safety is, why it matters to teens, and how to apply it in real-life investing scenarios.
 
-**What Is It?**
 ---------------
 
 The margin of safety is the difference between the intrinsic value of an investment and its market price. Intrinsic value is the true worth of an investment, based on its underlying fundamentals, such as revenue, profits, and growth prospects. Market price, on the other hand, is the current price of the investment in the market.
 
 Think of it like buying a house. The intrinsic value of the house is its true worth, based on its location, size, and condition. The market price is the price that buyers and sellers agree on in the market. If you buy a house at a market price that's significantly lower than its intrinsic value, you have a margin of safety. This means that even if the market price drops, you can still sell the house for a good price, minimizing your losses.
 
-**Why Should Teens Care?**
 -------------------------
 
 As a teen, you might not be investing in the stock market yet, but understanding the margin of safety concept can help you make informed decisions about your future investments. It's essential to learn about risk management and how to protect your money from losses.
 
 Think about it like this: if you're planning to buy a car in a few years, you'll want to make sure you have enough money saved up. By investing your money wisely, with a margin of safety, you can minimize the risk of losing money and achieve your financial goals.
 
-**Key Concepts**
 ----------------
 
 Here are the key concepts to understand about the margin of safety:
@@ -64,7 +55,6 @@ To illustrate these concepts, let's consider an example:
 
 Suppose you want to invest in a company that sells outdoor gear. The company's intrinsic value is $100 per share, based on its revenue, profits, and growth prospects. However, the market price is $80 per share. If you buy the stock at $80, you have a margin of safety of $20 per share. This means that even if the market price drops to $60, you can still sell the stock for $80, minimizing your losses.
 
-**Real-World Examples**
 ----------------------
 
 Here are a few real-world examples of companies that have been known for their strong margin of safety:
@@ -73,7 +63,6 @@ Here are a few real-world examples of companies that have been known for their s
 * **Johnson & Johnson**: The healthcare company has a diverse portfolio of products and a strong track record of innovation. Its intrinsic value is often higher than its market price, providing a margin of safety for investors.
 * **Amazon**: The e-commerce giant has a strong brand and a history of rapid growth. However, its market price is often higher than its intrinsic value, making it a riskier investment.
 
-**Try It Yourself**
 -------------------
 
 To apply the margin of safety concept in real-life investing scenarios, try the following exercise:
@@ -84,7 +73,6 @@ To apply the margin of safety concept in real-life investing scenarios, try the 
 4. Calculate the margin of safety by subtracting the market price from the intrinsic value.
 5. Consider investing in the company if the margin of safety is significant.
 
-**Key Takeaways**
 -----------------
 
 Here are the key takeaways from this article:
@@ -95,7 +83,6 @@ Here are the key takeaways from this article:
 * It's essential to learn about risk management and how to protect your money from losses.
 * The margin of safety can be applied in real-life investing scenarios by estimating a company's intrinsic value and comparing it to its market price.
 
-**Further Reading**
 -------------------
 
 Here are a few resources for learning more about the margin of safety concept:

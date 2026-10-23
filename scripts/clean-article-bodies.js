@@ -71,13 +71,13 @@ const NORMALISE = (s) =>
 
 const LABEL_SET = new Set(INSTRUCTION_LABELS.map(NORMALISE));
 
-/** A line like "## Introduction", "**Introduction**", "**Introduction – Hook the Reader**". */
-const HEADING_LINE = /^\s{0,3}(?:#{1,6}\s*|\*\*|__)?\s*(.+?)\s*(?:\*\*|__)?\s*:?\s*$/;
-
 /**
- * Decide whether one source line is leaked scaffolding.
- * Returns the cleaned replacement ('' to delete) or null to leave untouched.
+ * A line like "## Introduction", "**Introduction**", "**Introduction – Hook the Reader**",
+ * or "**Difficulty:** Beginner" (note the colon can sit INSIDE the closing **).
  */
+const HEADING_LINE = /^\s{0,3}(?:#{1,6}\s*)?\*{0,2}(.+?)\*{0,2}\s*:?\s*$/;
+
+/** Decide whether one source line is leaked scaffolding. Returns '' to delete, null to keep. */
 function classifyLine(line) {
   const trimmed = line.trim();
   if (!trimmed) return null;
@@ -90,11 +90,13 @@ function classifyLine(line) {
   const m = HEADING_LINE.exec(trimmed);
   if (!m) return null;
 
-  const inner = m[1].trim();
+  // Strip any residual emphasis markers left by asymmetric bolding such as
+  // "**Difficulty:** Beginner", where the closing ** lands after the colon.
+  const inner = m[1].replace(/\*{1,2}|_{1,2}/g, '').trim();
   if (!inner) return null;
 
   // Only treat as scaffolding when visually marked (bold or #). Plain sentences stay.
-  const isMarked = /^#{1,6}\s/.test(trimmed) || (/^\*\*.+\*\*$/.test(trimmed) || /^__.+__$/.test(trimmed));
+  const isMarked = /^#{1,6}\s/.test(trimmed) || /\*\*|__/.test(trimmed);
   if (!isMarked) return null;
 
   // "Difficulty: Beginner" / "Tags: stocks, basics" duplicate the front matter.

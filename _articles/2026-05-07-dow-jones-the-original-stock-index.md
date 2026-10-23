@@ -20,34 +20,24 @@ related_articles:
     description: "How stock trading evolved from 1792 to today."
 ---
 
-**Dow Jones: The Original Stock Index**
-=====================================
-
-**Difficulty: Beginner**
-**Tags: dow-jones, index, history, beginner**
-
-**Introduction**
 ---------------
 
 Imagine you're at a music festival, and you want to know which artists are the most popular right now. You could ask around, but it would be easier to look at a chart that shows the top 10 artists based on their current popularity. That's kind of like what the Dow Jones index does, but instead of artists, it tracks the performance of the top 30 companies in the US stock market.
 
 In this article, we'll explore what the Dow Jones index is, why it matters to teens, and how it works. We'll also look at some real-world examples and try a hands-on activity to help you understand this important investing concept.
 
-**What Is It?**
 ---------------
 
 The Dow Jones index, also known as the Dow 30, is a stock market index that tracks the performance of 30 of the largest and most widely traded companies in the US. It's like a report card for the US stock market, showing how well these top companies are doing. The index is calculated by adding up the stock prices of these 30 companies and dividing by a special number to get an average.
 
 Think of it like a team of 30 players, and the Dow Jones index is like the team's overall score. If most of the players are doing well, the team score will be high. But if many players are struggling, the team score will be low.
 
-**Why Should Teens Care?**
 -------------------------
 
 You might be thinking, "Why should I care about a bunch of old companies and their stock prices?" Well, here's the thing: the Dow Jones index can affect your future. If you plan to invest in the stock market or work for a company that's listed on the Dow, understanding how the index works can help you make informed decisions.
 
 Plus, the Dow Jones index is like a thermometer for the US economy. When the index is doing well, it can indicate that the economy is strong, which can affect things like job opportunities, interest rates, and even the cost of living.
 
-**Key Concepts**
 ----------------
 
 Here are some key concepts to understand about the Dow Jones index:
@@ -58,7 +48,6 @@ Here are some key concepts to understand about the Dow Jones index:
 
 Let's use an example to illustrate these concepts. Imagine you're calculating the average grade of a class of students. If most students have high grades, but one student has a very low grade, the average might be lower than you'd expect. That's kind of like how the Dow Jones index works, where the stock prices of the 30 companies are weighted to calculate the overall average.
 
-**Real-World Examples**
 -----------------------
 
 Some of the companies listed on the Dow Jones index include:
@@ -70,7 +59,6 @@ Some of the companies listed on the Dow Jones index include:
 
 These companies are leaders in their industries and have a significant impact on the US economy. When their stock prices rise or fall, it can affect the overall Dow Jones index.
 
-**Try It Yourself**
 -------------------
 
 Let's try a simple activity to understand how the Dow Jones index works. Imagine you have a portfolio of three stocks:
@@ -91,7 +79,6 @@ $370 ÷ 3 = $123.33
 
 As you can see, the average stock price has risen, just like the Dow Jones index might rise if one of the companies listed on it has a good day.
 
-**Key Takeaways**
 ----------------
 
 Here are the main lessons from this article:
@@ -101,7 +88,6 @@ Here are the main lessons from this article:
 * The Dow Jones index can affect the US economy and job opportunities.
 * Understanding the index can help you make informed investing decisions.
 
-**Further Reading**
 -------------------
 
 If you want to learn more about the Dow Jones index and investing, here are some resources:

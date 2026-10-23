@@ -20,28 +20,18 @@ related_articles:
     description: "How to find companies that meet Buffett's investment criteria."
 ---
 
-**The Icahn Screener: Finding Value in Disruption**
-=====================================================
-
-**Difficulty: Intermediate**
-**Tags: carl-icahn, screeners, activist, intermediate**
-
-**Introduction**
 ---------------
 
 Imagine you're at a flea market, and you stumble upon a hidden gem - a rare collectible that's been overlooked by everyone else. You buy it for a steal, and later, it becomes super valuable. That's kind of like what activist investor Carl Icahn does, but instead of collectibles, he looks for undervalued companies with potential. In this article, we'll explore the Icahn Screener, a tool used to find these hidden gems. By the end of this, you'll understand how to use it and why it matters for your future.
 
-**What Is It?**
 -------------
 
 The Icahn Screener is a stock screen, a tool that helps investors filter through thousands of companies to find ones that fit specific criteria. It's named after Carl Icahn, a legendary activist investor who's known for buying undervalued companies and pushing for changes to increase their value. The screener looks for companies with low prices, high yields, and other characteristics that might indicate they're undervalued.
 
-**Why Should Teens Care?**
 -------------------------
 
 You might be thinking, "Why do I care about some rich investor's strategy?" Well, here's the thing: understanding how to find undervalued companies can help you make smart investment decisions in the future. Imagine being able to spot a company that's about to take off before it's too late. It's like finding that rare collectible at the flea market. By learning about the Icahn Screener, you'll gain a valuable skill that can help you achieve your long-term financial goals.
 
-**Key Concepts**
 ----------------
 
 So, what exactly does the Icahn Screener look for? Here are the key concepts:
@@ -53,14 +43,12 @@ So, what exactly does the Icahn Screener look for? Here are the key concepts:
 
 These characteristics might indicate that a company is undervalued or overlooked by other investors.
 
-**Real-World Examples**
 ----------------------
 
 Let's look at a real-world example. In 2013, Carl Icahn invested in Apple (AAPL) because he believed the company was undervalued. At the time, Apple's stock price was around $450, and Icahn argued that it should be higher. He pushed for the company to return more cash to shareholders through dividends and share buybacks. Fast forward to today, and Apple's stock price is over $150. That's a huge return on investment!
 
 Another example is eBay (EBAY). In 2014, Icahn invested in eBay because he believed the company's PayPal unit was undervalued. He pushed for eBay to spin off PayPal, which eventually happened in 2015. PayPal's stock price has since skyrocketed.
 
-**Try It Yourself**
 ------------------
 
 Want to try using the Icahn Screener? Here's a simple exercise:
@@ -74,7 +62,6 @@ Want to try using the Icahn Screener? Here's a simple exercise:
 3. Look at the list of companies that come up. Research each one to see if you think they're undervalued.
 4. Keep in mind that this is just a simple exercise, and you should never invest in a company without doing thorough research.
 
-**Key Takeaways**
 -----------------
 
 Here are the main lessons from this article:
@@ -84,7 +71,6 @@ Here are the main lessons from this article:
 * Understanding how to use the Icahn Screener can help you make smart investment decisions in the future.
 * Always do thorough research before investing in a company.
 
-**Further Reading**
 -------------------
 
 If you want to learn more about the Icahn Screener and activist investing, here are some resources:

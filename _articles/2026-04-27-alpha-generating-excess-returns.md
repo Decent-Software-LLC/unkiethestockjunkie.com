@@ -20,13 +20,8 @@ related_articles:
     description: "How much you can safely spend from investments in retirement."
 ---
 
-**Alpha: Generating Excess Returns**
-=====================================
-
-**Difficulty: Advanced**
 =========================
 
-**Tags: alpha, performance, strategy, advanced**
 =============================================
 
 Imagine you're a gamer, and you've just discovered a secret cheat code that gives you an edge over your friends. In the world of investing, there's a similar concept called "alpha" that can help you outperform the market. But what is alpha, and how can you use it to generate excess returns? In this article, we'll dive into the world of alpha and explore how it can help you become a better investor.
@@ -48,8 +43,6 @@ So, how do you generate alpha and outperform the market? Here are some key conce
 * **Diversification:** This involves spreading your investments across different asset classes and industries to reduce risk.
 
 For example, let's say you're a fan of the tech industry and you think that Apple is a great company with a lot of growth potential. You could try to generate alpha by investing in Apple stock, but you'd also need to consider the risks associated with investing in a single stock.
-
-### Real-World Examples
 
 Here are some real-world examples of companies that have generated alpha in the past:
 

@@ -299,48 +299,15 @@ CRITICAL WRITING RULES:
 - Keep paragraphs short (2-4 sentences).`;
 }
 
-// Utility: Strip AI prompt leakage from generated content
-// Removes leaked meta-commentary headings ("## 1. Introduction – Hook the Reader")
-// and stray instruction phrases that the model echoes from the prompt.
+// Strip AI prompt leakage from generated content.
+//
+// Delegates to scripts/clean-article-bodies.js, the single tested implementation. The
+// previous version here guarded every pattern with a "##" heading prefix, but the model
+// emits BOLD headings ("**Introduction**", "**Key Concepts**"), so nothing matched and
+// 95% of published articles shipped visible writing instructions. Keep the rules in one
+// place; do not re-add regexes here.
 function cleanArticleContent(content) {
-  let text = content;
-
-  // Remove numbered section headings with taglines: "## 1. Introduction – Hook the Reader"
-  text = text.replace(/^\s*(#+\s+)?(?:\d+[.)]\s+)?(#+\s+)?(?:Introduction|What Is|What is|Why|Why Should|Why do|Key Concepts|Key Takeaways|Key Points|Summary|Further Reading|Resources|Read|Learn|Try It Yourself|Hands-On|Not Financial|Clear Definition|Hook the Reader|Connect to Their|Break Down the Main|Bullet Points)\b[^\n]*\n/gmi, '');
-
-  // Remove any heading line that is a number + title + parenthetical tagline
-  text = text.replace(/^(\s*)(?:\d+\.?\s+)?(#+\s+[A-Z][^\n]*?\s*[-–]|#+\s+\d+\.?\s+[A-Z][^\n]*?\s*[-–])[^\n]*\(([A-Z][^)]*)\)\s*\n/gm, '');
-
-  // Remove standalone instruction-phrase headings (e.g. "Key Takeaways – Bullet Points")
-  text = text.replace(/^(\s{1,6}(#+\s+)[^\n]*?\s*[-–]\s+\w+)\s*\n/gm, '');
-
-  // Remove any remaining heading line whose text matches a known prompt phrase
-  const promptPhrases = [
-    'Hook the Reader', 'Clear Definition', 'Why Should Teens Care', 'Try It Yourself',
-    'Key Takeaways', 'Key Concepts', 'Further Reading', 'Why Should You Care',
-    'Connect to Their Life', 'Hands-On Activity', 'Break Down the Main Ideas',
-    'Bullet Points', 'Not Financial Advice', 'Real-World Examples', 'Introduction'
-  ];
-  const headingRe = /^(\s{1,6}(?:\d+\.\s+)?#+\s+)[^\n]+\s*[-–]\s+[^\n]+\s*\n/;
-  for (const phrase of promptPhrases) {
-    text = text.replace(headingRe, (match, indent, heading) => {
-      if (heading.toLowerCase().includes(phrase.toLowerCase())) {
-        return '';
-      }
-      return match;
-    });
-  }
-
-  // Remove leftover instruction lines like "Structure the article with these sections:" or "Important guidelines:"
-  const instructionPhrases = [
-    'Structure the article with these sections', 'Important guidelines',
-    'Guidelines', 'Write the article', 'CRITICAL WRITING RULES', 'WRITING RULES',
-    'Target audience', 'Difficulty level', 'Difficulty:'
-  ];
-  const instructionRe = new RegExp('^(\s{1,6}(?:' + instructionPhrases.join('|') + ')[^\n]*\n)', 'gm');
-  text = text.replace(instructionRe, '');
-
-  return text;
+  return stripScaffolding(content).text;
 }
 
 // Utility: Parse AI response into structured article

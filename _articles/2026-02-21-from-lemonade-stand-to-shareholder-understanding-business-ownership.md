@@ -20,28 +20,18 @@ related_articles:
     description: "How to use stock screeners to find companies worth investigating."
 ---
 
-**From Lemonade Stand to Shareholder: Understanding Business Ownership**
-=====================================================
-
-**Difficulty: Beginner**
-**Tags: business, ownership, fundamentals, beginner**
-
-**Introduction**
 ------------
 
 Imagine running your own lemonade stand, making money from selling refreshing drinks to thirsty customers. As the owner, you get to decide how to run the stand, what flavors to offer, and how much to charge. But have you ever wondered how big companies like Apple or Nike work? Who owns them, and how do they make decisions? In this article, we'll explore the basics of business ownership, why it matters to teens, and how you can apply these concepts to your own life.
 
-**What Is It?**
 -------------
 
 Business ownership refers to the rights and responsibilities of owning a company. When you own a business, you have control over its operations, finances, and decision-making. Think of it like being the boss of your own lemonade stand, but instead of just selling lemonade, you're running a full-fledged company.
 
-**Why Should Teens Care?**
 -------------------------
 
 As a teenager, you might not think that business ownership is relevant to your life. But the truth is, understanding how companies work can benefit you in many ways. For one, it can help you make informed decisions about your own future, whether that's starting your own business or investing in the stock market. Plus, learning about business ownership can give you a deeper understanding of the world around you, from how your favorite brands are run to how the economy works.
 
-**Key Concepts**
 ----------------
 
 Here are some key concepts to understand about business ownership:
@@ -51,7 +41,6 @@ Here are some key concepts to understand about business ownership:
 * **Corporation**: This is when a company is owned by shareholders who elect a board of directors to make decisions. Think of it like a big team effort, where many people come together to run the company.
 * **Stock**: This represents ownership in a company. When you buy stock, you're essentially buying a tiny piece of that company.
 
-**Real-World Examples**
 ---------------------
 
 Let's look at some real-world examples:
@@ -60,7 +49,6 @@ Let's look at some real-world examples:
 * **Nike**: Nike is also a corporation, but it's owned by a smaller group of shareholders, including its founder, Phil Knight.
 * **Facebook**: Facebook is a corporation owned by its shareholders, including its CEO, Mark Zuckerberg.
 
-**Try It Yourself**
 -----------------
 
 Imagine you and your friends want to start a small business selling handmade crafts online. You each contribute $100 to start the business, and you decide to split the profits equally.
@@ -68,7 +56,6 @@ Imagine you and your friends want to start a small business selling handmade cra
 * **Question**: What type of business ownership is this?
 * **Answer**: This is a partnership, since multiple people own and run the business together.
 
-**Key Takeaways**
 ----------------
 
 Here are the main lessons to take away:
@@ -81,7 +68,6 @@ Here are the main lessons to take away:
 
 **Not Financial Advice**: This article is for educational purposes only and should not be considered as financial advice.
 
-**Further Reading**
 ------------------
 
 If you want to learn more about business ownership and investing, here are some resources to check out:

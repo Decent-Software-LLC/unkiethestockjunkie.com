@@ -20,27 +20,18 @@ related_articles:
     description: "The Buffett/Graham method of determining true company value."
 ---
 
-**International Investing: Beyond US Markets**
-=============================================
-
-**Difficulty: Advanced**
-**Tags: international, diversification, global, advanced**
-
-**Introduction**
 ---------------
 
 Imagine you're a teenager with a passion for gaming. You've been following the latest trends and investments in the gaming industry, but you're starting to wonder: what about the gaming companies outside of the US? Shouldn't you be considering investing in companies like Tencent (China) or Capcom (Japan)? After all, the gaming industry is a global phenomenon, and the US is just one part of it.
 
 As a teenager learning about investing, it's essential to understand the world beyond US markets. International investing can seem daunting, but with the right knowledge, you can make informed decisions and potentially reap the rewards. In this article, we'll explore the world of international investing, its benefits, and some technical concepts to get you started.
 
-**What Is It?**
 ----------------
 
 International investing refers to the practice of investing in financial assets outside of your home country. This can include stocks, bonds, mutual funds, or exchange-traded funds (ETFs) that are listed on foreign exchanges or denominated in foreign currencies.
 
 Think of it like a recipe: just as a great chef combines ingredients from different parts of the world to create a unique dish, international investing involves combining investments from various countries to create a diversified portfolio.
 
-**Why Should Teens Care?**
 ---------------------------
 
 As a teenager, you might be thinking, "Why should I care about international investing? I'm just starting to learn about investing in the US!" But here's the thing: the world is becoming increasingly interconnected, and the lines between domestic and international investing are blurring.
@@ -52,7 +43,6 @@ By investing internationally, you can:
 * Take advantage of growth opportunities in emerging markets
 * Enhance your understanding of global economic trends and events
 
-**Key Concepts**
 -----------------
 
 Before we dive into real-world examples, let's cover some key concepts:
@@ -63,7 +53,6 @@ Before we dive into real-world examples, let's cover some key concepts:
 * **Country risk**: The risk that economic or political events in a particular country will impact your investments.
 * **Exchange-traded funds (ETFs)**: A type of investment fund that tracks a specific index or sector, often used for international investing.
 
-**Real-World Examples**
 -------------------------
 
 Let's look at some actual companies and scenarios:
@@ -72,7 +61,6 @@ Let's look at some actual companies and scenarios:
 * **Capcom (Japan)**: A leading video game developer and publisher with a market capitalization of over $10 billion. By investing in Capcom, you can tap into the Japanese gaming market and the company's popular franchises like Resident Evil and Street Fighter.
 * **iShares MSCI Emerging Markets ETF (EEM)**: An ETF that tracks the performance of emerging markets like China, India, and Brazil. By investing in EEM, you can gain exposure to a broad range of emerging markets and sectors.
 
-**Try It Yourself**
 -------------------
 
 Here's a hands-on activity to help you get started:
@@ -82,7 +70,6 @@ Here's a hands-on activity to help you get started:
 3. Look up the ETFs or mutual funds that track the performance of those companies or regions.
 4. Consider creating a hypothetical portfolio with a mix of US and international investments.
 
-**Key Takeaways**
 -----------------
 
 Here are the main lessons from this article:
@@ -92,7 +79,6 @@ Here are the main lessons from this article:
 * ETFs and mutual funds can be a convenient way to invest in international markets.
 * It's essential to do your research and consider multiple factors before investing internationally.
 
-**Further Reading**
 --------------------
 
 For more information on international investing, check out these resources:

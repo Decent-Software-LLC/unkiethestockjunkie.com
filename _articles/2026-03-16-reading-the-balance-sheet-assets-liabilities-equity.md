@@ -20,28 +20,20 @@ related_articles:
     description: "Why cash flow is the ultimate truth in business."
 ---
 
-**Reading the Balance Sheet: Assets, Liabilities, Equity**
-=====================================================
-
-**Difficulty: Intermediate**
 **Tags: balance-sheet, financial-statements, fundamentals, intermediate**
 
-**Introduction**
 ---------------
 
 Imagine you're the manager of your school's student store. You have to keep track of the money you make from selling snacks, the amount you owe to suppliers, and the value of the store itself. That's kind of like what a company's balance sheet does. It shows the financial health of a business at a specific point in time. As a future investor, understanding the balance sheet is crucial to making informed decisions. In this article, we'll break down the key concepts, provide real-world examples, and give you a chance to try it yourself.
 
-**What Is It?**
 ----------------
 
 A balance sheet is a financial statement that lists a company's assets, liabilities, and equity at a specific point in time. It's called a "balance" sheet because the total value of assets must equal the total value of liabilities and equity. Think of it like a seesaw: one side has assets, and the other side has liabilities and equity.
 
-**Why Should Teens Care?**
 ---------------------------
 
 As a teenager, you might not be investing in the stock market yet, but understanding the balance sheet will help you make informed decisions when you start. Imagine you're considering investing in your favorite clothing brand. By looking at their balance sheet, you can see if they have a lot of debt, if they're generating cash, and if they're growing their business. This information can help you decide if it's a good investment or not.
 
-**Key Concepts**
 -----------------
 
 Let's break down the main ideas:
@@ -50,7 +42,6 @@ Let's break down the main ideas:
 * **Liabilities**: These are the debts or obligations a company has, like loans, credit card debt, or money owed to suppliers. Think of liabilities like the money you owe your parents for that new video game.
 * **Equity**: This is the value of the company itself, like the amount of money invested by shareholders or the profit retained by the business. Think of equity like the value of your lemonade stand.
 
-**Real-World Examples**
 -------------------------
 
 Let's look at a real-world example. Suppose you're considering investing in Nike, the popular sports brand. By looking at their balance sheet, you can see:
@@ -61,7 +52,6 @@ Let's look at a real-world example. Suppose you're considering investing in Nike
 
 This information can help you understand Nike's financial health and make a more informed investment decision.
 
-**Try It Yourself**
 -------------------
 
 Let's say you have a small business selling handmade crafts online. You have:
@@ -72,7 +62,6 @@ Let's say you have a small business selling handmade crafts online. You have:
 
 Create a simple balance sheet using these numbers. Remember, the total value of assets must equal the total value of liabilities and equity.
 
-**Key Takeaways**
 -----------------
 
 * A balance sheet shows a company's financial health at a specific point in time.
@@ -86,7 +75,6 @@ Create a simple balance sheet using these numbers. Remember, the total value of 
 
 This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
 
-**Further Reading**
 --------------------
 
 * [Investopedia: Balance Sheet](https://www.investopedia.com/terms/b/balancesheet.asp)

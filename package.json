@@ -15,10 +15,12 @@
     "show-tags": "node scripts/show-tags.js",
     "check-links": "node scripts/check-links.js",
     "add-images": "node scripts/add-images-retroactive.js",
+    "clean-article-bodies": "node scripts/clean-article-bodies.js",
+    "clean-article-bodies:dry": "node scripts/clean-article-bodies.js --dry-run",
     "backfill-related": "node scripts/backfill-related-articles.js",
     "docker:generate": "docker compose run --rm generate",
     "docker:fetch-fundamentals": "docker compose run --rm fundamentals",
-    "test": "node scripts/test-related-articles.js && node scripts/test-articles-search.js && node scripts/test-share.js"
+    "test": "node scripts/test-related-articles.js && node scripts/test-articles-search.js && node scripts/test-share.js && npm run test:clean-bodies"
   },
   "keywords": [
     "investing",

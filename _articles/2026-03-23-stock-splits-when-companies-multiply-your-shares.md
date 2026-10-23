@@ -20,32 +20,22 @@ related_articles:
     description: "How to use stock screeners to find companies worth investigating."
 ---
 
-**Stock Splits: When Companies Multiply Your Shares**
-=====================================================
-
-**Difficulty: Beginner**
-**Tags: stock-splits, corporate-actions, beginner**
-
 **Not financial advice: This article is for educational purposes only. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.**
 
-**Introduction**
 ---------------
 
 Imagine you're at a pizza party, and your friend gives you a slice of pizza. But then, the pizza owner decides to cut each slice into two smaller slices. Suddenly, you have two slices of pizza instead of one! That's kind of like what happens when a company does a stock split. In this article, we'll explore what stock splits are, why they matter to teens, and how they work.
 
-**What Is It?**
 --------------
 
 A stock split is a corporate action where a company divides its existing shares into multiple new shares. This doesn't change the company's overall value, but it does change the number of shares you own. Think of it like a pizza slice: the pizza itself doesn't get bigger, but you get more slices.
 
 For example, let's say you own 10 shares of a company, and it decides to do a 2-for-1 stock split. After the split, you'll own 20 shares, but each share will be worth half of the original price.
 
-**Why Should Teens Care?**
 -------------------------
 
 As a teenager, you might not be investing in the stock market yet, but it's essential to understand how it works. Stock splits can affect the value of your investments, and knowing how they work can help you make informed decisions about your money. Plus, understanding stock splits can help you understand other corporate actions, like dividends and mergers.
 
-**Key Concepts**
 ----------------
 
 Here are some key concepts to understand about stock splits:
@@ -58,7 +48,6 @@ Let's use an example to illustrate these concepts:
 
 Suppose you own 10 shares of a company that decides to do a 3-for-2 stock split. The record date is January 15th, and the ex-date is January 20th. On January 20th, you'll own 15 shares (10 x 1.5), but each share will be worth 2/3 of the original price.
 
-**Real-World Examples**
 ----------------------
 
 Some well-known companies have done stock splits in the past:
@@ -67,7 +56,6 @@ Some well-known companies have done stock splits in the past:
 * **Tesla**: In 2022, Tesla did a 3-for-1 stock split, which means shareholders received three new shares for every one share they owned.
 * **Amazon**: In 2022, Amazon did a 20-for-1 stock split, which means shareholders received 20 new shares for every one share they owned.
 
-**Try It Yourself**
 ------------------
 
 Let's practice with a hypothetical example:
@@ -78,7 +66,6 @@ Suppose you own 20 shares of a company that decides to do a 2-for-1 stock split.
 2. Research the company's stock price before and after the split.
 3. Imagine you're a shareholder, and write a short paragraph about how you feel about the stock split.
 
-**Key Takeaways**
 -----------------
 
 Here are the main lessons from this article:
@@ -88,7 +75,6 @@ Here are the main lessons from this article:
 * Understanding stock splits can help you make informed decisions about your investments.
 * Stock splits can affect the value of your investments, so it's essential to stay informed.
 
-**Further Reading**
 ------------------
 
 If you want to learn more about stock splits and corporate actions, check out these resources:

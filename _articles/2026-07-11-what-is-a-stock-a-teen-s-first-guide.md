@@ -39,7 +39,6 @@ Here are some key concepts to understand:
 
 Let's use an example to illustrate these concepts. Imagine you buy 10 shares of a company called "GameOn" at $10 per share. Your portfolio now includes 10 shares of GameOn stock. If the stock price rises to $15, your portfolio value increases to $150.
 
-## Real-World Examples
 Here are a few examples of well-known companies that are publicly traded:
 
 * Apple (AAPL)

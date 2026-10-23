@@ -20,28 +20,18 @@ related_articles:
     description: "Comparing returns while accounting for risk taken."
 ---
 
-**Short Selling: Profiting from Falling Prices**
-=====================================================
-
-**Difficulty: Advanced**
-**Tags: short-selling, strategy, risk, advanced**
-
-**Introduction**
 ---------------
 
 Imagine you're at a garage sale, and you see a super cool pair of sneakers that everyone was obsessed with last year. But now, they're collecting dust, and the owner is desperate to get rid of them. You offer to buy them for a low price, planning to sell them online for an even lower price, knowing they'll probably drop in value even more. That's kinda like short selling, but instead of sneakers, we're talking about stocks.
 
-**What Is It?**
 ----------------
 
 Short selling is a complex investing strategy where you sell a stock you don't own, hoping to buy it back later at a lower price to cover your sale. This way, you profit from the difference between the two prices. It's like betting against a stock's success. You borrow shares from a broker, sell them at the current market price, and then wait for the price to drop. When it does, you buy the shares back at the lower price and return them to the broker, keeping the profit.
 
-**Why Should Teens Care?**
 -------------------------
 
 As a teenager, you might not be investing in the stock market yet, but understanding short selling can help you make informed decisions about your future investments. It's essential to know how the market works, including the strategies that can impact stock prices. Plus, learning about short selling can help you develop critical thinking skills, like analyzing market trends and predicting potential outcomes.
 
-**Key Concepts**
 -----------------
 
 ### 1. Short Interest
@@ -60,13 +50,11 @@ When you short sell, you're required to keep a certain amount of money in your a
 
 Naked short selling is when you sell shares without actually borrowing them. This is considered a high-risk strategy and is often prohibited by regulators.
 
-**Real-World Examples**
 ----------------------
 
 * **GameStop (GME)**: In 2020, GameStop's stock price was heavily shorted by hedge funds, expecting the company to decline. However, a group of retail investors on Reddit discovered the high short interest and decided to buy up the stock, causing a massive short squeeze. The price skyrocketed, and many short sellers lost millions.
 * **Tesla (TSLA)**: Elon Musk has been known to tweet about short sellers, claiming they're trying to bring down his company. In 2020, Tesla's stock price rose significantly, causing a short squeeze that led to huge losses for short sellers.
 
-**Try It Yourself**
 -------------------
 
 Let's say you think the stock price of a popular coffee shop chain, "Brew-tiful Day" (BDAY), will drop due to increased competition. You decide to short sell 100 shares at $50 each. You borrow the shares from a broker and sell them at the current market price.
@@ -78,7 +66,6 @@ Let's say you think the stock price of a popular coffee shop chain, "Brew-tiful 
 
 If the price drops to $40, you can buy back the shares and return them to the broker, keeping the $10 profit per share. However, if the price rises to $60, you'll lose $10 per share.
 
-**Key Takeaways**
 -----------------
 
 * Short selling is a complex strategy that involves selling a stock you don't own, hoping to buy it back later at a lower price.
@@ -86,7 +73,6 @@ If the price drops to $40, you can buy back the shares and return them to the br
 * Short selling involves high risk and is not suitable for all investors.
 * It's crucial to do thorough research and consider multiple perspectives before making investment decisions.
 
-**Further Reading**
 -------------------
 
 * "A Random Walk Down Wall Street" by Burton G. Malkiel (book)

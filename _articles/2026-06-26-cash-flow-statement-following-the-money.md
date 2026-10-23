@@ -20,10 +20,6 @@ related_articles:
     description: "How to read and learn from annual reports like Buffett does."
 ---
 
-**Cash Flow Statement: Following the Money**
-==============================================
-
-**Difficulty: Intermediate**
 ==========================
 
 **Tags: cash-flow-statement, financial-statements, fundamentals, intermediate**
@@ -54,8 +50,6 @@ Let's say your lemonade stand has the following cash flows:
 * Net change in cash: $100 + $50 - $20 - $30 = $100
 
 This means that your lemonade stand has a net increase in cash of $100.
-
-### Real-World Examples
 
 Let's look at a real-world example of a cash flow statement from a big company like Apple.
 

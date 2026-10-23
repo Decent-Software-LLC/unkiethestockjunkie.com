@@ -138,6 +138,27 @@ test('long bolded sentences are treated as content, not scaffolding', () => {
   assert.ok(text.includes(long.trim()), 'genuine bolded sentence deleted');
 });
 
+test('removes the colon-inside-bold variant ("**Difficulty:** Beginner")', () => {
+  // Regression: an earlier parser captured inner = "Difficulty:** Beginner", so the
+  // residual ** defeated the ^difficulty anchor and 7 articles kept a stray difficulty line.
+  const src = article(
+    'Body opens here.\n\n**Difficulty:** Advanced\n\n**Tags:** value, beginner\n\nMore prose.'
+  );
+  const { text } = cleanBody(src);
+  // Scope to the body: front matter legitimately carries difficulty/tags.
+  const body = text.slice(text.indexOf('\n---', 4));
+  assert.ok(!/Difficulty:/i.test(body), 'Difficulty line survived');
+  assert.ok(!/Tags:/i.test(body), 'Tags line survived');
+  assert.ok(body.includes('More prose.'));
+});
+
+test('inline bold inside a real sentence does not count as a heading', () => {
+  const line = 'Compound **interest** grows faster when you start as a teenager.';
+  const src = article(line + '\n\nNext paragraph.');
+  const { text } = cleanBody(src);
+  assert.ok(text.includes(line), 'prose with inline bold was deleted');
+});
+
 test('front matter is never modified', () => {
   const src = article('**Introduction**\n\nProse.');
   const before = src.slice(0, src.indexOf('\n---', 4) + 4);
