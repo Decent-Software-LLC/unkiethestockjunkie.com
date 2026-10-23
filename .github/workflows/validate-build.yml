@@ -1,0 +1,76 @@
+name: Validate Build
+
+# The content workflows (generate-content, fetch-fundamentals) commit directly to main
+# and call requestPagesBuild without ever running Jekyll. A malformed article front
+# matter, broken Liquid, or bad _config.yml therefore reaches GitHub Pages unverified -
+# you find out from a 404 or a half-rendered site, not from CI.
+#
+# This job closes that gap: it builds on every push and pull request, fails loudly, and
+# runs the same checks the daily automation can produce.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Pins the Ruby used for preview locally and in this job. System Ruby on macOS is
+      # too old for modern rouge, which is why the repo carries a Dockerfile; reusing
+      # that image here keeps "works locally" and "passes CI" the same statement.
+      - name: Build site (strict)
+        uses: docker://ruby:3.3-slim
+        with:
+          entrypoint: /bin/bash
+          args: >
+            -c "apt-get update -qq &&
+                apt-get install -y -qq --no-install-recommends build-essential curl git ca-certificates >/dev/null &&
+                gem install bundler --no-document >/dev/null &&
+                bundle config set without 'development test' &&
+                bundle install &&
+                bundle exec jekyll build --strict_front_matter --trace"
+
+      # Related-article linking is the one piece of generated structure most likely to
+      # regress, and its failure mode is silent (links vanish, page still renders).
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run tests
+        run: npm test
+
+      - name: Fail if any article lost its related-article links
+        run: |
+          total=$(ls _articles/*.md | wc -l)
+          linked=$(grep -l '^related_articles:' _articles/*.md | wc -l)
+          echo "articles: $total   with related_articles: $linked"
+          if [ "$total" -ne "$linked" ]; then
+            echo "::error::$((total - linked)) of $total articles are missing related_articles;"
+            echo "::error::the 'Continue Learning' block will be absent from those pages."
+            exit 1
+          fi
+
+      - name: Fail on leaked AI meta-commentary in article bodies
+        run: |
+          # cleanArticleContent() strips prompt phrasing after the fact; these patterns
+          # surviving into a body means the stripper regressed. Failing here beats
+          # publishing an article that shows a teenager our writing instructions.
+          status=0
+          while IFS= read -r file; do
+            echo "::warning file=$file::leaked structural headings present"
+            status=1
+          done < <(grep -lE '^#{2,3} (Introduction|Conclusion|Key Takeaways|Further Reading|Try It Yourself|Hook the Reader|Why Should Teens Care)\b' _articles/*.md || true)
+          if grep -lE '^(As an AI|I cannot assist|Language model)' _articles/*.md >/dev/null 2>&1; then
+            echo "::error::AI self-reference found in article bodies"
+            status=1
+          fi
+          exit $status

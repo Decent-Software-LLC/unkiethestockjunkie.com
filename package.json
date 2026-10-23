@@ -4,18 +4,21 @@
   "description": "Investing education for smart teens - Automated content generation with legendary investor strategies",
   "main": "scripts/generate-article.js",
   "scripts": {
-    "fetch-fundamentals": "node scripts/fetch-fundamentals.js",
+    "dev": "docker compose up site",
+    "serve": "docker compose up site",
+    "build": "docker compose run --rm build",
+    "docker:build": "docker build -t unkie-jekyll:1 .",
     "generate": "node scripts/generate-article.js",
+    "fetch-fundamentals": "node scripts/fetch-fundamentals.js",
+    "update-screeners": "node scripts/update-screeners.js",
     "add-topic": "node scripts/add-topic.js",
     "show-tags": "node scripts/show-tags.js",
     "check-links": "node scripts/check-links.js",
     "add-images": "node scripts/add-images-retroactive.js",
-    "dev": "docker compose up site",
-    "serve": "docker compose up site",
-    "build": "docker compose run --rm build",
-    "generate": "docker compose run --rm generate",
-    "fetch-fundamentals": "docker compose run --rm fundamentals",
-    "docker:build": "docker build -t unkie-jekyll:1 ."
+    "backfill-related": "node scripts/backfill-related-articles.js",
+    "docker:generate": "docker compose run --rm generate",
+    "docker:fetch-fundamentals": "docker compose run --rm fundamentals",
+    "test": "node scripts/test-related-articles.js"
   },
   "keywords": [
     "investing",

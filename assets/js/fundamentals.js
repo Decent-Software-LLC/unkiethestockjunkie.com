@@ -9,6 +9,30 @@ let fundamentalsData = null;
 let fundamentalsLoaded = false;
 
 /**
+ * Resolve a path under the site root.
+ *
+ * Was hardcoded as '/assets/...', which only works while the site is served from the
+ * domain root. Under a project URL (kjw3.github.io/unkiethestockjunkie.com/) or any
+ * non-empty Jekyll baseurl, that resolves to the wrong origin path and every screener
+ * silently drops to demo mode - fabricated fundamentals presented as real data.
+ *
+ * Reads the base from <html data-site-base="..."> when the layout provides it, so the
+ * single source of truth stays in Liquid's relative_url. Falls back to document.baseURI
+ * rather than '/' so the loader still resolves correctly when opened outside Jekyll.
+ */
+function siteAssetUrl(relativePath) {
+  const clean = relativePath.replace(/^\/+/, '');
+  const el = document.documentElement;
+  const base = el && el.getAttribute('data-site-base');
+  if (base !== null) {
+    // relative_url emits '' at the root and '/subdir' otherwise; normalise both to
+    // a form that joins cleanly with the asset path.
+    return base === '' ? `/${clean}` : `${base.replace(/\/+$/, '')}/${clean}`;
+  }
+  return new URL(`assets/${clean}`, document.baseURI).href;
+}
+
+/**
  * Load fundamentals JSON. Returns a promise that resolves when done.
  * Safe to call multiple times — only loads once.
  */
@@ -16,7 +40,7 @@ async function loadFundamentals() {
   if (fundamentalsLoaded) return fundamentalsData;
   
   try {
-    const res = await fetch('/assets/data/fundamentals.json');
+    const res = await fetch(siteAssetUrl('assets/data/fundamentals.json'), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     fundamentalsData = await res.json();
     

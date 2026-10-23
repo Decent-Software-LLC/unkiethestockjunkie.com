@@ -18,7 +18,7 @@ permalink: /newsletter/
       
       <div class="signup-section">
         <div class="signup-card">
-          <h2>Join 1,000+ Smart Teens</h2>
+          <h2>Get Smarter About Money</h2>
           <p class="signup-subtitle">Get a new investing article every day, totally free.</p>
           
           <div class="benefits-list">
@@ -69,10 +69,6 @@ permalink: /newsletter/
             <div class="trust-item">
               <span class="trust-icon">📧</span>
               <span>Unsubscribe anytime</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-icon">👥</span>
-              <span>Join 1,000+ readers</span>
             </div>
           </div>
         </div>

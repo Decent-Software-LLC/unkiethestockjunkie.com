@@ -43,3 +43,4 @@ temp/
 *.tmp
 # Local build artefacts
 .gems/
+/.bu-test/

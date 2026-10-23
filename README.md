@@ -26,22 +26,26 @@ Visit: **https://unkiethestockjunkie.com** (configure your domain)
 ### Content
 - 📰 **100+ Curated Topics** covering investing basics to advanced strategies
 - 🤖 **AI-Powered Articles** generated daily using NVIDIA Nemotron 3 Nano Omni 30B
-- 🎨 **Custom Illustrations** created with NVIDIA FLUX.1-schnell
-- 📚 **Four Difficulty Levels** from beginner to advanced
-- 🔗 **Cross-Referenced Content** related articles automatically linked
+- 🎨 **Custom Illustrations** created with NVIDIA FLUX.3 Image Klein
+- 📚 **Three Difficulty Levels** - beginner, intermediate, advanced
+- 🔗 **Related Articles** each article links three matches by shared tags and level
 
 ### Screeners
+Seven strategy-based screeners, each teaching one investor's criteria against real
+market data (with a demo fallback when data is unavailable):
 - 🎯 **Buffett Screener** - Wonderful companies at fair prices
 - 📖 **Graham Screener** - Bargains with margin of safety
 - 🚀 **Lynch Screener** - Growth at reasonable prices
 - ⚡ **Icahn Screener** - Undervalued assets with potential
+- 🧠 **Munger Screener** - Owner-operator wonders with durable advantages
+- 📊 **Greenblatt Screener** - The Magic Formula: great companies at great prices
+- 📈 **O'Neil Screener** - CAN SLIM: buy strength, sell weakness
 
 ### Design
 - 🎨 **Modern, Teen-Friendly Design** with dark/light mode
 - 📱 **Fully Responsive** works on all devices
 - ⚡ **Fast Performance** static site generation
-- 🔍 **Search & Filter** find articles by difficulty or topic
-- 🌙 **Dark Mode** easy on the eyes
+- 🔍 **Filter by difficulty** find articles at your level
 
 ## 🛠️ Technology Stack
 
