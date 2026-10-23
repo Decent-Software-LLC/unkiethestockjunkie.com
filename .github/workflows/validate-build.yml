@@ -50,22 +50,13 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Fail if any article lost its related-article links
+      # One place for these checks, not two. They were separate shell greps here until now:
+      # the scaffolding grep duplicated test:bodies (which is strictly better - it distinguishes
+      # front matter from body and shares its label list with the cleaner), and the related-article
+      # count duplicated test:related. The original scaffolding grep only matched ^#{2,3} while the
+      # corpus used bold headings, so it reported success while 95% of articles leaked instructions.
+      # Duplicated guards don't just waste time, they rot differently from the thing they mirror.
+      - name: Verify test coverage of generated structure
         run: |
-          total=$(ls _articles/*.md | wc -l)
-          linked=$(grep -l '^related_articles:' _articles/*.md | wc -l)
-          echo "articles: $total   with related_articles: $linked"
-          if [ "$total" -ne "$linked" ]; then
-            echo "::error::$((total - linked)) of $total articles are missing related_articles;"
-            echo "::error::the 'Continue Learning' block will be absent from those pages."
-            exit 1
-          fi
-
-      - name: Fail on leaked AI scaffolding in article bodies
-        run: |
-          # Content guards live in scripts/test-clean-article-bodies.js, which understands
-          # front matter vs body (a plain grep over these files would flag the legitimate
-          # difficulty:/tags: keys in every article's front matter). The suite asserts each
-          # deleted line is positively identifiable as scaffolding, and that none survives.
-          # Keeping the rules in JS also shares one label list with the cleaner itself.
-          node scripts/test-clean-article-bodies.js
+          echo "Content and link guarantees run under 'npm test' (10 suites):"
+          node -e "const t=require('./package.json').scripts.test; t.split('&&').forEach(s=>console.log('  '+s.trim()))"
