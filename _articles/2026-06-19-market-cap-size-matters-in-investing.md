@@ -18,7 +18,7 @@ quiz:
     answer: 1
     why: "Price per share depends on how many shares were cut into. A low sticker price can belong to an enormous company."
 related_articles:
-  - title: "Blue Chip Stocks: The Safe Giants"
+  - title: "Blue Chip Stocks: The Established Giants"
     url: "/articles/blue-chip-stocks-the-safe-giants/"
     description: "What large-cap stability actually buys you, and what it doesn't."
   - title: "Beta: Measuring Market Sensitivity"

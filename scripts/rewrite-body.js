@@ -54,6 +54,13 @@ module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
     const m = /^(related_articles:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fm.fields);
     if (m) blocks.push(m[1].trim());
   }
+  if (!blocks.some((b) => b.startsWith('quiz:'))) {
+    // Same protection as related_articles: a voice rewrite that supplies no new quiz must
+    // keep the authored one. Without this, `--body` alone silently deleted every quiz on
+    // the page it touched, which is exactly how several articles lost their quizzes.
+    const m = /^(quiz:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fm.fields);
+    if (m) blocks.push(m[1].trim());
+  }
   const doc = '---\n' + header.concat(blocks).join('\n') + '\n---\n\n' + bodyText.replace(/^\n+/, '').replace(/\s+$/, '') + '\n';
   const abs = path.join(ROOT, rel);
   fs.writeFileSync(abs, doc);
