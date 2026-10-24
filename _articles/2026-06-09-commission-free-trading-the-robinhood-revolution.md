@@ -18,50 +18,42 @@ related_articles:
   - title: "What is a Broker and How to Choose One"
     url: "/articles/what-is-a-broker-and-how-to-choose-one/"
     description: "Different types of brokers and what to look for when opening an account."
+quiz:
+  - question: "\"Commission-free\" reliably means..."
+    options: ["Trading is costless", "No per-trade stock commission; other economics exist", "Order quality is best available by law alone", "The firm donates its services"]
+    answer: 1
+    why: "Spreads, payment for order flow, idle-cash interest and fund expense ratios all survived the elimination of the visible ticket charge."
+  - question: "For a beginner investing monthly, the largest recurring cost is usually..."
+    options: ["Commissions", "Fund expense ratios", "Account-opening fees", "Dividend reinvestment charges"]
+    answer: 1
+    why: "An annual percentage charge applies every year regardless of trading frequency, quietly outweighing per-trade fees forever."
 ---
+Trading commissions went from double-digit dollars per order to zero, and nobody argues that this was bad. The complications arrived afterward, because a business that stopped charging visibly still has payroll, and the replacements are harder to see than the fee they displaced. Zero is a genuine improvement plus a marketing achievement simultaneously, and holding both thoughts is the point.
 
-Imagine you're at a music festival, and you want to buy a merchandise T-shirt. You find a vendor selling your favorite band's shirt for $20. But, when you're about to pay, the vendor tells you that you need to pay an extra $5 as a "service fee" just for buying the shirt. You'd probably think that's unfair, right? Well, in the world of investing, something similar used to happen. But then, a company called Robinhood came along and changed the game.
+## What changed, and who forced it
 
-Commission-free trading is a way of buying and selling investments, like stocks or ETFs, without paying a fee to a broker. Think of a broker like a middleman who helps you buy or sell something. In the past, brokers would charge a commission, or a fee, for their services. This commission could range from a few dollars to hundreds of dollars, depending on the type of investment and the broker.
+Per-order charges once ranged from a few dollars on discount platforms to hundreds for full-service brokerage work, with the expensive end buying advice, tax help and a named human. Then competition collapsed the visible number in stages. An app launched in 2015 built entirely around free stock trades, drawing millions of first-time accounts by removing the charge everyone resented most, and other firms held out until a major incumbent zeroed US stock and fund commissions in September 2019, after which the industry-wide figure effectively became zero within months. If you're comparing brokers today, [What Is a Broker and How to Choose One?](/articles/what-is-a-broker-and-how-to-choose-one/) covers what actually differs when price isn't the variable.
 
-As a teenager, you might not be investing yet, but you will be soon. Maybe you're already thinking about saving for college or a car. Commission-free trading matters because it can help you keep more of your money. Imagine you invest $1,000 in the stock market, and you earn a 5% return. That's $50 in profit. But, if you had to pay a $20 commission, your profit would be reduced to $30. That's a big difference!
+Two revenue sources filled the gap. Some platforms route customer orders to firms that pay for the privilege and profit on the difference between bid and ask, a practice called payment for order flow. Others keep client cash parked and earn interest on it while paying account holders little or nothing. Regulators examined both: an attempt to prohibit payment for order flow was finalized and then struck down by a federal appeals court in 2024, and one prominent platform paid tens of millions across settlements covering repeated outages alongside descriptions of how it was compensated that regulators considered misleading. None of that makes any particular company sinister, and none of it should be inferred from ads either, which is why reading a firm's own disclosures beats trusting anybody's summary including this one.
 
-Here are some key concepts to understand:
+There's also a newer wrinkle directly relevant if you're under eighteen: several apps now offer custodial accounts for teenagers, meaning a parent opens and manages it until majority. Read the fee schedule carefully, because these products often carry asset-based charges that would have been laughed at during the commission wars, and the whole benefit of free trading evaporates when something else bills annually against your balance. [Opening Your First Brokerage Account](/guides/opening-your-first-brokerage-account/) walks through custodial mechanics including the financial-aid complication families discover far too late.
 
-* **Broker:** A company or person that helps you buy or sell investments.
-* **Commission:** A fee charged by a broker for their services.
-* **Trading:** Buying or selling investments, like stocks or ETFs.
-* **Platform:** A website or app that allows you to trade investments.
+## Do the arithmetic before believing the slogan
 
-Let's look at some examples:
+A thousand dollars earning five percent produces fifty dollars. Subtract a twenty-dollar commission and thirty remains, so eliminating that commission raised your realized outcome by two thirds on a single round trip. For small balances this is transformative rather than merely convenient, and anyone dismissing free trading as cosmetic hasn't modeled tiny account sizes.
 
-* **Robinhood:** A popular trading platform that offers commission-free trading. Robinhood makes money by collecting interest on the cash in your account and by selling order flow to market makers.
-* **Fidelity:** A well-established online broker that also offers commission-free trading for certain investments, like ETFs.
-* **E\*TRADE:** A online broker that charges a commission for some investments, but offers commission-free trading for others.
+Then compare against the cost nobody puts on a comparison chart. A fund charging one percent annually costs roughly one seventh of a seven percent gross return forever, compounding silently in the background whether you trade twice a year or twice a decade, which dwarfs any commission ever charged and appears nowhere near the buy button. See [The Hidden Costs of Trading: Slippage, Spreads, and Market Impact](/articles/the-hidden-costs-of-trading-slippage-spreads-and-market-impact/) for spread drag on individual orders, and [Index Funds: Set It and Forget It](/articles/index-funds-set-it-and-forget-it/) for locating genuinely cheap diversified exposure. Someone who celebrates zero commissions while holding an expensive actively managed product optimized the wrong variable.
 
-Imagine you have $1,000 to invest. You want to buy shares of your favorite company, let's say Apple (AAPL). You have two options:
+## What the interface is doing to your decisions
 
-1. Use a broker that charges a $10 commission.
-2. Use a commission-free trading platform like Robinhood.
+Free access plus push notifications plus instant fills changes behavior, not just cost. Researchers and regulators both raised concerns that app-style design encouraged more frequent trading than customers' stated intentions implied, and frequent trading invites precisely the errors catalogued in [Why 'Time in the Market' Beats 'Timing the Market'](/articles/why-time-in-the-market-beats-timing-the-market/). Two specific hazards deserve naming rather than vague warnings. Limitations can appear without advance notice during volatility, as happened to certain popular names in early 2021 when purchases were restricted mid-session while sales remained open, an experience arriving without warning to people whose entire position was illiquid-by-decision. And outages have repeatedly blocked customers from exiting during sharp moves, with compensation processes slow and contested afterward.
 
-Which option would you choose? Why?
+Position sizing answers both better than any broker choice does. Never place money you might need urgently inside anything that depends on someone else's servers staying responsive during chaos, and never assume access rights you've only read advertised.
 
-Here are the main lessons:
+## Try this today, fifteen minutes
 
-* Commission-free trading can save you money.
-* Brokers used to charge commissions for their services.
-* Trading platforms like Robinhood offer commission-free trading.
-* Investing involves risk, and you could lose some or all of your money.
+Open whichever app or website you'd realistically use and find two documents: the fee schedule and the disclosure page explaining how the company earns money. Skim both fully once, writing down every charge that applies to you specifically given your age and likely balance.
 
-**Not Financial Advice**
--------------------------
+Then locate the expense ratio of whatever fund you'd buy first and write it next to those numbers. Ranking them by size tells you where to concentrate your attention, and it's a ranking almost nobody consults before opening an account, which is most of why beginners lose meaningful amounts of money to things they believed were free.
 
-This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and you could lose some or all of your money. Always do your own research and consider consulting with a financial advisor before making investment decisions.
-
-If you want to learn more, check out these resources:
-
-* **Investopedia:** A website that offers a wealth of information on investing and personal finance.
-* **The Balance:** A personal finance website that covers investing, saving, and more.
-* **SEC Investor.gov:** A website from the Securities and Exchange Commission (SEC) that offers information on investing and investor protection.
-
-Remember, investing is a journey, and it's essential to educate yourself before getting started. Keep learning, and you'll be well on your way to becoming a savvy investor!
+*Educational content, not financial advice. Platform terms change; verify current schedules directly. Investing involves risk, including loss of money.*

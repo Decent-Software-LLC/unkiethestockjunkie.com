@@ -85,30 +85,10 @@
    "note": "verified in session: file exists, body authored by hand"
   },
   "why-time-in-the-market-beats-timing-the-market": {
-   "at": "seeded",
+   "at": "2026-10-24",
    "note": "verified in session: file exists, body authored by hand"
   },
   "what-is-volume-and-why-does-it-matter": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
-  "loss-aversion-why-losses-feel-worse-than-gains": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
-  "dollar-cost-averaging-smooth-out-the-bumps": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
-  "diversification-don-t-put-all-your-eggs-in-one-basket": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
-  "asset-allocation-balancing-stocks-and-bonds": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
-  "the-hidden-costs-of-trading-slippage-spreads-and-market-impact": {
    "at": "seeded",
    "note": "verified in session: file exists, body authored by hand"
   },
@@ -131,6 +111,18 @@
   "the-rule-of-72-quick-mental-math-for-investors": {
    "at": "seeded",
    "note": "verified in session: file exists, body authored by hand"
+  },
+  "nasdaq-where-tech-giants-live": {
+   "at": "2026-10-24"
+  },
+  "the-history-of-wall-street-from-buttonwood-to-bitcoin": {
+   "at": "2026-10-24"
+  },
+  "long-term-vs-short-term-investing": {
+   "at": "2026-10-24"
+  },
+  "commission-free-trading-the-robinhood-revolution": {
+   "at": "2026-10-24"
   }
  }
 }

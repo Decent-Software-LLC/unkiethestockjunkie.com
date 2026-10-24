@@ -18,15 +18,23 @@ related_articles:
   - title: "Fear and Greed: Mastering Market Psychology"
     url: "/articles/fear-and-greed-mastering-market-psychology/"
     description: "How emotions drive markets and how to stay rational."
+quiz:
+  - question: "Losing $100 typically feels compared with gaining $100:"
+    options: ["About the same intensity", "Roughly twice as strongly", "Less strongly", "Only if others watch"]
+    answer: 1
+    why: "Losses carry heavier psychological weight than equivalent gains, which is why people hold falling positions far longer than logic supports."
+  - question: "Which behavior does loss aversion directly produce?"
+    options: ["Selling winners too early while holding losers", "Buying broadly diversified funds", "Rebalancing on schedule", "Reading filings carefully"]
+    answer: 0
+    why: "Realizing a gain feels safe, admitting a loss feels like failure, so portfolios fill with losing positions sold just before recoveries."
 ---
-
 **Not financial advice. This article is for educational purposes only. Investing involves risk, and you should not make investment decisions based on this content.**
 
 Imagine you're at a basketball game, and your favorite team is down by one point with only seconds left. The other team scores, and you feel a pang of disappointment. Now, imagine your team scores, and you win the game. Which feeling is stronger? For most people, the disappointment of losing is more intense than the joy of winning. This phenomenon is called loss aversion, and it's a crucial concept in investing.
 
 Loss aversion is a psychological bias that describes the tendency for people to prefer avoiding losses to acquiring gains. In other words, the pain of losing $100 is greater than the pleasure of gaining $100. This bias is a fundamental aspect of human behavior, and it affects how we make decisions under uncertainty.
 
-As a teenager, you're probably just starting to learn about investing and managing money. Understanding loss aversion is essential because it can help you make better financial decisions. By recognizing this bias, you can develop strategies to overcome it and achieve your long-term goals. Loss aversion can also help you understand why people make irrational decisions, like holding onto a losing stock or selling a winning stock too early.
+As a teenager, you're probably just starting to learn about investing and managing money. Understanding loss aversion is essential because it can help you make better financial decisions. By recognizing this bias, you can develop strategies to overcome it and achieve your long-term goals. Loss aversion can also help you understand why people make irrational decisions, like holding onto a losing stock or selling a winning stock too early. That pattern is what derails otherwise sensible long-term plans, covered in [Why 'Time in the Market' Beats 'Timing the Market'](/articles/why-time-in-the-market-beats-timing-the-market/), while the urge to chase whatever just ran is dissected in [FOMO in Investing: Fear of Missing Out](/articles/fomo-in-investing-fear-of-missing-out/).
 
 Let's break down the main ideas behind loss aversion:
 

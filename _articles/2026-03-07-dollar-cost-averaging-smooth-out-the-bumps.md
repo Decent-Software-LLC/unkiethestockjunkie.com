@@ -18,11 +18,19 @@ related_articles:
   - title: "Diversification: Don't Put All Your Eggs in One Basket"
     url: "/articles/diversification-don-t-put-all-your-eggs-in-one-basket/"
     description: "Why spreading your investments reduces risk."
+quiz:
+  - question: "Investing a fixed amount monthly means you buy..."
+    options: ["Fewer shares when prices fall", "More shares when prices fall", "Always the same share count", "Only at yearly lows"]
+    answer: 1
+    why: "A constant dollar amount purchases more units at lower prices, which averages your entry without requiring any forecast."
+  - question: "Dollar-cost averaging guarantees..."
+    options: ["Profit every year", "Nothing about outcomes; it removes decisions, not risk", "Beating the market", "Automatic insurance against losses"]
+    answer: 1
+    why: "It regularizes behavior. Money invested right before a prolonged decline still loses value; the benefit is procedural, not predictive."
 ---
-
 Imagine you're on a rollercoaster ride, and the ups and downs are making your stomach drop. That's what it can feel like when you're investing in the stock market. But what if you could smooth out those bumps and make the ride less intense? That's where dollar-cost averaging comes in. This investment strategy can help you navigate the ups and downs of the market and make the most of your money. In this article, we'll explore what dollar-cost averaging is, why it matters, and how you can use it to your advantage.
 
-Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals, regardless of the market's performance. This means that you'll be buying more shares when prices are low and fewer shares when prices are high. By doing so, you'll be averaging out the cost of your investments over time, which can help reduce the impact of market volatility.
+Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals, regardless of the market's performance. This means that you'll be buying more shares when prices are low and fewer shares when prices are high. By doing so, you'll be averaging out the cost of your investments over time, which can help reduce the impact of market volatility. Sticking to a schedule matters more than the amount; see [The Rule of 72](/articles/the-rule-of-72-quick-mental-math-for-investors/) for what steady contributions can become across decades, and [Index Funds: Set It and Forget It](/articles/index-funds-set-it-and-forget-it/) for the kind of holding most people pair with this approach.
 
 As a teenager, you might not be thinking about investing just yet, but it's essential to start learning about it now. The earlier you start investing, the more time your money has to grow. Dollar-cost averaging can be an excellent strategy for teens because it helps you:
 

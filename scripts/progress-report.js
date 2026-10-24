@@ -184,16 +184,32 @@ L.push('');
 // --check: machine-verifiable ledger integrity. Exits non-zero if the authorship record references a
 // file that does not exist (the exact failure that produced six phantom "rewritten" articles earlier),
 // or if any article page is missing on disk relative to what the site nav would link.
+// Prose used for integrity checks: markdown links collapse to their URLs so banned words inside
+// link *titles* ("What Is Volatility? Riding the Roller Coaster") don't read as AI-isms, and code is dropped.
+function checkableProse(body) {
+  return body.replace(/```[\s\S]*?```/g, ' ').replace(/\[([^\]]*)\]\(([^)]+)\)/g, ' $2 ');
+}
+const HARD_TELLS = /imagine you'?re (?:on|at) a|in this article|young investor|let'?s explore|delve|game changer|embark|as a teenager|essential to do your own research/i;
+
 if (argv.includes('--check')) {
   const problems = [];
   const todoNotes = [];
   for (const slug of Object.keys(AUTHORED)) {
-    if (!rows.some((r) => r.slug === slug)) problems.push(`manifest references non-existent article: ${slug}`);
+    const row = rows.find((r) => r.slug === slug);
+    if (!row) { problems.push(`manifest references non-existent article: ${slug}`); continue; }
+    // A recorded rewrite that reads like untouched generated output means the record is wrong, not the
+    // article queue. Five intermediate entries were once claimed this way from an unverified summary.
+    const body = fs.readFileSync(path.join(ROOT, row.file), 'utf8').split(/^---[ \t]*$/m).slice(2).join('---');
+    const prose = checkableProse(body);
+    const links = (prose.match(/\/articles\//g) || []).length;
+    const tell = HARD_TELLS.exec(prose);
+    if (tell) problems.push(`recorded as rewritten but still contains "${tell[0]}" -- fix the copy or remove it from content-rewrites.json: ${slug}`);
+    if (links === 0) problems.push(`recorded as rewritten but has no internal article links: ${slug}`);
   }
   for (const r of rows) {
     // Incomplete-but-honest state is advisory: it is the queue, not an integrity failure.
     if (r.status === 'authored' && !r.quiz) todoNotes.push(`authored, quiz still pending: ${r.slug}`);
-    if (r.status === 'untouched' && r.tells >= 3) todoNotes.push(`${r.tells} AI-isms, untouched: ${r.slug}`);
+    if (r.status !== 'authored' && r.tells >= 3) todoNotes.push(`${r.tells} AI-isms, unrewritten: ${r.slug}`);
   }
   for (const t of todoNotes) console.log('  · ' + t);
   if (problems.length) {

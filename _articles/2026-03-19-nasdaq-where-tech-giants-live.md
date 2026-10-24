@@ -18,50 +18,42 @@ related_articles:
   - title: "The Dot-Com Bubble: When Pets.com Went to Zero"
     url: "/articles/the-dot-com-bubble-when-pets-com-went-to-zero/"
     description: "Lessons from the internet boom and bust of the late 1990s."
+quiz:
+  - question: "Nasdaq's original significance (1971) was that it..."
+    options: ["Listed technology firms", "Ran competing dealer quotes on screens instead of a trading floor", "Allowed minors to trade", "Invented the dividend"]
+    answer: 1
+    why: "It was the first screen-based market. Dealer competition over networks compressed spreads; tech dominance came decades later."
+  - question: "A fund tracking the Nasdaq-100 is best described as..."
+    options: ["Broad diversification across US business", "Size-weighted exposure dominated by a few large names", "Equal ownership of every listed company", "A bond substitute"]
+    answer: 1
+    why: "Capitalization weighting forces concentration into recent winners, so a handful of mega-cap positions drive most of the return."
 ---
+Apple, Nvidia, Tesla and Netflix all trade on the same exchange, and so do Starbucks, Costco and a few thousand companies nobody has heard of. Knowing which venue a ticker lives on answers quieter questions than headlines ask: why some names gap violently overnight, what actually drives index-fund buying, and why a stock's home market is not the place your order gets filled.
 
-Imagine you're at a giant mall with all your favorite tech stores – Apple, Amazon, Google, and Facebook. This "mall" is called the Nasdaq, a place where people buy and sell pieces of these tech giants. As a teenager, you might be wondering why this matters to you. Well, the Nasdaq is a key part of the stock market, where companies raise money to grow and innovate. Understanding the Nasdaq can help you make informed decisions about your own money and future.
+## What Nasdaq was, and why that was strange
 
-The Nasdaq (National Association of Securities Dealers Automated Quotations) is a stock exchange, similar to a marketplace where people trade shares of companies. It's the second-largest stock exchange in the world, after the New York Stock Exchange (NYSE). The Nasdaq is home to over 3,000 listed companies, including many tech giants.
+The name spells out an infrastructure project rather than a company: National Association of Securities Dealers Automated Quotations. It launched in 1971 as the first screen-based market, replacing brokers shouting bids on a floor with competing dealer quotes arriving over networks. That was a genuine architectural break. Instead of one auction hall with designated specialists, multiple dealers competed to quote both sides electronically, and prices tightened as a result because competing quoted spreads attract business away from lazy ones. See [Stock Exchanges: NYSE vs NASDAQ Explained](/articles/stock-exchanges-nyse-vs-nasdaq-explained/) for the comparison in full.
 
-Think of the Nasdaq like a big store where people can buy and sell shares of companies. Just as you might buy a new video game or a pair of sneakers, investors buy and sell shares of companies like Apple or Amazon.
+It became the second-largest exchange in the world by listed value, with several thousand companies on the roster, and its reputation for technology solidified through the 1990s rather than by decree. Internet-era firms listed there partly because the venue looked like what they were selling and partly because early listings were cheaper and less socially demanding than the established alternative. Once a few giants succeeded, the pattern fed itself.
 
-As a teenager, you might not be thinking about investing just yet, but it's essential to understand the basics. The Nasdaq is where many tech companies are listed, and these companies are shaping your future. They're creating new technologies, jobs, and opportunities that will impact your life.
+Two habits of speech mislead beginners here. A stock does not belong to the Nasdaq the way a team belongs to a league; ownership is a legal relationship with a company whose shares happen to satisfy that venue's continued-listing standards, thresholds around price, public float and shareholder counts explained properly in [What Is a Stock? A Teen's First Guide](/articles/what-is-a-stock-a-teen-s-first-guide/). And when commentators say *Nasdaq fell two percent*, they mean the composite index averaged across thousands of names, not the exchange itself, which is publicly traded and reports earnings of its own like any listing business.
 
-Moreover, the Nasdaq is a place where people can invest in companies they believe in. If you're passionate about a particular company or industry, you might consider investing in it one day. By understanding the Nasdaq, you'll be better equipped to make informed decisions about your own money and future.
+## The index people actually invest in
 
-Here are some key concepts to understand:
+Almost no investor buys the composite. Attention concentrates on the Nasdaq-100, a basket of the largest hundred-odd non-financial listings, overwhelmingly dominated by a handful of computing and software megacaps. Weighting is by size, which means index funds tracking it must buy whichever names have risen most recently, mechanically, whether or not anything improved about their businesses. That gives you exposure concentrated further than most owners realize, and it explains why a semiconductor announcement moves the number more sharply than employment data even though neither involves the exchange directly. For comparison, [Dow Jones: The Original Stock Index](/articles/dow-jones-the-original-stock-index/) averages thirty companies weighted by share price, a construction so old it produces genuinely odd results. If you want broad participation rather than a technology bet, compare against [Index Funds: Set It and Forget It](/articles/index-funds-set-it-and-forget-it/) and [ETFs: Instant Diversification Made Easy](/articles/etfs-instant-diversification-made-easy/), where the question asked is how many distinct businesses you actually own.
 
-* **Stock exchange**: A marketplace where people buy and sell shares of companies.
-* **Listed companies**: Companies that are listed on a stock exchange, like the Nasdaq.
-* **Shares**: Units of ownership in a company.
-* **Investors**: People who buy and sell shares of companies.
+Concentration cuts both ways. When a few large constituents disappoint, index returns follow them down while hundreds of other holdings become statistically irrelevant, which is worth internalizing before describing yourself as diversified because you hold one ticker starting with Q.
 
-Let's look at some real-world examples:
+## Where beginners get hurt around these names
 
-* **Apple (AAPL)**: Apple is listed on the Nasdaq, and its shares are traded by investors around the world. If you own a share of Apple, you own a tiny piece of the company.
-* **Amazon (AMZN)**: Amazon is another tech giant listed on the Nasdaq. Its shares have grown significantly over the years, making it one of the most valuable companies in the world.
+Growth reputations invite overpaying. High expectations make valuations fragile because enthusiasm priced into multiples must be continuously validated by results, and small misses produce outsized losses without any news about the underlying business. See [Growth Stocks vs Value Stocks](/articles/growth-stocks-vs-value-stocks/) for the mechanism and [Risk and Reward: The Investing Balance](/articles/risk-and-reward-the-investing-balance/) for why the upside story usually crowds out downside thinking.
 
-Here's a hands-on activity:
+Liquidity illusions also cluster here. Popular names attract thin-session trading outside normal hours where displayed quotes bear little relation to what will exist at nine-thirty, so late-night conviction frequently executes at prices daylight would never print. [Stock Market Hours: When Can You Trade?](/articles/stock-market-hours-when-can-you-trade/) works through the arithmetic, and [Market Orders vs Limit Orders](/articles/market-orders-vs-limit-orders/) covers the specific mistake of crossing wide spreads with unrestricted orders after close.
 
-1. Choose a tech company you're interested in, like Tesla or Netflix.
-2. Look up its stock symbol (e.g., TSLA or NFLX).
-3. Check the company's stock price on a website like Yahoo Finance or Google Finance.
-4. Imagine you own a share of the company. How would you feel if the stock price went up or down?
+## Try this today, ten minutes
 
-Here are the main lessons:
+Open a quote page for three names you could name from memory. Record the exchange field beside each. Then find the list of the twenty largest positions in whatever fund tracks the Nasdaq-100 on the provider's own site, and compute how much percentage weight sits in just five tickers.
 
-* The Nasdaq is a stock exchange where people buy and sell shares of companies.
-* It's home to many tech giants, including Apple and Amazon.
-* Understanding the Nasdaq can help you make informed decisions about your own money and future.
-* Investing involves risk, and it's essential to do your research before making any decisions.
+Most people are startled, which is exactly the reaction worth having before allocating money on the theory that one purchase equals owning American technology broadly. Finally compare that figure against the top-five concentration of a broad total-market fund; if the spread between the two numbers doesn't look meaningful yet, revisit after reading [Diversification: Don't Put All Your Eggs in One Basket](/articles/diversification-don-t-put-all-your-eggs-in-one-basket/) and notice how differently portfolios behave in downturns despite both being labeled simple, low-cost and diversified.
 
-**Not financial advice**: This article is for educational purposes only and should not be considered as financial advice.
-
-Here are some resources to learn more:
-
-* **Investopedia**: A comprehensive online resource for learning about investing and finance.
-* **Yahoo Finance**: A website that provides real-time stock quotes, news, and analysis.
-* **The Motley Fool**: A financial education website that offers articles, podcasts, and courses on investing and personal finance.
-
-By understanding the Nasdaq and how it works, you'll be better equipped to navigate the world of investing and make informed decisions about your own money and future.
+*Educational content, not financial advice. Index composition changes and past leadership guarantees nothing; investing involves losing money.*

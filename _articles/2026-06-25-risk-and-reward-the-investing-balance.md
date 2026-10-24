@@ -53,7 +53,7 @@ Notably, size doesn't equal safety. Two stocks sitting side by side in your app 
 
 Also: risk tolerance is fictional until tested. Everyone knows their appetite during a bull market, and that knowledge evaporates the first real drawdown. The honest answer to "could I stomach 40%?" is *you don't know*, and paper trading gives fake data because fake dollars produce no adrenaline. Real small positions teach more quickly than large hypothetical commitments.
 
-## Where young investors actually take excess risk
+## Where beginners actually take excess risk
 
 Not usually reckless bets. Far more often it's concentration you didn't notice. Buying four stocks because you like four products is not diversified if all four share a sector and a macro trigger. Concentrated positions in trendy names feel like conviction and behave like a single wager. Crypto sized by vibes, borrowed money, options bought for the story rather than the payoff structure, and following a streamer's positions all concentrate exactly what should be spread thin.
 
