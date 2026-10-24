@@ -37,6 +37,7 @@
     "test:claims": "node scripts/test-claims.js",
     "voice-report": "node scripts/test-voice.js --report",
     "verify-content": "node scripts/verify-content.js",
+    "check-live": "node scripts/check-live.js",
     "review-numbers": "node scripts/review-numbers.js",
     "review-numbers:all": "node scripts/review-numbers.js --all"
   },
