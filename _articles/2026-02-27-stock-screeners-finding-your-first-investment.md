@@ -59,4 +59,4 @@ Open any free screener and apply exactly three filters: five consecutive years o
 
 Do the opposite next: relax filters until hundreds of matches appear and pick through the bottom rows asking why the market prices those firms so pessimistically. Answers range from dying industries to litigation to fraud investigations to genuinely misunderstood franchises, and knowing which category you're dealing with requires reading actual filings. If ratios stop making sense along the way, go back through [Income Statement: Revenue, Expenses, Profits](/articles/income-statement-revenue-expenses-profits/) first, and when the exercise starts producing more questions than answers, keep going; that means it's working.
 
-*Educational content, not financial advice. Screeners filter historical data and identify candidates for research, never guarantees of future performance.*
+*Educational content, not financial advice. Screeners filter historical data and identify candidates for research, never guarantees of future performance. Screeners help you decide what to study, not what to buy, and money committed on a screen's say-so can be lost like any other investment.*

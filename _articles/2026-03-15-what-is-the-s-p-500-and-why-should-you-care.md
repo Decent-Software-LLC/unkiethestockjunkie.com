@@ -58,4 +58,4 @@ Locate the current list of the twenty largest components from the index provider
 
 Next compute how much of your own money ultimately depends on those same firms by checking every account's largest disclosed holdings. Finally pull a two-decade chart on logarithmic scale and locate three separate intervals where the line fell violently before resuming, confirming visually that the trend everyone quotes arrived through stretches when continuation looked foolish.
 
-*Educational content, not financial advice. Index construction rules change; verify current criteria from primary sources. Past performance does not guarantee future results.*
+*Educational content, not financial advice. Index construction rules change; verify current criteria from primary sources. Past performance does not guarantee future results, the index can fall hard, and money invested in it can be lost.*

@@ -78,4 +78,4 @@ Look at the two lists side by side. One is full of names you've heard of constan
 
 If choosing between them feels like guessing, that's information. Most people are better off owning both across the market instead of deciding in advance, which is what [ETFs: Instant Diversification Made Easy](/articles/etfs-instant-diversification-made-easy/) exists for.
 
-*This is education, not advice. No stock here is recommended, and nothing in either category has ever come with a guarantee.*
+*This is education, not financial advice. No stock here is recommended, and nothing in either category has ever come with a guarantee. Both styles have periods where they underperform for years, and money put into either one can be lost.*

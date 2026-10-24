@@ -174,7 +174,9 @@ test('forbids fabrication and fake social proof', () => {
 
 test('keeps risk disclosure (minors-facing site)', () => {
   const p = beginner();
-  assert.match(p, /investing involves risk/i);
+  // Wording changed when the closing became a mechanically-checked requirement (candidate gate looks
+  // for both phrases in the published tail), so assert the obligation survives in either phrasing.
+  assert.match(p, /money can be lost|investing involves risk|money can (?:also )?be lost/i);
   assert.match(p, /not financial advice|financial advice/i);
 });
 
@@ -194,10 +196,37 @@ test('beginner and advanced briefs differ meaningfully', () => {
   assert.match(a, /formula|the math/i);
 });
 
-test('difficulty and tags are interpolated into the prompt', () => {
+test('difficulty brief is interpolated; tags are NOT handed to the model to restate', () => {
+  // Tags used to be interpolated with "Include ... in front matter", which is how difficulty/tag lines
+  // ended up echoed into published prose. Code owns front matter now (see OUTPUT FORMAT), so the only
+  // per-difficulty signal the model needs is the brief itself.
   const p = generateArticlePrompt({ title: 'X', difficulty: 'intermediate', tags: ['dividends', 'income'] });
   assert.ok(p.includes('intermediate'), 'difficulty missing');
-  assert.ok(p.includes('dividends') && p.includes('income'), 'tags missing');
+  assert.doesNotMatch(p, /include .* in front matter/i, 'model is still told to write front matter');
+});
+
+test('demits body-only output so metadata cannot leak into prose', () => {
+  const p = beginner();
+  assert.match(p, /the article body only/i);
+  assert.match(p, /---.{0,40}fences|--\s*"?\s*fences|YAML block/i);
+  assert.match(p, /do not (write|output)[^]{0,80}(yaml|front matter)|do NOT write a YAML block/i);
+});
+
+test('requires a machine-parseable quiz instead of silently publishing none', () => {
+  // The generator previously never emitted a quiz at all, which is why whole tiers have zero quizzes.
+  const p = beginner();
+  assert.match(p, /===QUIZ===/, 'quiz section marker not requested');
+  assert.match(p, /"answer"/, 'quiz answer field not specified');
+  assert.match(p, /"why"/, 'quiz explanation field not specified');
+  assert.match(p, /exactly 2 or 3 questions/i);
+});
+
+test('injects real slugs and forbids inventing URLs', () => {
+  // Broken and confabulated links were a recurring production defect (one fake slug recurred four times).
+  const p = generateArticlePrompt({ title: 'X', difficulty: 'beginner', tags: ['stocks'] }, '/articles/real-page-one/, /articles/real-page-two/');
+  assert.ok(p.includes('/articles/real-page-one/'), 'link pool not interpolated');
+  assert.match(p, /never invent/i);
+  assert.match(p, /copied EXACTLY/i);
 });
 
 test('investor context triggers on the right tag only', () => {
@@ -220,7 +249,7 @@ test('survives hostile topic text without throwing', () => {
 test('does not instruct the model to restate title/difficulty/tags in the body', () => {
   // Those render from front matter; duplicating them produced the duplicate header block.
   const p = beginner();
-  assert.match(p, /no repeated title|body starts immediately/i);
+  assert.match(p, /the article body only|no repeated title|body starts immediately/i);
 });
 
 

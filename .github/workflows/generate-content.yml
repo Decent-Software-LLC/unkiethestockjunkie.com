@@ -25,20 +25,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # The generator gates its own output and exits non-zero when no candidate survives, deleting
+      # rejected files so they cannot be committed. It tries up to 3 topics per run (GENERATE_ATTEMPTS);
+      # a run that publishes nothing is a successful run of a correct pipeline, not a failure to publish.
       - name: Generate new article
         run: npm run generate
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-
-      # Non-blocking human checkpoint. The prompt forbids invented figures and the first unattended
-      # run still published "Tesla sold $5 billion in carbon credits," which matches no reported 2020
-      # number. Prose rules don't constrain a model's numbers, so list every risky claim for review
-      # in the job log instead of pretending an LLM graded itself. Intentionally does NOT fail the
-      # step: publishing shouldn't hinge on a heuristic, and a failing gate here would be ignored
-      # after the first false positive anyway.
-      - name: List numeric claims needing human verification
-        continue-on-error: true
-        run: node scripts/review-numbers.js $(ls _articles/*.md | sort | tail -1)
+          GENERATE_ATTEMPTS: '3'
 
       - name: Check for changes
         id: check_changes
@@ -48,6 +42,33 @@ jobs:
           else
             echo "changes=false" >> $GITHUB_OUTPUT
           fi
+
+      # Independent re-check, deliberately NOT trusting the generator's own verdict. This exists because
+      # publishing used to be unconditional: whatever the model returned was committed to main and a Pages
+      # build was requested, with a `continue-on-error` heuristic as the only review. Two consecutive
+      # unattended articles then reached a minors-facing site carrying fabricated dollar figures, leaked
+      # front matter merged into prose, broken self-links and no risk framing. Validate Build does not
+      # cover this, because Pages deploys regardless of whether that workflow passes.
+      - name: Gate new articles (blocking)
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          files=$(git ls-files --others --exclude-standard -- _articles | tr '\n' ' ')
+          if [ -z "$files" ]; then
+            echo "no new article files; nothing to gate"
+            exit 0
+          fi
+          echo "gating: $files"
+          node scripts/check-candidate.js $files
+
+      # Advisory only by design: percentages and headline figures get listed for a human, and the
+      # blocking decision for dollar magnitudes lives in the gate above. A heuristic must not be able to
+      # silently stop publication, or the first false positive trains everyone to delete the step.
+      - name: List numeric claims needing human verification
+        continue-on-error: true
+        run: |
+          newest=$(ls -t _articles/*.md | head -1)
+          echo "reviewing $newest"
+          node scripts/review-numbers.js "$newest"
 
       - name: Commit and push new article
         if: steps.check_changes.outputs.changes == 'true'

@@ -22,6 +22,8 @@ const { loadArticleIndex, rankRelated, toFrontMatter } = require('./lib/related-
 // noticed. A missing binding here is a ReferenceError at generate time, which is why
 // scripts/test-prompt.js now exercises this function directly.
 const { cleanBodyText: stripScaffolding } = require('./clean-article-bodies');
+const { validateQuiz } = require('./lib/quiz');
+const { checkCandidate } = require('./lib/candidate-gate');
 
 // Configuration
 const TOPICS_FILE = path.join(__dirname, '..', 'topics.json');
@@ -212,7 +214,7 @@ async function generateArticleContent(topic) {
     process.exit(1);
   }
 
-  const prompt = generateArticlePrompt(topic);
+  const prompt = generateArticlePrompt(topic, linkPoolFor(topic));
   
   // Retry up to 3 times on 503 (worker limit) or 429 (rate limit)
   for (let attempt = 1; attempt <= 3; attempt++) {
@@ -290,7 +292,7 @@ async function generateArticleContent(topic) {
 // It also previously contradicted itself: it banned "Why Should Teens Care" as a heading and
 // then told the model to use "Why Teens Should Care" as an example heading. That kind of
 // conflict is how scaffolding ended up published 95% of the time.
-function generateArticlePrompt(topic) {
+function generateArticlePrompt(topic, linkPoolText) {
   const difficultyNote = {
     'beginner': 'Assume zero finance vocabulary. Define a term the first time it appears, in passing, without stopping to lecture.',
     'intermediate': 'The reader knows what a stock, an index and a dividend are. Do not re-explain those. Add real numbers and tradeoffs.',
@@ -329,9 +331,10 @@ Never say "fantastic", "exciting journey", "unlock", "superpower", "game-changer
 DO THIS
 - Open with the actual thing. A number, a weird fact, a small scene, a stake. First line must
   be something a person said out loud, not a setup for the paragraph.
-    Good: "If you'd put $100 into the S&P 500 the month you were born and never touched it,
-           you'd probably have more than your car by now."
+    Good in shape: a specific figure, an odd fact, or something a person would actually say.
     Bad:  "Imagine you're at a concert, and the energy is electric..."
+    These show the SHAPE only. Never reuse an example sentence from this prompt as your opener;
+    two published articles began with the identical borrowed line and it reads like a template.
 - Use ONE analogy and make it specific enough to picture. Pick from the reader's real life:
   the resale app they check daily, dropping a battle pass, their data plan, sneaker drops,
   a group project where one person does everything, a game's ranked tiers, the price of
@@ -361,17 +364,38 @@ DO NOT DO THIS
   "studies show".
 - No fabricated social proof: never "thousands of teens", "most students", "join our community".
 
-STRUCTURE
-Front matter exactly as provided; body starts immediately with prose, no repeated title,
-no restating difficulty or tags (the page already shows them). 2-5 headings total, used only
-where the thought actually changes. Paragraphs 1-4 sentences. 800-1100 words.
-End with one short plain paragraph noting this is education, not financial advice, and that
-investing involves risk. No separate disclaimer heading unless the article genuinely needs one.
+SUBSTANCE AND SAFETY (these are checked mechanically before anything is published)
+- At least 3 links to pages that really exist, copied EXACTLY from this list. Never invent,
+  modify, shorten or guess a URL, and never link to this article's own slug. Choose links a
+  reader would actually want next; do not stuff irrelevant ones in to satisfy the count.
+  Available: ${linkPoolText || '(none supplied - omit links rather than inventing URLs)'}
+- Every number you state about the real world must either name its source inside the same
+  sentence (SEC, IRS, Federal Reserve, BLS, the company's own filings, S&P Dow Jones Indices,
+  a named news outlet) or be plainly illustrative arithmetic built on stated assumptions
+  ("if $10 a month earned 7% for 30 years, that is about ..."). If you cannot place a source,
+  describe the relationship instead of printing a figure. Large round dollar amounts with no
+  source are the single most common way this pipeline has published false information.
+- End with one short plain paragraph that includes the phrase "not financial advice" AND says
+  plainly that money can be lost. One sentence each is fine. No heading for it.
+- 2-5 headings, only where the thought actually changes. Paragraphs 1-4 sentences. At least 750
+  words of actual prose, which is roughly six or seven substantial paragraphs plus your headings --
+  the publication floor is enforced mechanically and thin pages are discarded, so err long.
+  No emoji, no exclamation marks.
+
+OUTPUT FORMAT (strict -- the parser is dumb and code adds the front matter for you)
+Line 1 onward: the article body only. Do NOT write a YAML block, "---" fences, a "# Title" line,
+or restate the title/description/difficulty/tags; those are added by code and any copy of them in
+your prose is published as garbage. When the article ends, write this on its own line:
+
+===QUIZ===
+
+then one JSON array of exactly 2 or 3 questions, each object shaped like
+{"question":"...","options":["...","...","..."],"answer":0,"why":"..."}
+with "answer" the zero-based index of the correct option and "why" one plain sentence explaining
+it. Nothing after the JSON.
 
 TECHNICAL
-Difficulty: ${topic.difficulty}. ${difficultyNote}${investorContext}
-Include "difficulty: ${topic.difficulty}" and the tags: ${topic.tags.join(', ')} in front matter.
-Output markdown only - the finished article and nothing else.`;
+Difficulty: ${topic.difficulty}. ${difficultyNote}${investorContext}`;
 }
 
 // Strip AI prompt leakage from generated content.
@@ -481,8 +505,77 @@ function cleanExistingArticles() {
   console.log(`\n✅ Cleaned ${cleaned}/${files.length} existing articles`);
 }
 
+
+// --- pre-publication plumbing -------------------------------------------------
+//
+// The generator used to trust its own model output: whatever came back was written to
+// _articles/, committed and deployed, with a continue-on-error log line as the only review.
+// That is how "$5 billion in carbon credits" reached a site read by teenagers. These helpers
+// make publication conditional on the same checks a reviewer applies, so a bad completion costs
+// a retry instead of going live.
+
+const ROOT_DIR = path.join(__dirname, '..');
+const GUIDE_DIR = path.join(ROOT_DIR, '_guides');
+const ASSET_IMG_DIR = path.join(ROOT_DIR, 'assets', 'images');
+
+function readSlugs(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''));
+}
+
+// Deterministic pseudo-random order seeded by topic title, so a rerun of the same topic yields the
+// same prompt (reproducible debugging) while different topics surface different pages to link.
+function linkPoolFor(topic) {
+  const own = generateSlug(topic.title);
+  const arts = readSlugs(ARTICLES_DIR).filter((s) => s !== own);
+  const shuffled = arts
+    .map((s, i) => ({ s, k: ((i + 7) * 2654435761 ^ topic.title.length * 40503) % 1e9 }))
+    .sort((a, b) => a.k - b.k)
+    .slice(0, 40)
+    .map((x) => `/articles/${x.s}/`);
+  const guides = readSlugs(GUIDE_DIR).slice(0, 4).map((s) => `/guides/${s}/`);
+  return [...shuffled, ...guides].join(', ');
+}
+
+// Pull the JSON quiz the prompt appends after ===QUIZ===. Parsing is strict on purpose: a malformed
+// or missing quiz rejects the candidate rather than publishing an article section that renders empty.
+function splitQuiz(raw) {
+  const text = String(raw || '');
+  const idx = text.search(/^\s*={3,}\s*QUIZ\s*={3,}\s*$/im);
+  if (idx === -1) return { body: text.trim(), quiz: null, error: 'no ===QUIZ=== section found' };
+  const body = text.slice(0, idx).trim();
+  const m = text.slice(idx).match(/\[[\s\S]*\]/);
+  if (!m) return { body, quiz: null, error: '===QUIZ=== present but no JSON array after it' };
+  let parsed;
+  try {
+    parsed = JSON.parse(m[0]);
+  } catch (e) {
+    return { body, quiz: null, error: `quiz JSON unparseable: ${e.message}` };
+  }
+  const v = validateQuiz(parsed);
+  if (!v.ok) return { body, quiz: null, error: `quiz invalid: ${v.errors.join('; ')}` };
+  return { body, quiz: parsed };
+}
+
+function yamlQuote(s) {
+  return String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, ' ');
+}
+
+function quizToYaml(quiz) {
+  let out = 'quiz:\n';
+  for (const q of quiz) {
+    out += `  - question: "${yamlQuote(q.question)}"\n`;
+    out += `    options: [${q.options.map((o) => `"${yamlQuote(o)}"`).join(', ')}]\n`;
+    out += `    answer: ${q.answer}\n`;
+    out += `    why: "${yamlQuote(q.why)}"\n`;
+  }
+  return out;
+}
+
 // Utility: Generate markdown file
-function generateMarkdownFile(topic, content, imagePath, date) {
+function generateMarkdownFile(topic, content, imagePath, date, quiz) {
   const sections = parseArticleContent(content, topic);
   const slug = generateSlug(topic.title);
   const formattedDate = formatDate(date);
@@ -533,6 +626,10 @@ image_credit_url: "https://build.nvidia.com/black-forest-labs/flux-3-image-klein
     console.warn(`⚠️  Could not compute related_articles: ${err.message}`);
   }
 
+  if (quiz && quiz.length) {
+    markdown += quizToYaml(quiz);
+  }
+
   markdown += `---
 
 `;
@@ -577,31 +674,86 @@ async function main() {
   console.log(`✅ Selected: "${topic.title}" (${topic.difficulty})`);
   console.log(`   Tags: ${topic.tags.join(', ')}\n`);
 
-  // Generate image
-  const imagePath = await generateImage(topic);
-  
-  // Wait a bit to respect rate limits
-  await delay(2000);
-  
-  // Generate article
-  const rawContent = await generateArticleContent(topic);
-  const content = cleanArticleContent(rawContent, topic.title);
-  
-  // Create markdown
-  const date = new Date();
-  const markdown = generateMarkdownFile(topic, content, imagePath, date);
-  
-  // Save file
-  const slug = generateSlug(topic.title);
-  const filename = `${formatDate(date)}-${slug}.md`;
-  const filepath = path.join(ARTICLES_DIR, filename);
-  
-  fs.writeFileSync(filepath, markdown);
-  console.log(`\n✅ Article saved: ${filename}`);
-  
-  // Update tracking
-  generatedData.generated.push(topic.title);
-  saveGeneratedTopics(generatedData);
+  // GATED GENERATION
+  // Each candidate must pass scripts/lib/candidate-gate.js before it survives this script. Failures
+  // are deleted from disk, so the workflow's "commit whatever changed" step can never publish them,
+  // and another topic is tried. Previously one unreviewed completion per run went straight to main and
+  // triggered a Pages build -- which is exactly how fabricated figures and leaked metadata appeared on
+  // a site read by minors twice in a row.
+  const MAX_ATTEMPTS = Number(process.env.GENERATE_ATTEMPTS || 3);
+  const tried = new Set(generatedData.generated);
+  if (topic && topic.title) tried.add(topic.title);
+  let published = null;
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS && !published; attempt++) {
+    const candidates = topics.filter((tp) => !tried.has(tp.title) && !articleExists(tp));
+    if (!candidates.length) {
+      console.log('⚠️ No unused topics remain to try.');
+      break;
+    }
+    const candidate = candidates[Math.floor(Math.random() * candidates.length)];
+    tried.add(candidate.title);
+    console.log(`\n🎲 Attempt ${attempt}/${MAX_ATTEMPTS}: "${candidate.title}" (${candidate.difficulty})`);
+
+    const imagePath = await generateImage(candidate);
+    await delay(2000);
+
+    const cleanup = () => {
+      if (imagePath) {
+        const abs = path.join(ROOT_DIR, imagePath.replace(/^\//, ''));
+        if (fs.existsSync(abs)) fs.unlinkSync(abs);
+      }
+    };
+
+    let raw;
+    try {
+      raw = await generateArticleContent(candidate);
+    } catch (err) {
+      console.log(`❌ generation failed, trying another topic: ${err.message}`);
+      cleanup();
+      continue;
+    }
+
+    const { body, quiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
+    if (error) {
+      console.log(`❌ rejected before writing: ${error}`);
+      cleanup();
+      continue;
+    }
+
+    const date = new Date();
+    const markdown = generateMarkdownFile(candidate, body, imagePath, date, quiz);
+    const filename = `${formatDate(date)}-${generateSlug(candidate.title)}.md`;
+    const filepath = path.join(ARTICLES_DIR, filename);
+    fs.writeFileSync(filepath, markdown);
+
+    const verdict = checkCandidate(markdown, {
+      articleSlugs: new Set(readSlugs(ARTICLES_DIR).filter((s) => s !== generateSlug(candidate.title))),
+      guideSlugs: new Set(readSlugs(GUIDE_DIR)),
+      imageExists: (rel) => fs.existsSync(path.join(ROOT_DIR, rel.replace(/^\//, ''))),
+    });
+
+    if (!verdict.ok) {
+      console.log(`❌ gate rejected ${filename} -- deleted, will not be committed`);
+      for (const pr of verdict.problems) console.log(`      - ${pr}`);
+      fs.unlinkSync(filepath);
+      cleanup();
+      continue;
+    }
+
+    console.log(`\n✅ Article saved and gated: ${filename} (${verdict.stats.words} words, ${verdict.stats.internalLinks} internal links)`);
+    for (const w of verdict.warnings) console.log(`   ! verify before trusting: ${w}`);
+    if (imagePath) console.log(`🎨 Image: ${imagePath}`);
+
+    generatedData.generated.push(candidate.title);
+    saveGeneratedTopics(generatedData);
+    published = { filename, filepath, imagePath, warnings: verdict.warnings };
+  }
+
+  if (!published) {
+    console.error('\n❌ No candidate passed the pre-publication gate. Nothing was written or published.');
+    process.exit(1);
+  }
   
   console.log('\n🎉 Article generation complete!');
   console.log(`📄 File: ${filepath}`);
@@ -609,8 +761,8 @@ async function main() {
     console.log(`🎨 Image: ${imagePath}`);
   }
   console.log(`\nNext steps:`);
-  console.log(`1. Review the generated article`);
-  console.log(`2. Make any manual edits if needed`);
+  console.log(`1. Read ${published.filename} -- the gate blocks structural failures, it does not confirm taste`);
+  console.log(`2. Check any figure flagged above against a real source`);
   console.log(`3. Commit and push to trigger GitHub Pages deployment`);
 }
 
@@ -629,6 +781,12 @@ if (require.main === module) {
 
 module.exports = {
   generateArticlePrompt,
+  // Pre-publication plumbing, exported so scripts/test-candidate-gate.js can exercise the parse/emit
+  // path without an API key -- the same reason generateMarkdownFile is exported.
+  splitQuiz,
+  quizToYaml,
+  linkPoolFor,
+  readSlugs,
   generateArticleContent,
   cleanArticleContent,
   generateSlug,

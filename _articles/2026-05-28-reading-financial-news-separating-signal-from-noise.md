@@ -53,7 +53,7 @@ Adjectives doing argument's work: **soared, plunged, slammed, blows away, mauls*
 
 Vague attribution: "analysts say," "experts believe," "reports suggest" without naming anyone checkable. If nobody's accountable, weight it near zero.
 
-Round numbers without sourcing: $1 trillion here, 90% adoption there. Verify figures against the filing itself before repeating them anywhere. For the vocabulary to read those documents, start at [Income Statement: Revenue, Expenses, Profits](/articles/income-statement-revenue-expenses-profits/) and work up to [Annual Reports: The CEO's Letter to Shareholders](/articles/annual-reports-the-ceo-s-letter-to-shareholders/).
+Round numbers with no source attached, and an adoption share quoted to nobody in particular. Verify figures against the filing itself before repeating them anywhere. For the vocabulary to read those documents, start at [Income Statement: Revenue, Expenses, Profits](/articles/income-statement-revenue-expenses-profits/) and work up to [Annual Reports: The CEO's Letter to Shareholders](/articles/annual-reports-the-ceo-s-letter-to-shareholders/).
 
 Novelty framing around something that happens every quarter. Every three months some company "shocks" Wall Street, though beating lowered expectations is the ordinary case, not a surprise.
 

@@ -60,14 +60,6 @@
    "at": "seeded",
    "note": "verified in session: file exists, body authored by hand"
   },
-  "etfs-instant-diversification-made-easy": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
-  "what-is-a-sector-understanding-industry-groups": {
-   "at": "seeded",
-   "note": "verified in session: file exists, body authored by hand"
-  },
   "growth-stocks-vs-value-stocks": {
    "at": "seeded",
    "note": "verified in session: file exists, body authored by hand"
@@ -146,5 +138,6 @@
   "what-is-a-short-squeeze-and-why-meme-stocks-explode": {
    "at": "2026-10-24"
   }
- }
+ },
+ "updated": "2026-10-24"
 }
