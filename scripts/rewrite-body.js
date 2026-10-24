@@ -26,7 +26,12 @@ function committedFrontMatter(rel) {
 }
 
 // Keys we trust from the commit. Anything the author adds must be explicitly requested.
-const PRESERVE = ['layout', 'title', 'description', 'date', 'difficulty', 'tags', 'image', 'image_credit', 'image_credit_url'];
+// Block-valued keys handled separately below; every other committed key is copied verbatim.
+// This used to be an allowlist (layout/title/description/date/difficulty/tags/image/image_credit/
+// image_credit_url), which silently deleted any key not listed -- `image_height` disappeared from
+// every article that was rewritten while carrying one. Nothing re-supplies title or description, so
+// those must stay here too; a rewrite changes prose, never identity.
+const DROPPED = ['quiz', 'related_articles'];
 
 function keptLines(fields) {
   const out = [];
@@ -36,7 +41,7 @@ function keptLines(fields) {
     if (/^[a-z_]+:\s*$/.test(line)) { stop = true; continue; }
     if (stop) { if (/^\s/.test(line)) continue; stop = false; }
     const k = /^([a-z_]+):/.exec(line);
-    if (k && !PRESERVE.includes(k[1])) continue;
+    if (k && DROPPED.includes(k[1])) continue;
     out.push(line);
   }
   return out.filter((l) => l.trim() !== '');
@@ -50,7 +55,7 @@ module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
     if (extraBlocks[key]) blocks.push(extraBlocks[key].trim());
   }
   if (!blocks.some((b) => b.startsWith('related_articles:'))) {
-    // Reuse committed related_articles rather than dropping it silently.
+    // Same protection as quiz: never drop committed related links because a caller forgot the flag.
     const m = /^(related_articles:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fm.fields);
     if (m) blocks.push(m[1].trim());
   }
@@ -61,11 +66,36 @@ module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
     const m = /^(quiz:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fm.fields);
     if (m) blocks.push(m[1].trim());
   }
-  const doc = '---\n' + header.concat(blocks).join('\n') + '\n---\n\n' + bodyText.replace(/^\n+/, '').replace(/\s+$/, '') + '\n';
+  // Keep reused blocks in their committed relative order. Always emitting quiz-then-related made an
+  // unchanged rewrite reshuffle front matter, producing noisy diffs on pages nobody was editing.
+  const orderOf = (key) => {
+    const i = fm.fields.search(new RegExp('^' + key + ':[ \\t]*$', 'm'));
+    return i < 0 ? Number.MAX_SAFE_INTEGER : i;
+  };
+  blocks.sort((a, b) => {
+    const ka = a.startsWith('quiz:') ? 'quiz' : 'related_articles';
+    const kb = b.startsWith('quiz:') ? 'quiz' : 'related_articles';
+    return orderOf(ka) - orderOf(kb);
+  });
+  const doc = '---\n' + header.concat(blocks).join('\n') + '\n---\n' + bodyText.replace(/^\n+/, '').replace(/\s+$/, '') + '\n';
   const abs = path.join(ROOT, rel);
   fs.writeFileSync(abs, doc);
   return doc;
 };
+
+// Progress tracking must never depend on remembering which articles were touched. git-diffing against
+// the initial commit proved useless for this: one bulk scaffolding-clean pass made every body differ,
+// so "changed since baseline" could not distinguish a real editorial pass from cosmetic cleanup.
+const MANIFEST = path.join(__dirname, 'content-rewrites.json');
+function recordRewrite(rel) {
+  const slug = path.basename(rel).replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+  let data = { slugs: {} };
+  try { data = JSON.parse(fs.readFileSync(MANIFEST, 'utf8')); } catch (e) { /* first entry */ }
+  if (!data.slugs) data.slugs = {};
+  data.slugs[slug] = Object.assign({ at: new Date().toISOString().slice(0, 10) }, data.slugs[slug] || {});
+  data.slugs[slug].at = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(MANIFEST, JSON.stringify(data, null, 1) + '\n');
+}
 
 if (require.main === module) {
   const argv = process.argv.slice(2);
@@ -83,5 +113,7 @@ if (require.main === module) {
     quiz: readOrNull(flag('--quiz')),
     related_articles: readOrNull(flag('--related'))
   });
+  recordRewrite(rel);   // record only on an explicit CLI run; calling the exported function from tests
+                        // must not write itself into the authorship ledger (it did, marking a fixture authored)
   console.log(`rewrote ${rel} (${doc.trim().split(/\s+/).length} words incl. front matter)`);
 }

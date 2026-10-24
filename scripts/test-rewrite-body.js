@@ -87,6 +87,28 @@ try {
     fs.unlinkSync(r);
   });
 
+  test('every committed front-matter key survives a rewrite', () => {
+    // Generic protection against allowlist regressions: `image_height` was once silently deleted because
+    // it was not named in a list. Any key Jekyll or this site adds later must survive too.
+    const keysOf = (s) => new Set((s.split(/^---[ \t]*$/m)[1].match(/^[a-z_]+:/gm) || []).map((x) => x.slice(0, -1)));
+    const before = keysOf(original);
+    const after = keysOf(rewriteBody(`_articles/${FIXTURE}`, fs.readFileSync(bodyFile, 'utf8'), {}));
+    const lost = [...before].filter((k) => !after.has(k));
+    assert.deepStrictEqual(lost, [], `front-matter keys dropped: ${lost.join(', ')}`);
+  });
+
+  test('round-trip is byte-for-byte idempotent', () => {
+    // Re-supplying the committed body must reproduce the committed file exactly. If this fails,
+    // front-matter blocks are being reordered or blank lines invented, which turns every future
+    // edit of an already-done article into a noisy diff.
+    const parts = original.split(/^---[ \t]*$/m);
+    const body = parts.slice(2).join('---').replace(/^\n+/, '').replace(/\s+$/, '');
+    const doc = rewriteBody(`_articles/${FIXTURE}`, body + '\n', {});
+    // Compared trimmed: the tool intentionally normalises the file's final newline, so a committed
+    // file lacking one legitimately differs by exactly that byte. Everything else must match.
+    assert.strictEqual(doc.trimEnd(), original.trimEnd(), 'round-trip did not reproduce the committed bytes');
+  });
+
   test('output parses as front matter with matching delimiters', () => {
     const doc = rewriteBody(`_articles/${FIXTURE}`, fs.readFileSync(bodyFile, 'utf8'), {});
     const parts = doc.split(/^---[ \t]*$/m);

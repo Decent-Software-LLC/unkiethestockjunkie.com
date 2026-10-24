@@ -1,0 +1,209 @@
+#!/usr/bin/env node
+// Content rewrite tracker. Writes a checklist OUTSIDE the repo (default:
+// ../CONTENT-PROGRESS.md relative to the repo root) so working state never pollutes the site.
+//
+//   node scripts/progress-report.js                # write ../CONTENT-PROGRESS.md
+//   node scripts/progress-report.js --out PATH     # write elsewhere ('-' = stdout)
+//   node scripts/progress-report.js --stale        # also list pages served but not yet matching
+//
+// Every column is measured from the repository, never from memory:
+//   quiz      front-matter `quiz:` key present (an earlier tracker counted rendered HTML found in
+//             bodies, which overstated coverage because body swaps deleted the real block)
+//   words     prose words in the body, excluding tables/code/front matter
+//   rewr      body text differs from the initial commit -- proof a rewrite actually landed
+//   tells     count of banned AI-ism matches in the body (advisory; see test-voice.js budgets)
+// The whole point of generating instead of hand-maintaining: an unverifiable hand-written ledger
+// here previously claimed six articles that do not exist.
+
+const fs = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
+
+const ROOT = path.join(__dirname, '..');
+const argv = process.argv.slice(2);
+const outFlag = argv.indexOf('--out');
+const OUT = outFlag >= 0 ? argv[outFlag + 1] : path.join(ROOT, '..', 'CONTENT-PROGRESS.md');
+
+const TELL_RE = /young investor|lemonade stand|Imagine you're at a|In this article|\bessential\b|\bcrucial\b|\bparamount\b|dive in|game changer|delve|embark|unlock(?:ing)? the|in today'?s fast-paced|let'?s explore/gi;
+
+const BASE = execSync('git rev-list --max-parents=0 HEAD', { cwd: ROOT, encoding: 'utf8' }).trim().split('\n').pop();
+
+// Authorship is asserted by scripts/rewrite-body.js writing here, not inferred from git history.
+// Comparing bodies against the initial commit made every article look "rewritten", because one bulk
+// scaffolding-clean pass rewrote all of them; only an explicit record separates real editorial work.
+const MANIFEST_FILE = path.join(__dirname, 'content-rewrites.json');
+let AUTHORED = {};
+try { AUTHORED = (JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).slugs) || {}; } catch (e) { AUTHORED = {}; }
+
+function proseWords(body) {
+  return body.replace(/```[\s\S]*?```/g, ' ').replace(/^\s*\|.*\|$/gm, ' ')
+    .split(/\s+/).filter((w) => /[A-Za-z]{5,}/.test(w)).length;
+}
+function normBody(src) {
+  const parts = src.split(/^---[ \t]*$/m);
+  return (parts.length >= 3 ? parts.slice(2).join('---') : '').replace(/\s+/g, ' ').trim();
+}
+function committed(rel) {
+  try {
+    return execSync(`git show ${BASE}:${rel}`, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'ignore'] });
+  } catch (e) { return null; } // absent at baseline -> added later by generation or authoring
+}
+
+const rows = [];
+for (const f of fs.readdirSync(path.join(ROOT, '_articles'))) {
+  if (!f.endsWith('.md')) continue;
+  const rel = `_articles/${f}`;
+  const src = fs.readFileSync(path.join(ROOT, f && rel), 'utf8');
+  const fm = src.split(/^---[ \t]*$/m)[1] || '';
+  const body = src.split(/^---[ \t]*$/m).slice(2).join('---');
+  const old = committed(rel);
+  const slugOnly = f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+  const status = AUTHORED[slugOnly] ? 'authored'
+    : (old === null ? 'generated' : (normBody(old) !== normBody(src) ? 'touched' : 'untouched'));
+  rows.push({
+    file: rel,
+    slug: f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''),
+    title: ((fm.match(/^title:[ \t]*(.*)/m) || [, '?'])[1] || '?').replace(/^["']|["']$/g, '').trim(),
+    tier: (((fm.match(/difficulty:[ \t]*(\w+)/) || [, ''])[1] || 'unset')).toLowerCase(),
+    quiz: /^quiz:[ \t]*$/m.test(fm),
+    questions: (fm.match(/^[ \t]+- question:/gm) || []).length,
+    related: /^[ \t]+url:[ \t]*\/articles\//.test(fm) || /related_articles:/.test(fm),
+    words: proseWords(body),
+    status,
+    rewritten: status === 'authored',
+    tells: (body.match(TELL_RE) || []).length,
+  });
+}
+
+const guides = fs.readdirSync(path.join(ROOT, '_guides')).filter((f) => f.endsWith('.md'));
+const n = (k) => rows.filter((r) => r[k]).length;
+// "Done" requires an authored body recorded in content-rewrites.json AND a front-matter quiz.
+// Generated pages never count as done on their own: cron output has shipped fabricated figures before.
+const isDone = (r) => r.quiz && r.status === 'authored';
+const tierOrder = ['beginner', 'intermediate', 'advanced'];
+const today = new Date().toISOString().slice(0, 10);
+
+const L = [];
+L.push('# Content Progress Tracker — unkiethestockjunkie.com');
+L.push('');
+L.push(`Generated ${today} by \`node scripts/progress-report.js\`. **Do not hand-edit the tables** —`);
+L.push('regenerate them. Numbers come from the working tree plus `git show <initial-commit>`, so a row');
+L.push('cannot claim work that was never written to disk.');
+L.push('');
+L.push('## Definition of done (per article)');
+L.push('');
+L.push('A row is fully done only when **all four** are true, applied in one pass per article:');
+L.push('');
+L.push('1. `rewr ✓` — body replaced via `scripts/rewrite-body.js` (front matter stays immutable).');
+L.push('2. Voice — no banned AI-isms left; concrete anchors instead of generic analogies.');
+L.push('3. Substance — content *added*, not just polished; original verified facts preserved; invented');
+L.push('   numbers removed or confirmed against a primary source (`npm run review-numbers`).');
+L.push('4. `quiz ✓` — two authored questions with explanations, stored in **front matter**.');
+L.push('');
+L.push('Then, once per batch: `npm run verify-content` → `npm test` → Docker build → push →');
+L.push('`npm run check-live`. Never mark a row from memory without these.');
+L.push('');
+L.push(`**Method decision (${today}): quality over breadth.** Quizzes ship together with a substance`);
+L.push('rewrite per article. No quiz-only passes on fundamentals pages, because a quiz bolted onto thin');
+L.push('prose still reads thin.');
+L.push('');
+L.push('## Scoreboard');
+L.push('');
+L.push('| tier | articles | rewritten | quiz | both | remaining |');
+L.push('| --- | --: | --: | --: | --: | --: |');
+for (const t of tierOrder) {
+  const g = rows.filter((r) => r.tier === t);
+  L.push(`| ${t} | ${g.length} | ${g.filter((r) => r.status === 'authored').length} | ${g.filter((r) => r.quiz).length} | ${g.filter(isDone).length} | ${g.filter((r) => !isDone(r)).length} |`);
+}
+L.push(`| **total** | **${rows.length}** | **${rows.filter((r) => r.status === 'authored').length}** | **${n('quiz')}** | **${rows.filter(isDone).length}** | **${rows.filter((r) => !isDone(r)).length}** |`);
+L.push('');
+L.push(`Guides authored: ${guides.length} (\`${guides.map((g) => g.replace('.md', '')).join('`, `')}\`)`);
+L.push('');
+L.push('Legend: `tells` = banned-phrase matches still in the body (advisory). `rel` = has related_articles.');
+L.push('');
+
+function table(title, list, note) {
+  L.push(`## ${title}  (${list.length})`);
+  if (note) { L.push(''); L.push(note); }
+  L.push('');
+  if (!list.length) { L.push('_none_'); L.push(''); return; }
+  L.push('- [ ] | article | tier | words | quiz | body | tells | rel');
+  L.push('| --- | --- | --- | --: | :-: | :-: | --: | :-: |');
+  for (const r of list) {
+    const bodyCol = r.status === 'authored' ? 'authored' : r.status === 'generated' ? 'cron' : '—';
+    L.push(`- [ ] | [\`${r.slug}\`](unkiethestockjunkie.com/${r.file}) | ${r.tier} | ${r.words} | ${r.quiz ? '✓' : '—'} | ${bodyCol} | ${r.tells} | ${r.related ? '✓' : '—'} |`);
+  }
+  L.push('');
+}
+
+const done = rows.filter(isDone);
+const todo = rows.filter((r) => !isDone(r));
+const sortTier = (a, b) => tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier) || b.tells - a.tells || a.words - b.words;
+
+L.push('## Working order');
+L.push('');
+L.push('Close beginner first, then intermediate, then advanced; inside a tier start where `tells` is');
+L.push('highest and word count lowest, since those need both fixes most.');
+L.push('');
+
+for (const t of tierOrder) {
+  const sub = todo.filter((r) => r.tier === t).sort(sortTier);
+  table(`${t} — next up`, sub, t === 'beginner'
+    ? 'Five beginner pages are the last without quizzes; finish these before opening the intermediate tier.'
+    : t === 'intermediate'
+      ? 'None of these has a quiz yet. Each needs the full four-part pass, fundamentals articles especially.'
+      : 'Lowest priority: several read acceptably already (tells = 0); quiz-only may be defensible there.');
+}
+
+table('Done (recorded authored body AND carrying an authored quiz)', done.sort(sortTier),
+  'Membership comes from `scripts/content-rewrites.json`, written by `scripts/rewrite-body.js`. The generator\n' +
+  'refuses entries whose file does not exist, which is what keeps phantom ledger rows from recurring.');
+
+if (argv.includes('--stale')) {
+  L.push('## Served copy may not match committed copy');
+  L.push('');
+  L.push('Run `npm run check-live` for this; it compares prose against the deployed pages.');
+  L.push('');
+}
+
+L.push('## Notes worth re-reading before a session');
+L.push('');
+L.push('- `scripts/content-rewrites.json` is the authorship record. Add to it only through');
+L.push('  `scripts/rewrite-body.js`; hand-edits must reference files that actually exist (`--check` enforces).');
+L.push('- `scripts/rewrite-body.js` preserves existing quiz/related blocks when those flags are omitted');
+L.push('  (it used to delete quizzes silently — covered by `scripts/test-rewrite-body.js`).');
+L.push('- Slugs must be copied from `ls _articles`, never recalled. The verifier has rejected ~14 invented');
+L.push('  slugs written from memory across sessions.');
+L.push('- Financial figures get `npm run review-numbers`; flagged values stay unverified until checked');
+L.push('  against a primary source. The daily generator published fabricated Tesla figures once.');
+L.push('- Do not strip risk disclosures even when they look redundant.');
+L.push('- If a rewrite changes a `title:`, update any other article whose `related_articles` shows the old');
+L.push('  title string.');
+L.push('');
+
+// --check: machine-verifiable ledger integrity. Exits non-zero if the authorship record references a
+// file that does not exist (the exact failure that produced six phantom "rewritten" articles earlier),
+// or if any article page is missing on disk relative to what the site nav would link.
+if (argv.includes('--check')) {
+  const problems = [];
+  const todoNotes = [];
+  for (const slug of Object.keys(AUTHORED)) {
+    if (!rows.some((r) => r.slug === slug)) problems.push(`manifest references non-existent article: ${slug}`);
+  }
+  for (const r of rows) {
+    // Incomplete-but-honest state is advisory: it is the queue, not an integrity failure.
+    if (r.status === 'authored' && !r.quiz) todoNotes.push(`authored, quiz still pending: ${r.slug}`);
+    if (r.status === 'untouched' && r.tells >= 3) todoNotes.push(`${r.tells} AI-isms, untouched: ${r.slug}`);
+  }
+  for (const t of todoNotes) console.log('  · ' + t);
+  if (problems.length) {
+    console.error(`progress-report --check: ${problems.length} integrity problem(s), ${todoNotes.length} queued item(s)`);
+    for (const p of problems) console.error('  ✗ ' + p);
+    process.exit(1);
+  }
+  console.log(`progress-report --check: manifest clean (${Object.keys(AUTHORED).length} authored entries all resolving to real files); ${todoNotes.length} queued`);
+  process.exit(0);
+}
+
+fs.writeFileSync(OUT === '-' ? process.stdout : OUT, L.join('\n'));
+console.error(`wrote ${OUT === '-' ? '(stdout)' : OUT}: ${done.length} done, ${todo.length} remaining, ${rows.length} total articles`);

@@ -22,7 +22,8 @@
     "backfill-related": "node scripts/backfill-related-articles.js",
     "docker:generate": "docker compose run --rm generate",
     "docker:fetch-fundamentals": "docker compose run --rm fundamentals",
-    "test": "npm run test:related && npm run test:search && npm run test:share && npm run test:bodies && npm run test:quiz && npm run test:quiz-render && npm run test:prompt && npm run test:voice && npm run test:guides && npm run test:links && npm run test:claims && npm run test:rewrite",
+    "test": "npm run test:related && npm run test:search && npm run test:share && npm run test:bodies && npm run test:quiz && npm run test:quiz-render && npm run test:prompt && npm run test:voice && npm run test:guides && npm run test:links && npm run test:claims && npm run test:rewrite && npm run test:progress",
+    "test:progress": "node scripts/progress-report.js --check",
     "test:rewrite": "node scripts/test-rewrite-body.js",
     "test:related": "node scripts/test-related-articles.js",
     "test:search": "node scripts/test-articles-search.js",
@@ -38,6 +39,8 @@
     "voice-report": "node scripts/test-voice.js --report",
     "verify-content": "node scripts/verify-content.js",
     "check-live": "node scripts/check-live.js",
+    "progress": "node scripts/progress-report.js",
+    "progress:check": "node scripts/progress-report.js --check",
     "review-numbers": "node scripts/review-numbers.js",
     "review-numbers:all": "node scripts/review-numbers.js --all"
   },
