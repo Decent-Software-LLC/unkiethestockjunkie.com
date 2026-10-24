@@ -13,6 +13,22 @@ const ARTICLES = path.join(ROOT, '_articles');
 const GUIDES = path.join(ROOT, '_guides');
 
 const filesExist = (dir) => new Set(fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '')));
+
+// Broken links are the most common failure this gate catches, usually from recalling a slug instead of
+// copying it -- repeatedly inventing "investing-myths-debunked-should-you-believe-the-hype" for a file
+// titled simply "Investing Myths Debunked". Suggesting the closest real slug turns each miss into a
+// one-second fix instead of a hunt through `ls`.
+function nearest(target, pool) {
+  const grams = (s) => { const g = new Set(); for (let i = 0; i < s.length - 1; i++) g.add(s.slice(i, i + 2)); return g; };
+  const a = grams(target); let best = null, bestScore = 0.62;
+  for (const cand of pool) {
+    const b = grams(cand);
+    let shared = 0; for (const g of a) if (b.has(g)) shared++;
+    const score = (2 * shared) / (a.size + b.size);
+    if (score > bestScore) { bestScore = score; best = cand; }
+  }
+  return best;
+}
 const slugs = { articles: filesExist(ARTICLES), guides: filesExist(GUIDES) };
 const assets = fs.existsSync(path.join(ROOT, 'assets')) ? collectAssets(path.join(ROOT, 'assets')) : new Set();
 
@@ -70,7 +86,10 @@ function verify(files, opts = {}) {
     for (const m of body.matchAll(/\]\((\/(articles|guides)\/([a-z0-9-]+)\/?)\)/g)) {
       // Kept as SEPARATE sets on purpose. A merged set lets /articles/<guide-slug>/ pass while
       // 404ing in production, since Jekyll serves those paths from different collections.
-      if (!slugs[m[2]].has(m[3])) problems.push(`${label}: link to non-existent page ${m[1]}`);
+      if (!slugs[m[2]].has(m[3])) {
+        const hint = nearest(m[3], slugs[m[2]]);
+        problems.push(`${label}: link to non-existent page ${m[1]}${hint ? ` -- closest existing slug: /${m[2]}/${hint}/` : ''}`);
+      }
     }
     for (const m of fm.matchAll(/url:\s*"\/(articles|guides)\/([a-z0-9-]+)\//g)) {
       if (!slugs[m[1]].has(m[2])) problems.push(`${label}: related_articles/guide url has no source file: /${m[1]}/${m[2]}/`);

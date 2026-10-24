@@ -34,6 +34,9 @@ const tmp = (name, text) => {
 let failures = 0;
 const bodyFile = tmp('rb-body.md', 'New prose goes here.\n\n## A section\n\nClosing paragraph.\n');
 function test(name, fn) {
+  // Each case rewrites the real fixture file, so reset it first; otherwise a later test comparing
+  // against the bytes captured at load time would be compared against an earlier test's scratch prose.
+  fs.writeFileSync(abs, original);
   try { fn(); console.log(`  ✓ ${name}`); }
   catch (e) { console.error(`  ✗ ${name}\n      ${e.message}`); failures++; }
 }
@@ -114,6 +117,19 @@ try {
     const parts = doc.split(/^---[ \t]*$/m);
     assert.ok(parts.length >= 3, `expected opening+closing fences, got ${parts.length - 1}`);
     assert.ok(parts[1].trim().startsWith('layout:'), 'front matter does not begin with layout');
+  });
+  test('uncommitted front-matter edits survive a later rewrite', () => {
+    // Regression: reading only HEAD made a second run revert an in-session quiz addition.
+    const sentinel = 'SENTINEL question that only exists in the working tree?';
+    const patched = original.replace(/^[ \t]+- question: .*$/m, `  - question: "${sentinel}"`);
+    assert.ok(patched.includes(sentinel), 'fixture did not accept the injected sentinel');
+    fs.writeFileSync(abs, patched);
+    try {
+      const doc = rewriteBody(`_articles/${FIXTURE}`, fs.readFileSync(bodyFile, 'utf8'), {});
+      assert.ok(doc.includes(sentinel), 'working-tree quiz was reverted to the committed version');
+    } finally {
+      fs.writeFileSync(abs, original);
+    }
   });
 } finally {
   fs.writeFileSync(abs, original);          // restore the real article

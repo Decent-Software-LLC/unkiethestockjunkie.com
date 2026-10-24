@@ -14,14 +14,23 @@ const { execFileSync } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 
 function committedFrontMatter(rel) {
+  // Read the WORKING TREE first. Reading only HEAD meant that iterating on an article within one
+  // session -- adding a quiz, fixing a link -- had the next rewrite reconstruct front matter from the
+  // stale commit and quietly revert those edits. Front matter stays immutable because this tool has no
+  // flags for overriding identity fields, not because it must come from git.
   let text;
-  try {
-    text = execFileSync('git', ['show', `HEAD:${rel}`], { cwd: ROOT, encoding: 'utf8' });
-  } catch (e) {
-    throw new Error(`not in HEAD, so front matter cannot be provenance-checked: ${rel}`);
+  const abs = path.join(ROOT, rel);
+  if (fs.existsSync(abs)) {
+    text = fs.readFileSync(abs, 'utf8');
+  } else {
+    try {
+      text = execFileSync('git', ['show', `HEAD:${rel}`], { cwd: ROOT, encoding: 'utf8' });
+    } catch (e) {
+      throw new Error(`not on disk or in HEAD, so front matter cannot be read: ${rel}`);
+    }
   }
   const m = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(\r?\n|$)/.exec(text);
-  if (!m) throw new Error(`no front-matter fence in committed ${rel}`);
+  if (!m) throw new Error(`no front-matter fence in ${rel}`);
   return { raw: m[0], fields: m[1] };
 }
 
