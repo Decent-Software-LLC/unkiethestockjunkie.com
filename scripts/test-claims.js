@@ -53,14 +53,31 @@ const SANCTIONS = {
     const at = context.lastIndexOf(match.replace(/\s+/g, ' ').trim().slice(0, 12));
     const before = at === -1 ? context : context.slice(0, at);
     const lastBtn = before.lastIndexOf('<button');
-    if (lastBtn === -1) return false;
-    const btnTag = before.slice(lastBtn, before.indexOf('>', lastBtn) + 1);
-    return /class="[^"]*quiz-option/.test(btnTag) && !btnTag.includes('is-correct');
+    // Must not return early when there is no <button>: prose contexts (the warning case below)
+    // legitimately have none, and an early exit here silently disabled that branch.
+    if (lastBtn !== -1) {
+      const btnTag = before.slice(lastBtn, before.indexOf('>', lastBtn) + 1);
+      if (/class="[^"]*quiz-option/.test(btnTag) && !btnTag.includes('is-correct')) return true;
+    }
+
+    // Second sanctioned case: teaching readers to recognise a scam requires naming the scam's
+    // phrasing, so an article asking whether an ad "named a specific guaranteed return" is doing
+    // the right thing, not making a promise. Sanction only interrogative or fraud-vocabulary
+    // context, and refuse it if the same window also asserts availability -- that combination is
+    // the genuinely harmful case and must still fail.
+    if (!context) return false;
+    const at2 = context.lastIndexOf(match.replace(/\s+/g, ' ').trim().slice(0, 12));
+    const around = context.slice(Math.max(0, at2 - 220), at2 + 280);
+    const warningContext = /[?]/.test(around) ||
+      /\b(?:did they|do they|whether|ask yourself|watch for|red flag|scam|advert|promis)/i.test(around);
+    const asserting = /\b(?:you (?:get|will get|receive)|we (?:offer|guarantee)|it (?:guarantees|offers))\b/i.test(around);
+    return warningContext && !asserting;
   },
 
   'fabricated-audience': (page, match, context) =>
     // Prose about William O'Neil's published system, not our readership.
-    page.startsWith('screeners/oneil') && /O'Neil|investors/.test(context)
+    page.startsWith('screeners/oneil') && /O'Neil|investors/.test(context),
+
 };
 
 let passed = 0;
