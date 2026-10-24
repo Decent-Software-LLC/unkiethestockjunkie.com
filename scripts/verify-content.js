@@ -13,7 +13,7 @@ const ARTICLES = path.join(ROOT, '_articles');
 const GUIDES = path.join(ROOT, '_guides');
 
 const filesExist = (dir) => new Set(fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '')));
-const slugs = { ...Object.fromEntries([...filesExist(ARTICLES)].map((s) => [s, true])), ...Object.fromEntries([...filesExist(GUIDES)].map((s) => [s, true])) };
+const slugs = { articles: filesExist(ARTICLES), guides: filesExist(GUIDES) };
 const assets = fs.existsSync(path.join(ROOT, 'assets')) ? collectAssets(path.join(ROOT, 'assets')) : new Set();
 
 function collectAssets(dir, acc = new Set()) {
@@ -67,11 +67,13 @@ function verify(files, opts = {}) {
       problems.push(`${label}: internal writing instruction left published`);
 
     // --- links ------------------------------------------------------------
-    for (const m of body.matchAll(/\]\((\/(?:articles|guides)\/([a-z0-9-]+)\/?)\)/g)) {
-      if (!slugs[m[2]]) problems.push(`${label}: link to non-existent page ${m[1]}`);
+    for (const m of body.matchAll(/\]\((\/(articles|guides)\/([a-z0-9-]+)\/?)\)/g)) {
+      // Kept as SEPARATE sets on purpose. A merged set lets /articles/<guide-slug>/ pass while
+      // 404ing in production, since Jekyll serves those paths from different collections.
+      if (!slugs[m[2]].has(m[3])) problems.push(`${label}: link to non-existent page ${m[1]}`);
     }
     for (const m of fm.matchAll(/url:\s*"\/(articles|guides)\/([a-z0-9-]+)\//g)) {
-      if (!slugs[m[2]]) problems.push(`${label}: related_articles/guide url has no source file: /${m[1]}/${m[2]}/`);
+      if (!slugs[m[1]].has(m[2])) problems.push(`${label}: related_articles/guide url has no source file: /${m[1]}/${m[2]}/`);
     }
     for (const m of text.matchAll(/(?:src|href)="(\/assets\/[^"]+)"/g)) {
       if (!assets.has(m[1])) problems.push(`${label}: asset does not exist: ${m[1]}`);
