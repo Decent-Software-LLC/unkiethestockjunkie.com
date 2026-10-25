@@ -47,3 +47,7 @@ temp/
 # Local build artefacts
 .gems/
 /.bu-test/
+
+# Machine-readable publish manifest written by scripts/generate-article.js; the workflow reads
+# it to decide exactly what to commit. Ephemeral per-run state -- never committed.
+.generate-result.json
