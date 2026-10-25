@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Circle of Competence: Stay in Your Lane"
-description: "Why Buffett avoids businesses he doesn't understand."
+description: "Familiarity is not competence. Four tests, a too-hard pile, and how the boundary actually widens."
 date: 2026-04-06
 difficulty: advanced
 tags: ["competence", "warren-buffett", "strategy", "advanced"]
@@ -18,51 +18,103 @@ related_articles:
   - title: "The 4% Rule: Safe Retirement Withdrawals"
     url: "/articles/the-4-rule-safe-retirement-withdrawals/"
     description: "How much you can safely spend from investments in retirement."
+quiz:
+  - question: "What distinguishes competence from familiarity with a company?"
+    options:
+      - "Explaining how it earns money per customer and what would erode that over years"
+      - "Using its products regularly and following its announcements"
+      - "Owning shares during a recent favourable stretch"
+      - "Recognising its name in headlines without opening a filing"
+    answer: 0
+    why: "Competence means answering specific operational and failure-mode questions unprompted, whereas consumption merely generates leads needing verification. Experience as a customer or holder and name recognition supply confidence rather than information."
+  - question: "Why precommit to evidence that would disprove a position?"
+    options:
+      - "Without falsification conditions every disappointment becomes a reason to hold"
+      - "Regulators require written research notes beforehand"
+      - "It guarantees accurate return estimates"
+      - "It removes the requirement to track purchases"
+    answer: 0
+    why: "Unfalsifiable theses absorb contradictory news as noise, letting price movement substitute for evidence. No filing rule, forecasting benefit or recordkeeping exemption attaches to the practice."
+  - question: "How should most unfamiliar businesses be handled?"
+    options:
+      - "Filed as unanswerable rather than researched under boredom or hype"
+      - "Purchased modestly to learn how they behave"
+      - "Ignored entirely even after gaining relevant employment"
+      - "Ranked by recent share price performance"
+    answer: 0
+    why: "An explicit too-hard category prevents excitement-driven boundary crossings, while paid exposure teaches nothing that documents and reflection cannot. Genuine proximity remains a legitimate route to widening, and performance ranks sentiment."
 ---
 
-Imagine you're playing a game of basketball with your friends. You're not the best shooter, but you're awesome at dunking. If you focus on dunking, you'll probably score more points and have more fun. But if you try to shoot from half court, you might end up losing the game. The same idea applies to investing. Knowing your strengths and weaknesses, and staying within your "circle of competence," is crucial to making smart investment decisions. In this article, we'll dive into this concept, explore its importance, and learn from the wisdom of Warren Buffett.
+Most investment advice collapses into "know what you understand," which sounds useful until asked how anyone verifies it. The
+concept behind that phrase -- associated with Buffett and Charlie Munger, who emphasised it constantly in their public
+writings and interviews -- gets quoted far more often than practised, usually because people confuse familiarity with
+competence and never test the difference. Correctly applied it becomes a demanding discipline rather than a comfort: define the
+boundary of what you can actually evaluate, stay inside it by default, and treat everything outside as unanswerable rather than
+merely inconvenient.
 
-The Circle of Competence is a concept coined by Warren Buffett, the legendary investor and CEO of Berkshire Hathaway. It refers to the area where your knowledge, skills, and experience overlap, making you more likely to make informed and successful investment decisions. Think of it like a Venn diagram: the intersection of what you know, what you're good at, and what you're passionate about.
+The important half is the boundary, not the territory's size. Owning narrow knowledge you can defend against hostile questioning
+beats broad consumption of financial media; someone able to explain unit economics, competitive response, capital intensity and
+failure modes for a single industry outperforms somebody holding opinions on everything currently discussed online. Nobody
+should feel ambitious about widening quickly, because the skill producing good judgement transfers poorly between businesses whose
+economics behave differently [-- categorising companies beats ranking them](/articles/the-lynch-screener-growth-at-a-reasonable-price/).
 
-As a teenager, you're probably thinking about your future and how to make smart financial decisions. Understanding your Circle of Competence can help you:
+## Four tests before claiming competence
 
-* Avoid costly mistakes by staying away from investments you don't fully understand.
-* Focus on areas where you have a genuine interest and expertise, leading to more informed decisions.
-* Develop a long-term strategy that aligns with your values and goals.
+**Answerability.** Can you state, unprompted, roughly how this business earns money per customer, what could plausibly take those
+earnings away over three years, what would appear in the statements if that happened, and what management could realistically do
+about it? Vague reassurance that the company "seems important" answers nothing. Writing four paragraphs without reference material
+exposes emptiness instantly, which is precisely why writing is the practice rather than reading more articles.
 
-1. **Knowledge**: What do you know about the investment? Have you researched the company, industry, and market trends?
-2. **Skills**: Do you have the necessary skills to analyze and evaluate the investment? Can you read financial statements, assess risks, and predict future performance?
-3. **Experience**: Have you invested in similar assets or industries before? Do you have a track record of success or failure that can inform your decisions?
+**Falsifiability.** Specify evidence that would prove you wrong before committing capital. Positions without falsification
+conditions convert every disappointment into reasons to hold longer, since no observation counts against the thesis. If nothing
+could convince you otherwise, you have identity rather than analysis, and identity does not get updated when facts change.
 
-Warren Buffett's investment philosophy is a great example of the Circle of Competence in action. He has stated that he only invests in companies that:
+**Adversarial survival.** Have the strongest informed argument against your position articulated properly -- read criticism
+written by someone competent and sceptical, not summary mockery -- and check whether your reasoning survives contact. Confirmation
+seeking feels like diligence and is its opposite; the internet obligingly supplies agreement for any view held passionately enough,
+including wrong ones defended confidently.
 
-* Have a strong brand and competitive advantage (e.g., Coca-Cola, American Express).
-* Operate in industries he understands (e.g., insurance, retail).
-* Have a proven track record of success (e.g., Wells Fargo, Procter & Gamble).
+**Horizon honesty.** Competence claims typically hide an unstated timeframe. Understanding a sector's products today says little
+about pricing five years out, and most beginner errors involve confidently forecasting exactly the period where nobody can. If your
+view depends on events beyond several years, either shrink the claim or accept that the position rests on something other than
+knowledge [-- valuation ranges expose such gaps honestly](/articles/fundamental-analysis-finding-intrinsic-value/).
 
-Buffett has also been known to avoid investments that fall outside his Circle of Competence, such as:
+Most claimed expertise fails these tests quietly because nobody administers them. That failure isn't shameful -- professionals
+misjudge their own reach routinely, and institutional resources don't confer clairvoyance; entire funds underperform indexes while
+employing specialists with better data than any individual will access. Recognising limits early converts an expensive habit into
+a cheap one.
 
-* Technology stocks (he has said he doesn't understand the industry).
-* International investments (he prefers to focus on US-based companies).
+## Widening legitimately
 
-Take a piece of paper and draw three overlapping circles:
+Competence grows from proximity plus study rather than enthusiasm. Employment exposes operations invisible in published summaries:
+which costs actually move, what customers complain about when nobody sells them anything, how long replenishment really takes,
+whether promised product changes arrive late and over budget. Studying one industry's named companies deeply, including failures as
+well as survivors, builds comparative instincts superficial scanning cannot: read filings across competitors and notice disclosure
+language differing on identical matters [-- filings reward readers who compare](/articles/annual-reports-the-ceo-s-letter-to-shareholders/).
+Keep records of what you predicted rather than what transpired afterwards: date expectations, note the specific numbers anticipated,
+review honestly months later. Without documentation memory rewrites itself, enthusiastic participants remember insight and forget
+errors -- [practising recorded predictions cheaply builds the reflex](/articles/paper-trading-practice-without-risk/) before capital
+makes the tuition expensive. Reading accounting judgment carefully belongs here too, since inflated competence frequently traces to
+trusting headline profit without interrogation [-- earnings quality tells you where to look](/articles/understanding-earnings-quality-accruals-one-timers-and-the-fine-print/).
 
-* Circle 1: What do you know about investing? (e.g., stocks, bonds, ETFs).
-* Circle 2: What are you good at? (e.g., research, analysis, critical thinking).
-* Circle 3: What are you passionate about? (e.g., sustainable energy, healthcare, technology).
+A related discipline deserves emphasis because popular culture inverts it: saying no by default. Public investors describe maintaining
+piles for ideas they cannot evaluate, and choosing ignorance explicitly differs from drifting past something unfamiliar while feeling
+obliged to form views. Boredom drives most boundary violations -- portfolios look dull during long rises, narratives get exciting on
+feeds, peers report gains in categories you deliberately avoided, and hopping over mid-cycle in pursuit of reported success converts
+an absence of knowledge into an absence of risk management simultaneously. Hype cycles around particular technologies recur roughly
+each generation with strikingly similar scripts, and participation without competence has a well-documented distribution of outcomes:
+late entrants pay for earlier ones.
 
-Where do the circles intersect? This is your Circle of Competence. Write down a few investment ideas that fall within this area.
+For a sixteen-year-old the practical version needs no exotic industries. Understanding a part-time employer's unit economics genuinely
+helps -- knowing local margins tells you something about franchise health that no article conveys. Knowing a game's retention
+mechanics or a retailer's stock rotation gives observations, not conclusions: familiarity supplies leads requiring verification, a
+point worth repeating because the famous paraphrase about owning what you use got flattened into shopping advice somewhere in
+transmission. Then keep the field small and documented. Depth produces advantages no résumé of interests replicates, and a short list
+of companies you can genuinely critique beats a sprawling wishlist assembled from trending discussions, provided the critique survives
+someone competent arguing against it. Anyone unable to describe what would make them abandon a position hasn't formed a view at all --
+merely absorbed a mood, complete with the confidence that arrives whenever understanding is absent rather than present.
 
-* Know your strengths and weaknesses when it comes to investing.
-* Focus on areas where your knowledge, skills, and experience overlap.
-* Avoid investments that fall outside your Circle of Competence.
-* Develop a long-term strategy that aligns with your values and goals.
-
-1. **"The Essays of Warren Buffett: Lessons for Corporate America"** by Warren Buffett and Lawrence Cunningham.
-2. **"The Intelligent Investor"** by Benjamin Graham.
-3. **"The Little Book of Behavioral Investing"** by James Montier.
-
-**Disclaimer**
---------------
-
-This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+This is educational discussion of an investing discipline, not financial advice or a recommendation to buy or sell anything; no
+individual or fund is endorsed, named practitioners' formulations are paraphrased rather than quoted, self-assessment of
+understanding is notoriously unreliable including among professionals, and investing involves risk whatever confidence accompanies
+the decision.

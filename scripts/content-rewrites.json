@@ -21,11 +21,11 @@
    "note": "verified in session: file exists, body authored by hand"
   },
   "stock-screeners-finding-your-first-investment": {
-   "at": "seeded",
+   "at": "2026-10-25",
    "note": "verified in session: file exists, body authored by hand"
   },
   "understanding-stock-charts-for-beginners": {
-   "at": "seeded",
+   "at": "2026-10-25",
    "note": "verified in session: file exists, body authored by hand"
   },
   "dow-jones-the-original-stock-index": {
@@ -33,7 +33,7 @@
    "note": "verified in session: file exists, body authored by hand"
   },
   "understanding-the-stock-market-a-playground-for-investors": {
-   "at": "seeded",
+   "at": "2026-10-25",
    "note": "verified in session: file exists, body authored by hand"
   },
   "market-orders-vs-limit-orders": {
@@ -241,6 +241,15 @@
    "at": "2026-10-25"
   },
   "roth-vs-traditional-ira-retirement-investing": {
+   "at": "2026-10-25"
+  },
+  "asset-plays-when-cash-is-king": {
+   "at": "2026-10-25"
+  },
+  "drips-automatically-reinvesting-dividends": {
+   "at": "2026-10-25"
+  },
+  "circle-of-competence-stay-in-your-lane": {
    "at": "2026-10-25"
   }
  },
