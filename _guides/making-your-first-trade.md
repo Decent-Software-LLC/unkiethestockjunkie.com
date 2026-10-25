@@ -76,7 +76,15 @@ order is fine - the spread is a rounding error. On a thinly-traded small company
 be a meaningful percentage, and a market order pays it without complaint.
 
 Default to limit while you're learning. The worst outcome is an unfilled order you can cancel
-and retry. With a market order the worst outcome is a fill you can't take back.
+and retry. With a market order the worst outcome is a fill you can't take back. If the two still
+blur together, [market orders vs limit orders](/articles/market-orders-vs-limit-orders/) walks the
+same decision with worked numbers.
+
+One custodial wrinkle to settle before you get excited about a trade: depending on how the account
+was opened, the person allowed to place orders may be your custodian rather than you. Some firms
+let an older teenager trade inside their own login; others require the adult every single time.
+Ask that question up front -- "can I press submit myself" -- because discovering the answer the
+morning after something moved is a bad way to learn it.
 
 ## <a id="step-4"></a>Set quantity in dollars if the share is expensive
 
@@ -122,6 +130,9 @@ violation rule.
 
 Exact mechanics vary slightly by broker and product, so read your own broker's settlement page
 once. If anything here disagrees with it, believe the broker.
+
+If you'd rather make these mistakes against real prices at zero cost first, [paper trading](/articles/paper-trading-practice-without-risk/)
+runs this exact sequence in a simulator -- including the part where nothing you do feels expensive.
 
 Screenshot or note your entry price and why you bought. In six months you will not remember
 whether you were making a considered decision or reacting to something you saw online, and the

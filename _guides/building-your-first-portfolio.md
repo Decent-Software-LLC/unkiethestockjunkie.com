@@ -65,10 +65,11 @@ over if history repeats.
 
 Two-year horizon: the same drop is a genuine problem, because there isn't time to wait it out.
 
-Most teens reading this have the *longest* horizon of anyone in the market - decades before the
-money is likely needed. That's a real advantage and the main reason starting early with small
-amounts beats starting late with large ones. It's worth noting that it only counts as an advantage
-if you actually leave the money alone for those decades.
+If you're 16 or 17, money set aside from a paycheck today can plausibly sit untouched into your thirties
+-- a first house down payment, not a phone. That is a longer horizon than almost anyone else in the market,
+and at the same rate of return it is why a small contribution started now can beat a much larger one started
+at 30. One honest caveat: that advantage is only real if the money actually stays put. A decade-long plan
+liquidated after one bad quarter was never a decade-long plan.
 
 ## <a id="step-3"></a>Start with one broad fund, not seven stocks
 
@@ -84,7 +85,8 @@ fact to sit with given their resources.
 
 That's not a claim that picking stocks never works. Some people are good at it. It's a claim that
 the skill takes years to develop, so the cheap way to get market exposure while you're developing
-it is through a fund.
+it is through a fund. [Index funds: set it and forget it](/articles/index-funds-set-it-and-forget-it/)
+explains what one actually holds and what the fee buys you.
 
 A reasonable starting shape:
 
@@ -93,7 +95,11 @@ A reasonable starting shape:
 - **0-10% individual stock picks** - your learning budget
 
 Adjust the middle number up if seeing red would make you panic-sell. Sleeping through a crash
-matters more than a slightly better expected return you can't psychologically hold onto.
+matters more than a slightly better expected return you can't psychologically hold onto. Why
+spreading across many holdings helps -- and where it stops helping -- is
+[here](/articles/diversification-don-t-put-all-your-eggs-in-one-basket/), and spreading purchases
+across months instead of one day is covered by
+[dollar-cost averaging](/articles/dollar-cost-averaging-smooth-out-the-bumps/).
 
 ## <a id="step-4"></a>Size single-stock bets at 5-10% maximum
 

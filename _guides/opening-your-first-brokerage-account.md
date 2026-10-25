@@ -38,6 +38,11 @@ In the US, you generally cannot sign a brokerage agreement until you're 18. Cont
 enforceable against minors, so brokers won't take the risk. What they'll do instead is open a
 **custodial account** with an adult on the paperwork.
 
+If you're 16 or 17 with a paycheck, a licence and money you're deliberately not spending on a
+car, this is the version of investing actually available to you. Not a training-wheels version:
+same market, same order buttons, same tax paperwork, and the same 30% Tuesday that adults have to
+sit through. The only difference is whose signature is on the form.
+
 Two flavours, and the difference is real:
 
 - **UGMA** (Uniform Gifts to Minors Act) holds financial assets - cash, stocks, funds.
@@ -94,8 +99,18 @@ The things that actually vary between brokers for a teenager:
 Ignore the app's animations and confetti. Confetti on a purchase screen is a design choice
 aimed at making you click more, not at making you wealthier.
 
+If the fee columns blur together, [how a broker actually makes money](/articles/what-is-a-broker-and-how-to-choose-one/)
+covers which charges are normal, which ones quietly drain a small account, and what "free" is paid for.
+
+Name brands where they belong, then judge them yourself. The long-established full-service firms
+-- Fidelity, Charles Schwab, Vanguard -- all support custodial accounts, and some of them also run
+supervised accounts aimed at younger teens. Several of the apps your friends screenshot positions
+from will not open an account for a minor at all, which is exactly why "do you even do this" is
+the first question and not the last. Product lines change and marketing pages lie by omission, so
+confirm on the firm's own site rather than trusting this sentence or a YouTube review.
+
 Two legitimate ways to research a broker before trusting it with your Social Security number:
-look it up on the SEC's [BrokerCheck](https://brokercheck.finra.org/), and confirm it's a
+look it up on FINRA's [BrokerCheck](https://brokercheck.finra.org/), and confirm it's a
 member of FINRA/SIPC. If a company can't be found on BrokerCheck, stop.
 
 ## <a id="step-4"></a>Open it together
@@ -126,7 +141,8 @@ Once it's funded, resist the urge to buy whatever you saw recommended online.
 For a first position, a **broad total-market index ETF** does the same mechanical exercise -
 search the ticker, choose order type, set quantity, review, submit - with far less downside if
 your instincts are wrong. You learn the exact same interface buying one fund as you would
-buying three speculative names.
+buying three speculative names. If you want to know what you'd actually be owning,
+[index funds: set it and forget it](/articles/index-funds-set-it-and-forget-it/) covers the product itself.
 
 Order type note: use a **limit order** on anything thinly traded. A market order guarantees the
 trade happens, not the price, and on a quiet stock that gap can be real money. On a huge,
