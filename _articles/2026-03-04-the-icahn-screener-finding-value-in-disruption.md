@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "The Icahn Screener: Finding Value in Disruption"
-description: "Identifying undervalued companies ripe for change."
+description: "What activist-flavoured presets really select for, what campaigns can and cannot force, and why copying a disclosed stake is not the same trade."
 date: 2026-03-04
 difficulty: intermediate
 tags: ["carl-icahn", "screeners", "activist", "intermediate"]
@@ -18,52 +18,95 @@ related_articles:
   - title: "The Buffett Screener: Finding Wonderful Companies"
     url: "/articles/the-buffett-screener-finding-wonderful-companies/"
     description: "How to find companies that meet Buffett's investment criteria."
+quiz:
+  - question: "Whose criteria define the 'Icahn Screener' offered by popular tools?"
+    options:
+      - "Whoever maintains the tool; no authorised version exists"
+      - "Carl Icahn's firm, which publishes them annually"
+      - "A regulators' committee for activist strategies"
+      - "An index provider licensing his name"
+    answer: 0
+    why: "Screening sites attach celebrity names to presets resembling activism flavoured cheapness. No publisher, regulator or licensor certifies such criteria."
+  - question: "Why does a high dividend yield often warrant suspicion?"
+    options:
+      - "Prices fall when payout cuts look likely, inflating the yield mechanically"
+      - "High yields require auditors to certify future payments"
+      - "Only new companies are permitted to raise payouts"
+      - "Large dividends reduce reported revenue automatically"
+    answer: 0
+    why: "Yield moves inversely with price, so the list's top rows concentrate expected cuts and deteriorating coverage. Auditors don't approve payouts, issuance history is irrelevant, and distributions leave revenue untouched."
+  - question: "What is a beginner realistically able to do with a disclosed activist stake?"
+    options:
+      - "Treat it as a research lead and test the criticism against the filings"
+      - "Copy it, obtaining the same leverage the campaign supplies"
+      - "Require management to respond because a large holder objects"
+      - "Claim reimbursement of the campaign's expenses"
+    answer: 0
+    why: "Announcements reprice the shares and arrive without the influence that made the position interesting, so the useful move is investigating whether the diagnosis appears in reported numbers. Individual buyers obtain neither control nor cost recovery."
 ---
 
-Imagine you're at a flea market, and you stumble upon a hidden gem - a rare collectible that's been overlooked by everyone else. You buy it for a steal, and later, it becomes super valuable. That's kind of like what activist investor Carl Icahn does, but instead of collectibles, he looks for undervalued companies with potential. In this article, we'll explore the Icahn Screener, a tool used to find these hidden gems. By the end of this, you'll understand how to use it and why it matters for your future.
+No screen carries Carl Icahn's authorization. What gets sold under that name is an activist-flavoured preset -- usually
+cheap on assets, paying something in dividends, with insiders holding a chunk and institutions holding comparatively
+little -- assembled by whoever maintains the site rather than by anyone who has met him. The underlying instinct is
+nonetheless worth understanding, because it points at something ratios alone cannot see: sometimes a business is worth
+more than its shares trade for *and* requires somebody with power to force the gap closed. That requirement is the
+difference between value investing and activism, and it explains most of the preset's flaws too.
 
-The Icahn Screener is a stock screen, a tool that helps investors filter through thousands of companies to find ones that fit specific criteria. It's named after Carl Icahn, a legendary activist investor who's known for buying undervalued companies and pushing for changes to increase their value. The screener looks for companies with low prices, high yields, and other characteristics that might indicate they're undervalued.
+## What the filters actually select for
 
-You might be thinking, "Why do I care about some rich investor's strategy?" Well, here's the thing: understanding how to find undervalued companies can help you make smart investment decisions in the future. Imagine being able to spot a company that's about to take off before it's too late. It's like finding that rare collectible at the flea market. By learning about the Icahn Screener, you'll gain a valuable skill that can help you achieve your long-term financial goals.
+**Cheap against book value** finds capital-heavy businesses whose assets markets doubt: banks, insurers, shipping,
+steel, regional retailers. Sometimes asset values are understated and sometimes the assets earn less than they cost to
+maintain [-- the ratio means opposite things depending on the business](/articles/price-to-book-ratio-asset-based-valuation/),
+which is why sorting on it alone mostly ranks industries by how much machinery they own.
 
-So, what exactly does the Icahn Screener look for? Here are the key concepts:
+**High dividend yield** frequently marks a payout investors expect to be cut. Yields rise when prices fall, so the top of
+any yield-sorted list concentrates trouble: cyclicals at peak earnings about to normalise, leveraged issuers whose cover
+is thinning, companies paying out anyway to defend appearances. [Dividend safety has its own tests](/articles/what-is-a-dividend-getting-paid-to-own-stocks/)
+-- coverage, funding source, whether profit rises at all -- and none of them appear in the filter.
 
-* **Low Price-to-Book Ratio**: This means the company's stock price is low compared to its book value (the company's total assets minus liabilities).
-* **High Dividend Yield**: This means the company pays out a significant portion of its earnings as dividends to shareholders.
-* **High Insider Ownership**: This means the company's executives and directors own a significant portion of the company's shares.
-* **Low Institutional Ownership**: This means that big institutional investors, like pension funds, don't own a lot of the company's shares.
+**Heavy insider holdings** can mean founders aligned with owners, which is genuinely favourable, or boards so entrenched
+that outside holders have no mechanism to change anything. Control is valuable precisely because it decides what happens
+when strategy disappoints; concentration tells you who decides, not whether they decide well. Distinguish founders whose
+wealth rides on the outcome from directors collecting fees for attendance.
 
-These characteristics might indicate that a company is undervalued or overlooked by other investors.
+**Light institutional ownership** is the most defensible element, since thinly covered companies get less analytical
+competition and mispricings survive longer there. It also explains the whole approach's constraint: institutions avoid
+such names for reasons -- liquidity, mandates, governance concerns, size limits -- some legitimate, some careerist. Low
+ownership is a hunting ground, never a verdict.
 
-Let's look at a real-world example. In 2013, Carl Icahn invested in Apple (AAPL) because he believed the company was undervalued. At the time, Apple's stock price was around $450, and Icahn argued that it should be higher. He pushed for the company to return more cash to shareholders through dividends and share buybacks. Fast forward to today, and Apple's stock price is over $150. That's a huge return on investment!
+## What activism adds, and what it costs
 
-Another example is eBay (EBAY). In 2014, Icahn invested in eBay because he believed the company's PayPal unit was undervalued. He pushed for eBay to spin off PayPal, which eventually happened in 2015. PayPal's stock price has since skyrocketed.
+The premise behind the disruption half is that prices sometimes sit below what a business could produce under different
+decisions: capital returned instead of hoarded, divisions sold rather than cross-subsidised, costs addressed before
+erosion compounds, poor acquisitions stopped. Public campaigns attempt those outcomes through shareholder proposals,
+director elections, negotiated board representation and private pressure. Outcomes vary widely, and the visible successes
+get studied endlessly while the unsuccessful campaigns -- capital spent, management antagonised, years absorbed -- rarely
+generate articles. Legally, investors accumulating meaningful positions cross disclosure thresholds and file publicly
+within days, so following those documents beats waiting for press coverage; several regimes distinguish someone intending
+to influence decisions from a holder staying passive, and that distinction changes what must be revealed and when.
 
-Want to try using the Icahn Screener? Here's a simple exercise:
+For a beginner the practical use of this genre is informational rather than imitative. You cannot mount a campaign, and
+copying a disclosed stake buys you the position without the leverage that made it interesting -- buying after the activist
+announces converts somebody else's work into your entry price, usually a substantial premium. What you can do is read
+those filings as free research signals, then evaluate the target on fundamentals: does the criticism identify something
+observable in the statements, such as cash accumulating earning nothing while borrowings carry higher rates, or returns
+on invested capital below the cost of the money being raised? If the diagnosis matches
+[what the filings themselves show](/articles/annual-reports-the-ceo-s-letter-to-shareholders/), the thesis deserves study
+independently of who raised it.
 
-1. Go to a stock screen website, like Finviz or Yahoo Finance.
-2. Set up a screen with the following criteria:
-	* Price-to-Book Ratio < 1.5
-	* Dividend Yield > 4%
-	* Insider Ownership > 10%
-	* Institutional Ownership < 50%
-3. Look at the list of companies that come up. Research each one to see if you think they're undervalued.
-4. Keep in mind that this is just a simple exercise, and you should never invest in a company without doing thorough research.
+Then apply the standard discipline: write down what specifically must change, who possesses the ability to change it,
+how long that plausibly takes, and what happens if nothing changes at all. Campaigns run for years, and a plan whose only
+exit is somebody else acting contains a dependency you don't control. Anything else amounts to betting on a personality
+rather than analysing a business, which is the difference between screening on cheapness plus evidence and screening on
+cheapness plus excitement. A handful of famous operators built reputations doing this combatively; people copying their
+disclosed trades afterward generally collected worse prices, longer waiting periods and no way of forcing resolution,
+while the ones who lost money quietly had no article written about them. Whatever tool carries a celebrity's name, the
+load-bearing question stays local to the company: is there a concrete, evidenced gap between what this earns and what it
+could earn under better decisions, and can you survive the period before anyone acts on it? Verify any such reasoning
+against [your own valuation work](/articles/fundamental-analysis-finding-intrinsic-value/), not against headlines
+describing someone else's.
 
-Here are the main lessons from this article:
-
-* The Icahn Screener is a tool used to find undervalued companies with potential.
-* It looks for companies with low prices, high yields, and other characteristics that might indicate they're undervalued.
-* Understanding how to use the Icahn Screener can help you make smart investment decisions in the future.
-* Always do thorough research before investing in a company.
-
-If you want to learn more about the Icahn Screener and activist investing, here are some resources:
-
-* "The Big Short" by Michael Lewis (book)
-* "Carl Icahn: The Corporate Raider" by Mark Stevens (book)
-* "The Activist Investor" by Jason Zweig (article)
-
-**Disclaimer**
---------------
-
-This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and you should always do your own research and consult with a financial advisor before making any investment decisions.
+This is educational discussion of screening conventions and shareholder activism, not financial advice or a recommendation
+to buy or sell anything; preset thresholds shown anywhere belong to whoever published them rather than to any investor
+named here, nobody's disclosed position constitutes a recommendation, investing involves risk, and cheap-looking stocks
+frequently stay cheap while paying dividends until they cannot.
