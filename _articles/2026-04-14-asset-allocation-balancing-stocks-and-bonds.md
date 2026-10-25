@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Asset Allocation: Balancing Stocks and Bonds"
-description: "How to divide your money across different investments."
+description: "Why splitting money by when it will be needed beats splitting it by how brave you feel -- three engines, three failure modes."
 date: 2026-04-14
 difficulty: advanced
 tags: ["asset-allocation", "portfolio", "strategy", "advanced"]
@@ -18,39 +18,103 @@ related_articles:
   - title: "Buffett's Portfolio: Lessons from Current Holdings"
     url: "/articles/buffett-s-portfolio-lessons-from-current-holdings/"
     description: "Analyzing Berkshire Hathaway's current investments."
+quiz:
+  - question: "A car payment falls due in eighteen months. Where should that money sit?"
+    options:
+      - "In cash or a guaranteed-nominal equivalent, regardless of how attractive shares look"
+      - "Entirely in the fastest-growing sector available"
+      - "In a leveraged position to catch up on lost time"
+      - "Wherever the biggest dividend is being advertised"
+    answer: 0
+    why: "A near-term deadline risks forcing a sale at the worst possible quote, converting temporary weakness into real loss. Sector chasing, leverage and yield chasing all enlarge that timing hazard rather than manage it."
+  - question: "Why does mixing stocks and bonds provide only partial protection?"
+    options:
+      - "They often respond differently to shocks, but can fall together when inflation dominates"
+      - "Bond markets are closed whenever share markets open"
+      - "Regulations forbid holding both in one household"
+      - "Diversification guarantees identical performance in every year"
+    answer: 0
+    why: "The cushion usually comes from recession-driven rate declines lifting bond prices while earnings sag, an effect that weakens under broad inflationary stress. Exchanges operate concurrently, holding both is ordinary practice, and diversification equalises nothing."
+  - question: "What makes rebalancing to target weights genuinely difficult?"
+    options:
+      - "It requires selling what recently performed and buying what lagged"
+      - "Calculators cannot divide percentages accurately"
+      - "Every adjustment needs regulatory approval first"
+      - "Target weights change automatically each quarter"
+    answer: 0
+    why: "Drift pulls a portfolio toward whatever just worked, so restoring targets is mechanically contrary to how conviction feels. Arithmetic poses no problem, routine adjustments require no permission, and targets are chosen rather than automatic."
 ---
 
-Imagine you're on a road trip with your friends, and you're in charge of planning the route. You want to make sure you arrive at your destination safely and on time. To do this, you need to balance your speed with caution, considering the road conditions, weather, and traffic. Similarly, when it comes to investing, you need to balance your portfolio by allocating your assets wisely. In this article, we'll explore the concept of asset allocation, why it matters, and how to apply it to your investment strategy.
+How you split money across fundamentally different kinds of investment matters more than most of what people spend time
+researching. Not because splitting is clever, but because each type runs on a different engine: businesses grow or don't,
+loans get repaid or defaulted, cash loses purchasing power slowly while everything else moves quickly. Research often cited
+in textbooks claims a large share of a portfolio's variation over time traces back to those exposure choices rather than to
+securities picked inside them -- the precise figure is contested and depends heavily on the sample period, but nobody serious
+disputes the direction. Choosing which engines you own outranks tuning the seats.
 
-Asset allocation is the process of dividing your investment portfolio among different asset classes, such as stocks, bonds, and cash. The goal is to balance your risk and potential returns by spreading your investments across various assets. Think of it like a recipe: you need to mix the right ingredients in the right proportions to create a delicious dish. In this case, the ingredients are your investments, and the recipe is your asset allocation strategy.
+## Three engines, three failure modes
 
-As a teenager, you might not be thinking about investing just yet, but trust us, it's essential to start learning about it now. Asset allocation is a crucial concept to understand, especially if you're planning to invest in the stock market or start a savings plan for college or a big purchase. By learning how to allocate your assets effectively, you'll be able to make informed decisions about your money and set yourself up for long-term financial success.
+**Equities** are ownership claims: [a share is a slice of residual profit](/articles/what-is-a-stock-a-teen-s-first-guide/)
+after everyone else gets paid. Long-run returns come from businesses earning more over time, which is why dividends and
+buybacks matter as mechanisms rather than decorations [-- payouts have their own durability tests](/articles/what-is-a-dividend-getting-paid-to-own-stocks/).
+The failure mode is obvious and brutal: prices can halve while nothing about long-run productivity changes, and they
+sometimes stay down for years.
 
-Here are some key concepts to understand when it comes to asset allocation:
+**Bonds** are creditor claims with a schedule. In liquidation, lenders stand ahead of shareholders, which is exactly why
+their upside is capped at contractual terms while equity holders absorb the surprises. Interest-rate risk, default risk and
+inflation risk arrive separately, and [the bond page works through how prices respond when rates move](/articles/bonds-the-other-side-of-the-portfolio/).
+The failure mode people miss: boring assets can lose substantial value quickly without any borrower failing.
 
-* **Risk Tolerance**: This refers to your ability to withstand market fluctuations and potential losses. If you're risk-averse, you may want to allocate more of your portfolio to bonds or cash. If you're more risk-tolerant, you may want to allocate more to stocks.
-* **Diversification**: This is the process of spreading your investments across different asset classes to minimize risk. Think of it like a pizza with different toppings: you want a variety of flavors to balance out the taste.
-* **Correlation**: This refers to how different assets perform in relation to each other. For example, stocks and bonds tend to have a negative correlation, meaning that when stocks go up, bonds tend to go down.
-* **Efficient Frontier**: This is a concept that helps you visualize the optimal asset allocation for your portfolio. It's like a map that shows you the best route to take to reach your investment goals.
+**Cash** buys certainty in nominal terms and surrenders purchasing power quietly. If wages rise faster than deposit rates,
+holding is a slow decision to work longer for less. Cash is not the safe option by default; it is the right option for money
+with a near-term deadline and the wrong one for money with a decade ahead of it.
 
-Let's say you're investing in a portfolio with $10,000. You decide to allocate 60% to stocks, 30% to bonds, and 10% to cash. This means you'll invest $6,000 in stocks, $3,000 in bonds, and $1,000 in cash.
+Correlation describes whether things move together, and here honesty beats the usual simplification. Stocks and bonds are
+not reliably opposite; they merely *often* respond differently to the same shock, because a recession that crushes earnings
+can coincide with falling rates that lift bond prices. When inflation drives both, the classic cushion evaporates -- periods
+where diversified portfolios fell in most buckets simultaneously happen regularly enough to plan for, and correlations rising
+toward one in precisely the moment you need separation is the oldest complaint in the discipline. Diversification still
+works; it simply isn't insurance against every scenario [-- spread arguments have limits worth reading](/articles/diversification-don-t-put-all-your-eggs-in-one-basket/).
 
-* **Stocks**: You invest in a mix of growth stocks, such as Amazon (AMZN) and Facebook (FB), and dividend stocks, such as Coca-Cola (KO) and Johnson & Johnson (JNJ).
-* **Bonds**: You invest in a mix of government bonds, such as U.S. Treasury bonds, and corporate bonds, such as Apple (AAPL) bonds.
-* **Cash**: You keep $1,000 in a high-yield savings account or a money market fund.
+## Split by deadline, not by courage
 
-Let's say you have $5,000 to invest, and you want to allocate it among stocks, bonds, and cash. Using the concepts you've learned, create a sample asset allocation strategy. Consider your risk tolerance, investment goals, and time horizon. You can use online tools or spreadsheets to help you visualize your portfolio.
+Textbooks lead with "risk tolerance," which sounds like personality assessment and mostly measures how much you've lost so
+far. Far more useful is sorting each pile of money by when it must exist in dollars. A car payment in eighteen months has no
+business in equities at any attractive valuation, since forced selling at the worst available moment converts paper weakness
+into realised permanent loss -- which makes this requirement part of
+[the safety discussion rather than a preference](/articles/margin-of-safety-the-concept-that-protects-investors/). Job money
+for next term's bills belongs in cash or the nearest equivalent. Money nobody needs for fifteen years can absorb volatility
+that would end a short-dated plan, purely because there is time for arithmetic to play out before anyone has to sell
+[-- waiting is what lets compounding finish](/articles/compound-interest-the-eighth-wonder-of-the-world/).
 
-* Asset allocation is the process of dividing your investment portfolio among different asset classes.
-* Risk tolerance, diversification, correlation, and efficient frontier are key concepts to understand when it comes to asset allocation.
-* A balanced portfolio should include a mix of stocks, bonds, and cash.
-* Asset allocation is not a one-time task; it's an ongoing process that requires regular monitoring and rebalancing.
+Notice what that framing accomplishes: two sixteen-year-olds with identical accounts and completely different correct
+allocations, depending on whether the next withdrawal is a licence, a semester, or nothing until their thirties. The
+allocation follows the calendar rather than nerve.
 
-* "A Random Walk Down Wall Street" by Burton G. Malkiel
-* "The Intelligent Investor" by Benjamin Graham
-* "The Little Book of Common Sense Investing" by John C. Bogle
+Practically, three buckets handle almost everything a teenager or early twenty-something faces. Near-term obligations in
+guaranteed-nominal places; medium-horizon goals in broad, cheaply run funds where you're not pretending to pick winners
+[-- indexing exists precisely for this layer](/articles/index-funds-set-it-and-forget-it/); long-horizon money in
+predominantly growth-oriented holdings with the volatility accepted at the outset instead of renegotiated during a decline.
+Any single holding whose collapse would change your behaviour belongs in a smaller bucket than the one making you
+comfortable, because portfolio quality is measured by whether you can keep owning it through the bad quarter rather than by
+how good it looked beforehand. Automation does quiet work here too: [regular contributions force buying during
+unpleasantness](/articles/dollar-cost-averaging-smooth-out-the-bumps/), which is when purchases actually improve expected
+returns for anyone with a long timeline -- an unglamorous fact that almost nobody executing trades enjoys admitting.
 
-**Disclaimer**
---------------
+Rebalancing deserves explanation rather than a rule. If growth stocks outrun everything else, the portfolio drifts toward
+whatever just worked; restoring targets means trimming strength and adding weakness mechanically, which is sell-high,
+buy-low behaviour no human performs comfortably on judgment alone. Bands beat calendars for most people -- act when a
+category strays several percentage points from target rather than every Sunday -- and in taxable accounts selling carries
+tax consequences that vary by account wrapper, something to raise with a parent or guardian before trading rather than after
+[-- keeping more of your gains has its own considerations](/articles/tax-efficient-investing-keeping-more-of-your-gains/).
+One-ticket solutions such as lifecycle funds automate all of this along a glide path designed by strangers: convenient,
+sometimes excellent, never free, and containing no protection whatsoever against losing money. Whatever structure you
+choose, write down why on one page. That page becomes valuable the first time headlines make the current arrangement feel
+obviously wrong -- which happens to everyone, including professionals, and remains the only reliable antidote to selling
+low because everybody else is.
 
-This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+This is educational explanation of portfolio construction, not financial advice or a recommendation of any allocation,
+product or account type; no figures above are projections, percentages illustrate arithmetic rather than forecast returns,
+accounts for minors involve custodial and tax rules that differ by situation and should be confirmed with a qualified
+professional, and every asset class described here -- including cash equivalents -- can lose ground relative to what you
+needed it to do.

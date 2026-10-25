@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Bonds: The Other Side of the Portfolio"
-description: "How bonds work and why they balance stock risk."
+description: "How a bond can lose value while the borrower behaves perfectly, and why a fund feels that shock differently than a single issue."
 date: 2026-05-14
 difficulty: advanced
 tags: ["bonds", "fixed-income", "diversification", "advanced"]
@@ -18,49 +18,105 @@ related_articles:
   - title: "Fundamental Analysis: Finding Intrinsic Value"
     url: "/articles/fundamental-analysis-finding-intrinsic-value/"
     description: "The Buffett/Graham method of determining true company value."
+quiz:
+  - question: "Existing bonds fall in price when new issues offer higher yields because:"
+    options:
+      - "The fixed coupon must look competitive against a smaller purchase price"
+      - "Issuers reduce coupons mid-life to conserve cash"
+      - "Regulators mark older debt downward automatically"
+      - "Bondholders must repay accumulated interest upon resale"
+    answer: 0
+    why: "Coupons are contractual and unchanged, so price adjusts until the promised money represents market-competitive return on what a buyer actually pays. Coupons aren't cut retroactively, no marking rule exists, and sellers owe nothing."
+  - question: "How does holding a bond fund differ from holding an individual bond to maturity?"
+    options:
+      - "The fund has no maturity date at which losses mechanically revert to face"
+      - "Funds can only invest in defaulted issues"
+      - "Individual bonds cannot be sold before term under any circumstance"
+      - "Fund distributions are guaranteed by the exchange"
+    answer: 0
+    why: "Continuous rolling of maturing holdings means sustained rate-driven declines persist unless future income rebuilds value, while an individual obligation held to term returns face absent default. Neither restriction nor exchange guarantees apply."
+  - question: "What makes a staggered maturity ladder useful?"
+    options:
+      - "Scheduled repayments supply cash without forcing sales at poor moments"
+      - "It removes all exposure to issuer default"
+      - "It guarantees beating inflation over any period"
+      - "It lets one bond substitute for diversification entirely"
+    answer: 0
+    why: "Rungs maturing at intervals convert timing risk into a predictable cash calendar. Credit losses, inflation erosion and concentration remain unaddressed by scheduling alone."
 ---
 
-**Not financial advice: This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to consult with a financial advisor before making any investment decisions.**
+A bond is a loan with paperwork: you hand over money, somebody promises periodic interest and repayment of the original
+sum on a stated date. That's the whole instrument -- and the reason so many beginners misunderstand it is that they treat
+it like a savings account with a nicer interface. Savings accounts keep their nominal balance. Bonds change value every
+business day even when the borrower behaves perfectly, and understanding precisely why turns the least glamorous asset class
+into the one where careless investors most often get surprised.
 
-Imagine you're planning a road trip with your friends. You've got your map, snacks, and music ready. But, have you thought about the different routes you can take? Some roads might be bumpy, while others are smooth and straight. In the world of investing, stocks are like the bumpy roads – exciting, but also unpredictable. Bonds, on the other hand, are like the smooth roads – steady and reliable. In this article, we'll explore the world of bonds and why they're an essential part of a well-diversified investment portfolio.
+## The four numbers that matter
 
-A bond is a type of investment where you lend money to a borrower (typically a corporation or government entity) in exchange for regular interest payments and the return of your principal investment. Think of it like lending money to a friend, but instead of getting a favor in return, you get interest payments.
+**Face value** is the amount repaid at maturity, usually quoted as though every issue were a thousand dollars regardless of
+what anyone actually paid. **Coupon** is the interest promise attached to it -- vocabulary surviving from when certificates
+carried detachable coupons to redeem at a bank -- expressed against face rather than against your cost. A note paying thirty
+dollars annually on a thousand-dollar face runs a three percent coupon whether you bought it at nine hundred or eleven
+hundred, which is exactly why quoting coupon alone conceals everything interesting. **Maturity** decides how long promises
+remain exposed to anything going wrong; a month and thirty years are different products wearing the same label. **Yield** is
+the return implied by today's price carried through to maturity, folding in both the coupons and whatever discount or premium
+you're paying [-- the yield page untangles similar logic for payouts](/articles/what-is-a-dividend-getting-paid-to-own-stocks/).
 
-As a teenager, you might be thinking, "Why do I care about bonds? I'm not even investing yet!" But, here's the thing: understanding bonds can help you make informed decisions about your future investments. Plus, bonds can be a great way to earn passive income, which can be used to fund your education, travel, or even start your own business.
+## Why prices move when nothing defaults
 
-### 1. **Face Value**: The face value, also known as the par value, is the amount you lend to the borrower. It's the principal investment that you'll get back at maturity.
+Interest rates set the standard for what new money earns. If an older note pays three percent while newly issued comparable
+risk pays five, nobody pays full price for the weaker coupon -- the seller must cut the asking figure until thirty annual
+dollars constitute competitive return on a smaller outlay. So existing bonds fall when rates rise, and rise when rates fall.
+Rough intuition, deliberately imprecise: each one-percentage-point move in prevailing yields shifts a five-year issue by
+several percent in the opposite direction, while thirty-year issues swing multiples of that. Length is the amplification
+factor, which is why long-dated government debt can lose quarter after quarter without a single borrower missing payment --
+["safe" describes creditworthiness, not price stability](/articles/risk-and-reward-the-investing-balance/). Holders who
+wait until maturity collect face value regardless of the journey, provided the issuer survives -- patience converts
+mark-to-market pain into an accounting wobble. Sell early and the market's mood becomes your problem instead.
 
-### 2. **Coupon Rate**: The coupon rate is the interest rate you'll earn on your investment. It's usually expressed as a percentage of the face value.
+This asymmetry matters enormously when comparing funds to individual bonds. A fund holds thousands of maturing obligations
+and continually reinvests, meaning the vehicle itself has no maturity date at which losses revert; if rates rise sharply,
+net asset value falls and stays down unless future income rebuilds it. Individual bonds purchased cheap and held to term
+recover face barring default. Same asset class, entirely different experience of a rate shock, and almost nothing about
+fund marketing explains it.
 
-### 3. **Maturity Date**: The maturity date is when the borrower repays the face value of the bond. It's like the end date of your loan.
+## Three ways to be hurt, separately
 
-### 4. **Yield to Maturity (YTM)**: YTM is the total return you can expect to earn on your bond investment, including interest payments and the return of your principal.
+Credit risk is the obvious one: the borrower cannot pay. Ranking varies enormously -- national governments borrowing in
+their own currency occupy unusual ground because repayment can always be arranged in units they issue, which does not make
+them free of consequences and certainly does not protect against the resulting price effects. Corporates depend on cash
+generation, with wide spreads between conservatively financed operators and leveraged ones whose advertised yields exist to
+compensate for genuine possibility of non-payment. Agencies grading credit have a documented history of passing structures
+that later required rescue, so ratings inform rather than absolve. When very high yields look attractive, remember [yield
+rises when prices fall](/articles/what-is-a-dividend-getting-paid-to-own-stocks/) -- the top rows of a yield table
+concentrate distress rather than generosity.
 
-### 5. **Credit Rating**: The credit rating is like a report card for the borrower. It shows how likely they are to repay their debt. A higher credit rating means a lower risk of default.
+Interest-rate risk runs the other way, arriving through valuation rather than insolvency, and dominates for longer maturities
+and higher-duration portfolios. Inflation risk is subtler: a fixed money stream is worth progressively less as prices climb,
+which is why assets indexed to published inflation exist at all -- United States savings bonds of the inflation-protected
+series combine a fixed component with periodic adjustments according to published price data, impose a year during which
+nothing can be redeemed, and take a small interest penalty for cashing inside five years, all terms published directly by the
+Treasury and worth confirming there rather than trusting any article including this one. They suit medium-horizon goals for
+someone earning from a part-time job precisely because they cannot be sold at a loss, though their returns may still disappoint
+after inflation.
 
-Let's say you invest in a bond issued by Apple Inc. with a face value of $1,000, a coupon rate of 4%, and a maturity date in 5 years. You'll earn $40 in interest each year (4% of $1,000) and get your principal back at maturity. If Apple has a high credit rating, you can expect to earn a relatively low return, around 4-5%. But, if you invest in a bond issued by a smaller company with a lower credit rating, you might earn a higher return, around 8-10%, to compensate for the higher risk.
+Structural details decide more outcomes than forecasts do. Callable issues let borrowers retire debt early whenever rates
+fall -- you keep the downside of falling prices and surrender the upside. Seniority determines who gets paid first when
+things deteriorate, which is the practical difference between holding a company's bonds and its shares despite identical
+headlines. Covenants spell out constraints on further borrowing, and weak covenants are frequently priced too cheaply because
+nobody expects to need them until the moment they matter.
 
-Imagine you're the CFO of a small company that wants to raise funds to expand its business. You need to decide on the terms of the bond issue. Consider the following:
+For anyone building a first portfolio from part-time-job money, the useful role of bonds is boring by design: stabilising short-horizon pools and reducing regret
+during equity drawdowns. How much nervousness any position pays you for is at least measurable
+[-- that comparison has a standard form](/articles/sharpe-ratio-risk-adjusted-returns/), and providing somewhere for money with a deadline to sit while time works on the growth portion elsewhere
+[-- allocation orders these piles by calendar](/articles/asset-allocation-balancing-stocks-and-bonds/). Staggering maturities
+into rungs -- some maturing each year -- supplies usable cash on a schedule while limiting how much must be sold whenever
+conditions are unfavourable, a genuinely useful idea requiring no forecasting skill whatsoever. Choose instruments by what
+they guarantee rather than by advertised numbers, buy broad exposure cheaply when holding many names
+[-- fund costs compound quietly against you](/articles/index-funds-set-it-and-forget-it/), and treat anyone promising bond
+returns without explaining interest-rate sensitivity as someone who has never watched a rate cycle.
 
-* Face value: $10,000
-* Maturity date: 3 years
-* Credit rating: BBB (medium risk)
-
-Using a bond calculator or spreadsheet, calculate the coupon rate and YTM for the following scenarios:
-
-* Scenario 1: 5% coupon rate
-* Scenario 2: 7% coupon rate
-* Scenario 3: 9% coupon rate
-
-Compare the results and discuss the implications of each scenario.
-
-* Bonds are a type of investment where you lend money to a borrower in exchange for regular interest payments and the return of your principal.
-* Key concepts include face value, coupon rate, maturity date, yield to maturity, and credit rating.
-* Bonds can provide a relatively stable source of income and help diversify your investment portfolio.
-* Understanding bonds can help you make informed decisions about your future investments.
-
-1. **Investopedia: Bonds**: A comprehensive guide to bonds, including types, benefits, and risks.
-2. **The Balance: How Bonds Work**: A beginner's guide to bonds, including examples and calculations.
-3. **Morningstar: Bond Investing**: A detailed guide to bond investing, including strategies and portfolio management.
-
-Remember, investing involves risk, and it's essential to consult with a financial advisor before making any investment decisions. This article is for educational purposes only and should not be considered as investment advice.
+This is educational explanation of fixed-income instruments, not financial advice or a recommendation of any security, fund
+or savings product; program terms change and should be read from the issuer's own publication rather than paraphrased here,
+all numerical illustrations are approximate teaching figures rather than quoted market data, funds can lose principal without
+any borrower failing, and treating bonds as automatically safe is how experienced people acquire surprise losses.
