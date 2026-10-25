@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/stock-screeners-finding-your-first-investment/"
     description: "How to use stock screeners to find companies worth investigating."
 ---
+
 A company announces a four-for-one split, retail commentators call it a gift because shares just got cheaper, and the entire claim rests on confusing unit price with value. Nothing arrives. The same ownership stake gets expressed through different-sized units, exactly like quoting fuel in liters rather than gallons. What interests serious investors is why firms bother at all, since if the exercise changed economics everyone would do it constantly and some genuinely valuable signal would be getting destroyed.
 
 ## The arithmetic, immediately

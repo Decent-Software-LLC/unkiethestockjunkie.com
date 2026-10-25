@@ -18,60 +18,126 @@ related_articles:
   - title: "Annual Reports: The CEO's Letter to Shareholders"
     url: "/articles/annual-reports-the-ceo-s-letter-to-shareholders/"
     description: "How to read and learn from annual reports like Buffett does."
+quiz:
+  - question: "Gross profit minus operating expenses gives you which line?"
+    options:
+      - "Operating income"
+      - "Net income"
+      - "Revenue"
+      - "Cost of goods sold"
+    answer: 0
+    why: "The waterfall runs revenue, minus cost of goods sold, equals gross profit, then minus operating expenses, equals operating income. Taxes and interest sit below that line, which is why net income comes later."
+  - question: "A company raises its prices and its gross margin holds steady. What does that suggest?"
+    options:
+      - "It has pricing power customers tolerated"
+      - "Its taxes just got smaller"
+      - "It sold off a building"
+      - "Its shares were bought back"
+    answer: 0
+    why: "Price up with margin intact means buyers accepted the increase, which is what pricing power means. Tax rates, asset sales and share buybacks all act further down the statement and leave the gross margin ratio alone."
+  - question: "Why can a quarter's net income look strange even when the business is unchanged?"
+    options:
+      - "A one-off item such as a legal settlement landed in it"
+      - "Accountants round every figure to the nearest million"
+      - "Net income counts only cash in the register"
+      - "The stock price moved during the quarter"
+    answer: 0
+    why: "Legal settlements, restructuring charges and one-time gains are booked in the period they happen, distorting that quarter alone. Net income includes non-cash entries rather than register receipts, and the share price belongs to the market rather than the statement."
 ---
 
-Imagine you're running a lemonade stand. You've got a great recipe, a catchy name, and a prime spot in front of the school. But, how do you know if your business is making money? That's where the income statement comes in – a crucial tool for tracking revenue, expenses, and profits. In this article, we'll break down the income statement, explore its key concepts, and show you how it applies to real-world companies. By the end of this, you'll be a pro at reading income statements and making informed decisions about your own financial future.
+A company's income statement answers one question in six lines: **did it make money, and where did the rest go?**
 
-An income statement, also known as a profit and loss statement (P&L), is a financial statement that summarizes a company's revenues, expenses, and profits over a specific period, usually a quarter or a year. It's like a snapshot of a company's financial performance, showing how much money came in (revenue), how much was spent (expenses), and how much was left over (profit).
+It is the closest thing business has to a pay stub. Not a photo of what you own -- that's the
+[balance sheet](/articles/reading-the-balance-sheet-assets-liabilities-equity/), which is a snapshot taken on
+one date. The income statement covers a *period*: one quarter or one year, with a start date printed on it.
+Same company, same year, different period, entirely different story.
 
-As a teenager, you might not be running a business just yet, but understanding income statements will help you make informed decisions about your own financial future. When you start investing or even just managing your own money, you'll need to analyze companies' financial performance to make smart choices. Plus, understanding income statements will give you a solid foundation in finance and accounting, which can be useful in many areas of life.
+## The waterfall, rung by rung
 
-Let's break down the main components of an income statement:
+Every income statement falls through the same rungs, top line down. Money enters at the top and gets spent in
+stages before anything reaches the bottom.
 
-* **Revenue**: The money a company earns from its sales or services. Think of it like the cash you collect from selling lemonade.
-* **Cost of Goods Sold (COGS)**: The direct costs associated with producing or selling a product. For your lemonade stand, this might include the cost of lemons, sugar, and cups.
-* **Gross Profit**: The difference between revenue and COGS. This is like the profit you make from selling lemonade, minus the costs of making it.
-* **Operating Expenses**: The costs associated with running the business, such as salaries, rent, and marketing. For your lemonade stand, this might include the cost of renting a table or paying your friends to help out.
-* **Operating Income**: The profit earned from running the business, after deducting operating expenses. This is like the money you have left over after paying all the costs of running your lemonade stand.
-* **Net Income**: The company's total profit, after deducting all expenses, including taxes and interest. This is like the money you get to keep after paying all the costs and taxes on your lemonade stand.
+**Revenue** (also "net sales" or "top line") -- everything customers paid for products and services. Not cash
+received; not profit; just sales booked. A company can grow revenue forever and still die broke.
 
-Let's look at a real-world example: Apple Inc.'s income statement for 2020.
+**Cost of goods sold (COGS)** -- what it directly cost to produce what you sold: materials, factory labour,
+the parts bill. If you sell one more unit, this is the cost that moves with it.
 
-| Category | Amount |
-| --- | --- |
-| Revenue | $274.5 billion |
-| COGS | $142.1 billion |
-| Gross Profit | $132.4 billion |
-| Operating Expenses | $38.7 billion |
-| Operating Income | $93.7 billion |
-| Net Income | $57.4 billion |
+**Gross profit** = revenue − COGS. **Gross margin** = gross profit ÷ revenue, expressed as a percentage. This
+first ratio is the most useful number on the page, because it measures something no competitor can fake easily:
+how much customers let you keep per sale. A company raising prices without its gross margin collapsing has
+pricing power. A company that must cut costs every year just to hold the same margin does not.
 
-As you can see, Apple's revenue was massive, but they also had significant expenses. Their net income was still impressive, but it's a good example of how expenses can eat into profits.
+**Operating expenses (opex)** -- everything that keeps the lights on but isn't tied to one unit: salaries of
+people who don't build the product, rent, advertising, research and development, depreciation on equipment
+already bought. Note what that means in practice: R&D sits here, so a company spending heavily on the future
+looks worse this quarter than a rival that skipped it. That is a *choice* visible in the accounts, not an
+accident.
 
-Let's say you're running a small online business selling handmade jewelry. Your revenue for the quarter is $10,000, and your COGS is $3,000. Your operating expenses are $2,000. Calculate your gross profit, operating income, and net income.
+**Operating income** = gross profit − opex. This is the result of the actual business, before anyone is paid
+for owning it. Analysts call it operating profit or EBIT (earnings before interest and taxes).
 
-| Category | Amount |
-| --- | --- |
-| Revenue | $10,000 |
-| COGS | $3,000 |
-| Gross Profit | $7,000 |
-| Operating Expenses | $2,000 |
-| Operating Income | $5,000 |
-| Net Income | $5,000 |
+**Interest and taxes** -- then:
 
-* An income statement shows a company's revenue, expenses, and profits over a specific period.
-* Revenue is the money earned from sales or services.
-* COGS is the direct cost of producing or selling a product.
-* Gross profit is the difference between revenue and COGS.
-* Operating expenses are the costs associated with running the business.
-* Operating income is the profit earned from running the business.
-* Net income is the company's total profit, after deducting all expenses.
+**Net income** ("the bottom line", also "earnings") -- what's left after everything, including debt service
+and the tax bill. Divide by shares outstanding and you have earnings per share, the figure quoted in almost
+every market headline.
 
-* Investopedia: [Income Statement](https://www.investopedia.com/terms/i/incomestatement.asp)
-* AccountingCoach: [Income Statement](https://www.accountingcoach.com/income-statement/explanation)
-* SEC: [How to Read a 10-K](https://www.sec.gov/investor/pubs/10k.htm)
+## Run the numbers on a small business
 
-**Disclaimer**
---------------
+Illustrative figures, chosen so the arithmetic is checkable by hand. You sell custom T-shirts online.
 
-This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+| Line | Amount | What it means |
+|---|--:|---|
+| Revenue | \$10,000 | Shirts sold × price |
+| Cost of goods sold | \$3,500 | Blanks, ink, printing labour |
+| **Gross profit** | \$6,500 | 65% gross margin |
+| Operating expenses | \$4,000 | Website, ads, shipping supplies, your time |
+| **Operating income** | \$2,500 | 25% operating margin |
+| Interest and taxes | \$500 | Loan payment, income tax |
+| **Net income** | \$2,000 | 20% net margin |
+
+Three margins, three different diagnoses. **Gross margin 65%** says the product itself is priced well.
+**Operating margin 25%** says overhead isn't eating you alive -- if advertising had been \$3,000 instead of \$1,000, this line would sit at 5% and one bad month would wipe it out. **Net margin 20%** is the only one
+that pays you. Watch the two gaps between them: gross to operating is overhead, operating to net is how the
+business is financed and taxed.
+
+Now compare two companies in the same industry where one shows a 60% gross margin and 5% net margin and the
+other shows 35% gross and 20% net. They are organised completely differently -- one spends enormous amounts
+on marketing and stores, the other runs lean and owns its buildings. Which is "better" depends on which part
+of that structure is durable, and that judgement can't be made from one quarter.
+
+## What real numbers look like
+
+Apple's fiscal 2020 is a useful anchor precisely because the gap surprises people. It reported about \$274.5
+billion of revenue and net income of about \$57.4 billion -- roughly twenty-one cents of every dollar that came
+in through the front door survived to the bottom line. Roughly four-fifths of it leaked out into parts, factories,
+salaries, offices, researchers, interest and the IRS before Apple shareholders saw anything. That leakage is
+normal and mostly healthy; the point is that **the top line tells you how big a company is and only the bottom
+line tells you whether it works.**
+
+When you read statements from any source, three habits separate useful reading from decoration:
+
+- **Compare percentages, not dollars.** Revenue grew 8% while gross margin fell 4 points is a very different
+  company than revenue flat with margin up 4 points, even though both sentences contain one number.
+- **Check the period label.** "Fiscal year" is not calendar year, and one quarter can contain a tax payment, a
+  legal settlement or a one-off gain that makes net income look bizarre. That single item doesn't change the
+  business, so strip it out mentally and see what's left.
+- **Follow three years, not one.** One year is an anecdote; three adjacent columns show direction. Everyone
+  chasing a single quarter is arguing about noise.
+
+The full version lives in the [annual report](/articles/annual-reports-the-ceo-s-letter-to-shareholders/) --
+the income statement appears in the audited financials inside the 10-K, along with footnotes explaining the
+judgement calls (revenue recognition, depreciation schedules) that changed those numbers. Those notes aren't
+fine print; they're where the interesting decisions get disclosed.
+
+And when profit stops matching the money actually arriving, chase it into the
+[cash flow statement](/articles/cash-flow-statement-following-the-money/). Profit is an opinion computed under
+accounting rules. Cash is a fact. Companies can report growing net income while running out of cash, and when
+they do, the gap usually shows up in receivables -- sales "booked" whose money hasn't arrived. A related ratio,
+[return on equity](/articles/roe-return-on-equity-explained/), takes the bottom line and asks what it earns
+against the owners' money rather than against sales.
+
+This is an explanation of how to read a financial statement, not investment advice or a recommendation about
+any company named here -- those figures are historical and illustrative, published numbers should be rechecked
+against the company's own filings, and any security can lose value including one whose statements look tidy.

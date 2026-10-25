@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "Options expire worthless if timing misses even when direction is eventually right; headlines record fund pain while quiet contract losses go untold."
 ---
+
 A stock nobody likes gets bought anyway, and everyone who bet against it discovers they must buy too, at whatever price strangers now demand. Prices move faster than fundamentals can explain because the movement was never about the business. Stories like this surface repeatedly and always arrive attached to screenshots of people who got rich, which is precisely why the mechanism deserves understanding rather than fandom.
 
 ## What shorting actually obligates someone to do

@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"
     description: "Why reinvested dividends are where the compounding actually bites."
 ---
+
 You buy $500 of Coca-Cola and then do absolutely nothing. Four times a year, cash shows up in the account. You didn't trade, didn't watch a chart, didn't get lucky on a meme coin. That's a dividend, and it's the only part of owning a stock that pays you before you sell.
 
 ## What's actually happening

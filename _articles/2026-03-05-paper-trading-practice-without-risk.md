@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/stock-screeners-finding-your-first-investment/"
     description: "How to use stock screeners to find companies worth investigating."
 ---
+
 Paper trading shows you what you believe you would do, and quietly hides what you would actually do. Both halves matter, and the second one is why most people who practise for six months still flinch the first time real money moves against them.
 
 The mechanic itself is simple. A simulator feeds you genuine market prices, you place pretend orders, and your fake account tracks the result. No cash is involved, so no cash can be lost, which makes it the cheapest available way to spend three months thinking about markets. What it cannot simulate is you at 9:40 on a morning when a holding is down hard and everyone online is certain it goes to zero.

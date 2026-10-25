@@ -28,6 +28,7 @@ quiz:
     answer: 0
     why: "Realizing a gain feels safe, admitting a loss feels like failure, so portfolios fill with losing positions sold just before recoveries."
 ---
+
 **Not financial advice. This article is for educational purposes only. Investing involves risk, and you should not make investment decisions based on this content.**
 
 Imagine you're at a basketball game, and your favorite team is down by one point with only seconds left. The other team scores, and you feel a pang of disappointment. Now, imagine your team scores, and you win the game. Which feeling is stronger? For most people, the disappointment of losing is more intense than the joy of winning. This phenomenon is called loss aversion, and it's a crucial concept in investing.

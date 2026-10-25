@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "An annual percentage charge applies every year regardless of trading frequency, quietly outweighing per-trade fees forever."
 ---
+
 Trading commissions went from double-digit dollars per order to zero, and nobody argues that this was bad. The complications arrived afterward, because a business that stopped charging visibly still has payroll, and the replacements are harder to see than the fee they displaced. Zero is a genuine improvement plus a marketing achievement simultaneously, and holding both thoughts is the point.
 
 ## What changed, and who forced it

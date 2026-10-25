@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "Halts at defined declines give participants time to act on information rather than on each other's fear."
 ---
+
 The oldest financial institution most people can name started, according to tradition, as an arrangement between twenty-four brokers under a tree, because no formal building existed yet and prices needed settling somewhere. Two and a half centuries later the same activity happens mostly inside windowless buildings full of servers, and the street itself is now shorthand for an industry rather than a place you'd recognize from a photo. The distance between those two pictures explains a lot about how markets actually behave.
 
 ## What actually happened, roughly in order

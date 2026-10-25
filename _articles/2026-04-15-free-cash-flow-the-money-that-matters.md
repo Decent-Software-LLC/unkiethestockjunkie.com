@@ -18,60 +18,129 @@ related_articles:
   - title: "Income Statement: Revenue, Expenses, Profits"
     url: "/articles/income-statement-revenue-expenses-profits/"
     description: "How to read the story of a company's profitability."
+quiz:
+  - question: "Which calculation produces free cash flow?"
+    options:
+      - "Operating cash flow minus capital expenditures"
+      - "Revenue minus cost of goods sold"
+      - "Total assets minus total liabilities"
+      - "Net income plus dividends paid"
+    answer: 0
+    why: "Free cash flow starts with cash from operations and subtracts what the company spent on long-lived assets such as buildings and equipment. Revenue less cost of goods sold is gross profit, while assets less liabilities is equity."
+  - question: "A growing company reports negative free cash flow for a year while revenue climbs quickly. What is the most useful next step?"
+    options:
+      - "Check whether the spending bought capacity that later produced sales"
+      - "Assume the accountants made an error"
+      - "Conclude the shares are automatically a bargain"
+      - "Ignore the statement because only revenue matters"
+    answer: 0
+    why: "Heavy buildout years routinely produce little or no spare cash, so the number itself settles nothing. The judgement comes from whether the investment later shows up as more revenue and better margins."
+  - question: "How can a company lift this year's free cash flow without selling anything extra?"
+    options:
+      - "Pay its suppliers later than usual"
+      - "Raise prices on loyal customers"
+      - "Hire more engineers for research"
+      - "Write off an old factory"
+    answer: 0
+    why: "Stretching payment terms keeps cash inside the company this quarter and reverses once suppliers insist on normal terms. Price increases do add real cash, hiring spends it, and a write-off is a non-cash entry that leaves the actual balance untouched."
 ---
 
-Imagine you're the CEO of your own lemonade stand. You've got a solid business plan, a tasty recipe, and a prime location. But, how do you know if your lemonade stand is actually making money? You need to look beyond just the revenue and focus on the cash that's left over after you've paid all your expenses. This is where free cash flow comes in – the money that matters.
+Net income is an estimate written under accounting rules. Free cash flow answers a blunter question: **after the
+business bought what it had to buy, what cash is actually sitting there?**
 
-As a teenager learning about investing, understanding free cash flow is crucial. It's a fundamental concept that can help you evaluate companies and make informed investment decisions. So, let's dive in and explore what free cash flow is all about.
+That distinction matters more than almost any other number on a financial page, because profits can be created
+by judgement while cash can only be created by customers. A company can report rising earnings for years and
+still run out of money -- at which point it doesn't matter how profitable it looked on paper. The
+[income statement](/articles/income-statement-revenue-expenses-profits/) tells you what accountants concluded;
+this tells you what left the bank account.
 
-Free cash flow (FCF) is the amount of cash a company generates from its operations after deducting capital expenditures (the money spent on assets like equipment, property, and investments). It's the cash left over after a company has paid all its expenses, taxes, and investments. Think of it like the money you have in your pocket after you've paid for all your monthly expenses, like your phone bill, streaming services, and snacks.
+## The calculation
 
-The formula for calculating free cash flow is:
+**Free cash flow = operating cash flow − capital expenditures**
 
-FCF = Operating Cash Flow - Capital Expenditures
+**Operating cash flow** comes from the [cash flow statement](/articles/cash-flow-statement-following-the-money/),
+first section. It starts from net income and adds back charges that never involved writing a cheque -- mainly
+depreciation, the accounting spread-out of equipment bought long ago -- then adjusts for timing changes such as
+inventory building up or customers paying slower.
 
-Where:
+**Capital expenditures** ("capex", listed as purchases of property, plant and equipment) come from the investing
+section. This is money spent on things that last: buildings, machines, warehouses, servers, vehicles, tools.
 
-* Operating Cash Flow is the cash generated from a company's core business operations.
-* Capital Expenditures are the investments made in assets, like property, equipment, and technology.
+What remains is theoretically available without anyone deciding to sell shares or borrow: pay a dividend, buy
+back stock, repay debt, acquire something, or hold as a cushion. That is why serious investors watch it
+religiously -- it is the pool every other promise gets paid out of.
 
-As a teenager, you might not be investing in stocks just yet, but understanding free cash flow can help you make informed decisions about your own money. Think about it like this: if you're planning to start a business or invest in a friend's startup, you'll want to know if they have enough cash to sustain their operations.
+## Work it with small numbers
 
-Free cash flow is also essential for evaluating companies you might be interested in investing in. It can help you determine if a company is generating enough cash to pay its debts, invest in growth initiatives, and return value to shareholders.
+Illustrative figures, so you can check each step yourself.
 
-Let's break down some key concepts related to free cash flow:
+| Line | Amount | Note |
+|---|--:|---|
+| Revenue | \$40,000 | Sales billed for the year |
+| Net income | \$12,000 | From the income statement |
+| Add back depreciation | \$5,000 | No cheque was written this year for it |
+| Inventory built up | −\$3,000 | Cash went into stock sitting on shelves |
+| **Operating cash flow** | \$14,000 | Actual cash from trading |
+| Capital expenditures | −\$9,000 | New oven and delivery bike |
+| **Free cash flow** | \$5,000 | Genuinely discretionary money |
 
-* **Operating Cash Flow**: This is the cash generated from a company's core business operations. It includes revenue from sales, minus the cost of goods sold, operating expenses, and taxes.
-* **Capital Expenditures**: These are investments made in assets, like property, equipment, and technology. They can be a significant expense for companies, especially those in industries with high equipment costs, like manufacturing or construction.
-* **Cash Flow Margin**: This is the percentage of revenue that a company converts into free cash flow. A higher cash flow margin indicates that a company is generating more cash from its operations.
+Notice the two places this diverges from the \$12,000 profit figure. Depreciation pushed cash *above* profit;
+the inventory purchase pulled it *below*. Net margin told one story, cash generation told another, and both were
+honest -- they measure different things.
 
-Let's look at a few real-world examples to illustrate the concept of free cash flow:
+**Cash flow margin** is the comparison worth making across companies: free cash flow ÷ revenue. At \$5,000 of
+free cash flow on \$40,000 of sales the business converts about 12.5% of revenue into spendable cash. Compare
+two firms with identical net margins and very different cash conversion and you're usually looking at a
+difference in how much machinery the business needs to exist -- or in how much unpaid inventory it's accumulating.
 
-* **Apple Inc.**: In 2020, Apple generated $80.4 billion in operating cash flow, but spent $13.4 billion on capital expenditures, resulting in $67 billion in free cash flow. This is a significant amount of cash that Apple can use to invest in new products, pay dividends, or buy back shares.
-* **Amazon.com**: In 2020, Amazon generated $38.7 billion in operating cash flow, but spent $40.1 billion on capital expenditures, resulting in -$1.4 billion in free cash flow. This might seem like a negative, but Amazon is investing heavily in its growth initiatives, like expanding its cloud computing business and building new warehouses.
+## Why the same number means opposite things at different companies
 
-Now it's your turn to practice calculating free cash flow. Let's use a simple example:
+Apple is the flattering case: for years it has thrown off cash far beyond what it needed to spend running its
+supply chain, which is exactly what funded enormous share buybacks and a dividend. Precise figures move every
+quarter, so pull them from its own filings instead of trusting an article -- the cash flow statement in the
+10-K has both lines side by side.
 
-Suppose you have a small online business selling handmade crafts. Your revenue for the month is $1,000, and your operating expenses are $300 (including materials, shipping, and marketing). You also spent $200 on a new website and equipment.
+Amazon is the instructive counter-example. In several past years its reported free cash flow hovered near zero
+or went negative even as revenue exploded, because every new warehouse and every rack of servers cost more than
+the business threw off that year. Reading only "negative free cash flow" would have been a disastrous conclusion.
+Reading the *reason* -- spending that produced faster growth -- is the entire skill.
 
-Calculate your operating cash flow and free cash flow using the formulas:
+So the sign of the number tells you almost nothing alone. Four things change the interpretation:
 
-Operating Cash Flow = Revenue - Operating Expenses
-Free Cash Flow = Operating Cash Flow - Capital Expenditures
+- **Growth versus decay.** Negative free cash flow alongside fast revenue growth is usually investment. Negative
+  free cash flow alongside flat or falling revenue is a leak. Both look identical on one line.
+- **Maintenance versus expansion.** Ask whether capex merely keeps the lights on or buys new capacity. A company
+  whose "maintenance" spending already consumes all its cash has no spare room to grow without borrowing.
+- **Whether the spending produced anything.** Give it a few years. Capex that turns into higher sales and margins
+  was good spending; capex into lower returns was an expensive mistake discovered late.
+- **The trend, not the quarter.** Free cash flow lumpy with one heavy-investment year is normal. Four straight
+  disappointing years is the business.
 
-**Not financial advice**: This is an educational exercise only. Please do not use this example to make investment decisions.
+## Two ways this number lies to you
 
-Here are the main lessons from this article:
+Companies don't usually falsify cash; they time it. Watching for these two habits is enough to catch most
+misleading presentations:
 
-* Free cash flow is the cash generated from a company's operations after deducting capital expenditures.
-* It's essential for evaluating companies and making informed investment decisions.
-* Operating cash flow, capital expenditures, and cash flow margin are key concepts related to free cash flow.
-* Companies with high free cash flow can invest in growth initiatives, pay dividends, or buy back shares.
+**Deferring maintenance.** Free cash flow improves beautifully when you postpone replacing worn-out equipment --
+you borrowed the improvement from the future, and it arrives with interest. If capex drops sharply while
+management says nothing about it, ask what got postponed. Airlines, factories and telecoms are where this shows
+up most.
 
-If you want to learn more about free cash flow and investing, here are some resources to check out:
+**Stretching suppliers.** Pay vendors slower and your operating cash flow rises this quarter without selling
+anything extra. It's legal, sometimes clever, and it reverses the moment suppliers demand payment. A rising
+payables balance in the working-capital adjustments is the tell.
 
-* **The Intelligent Investor** by Benjamin Graham: A classic book on value investing that covers the importance of free cash flow.
-* **The Motley Fool**: A financial website that provides articles, podcasts, and resources on investing and personal finance.
-* **Investopedia**: A financial education website that offers articles, tutorials, and courses on investing and finance.
+A quick sanity habit: compare cumulative free cash flow to cumulative net income over three to five years. They
+should broadly track. A company reporting healthy profits forever while producing no cash is being paid in
+something other than money -- often receivables it hasn't collected or inventory nobody ordered. Follow that gap
+into the [balance sheet](/articles/reading-the-balance-sheet-assets-liabilities-equity/) and see where the
+supposed earnings parked themselves.
 
-Remember, investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+Full context, including management's explanation of what the money was spent on, sits in the
+[annual report](/articles/annual-reports-the-ceo-s-letter-to-shareholders/) -- specifically the
+management-discussion section, where a CFO has to explain capex plans in words rather than just numbers. If a
+company won't explain why it's spending, that silence is information too.
+
+This is an explanation of how to read a financial statement, not investment advice or a recommendation about any
+company mentioned -- the examples describe historical patterns rather than current figures, so take numbers from
+the filings themselves, and any security can lose value regardless of how much cash it generates.

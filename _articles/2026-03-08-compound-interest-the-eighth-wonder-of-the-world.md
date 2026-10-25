@@ -2,7 +2,7 @@
 layout: article
 title: "Compound Interest: The Eighth Wonder of the World"
 description: "Why starting early gives you a massive advantage in investing. Learn how Einstein's favorite force can make you wealthy."
-date: 2024-01-15
+date: 2026-03-08
 difficulty: beginner
 tags: ["compound-interest", "wealth-building", "beginner", "math"]
 image: "/assets/images/articles/compound-interest-hero.svg"
@@ -29,6 +29,7 @@ related_articles:
     url: "/articles/stock-screeners-finding-your-first-investment/"
     description: "How to use stock screeners to find companies worth investigating."
 ---
+
 Money sitting still accomplishes one thing: it stays the same size while prices drift upward around it. Money put to work accomplishes something stranger, because last year's gains become this year's principal, and the year after that both layers earn together. Nobody has to contribute more, check anything, or be clever. That recursion, nothing else, is what makes early starters finish ahead of people who invest several times as much.
 
 ## Interest earning interest

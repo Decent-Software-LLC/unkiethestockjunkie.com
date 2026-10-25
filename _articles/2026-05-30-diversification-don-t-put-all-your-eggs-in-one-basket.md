@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/what-is-a-sector-understanding-industry-groups/"
     description: "How stocks are grouped by industry and why it matters."
 ---
+
 A single company can lose almost everything it is worth while the broader market has an entirely ordinary day. Nothing illegal happened, nobody robbed anyone, the business just stopped being worth what people thought it was. Anyone holding only that stock experiences a total loss; ten thousand people who own a fund do not even notice the news cycle.
 
 That gap is the entire argument for owning more than one thing, and it is worth understanding precisely, because the popular version of it is wrong.

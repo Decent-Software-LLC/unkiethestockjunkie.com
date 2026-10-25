@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/asset-allocation-balancing-stocks-and-bonds/"
     description: "The bigger picture of what percentage goes where."
 ---
+
 You've got 12 stocks. Sounds diversified. Then a single news story about drug pricing wipes 9% off your whole portfolio in an afternoon, because all 12 of them were pharmaceutical companies.
 
 That's what sectors are for. Not how many things you own, but whether those things move together.

@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "Compounding is exponential: doubling duration more than doubles outcomes because early contributions earn for far longer."
 ---
+
 The most expensive sentence in investing is *I'll get in when it looks less scary*, because by the time something looks less scary, the part you wanted to buy has typically already happened. Staying invested is duller than predicting and has outperformed prediction so consistently across decades that entire industries built on forecasting still lose to people who simply never left. The mechanism isn't mystical, it's arithmetic plus human timing instincts working against each other.
 
 ## What the two phrases actually mean

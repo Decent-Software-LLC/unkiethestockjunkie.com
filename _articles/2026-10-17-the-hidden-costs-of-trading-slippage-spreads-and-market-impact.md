@@ -64,11 +64,11 @@ When you trade a relatively large number of shares, your order can move the pric
 
 Conversely, selling a large block can push the price down, causing you to receive less than expected.
 
-# 5. Real‑World Examples – Companies, Situations, Scenarios
+## Worked examples
 
-1. **Tesla (TSLA) during a earnings announcement** – The stock can swing 5%+ in minutes. If you place a market order to buy 200 shares at $700, you might actually pay $715 per share due to slippage, turning a potential $1,400 gain into a $300 loss.
+1. **A liquid large-cap around an earnings announcement** -- The stock can swing 5%+ in minutes. Say a company trades near \$700 and you place a market order to buy 200 shares into that move: you might actually pay \$715 per share because of slippage, turning a potential \$1,400 gain into a \$300 loss. Prices and figures here are invented round numbers for illustrating the mechanism, not a record of any particular event.
 
-2. **A small biotech stock (e.g., XYZ Biotech) with low daily volume** – The bid‑ask spread might be $0.30 on a $5.00 stock. Buying 1,000 shares costs an extra $300 right away, which is a 6% hidden cost before any other fees.
+2. **A thinly traded small company with low daily volume** – The bid‑ask spread might be $0.30 on a $5.00 stock. Buying 1,000 shares costs an extra $300 right away, which is a 6% hidden cost before any other fees.
 
 3. **A “pump‑and‑dump” scenario** – A group promotes a low‑priced stock, causing a sudden surge. If you rush to buy at the hype price, the market impact can be severe; the price may drop quickly once the promotion ends, leaving you with a loss.
 

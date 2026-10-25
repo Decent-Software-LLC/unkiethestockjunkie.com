@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "It regularizes behavior. Money invested right before a prolonged decline still loses value; the benefit is procedural, not predictive."
 ---
+
 Imagine you're on a rollercoaster ride, and the ups and downs are making your stomach drop. That's what it can feel like when you're investing in the stock market. But what if you could smooth out those bumps and make the ride less intense? That's where dollar-cost averaging comes in. This investment strategy can help you navigate the ups and downs of the market and make the most of your money. In this article, we'll explore what dollar-cost averaging is, why it matters, and how you can use it to your advantage.
 
 Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals, regardless of the market's performance. This means that you'll be buying more shares when prices are low and fewer shares when prices are high. By doing so, you'll be averaging out the cost of your investments over time, which can help reduce the impact of market volatility. Sticking to a schedule matters more than the amount; see [The Rule of 72](/articles/the-rule-of-72-quick-mental-math-for-investors/) for what steady contributions can become across decades, and [Index Funds: Set It and Forget It](/articles/index-funds-set-it-and-forget-it/) for the kind of holding most people pair with this approach.

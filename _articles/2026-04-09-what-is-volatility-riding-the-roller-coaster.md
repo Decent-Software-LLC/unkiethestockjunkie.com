@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/from-lemonade-stand-to-shareholder-understanding-business-ownership/"
     description: "How owning stock means owning a piece of a business."
 ---
+
 A stock moves four percent on no news while the index shifts half a percent, and everyone involved suddenly wants an explanation. Sometimes one exists. Usually you're observing ordinary dispersion, the statistical tendency for individual businesses to move more than the group even when nothing distinguishes them that day. Volatility is the name for that spread, properly measured, and misunderstanding it causes expensive mistakes in both directions, including avoiding stocks unnecessarily and trusting boring-seeming investments that aren't.
 
 ## What the number actually measures

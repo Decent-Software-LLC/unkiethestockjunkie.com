@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/diversification-don-t-put-all-your-eggs-in-one-basket/"
     description: "The reason one bad company shouldn't wreck your portfolio."
 ---
+
 You know that feeling when you've got $40 and three games you want, and you have to pick one? Buying individual stocks as a beginner feels like that, except the stakes are your money and the picks can go to zero.
 
 An ETF fixes that. You buy one thing and get a slice of hundreds at once.

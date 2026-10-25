@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/stock-screeners-finding-your-first-investment/"
     description: "Where to actually filter for these two styles."
 ---
+
 Two stocks are open in your app. One trades at 45 times earnings and pays nothing. The other trades at 11 times, has paid a dividend since before your parents were born, and nobody talks about it at lunch.
 
 One of those is called growth, the other value. And the labels describe what you're *paying for*, not which is better.

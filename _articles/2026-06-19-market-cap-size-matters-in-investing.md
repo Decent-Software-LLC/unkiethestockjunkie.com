@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/stock-splits-when-companies-multiply-your-shares/"
     description: "Why splitting a share changes the price and nothing else."
 ---
+
 Two stocks both trade at $5. One belongs to a company worth a few million dollars where next month's payroll is a genuine question. The other belongs to a company worth billions that chopped its share into tiny pieces because a friendlier-looking price seemed like good marketing.
 
 The app shows "$5.00" for both. It shows nothing about which one is small, and small is where the danger hides. That's what market cap measures.

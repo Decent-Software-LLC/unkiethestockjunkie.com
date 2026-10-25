@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "Holding period, not profit size, sets the rate in US taxable accounts. Identical gains can produce different bills purely by date."
 ---
+
 Someone holds an index fund for twenty-two years and someone else holds the identical fund for nine weeks, and both describe themselves as investors. The distinction that actually matters isn't personality or bravery, it's calendar: when the money must exist in spendable form. Everything else follows from that constraint, including whether equities are appropriate at all.
 
 ## Two clocks, not two temperaments

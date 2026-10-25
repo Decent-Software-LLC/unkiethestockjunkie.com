@@ -20,8 +20,6 @@ related_articles:
     description: "How investing regularly reduces the impact of market volatility."
 ---
 
-
-
 If you’d put $100 into the S&P 500 the month you were born and never touched it, you’d probably have more than your car by now.
 
 That’s not magic. It’s compound growth. But here’s the catch: the company’s earnings don’t always tell the whole story. A stock might look like it’s crushing it because of a one-time sale or a weird accounting trick. That’s where "earnings quality" comes in.

@@ -28,6 +28,7 @@ quiz:
     answer: 1
     why: "Capitalization weighting forces concentration into recent winners, so a handful of mega-cap positions drive most of the return."
 ---
+
 Apple, Nvidia, Tesla and Netflix all trade on the same exchange, and so do Starbucks, Costco and a few thousand companies nobody has heard of. Knowing which venue a ticker lives on answers quieter questions than headlines ask: why some names gap violently overnight, what actually drives index-fund buying, and why a stock's home market is not the place your order gets filled.
 
 ## What Nasdaq was, and why that was strange

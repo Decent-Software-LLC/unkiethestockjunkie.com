@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/stock-screeners-finding-your-first-investment/"
     description: "How to use stock screeners to find companies worth investigating."
 ---
+
 An index fund is a basket that agrees in advance never to have an opinion. It holds whatever a published list contains, in the proportions that list specifies, and charges very little to promise nothing about beating anyone. That humility turns out to beat most alternatives precisely because it stops paying for judgment it cannot verify in advance, which makes the product simultaneously boring and difficult to argue against.
 
 ## The mechanism rather than the metaphor

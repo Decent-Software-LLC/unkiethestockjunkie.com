@@ -28,6 +28,7 @@ related_articles:
     url: "/articles/what-is-an-ipo-when-companies-go-public/"
     description: "How and why companies sell shares to the public for the first time."
 ---
+
 Nearly every portfolio discussion ends with the same five characters, and almost nobody can explain who selects its members or what disqualifies them. It is not a census of American business, not a government product, and not even close to equally weighted across its constituents. Treating it as shorthand for the economy produces confident wrong conclusions, especially when your actual holdings measure something else entirely.
 
 ## Construction rather than folklore
