@@ -604,6 +604,28 @@ function linkPoolFor(topic) {
   return [...shuffled, ...guides].join(', ');
 }
 
+// Word metric must match scripts/lib/candidate-gate.js exactly: the generator decides whether to spend
+// another API call on a draft, and the gate decides whether it may be published. When these two counted
+// words differently, short drafts passed one and died at the other -- after costing an illustration.
+function countProseWords(text) {
+  return String(text || '').split(/\s+/).filter((x) => /[A-Za-z]{3,}/.test(x)).length;
+}
+
+/**
+ * Decide what to do with one completion. Pure and exported because the bug this guards against was a
+ * control-flow mistake, not a parsing one: the length check used to sit behind `if (!error)`, and since
+ * the model never returns the quiz inline any more, `error` was always set and the check became dead code.
+ * Every third-party failure since then looked like "the model writes short articles" when it was really
+ * "we stopped measuring".
+ */
+function evaluateDraft({ words, minWords }) {
+  if (!Number.isFinite(minWords)) throw new Error('evaluateDraft requires minWords');
+  if (words < minWords) {
+    return { action: 'retry', reason: `only ${words} words; the page floor is ${minWords}`, minWords };
+  }
+  return { action: 'accept', reason: `${words} words meets the ${minWords}-word floor`, minWords };
+}
+
 // Locate the JSON quiz the model appends after the article.
 //
 // The first version required a literal `===QUIZ===` delimiter line and it discarded every candidate in
@@ -778,11 +800,22 @@ async function main() {
   // triggered a Pages build -- which is exactly how fabricated figures and leaked metadata appeared on
   // a site read by minors twice in a row.
   const MAX_ATTEMPTS = Number(process.env.GENERATE_ATTEMPTS || 3);
+  // Bounded wall clock. With per-topic regeneration, two quiz attempts and 60/120/180s throttling backoff,
+  // the theoretical worst case is hours for one article -- unacceptable for a daily job whose output is a
+  // single page. Past the budget we stop and report honestly instead of grinding against a busy worker pool.
+  const DEADLINE_MS = Number(process.env.GENERATE_DEADLINE_MINUTES || 15) * 60000;
+  const startedAt = Date.now();
+  const elapsed = () => Math.round((Date.now() - startedAt) / 1000);
+  const outOfBudget = () => Date.now() - startedAt > DEADLINE_MS;
   const tried = new Set(generatedData.generated);
   let usedTopic = false;
   let published = null;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS && !published; attempt++) {
+    if (outOfBudget()) {
+      console.log(`\u23f1\ufe0f stopping after ${elapsed()}s: generation budget of ${Math.round(DEADLINE_MS / 60000)} min exhausted (throttling?)`);
+      break;
+    }
     let candidate;
     if (attempt === 1 && topic && !usedTopic) {
       // The log already announced this selection; honouring it avoids the confusing "Selected: X"
@@ -815,20 +848,23 @@ async function main() {
       }
 
       const { body, quiz: inlineQuiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
-      const words = String(body || '').split(/\s+/).filter((x) => /[A-Za-z]{3,}/.test(x)).length;
+      const draftText = body || String(raw || '');
+      const words = countProseWords(draftText);
 
-      if (!error && words < MIN_WORDS) {
-        console.log(`\u26a0\ufe0f only ${words} words returned (needs ${MIN_WORDS}) -- retrying this topic with a length reminder`);
-        repairNote = 'Your previous response stopped early. Output the complete article (at least 750 words of prose).';
+      // Measured unconditionally. An absent inline quiz is expected (it comes from its own call now) and
+      // must not skip the substance check that sits next to it.
+      const verdictDraft = evaluateDraft({ words, minWords: MIN_WORDS });
+      if (verdictDraft.action === 'retry') {
+        console.log(`\u26a0\ufe0f ${verdictDraft.reason} -- retrying this topic`);
+        repairNote = `Your previous response produced roughly ${words} usable words of prose, below the site minimum of ${MIN_WORDS}. Expand the SAME article with real mechanism -- how things work, what breaks, what to do -- rather than restating points you already made. Aim for 6-8 substantial paragraphs.`;
         continue;
       }
       if (error) {
-        // The quiz is fetched separately now, so a missing array here is no longer fatal -- only a truly
-        // empty or unusable completion should cost a topic.
-        console.log(`   raw starts: ${JSON.stringify(String(raw).slice(0, 180))}`);
-        console.log(`   raw ends:   ${JSON.stringify(String(raw).slice(-180))}`);
+        // Informational only now: no quiz means the dedicated call below handles it, but keeping the
+        // evidence in the log is what let us tell "model ignored instructions" from "parser too strict".
+        console.log(`   (no inline quiz; raw starts: ${JSON.stringify(String(raw).slice(0, 140))})`);
       }
-      accepted = { body: body || String(raw || ''), quiz: inlineQuiz };
+      accepted = { body: draftText, quiz: inlineQuiz };
     }
 
     if (!accepted || accepted.body.trim().length < 200) {
@@ -858,6 +894,20 @@ async function main() {
     }
     if (!quiz) {
       console.log('\u274c no quiz available from bank, inline output, or the dedicated call; skipping topic');
+      continue;
+    }
+
+    // Cheap checks first, expensive call second. Illustrations were being generated for drafts that then
+    // died on word count or an unsourced figure, so three FLUX calls today bought nothing.
+    const dryRunMarkdown = generateMarkdownFile(candidate, accepted.body, null, new Date(), quiz);
+    const proseVerdict = checkCandidate(dryRunMarkdown, {
+      articleSlugs: new Set(readSlugs(ARTICLES_DIR).filter((s) => s !== generateSlug(candidate.title))),
+      guideSlugs: new Set(readSlugs(GUIDE_DIR)),
+      imageExists: () => true, // illustration deliberately absent at this stage
+    });
+    if (!proseVerdict.ok) {
+      console.log(`\u274c rejected on prose before requesting an illustration:`);
+      for (const pr of proseVerdict.problems) console.log(`      - ${pr}`);
       continue;
     }
 
@@ -939,6 +989,8 @@ module.exports = {
   // path without an API key -- the same reason generateMarkdownFile is exported.
   splitQuiz,
   parseQuizJson,
+  evaluateDraft,
+  countProseWords,
   generateQuizDraft,
   readQuizBank,
   SYSTEM_CONTRACT,

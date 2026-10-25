@@ -274,5 +274,28 @@ test('does not fire when the title words appear inside a normal sentence', () =>
   assert.ok(!r.problems.some((p) => /title restated/.test(p)), r.problems.join('\n'));
 });
 
+
+console.log('\ndraft evaluation (the check that had become dead code)');
+const { evaluateDraft, countProseWords } = require('./generate-article.js');
+test('a short draft must retry regardless of whether the quiz arrived inline', () => {
+  // Production shape: the model never returns the quiz inside the article completion, so the generating
+  // loop saw `error` set every time. The length check sat behind `if (!error)` and therefore never ran --
+  // 286/386/391-word drafts were accepted, paid for an illustration, then died at the gate.
+  for (const words of [0, 120, 499]) {
+    const v = evaluateDraft({ words, minWords: 500 });
+    assert.strictEqual(v.action, 'retry', `${words} words should retry`);
+    assert.match(v.reason, /words/);
+  }
+  assert.strictEqual(evaluateDraft({ words: 500, minWords: 500 }).action, 'accept');
+  assert.throws(() => evaluateDraft({ words: 10 }), /minWords/);
+});
+test('generator and gate count words identically', () => {
+  // Two counters measuring one pipeline is how the above survived review: each looked correct in isolation.
+  const sample = page();
+  const body = sample.split(/^---[ \t]*$/m).slice(2).join('---')
+    .replace(/```[\s\S]*?```/g, ' ').replace(/^\s*\|.*\|$/gm, ' ').replace(/#+.*$/gm, ' ');
+  assert.strictEqual(countProseWords(body), ok(sample).stats.words, 'word metrics drifted apart');
+});
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
