@@ -24,62 +24,25 @@ const argv = process.argv.slice(2);
 const outFlag = argv.indexOf('--out');
 const OUT = outFlag >= 0 ? argv[outFlag + 1] : path.join(ROOT, '..', 'CONTENT-PROGRESS.md');
 
-const TELL_RE = /young investor|lemonade stand|Imagine you're at a|In this article|\bessential\b|\bcrucial\b|\bparamount\b|dive in|game changer|delve|embark|unlock(?:ing)? the|in today'?s fast-paced|let'?s explore/gi;
+// All measurement lives in scripts/lib/content-inventory.js. The generator ranks topics, verify-content
+// resolves links and this file reports progress; when each kept its own idea of "how long is this page /
+// does it still read like AI wrote it", two same-day bugs slipped through because every copy looked
+// correct on its own. Nothing here measures anything directly any more.
+const { loadInventory, loadAuthoredManifest } = require('./lib/content-inventory');
 
-const BASE = execSync('git rev-list --max-parents=0 HEAD', { cwd: ROOT, encoding: 'utf8' }).trim().split('\n').pop();
+// Authorship is asserted by scripts/rewrite-body.js writing content-rewrites.json, never inferred from git
+// history -- comparing bodies against the initial commit made all ~100 articles look "rewritten", because
+// one bulk scaffolding-clean pass touched all of them mechanically.
+const AUTHORED = loadAuthoredManifest(ROOT);
 
-// Authorship is asserted by scripts/rewrite-body.js writing here, not inferred from git history.
-// Comparing bodies against the initial commit made every article look "rewritten", because one bulk
-// scaffolding-clean pass rewrote all of them; only an explicit record separates real editorial work.
-const MANIFEST_FILE = path.join(__dirname, 'content-rewrites.json');
-let AUTHORED = {};
-try { AUTHORED = (JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf8')).slugs) || {}; } catch (e) { AUTHORED = {}; }
-
-function proseWords(body) {
-  return body.replace(/```[\s\S]*?```/g, ' ').replace(/^\s*\|.*\|$/gm, ' ')
-    .split(/\s+/).filter((w) => /[A-Za-z]{5,}/.test(w)).length;
-}
-function normBody(src) {
-  const parts = src.split(/^---[ \t]*$/m);
-  return (parts.length >= 3 ? parts.slice(2).join('---') : '').replace(/\s+/g, ' ').trim();
-}
-function committed(rel) {
-  try {
-    return execSync(`git show ${BASE}:${rel}`, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'ignore'] });
-  } catch (e) { return null; } // absent at baseline -> added later by generation or authoring
-}
-
-const rows = [];
-for (const f of fs.readdirSync(path.join(ROOT, '_articles'))) {
-  if (!f.endsWith('.md')) continue;
-  const rel = `_articles/${f}`;
-  const src = fs.readFileSync(path.join(ROOT, f && rel), 'utf8');
-  const fm = src.split(/^---[ \t]*$/m)[1] || '';
-  const body = src.split(/^---[ \t]*$/m).slice(2).join('---');
-  const old = committed(rel);
-  const slugOnly = f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
-  const status = AUTHORED[slugOnly] ? 'authored'
-    : (old === null ? 'generated' : (normBody(old) !== normBody(src) ? 'touched' : 'untouched'));
-  rows.push({
-    file: rel,
-    slug: f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''),
-    title: ((fm.match(/^title:[ \t]*(.*)/m) || [, '?'])[1] || '?').replace(/^["']|["']$/g, '').trim(),
-    tier: (((fm.match(/difficulty:[ \t]*(\w+)/) || [, ''])[1] || 'unset')).toLowerCase(),
-    quiz: /^quiz:[ \t]*$/m.test(fm),
-    questions: (fm.match(/^[ \t]+- question:/gm) || []).length,
-    related: /^[ \t]+url:[ \t]*\/articles\//.test(fm) || /related_articles:/.test(fm),
-    words: proseWords(body),
-    status,
-    rewritten: status === 'authored',
-    tells: (body.match(TELL_RE) || []).length,
-  });
-}
+const inventory = loadInventory({ root: ROOT, withBaseline: true });
+const rows = inventory.rows;
 
 const guides = fs.readdirSync(path.join(ROOT, '_guides')).filter((f) => f.endsWith('.md'));
 const n = (k) => rows.filter((r) => r[k]).length;
 // "Done" requires an authored body recorded in content-rewrites.json AND a front-matter quiz.
 // Generated pages never count as done on their own: cron output has shipped fabricated figures before.
-const isDone = (r) => r.quiz && r.status === 'authored';
+const isDone = inventory.isDone; // single definition, shared with topic ranking
 const tierOrder = ['beginner', 'intermediate', 'advanced'];
 const today = new Date().toISOString().slice(0, 10);
 

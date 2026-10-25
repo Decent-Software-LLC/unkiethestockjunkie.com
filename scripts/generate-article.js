@@ -24,6 +24,8 @@ const { loadArticleIndex, rankRelated, toFrontMatter } = require('./lib/related-
 const { cleanBodyText: stripScaffolding } = require('./clean-article-bodies');
 const { validateQuiz, MIN_QUESTIONS } = require('./lib/quiz');
 const { checkCandidate, MIN_WORDS } = require('./lib/candidate-gate');
+const { loadInventory } = require('./lib/content-inventory');
+const { rankTopics } = require('./lib/topic-selector');
 
 // Configuration
 const TOPICS_FILE = path.join(__dirname, '..', 'topics.json');
@@ -84,6 +86,15 @@ function loadGeneratedTopics() {
 }
 
 // Utility: Save generated topics tracking
+// Rejections are recorded per title so a brief this model cannot execute gets parked rather than redrawn
+// forever. Three consecutive failures used to be invisible state that changed nothing.
+function recordTopicFailure(store, title, reason) {
+  store.failures = store.failures || {};
+  const prev = store.failures[title] || { fails: 0 };
+  store.failures[title] = { fails: (prev.fails || 0) + 1, lastReason: String(reason || '').slice(0, 200), at: new Date().toISOString() };
+  saveGeneratedTopics(store);
+}
+
 function saveGeneratedTopics(data) {
   fs.writeFileSync(GENERATED_TOPICS_FILE, JSON.stringify(data, null, 2));
 }
@@ -95,24 +106,9 @@ function articleExists(topic) {
   return files.some(file => file.includes(slug));
 }
 
-// Utility: Select unused topic
-function selectUnusedTopic(topics, generated) {
-  // Filter out topics already in tracking AND topics with existing files
-  const unused = topics.filter(topic => {
-    const inTracking = !generated.includes(topic.title);
-    const fileExists = articleExists(topic);
-    return inTracking && !fileExists;
-  });
-
-  if (unused.length === 0) {
-    console.log('⚠️ All topics have been generated. Resetting tracking file...');
-    return { topic: topics[0], reset: true };
-  }
-
-  // Random selection
-  const randomIndex = Math.floor(Math.random() * unused.length);
-  return { topic: unused[randomIndex], reset: false };
-}
+// Topic choice lives in scripts/lib/topic-selector.ts-equivalent (rankTopics) so the generator, its tests
+// and the progress tracker cannot each hold a different opinion about what should be written next. The old
+// here-selectUnusedTopic helper drew uniformly at random -- see gap-driven selection in main().
 
 // Utility: Generate image using NVIDIA FLUX.1-schnell with fallback to dev
 async function generateImage(topic) {
@@ -776,22 +772,35 @@ async function main() {
     process.exit(1);
   }
 
+  const MAX_ATTEMPTS_CAP = Number(process.env.GENERATE_ATTEMPTS || 3);
+  const MAX_ATTEMPTS = MAX_ATTEMPTS_CAP;
+
   // Load data
   console.log('📚 Loading topics...');
   const topics = loadTopics();
   const generatedData = loadGeneratedTopics();
   
-  // Select topic
-  console.log('🎲 Selecting topic...');
-  const { topic, reset } = selectUnusedTopic(topics, generatedData.generated);
-  
-  if (reset) {
-    generatedData.generated = [];
-    generatedData.lastReset = new Date().toISOString();
+  // Gap-driven selection. Topics were drawn uniformly at random, which repeatedly spent the single daily
+  // slot on advanced theory while dozens of beginner/intermediate pages sat unfinished -- and those drafts
+  // were also the ones the gate rejected ("Market-Neutral Strategy", "Black-Litterman Model"). Ranking reads
+  // the real backlog: tier remaining counts, whether the slug already exists, prior rejections.
+  console.log('\nReading the content inventory...');
+  const inventory = loadInventory({ root: ROOT_DIR });
+  const dayKey = new Date().toISOString().slice(0, 10);
+  const failures = generatedData.failures || {};
+  const ranked = rankTopics({ topics, existingSlugs: inventory.slugSet, tierStats: inventory.byTier(), failures, dayKey });
+  const tierLine = Object.entries(ranked.summary.tiers || {}).map(([k, v]) => `${k} ${v.done}/${v.total}`).join(', ');
+  console.log(`   tiers finished: ${tierLine} | eligible topics: ${ranked.candidates.length}/${ranked.summary.considered}`);
+  for (const s of ranked.skipped.slice(0, 3)) console.log(`   skip: ${s.title} -- ${s.reason}`);
+
+  const queue = ranked.candidates.slice(0, MAX_ATTEMPTS_CAP).map((c) => c.topic);
+  if (!queue.length) {
+    console.error('\nNo eligible topics remain: everything in topics.json is published or parked.');
+    console.error('Add briefs to topics.json, or clear failures from generated-topics.json to retry them.');
+    process.exit(2);
   }
-  
-  console.log(`✅ Selected: "${topic.title}" (${topic.difficulty})`);
-  console.log(`   Tags: ${topic.tags.join(', ')}\n`);
+  const attemptsLog = (title) => ((ranked.candidates.find((c) => c.topic.title === title) || {}).reasons) || [];
+  const recordFailure = (title, reason) => recordTopicFailure(generatedData, title, reason);
 
   // GATED GENERATION
   // Each candidate must pass scripts/lib/candidate-gate.js before it survives this script. Failures
@@ -799,8 +808,7 @@ async function main() {
   // and another topic is tried. Previously one unreviewed completion per run went straight to main and
   // triggered a Pages build -- which is exactly how fabricated figures and leaked metadata appeared on
   // a site read by minors twice in a row.
-  const MAX_ATTEMPTS = Number(process.env.GENERATE_ATTEMPTS || 3);
-  // Bounded wall clock. With per-topic regeneration, two quiz attempts and 60/120/180s throttling backoff,
+    // Bounded wall clock. With per-topic regeneration, two quiz attempts and 60/120/180s throttling backoff,
   // the theoretical worst case is hours for one article -- unacceptable for a daily job whose output is a
   // single page. Past the budget we stop and report honestly instead of grinding against a busy worker pool.
   const DEADLINE_MS = Number(process.env.GENERATE_DEADLINE_MINUTES || 15) * 60000;
@@ -808,7 +816,6 @@ async function main() {
   const elapsed = () => Math.round((Date.now() - startedAt) / 1000);
   const outOfBudget = () => Date.now() - startedAt > DEADLINE_MS;
   const tried = new Set(generatedData.generated);
-  let usedTopic = false;
   let published = null;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS && !published; attempt++) {
@@ -816,19 +823,10 @@ async function main() {
       console.log(`\u23f1\ufe0f stopping after ${elapsed()}s: generation budget of ${Math.round(DEADLINE_MS / 60000)} min exhausted (throttling?)`);
       break;
     }
-    let candidate;
-    if (attempt === 1 && topic && !usedTopic) {
-      // The log already announced this selection; honouring it avoids the confusing "Selected: X"
-      // followed by attempts on entirely unrelated topics.
-      candidate = topic;
-      usedTopic = true;
-    } else {
-      const candidates = topics.filter((tp) => !tried.has(tp.title) && !articleExists(tp));
-      if (!candidates.length) {
-        console.log('⚠️ No unused topics remain to try.');
-        break;
-      }
-      candidate = candidates[Math.floor(Math.random() * candidates.length)];
+    const candidate = queue[attempt - 1];
+    if (!candidate) {
+      console.log('warning: exhausted the ranked queue after throttling losses');
+      break;
     }
     tried.add(candidate.title);
     console.log(`\n🎲 Attempt ${attempt}/${MAX_ATTEMPTS}: "${candidate.title}" (${candidate.difficulty})`);
@@ -869,6 +867,7 @@ async function main() {
 
     if (!accepted || accepted.body.trim().length < 200) {
       console.log('\u274c no usable completion for this topic; moving on');
+      recordFailure(candidate.title, 'model returned no usable article text');
       continue;
     }
 
@@ -894,6 +893,7 @@ async function main() {
     }
     if (!quiz) {
       console.log('\u274c no quiz available from bank, inline output, or the dedicated call; skipping topic');
+      recordFailure(candidate.title, 'no quiz obtainable from bank, inline output, or quiz call');
       continue;
     }
 
@@ -908,6 +908,7 @@ async function main() {
     if (!proseVerdict.ok) {
       console.log(`\u274c rejected on prose before requesting an illustration:`);
       for (const pr of proseVerdict.problems) console.log(`      - ${pr}`);
+      recordFailure(candidate.title, proseVerdict.problems[0]);
       continue;
     }
 
@@ -933,6 +934,7 @@ async function main() {
     if (!verdict.ok) {
       console.log('\u274c gate rejected ' + filename + ' -- deleted, will not be committed');
       for (const pr of verdict.problems) console.log('      - ' + pr);
+      recordFailure(candidate.title, verdict.problems[0]);
       fs.unlinkSync(filepath);
       removeImage();
       continue;
@@ -942,6 +944,7 @@ async function main() {
     if (imagePath) console.log(`🎨 Image: ${imagePath}`);
 
     generatedData.generated.push(candidate.title);
+    if (generatedData.failures) delete generatedData.failures[candidate.title];
     saveGeneratedTopics(generatedData);
     published = { filename, filepath, imagePath, warnings: verdict.warnings };
     // Machine-readable record of what was actually produced. The workflow commits these paths and only
