@@ -17,49 +17,118 @@ related_articles:
     description: "How to find stocks trading below their intrinsic value."
   - title: "The Icahn Screener: Finding Value in Disruption"
     url: "/articles/the-icahn-screener-finding-value-in-disruption/"
-    description: "Identifying undervalued companies ripe for change."
+    description: "What Buffett's published standards actually imply, how quality screens mislead, and a five-step process built on free primary sources."
+quiz:
+  - question: "Why does a screen demanding years of high returns on equity usually produce expensive names?"
+    options:
+      - "Persistent success is visible, so prices already reflect it"
+      - "Screening tools charge subscription fees for the good results"
+      - "Accountants round historic profits upward"
+      - "Exchanges prohibit listing cheap companies"
+    answer: 0
+    why: "A decade of strong reported results is public information that professionals have already acted on, so the same filter finds durable businesses and their elevated prices at once. Tool pricing, rounding habits and exchange rules do not explain the pattern."
+  - question: "Which evidence best supports a claim of real pricing power?"
+    options:
+      - "Margins held after repeated price increases over several years"
+      - "A well-liked logo on social media"
+      - "A chief executive who appears on podcasts often"
+      - "The company changing its slogan recently"
+    answer: 0
+    why: "Price rises that survive in the reported margins show customers accepted them, which is documentary rather than decorative. Audience approval, media appearances and rebranding leave no trace in the numbers."
+  - question: "What should decide your action price on a business you admire?"
+    options:
+      - "A figure set in advance, before the quote looks frightening"
+      - "Whatever the share price did yesterday"
+      - "Whichever number the broker's app suggests first"
+      - "The price at which the company last bought back shares"
+    answer: 0
+    why: "Deciding while calm avoids negotiating with the very number you are reacting to, which is the discipline the Mr. Market lesson teaches. Recent price action, default suggestions and historical buyback levels all describe the past rather than set your threshold."
 ---
 
-Imagine you're on a mission to find the best companies to invest in – companies that are so solid, they'll make you proud to be a shareholder. That's what Warren Buffett, one of the most successful investors of all time, does when he uses his famous "screener" to find "wonderful companies" at great prices. In this article, we'll dive into the world of the Buffett Screener and explore how it can help you become a smarter investor.
+There is no published Buffett screener. No list of criteria has ever been released under that name -- the phrase comes
+from financial websites that found the words good for search traffic. What does exist is a set of standards visible
+across decades of Berkshire's shareholder letters and acquisition rules, and it can be reconstructed honestly: filter
+for businesses whose economics survive competition, buy them through something other than a headline, and treat the
+screen itself as the beginning of work rather than the end of it.
 
-A screener is a tool that helps investors filter out companies that don't meet their investment criteria. The Buffett Screener is a specific set of criteria developed by Warren Buffett to identify companies with strong fundamentals, competitive advantages, and talented management teams. By using this screener, Buffett aims to find companies that are undervalued by the market and have the potential to generate long-term returns.
+## What the filter should actually demand
 
-As a teenager, you might be thinking, "Why do I care about investing in companies?" Well, here's the thing: investing is a powerful way to grow your wealth over time, and the earlier you start, the better. By learning about the Buffett Screener, you'll gain a deeper understanding of what makes a company successful and how to evaluate investment opportunities. Plus, who knows, you might just discover the next big thing!
+Free screening tools let you set a handful of conditions at once. These are the ones with real reasoning behind them,
+plus the failure mode each one hides -- because every filter quietly selects for something you didn't ask for.
 
-So, what are the key concepts behind the Buffett Screener? Here are the main ideas:
+| Filter | Why it earns its place | What it silently selects for |
+|---|---|---|
+| Returns on equity above yield alternatives, several years running | Capital is being reinvested productively | Leverage doing the work -- [decompose before believing](/articles/roe-return-on-equity-explained/) |
+| Gross margin broadly flat or rising over five years | Price increases have stuck without losing customers | Companies that simply never cut prices, sometimes because their market shrank anyway |
+| Consistent positive operating cash flow | Profits arrive as money rather than invoices | Timing games: stretching payables, delaying maintenance |
+| Modest capital intensity (capex small next to operating cash) | Growth doesn't require standing still and re-buying its own equipment | Asset-light fads whose assets are people, easily lost |
+| Long-term debt small relative to earnings | Bad years are survivable | Zero-debt companies run by managements afraid of anything unfamiliar |
+| Share count flat or falling over ten years | You aren't being diluted to fund the story | Buybacks funded by borrowing that flatter per-share figures |
 
-* **Strong Financials**: Buffett looks for companies with a proven track record of profitability, a solid balance sheet, and a history of generating cash flow.
-* **Competitive Advantage**: He seeks companies with a unique advantage that sets them apart from their competitors, such as a strong brand, a patent, or a dominant market position.
-* **Talented Management**: Buffett believes that a talented and honest management team is essential to a company's success.
-* **Reasonable Valuation**: He looks for companies that are undervalued by the market, with a price that's lower than their intrinsic value.
+Notice none of these mention price. A screen with no valuation column produces a list of excellent businesses at any
+price -- historically one of the most reliable ways for careful investors to lose money, since quality this obvious is
+usually expensive and stays that way. The famous line about paying a fair price for a wonderful business is quoted
+endlessly; the part everyone skips is *fair*. Valuation judgment belongs in
+[intrinsic-value estimation](/articles/fundamental-analysis-finding-intrinsic-value/), and
+[the income statement](/articles/income-statement-revenue-expenses-profits/) supplies the inputs whatever method you
+use.
 
-Let's take a look at some real-world examples of companies that might pass the Buffett Screener:
+## The trap inside every quality screen
 
-* **Coca-Cola**: This iconic beverage company has a strong brand, a proven track record of profitability, and a talented management team. It's a classic example of a "wonderful company" that might appeal to Buffett.
-* **Visa**: This payment processing company has a competitive advantage in the form of its dominant market position and a strong brand. It's also generated impressive cash flow and profitability over the years.
-* **Microsoft**: This tech giant has a talented management team, a strong balance sheet, and a history of generating cash flow. It's a company that might appeal to Buffett's value investing philosophy.
+Here is the structural problem nobody puts in the sidebar. Screening on demonstrated quality is screening on
+*history*, and markets watch history too. By the time a company has compounded returns on equity for a decade, almost
+every professional has noticed and priced it. So the same screen reliably hands you two things: genuinely durable
+businesses, and their elevated prices. Names on those lists in a given year tend to stay there -- not because a
+secret was discovered, but because past success predicts near-future reported results extremely well while predicting
+future share returns far less well.
 
-Now it's your turn to try out the Buffett Screener! Here's a simple exercise:
+Two honest consequences. First, a screen is a candidate generator with a strong bias toward the already-successful;
+treat its output as a reading list, not a shortlist. Second, the interesting moments for disciplined buyers happen when
+a durable company hits a temporary, non-fatal problem -- the reputational scare, the one bad quarter, the sector-wide
+panic -- and therefore isn't on anyone's screen that week. Screening for strength guarantees you'll miss those, which
+is why the process needs a written watchlist of businesses you'd actually want, complete with the price at which
+you'd act, prepared long before the panic arrives.
 
-1. Choose a company that you're interested in (e.g., Apple, Amazon, or Google).
-2. Research the company's financials, including its revenue, profitability, and cash flow.
-3. Evaluate the company's competitive advantage and talented management team.
-4. Check the company's valuation to see if it's reasonable compared to its intrinsic value.
+## Testing competitive advantage instead of admiring it
 
-Here are the main lessons from this article:
+"Strong brand" and "competitive moat" get typed into dropdown boxes as though they were measurements. They aren't,
+so interrogate them with questions that have documentary answers:
 
-* The Buffett Screener is a tool that helps investors find wonderful companies at great prices.
-* Strong financials, competitive advantage, talented management, and reasonable valuation are key concepts to look for.
-* Investing involves risk, and it's essential to do your own research and due diligence.
-* The earlier you start investing, the better.
+**Who else tried to undercut them, and what happened?** Search for competitors that launched aggressive pricing in
+that market and check whether the incumbent's margins moved. Pricing power is visible in the accounts over years;
+brand love is not.
 
-If you want to learn more about the Buffett Screener and value investing, here are some resources to check out:
+**What would actually break this business?** If you can't describe the kill shot, you don't understand the moat --
+and someone whose job it is to sell you shares of that company can probably describe it better than you can.
 
-* **"The Intelligent Investor" by Benjamin Graham**: This classic book is a must-read for any value investor.
-* **"The Essays of Warren Buffett: Lessons for Corporate America"**: This collection of essays by Warren Buffett offers insights into his investment philosophy.
-* **"The Little Book of Value Investing" by Christopher H. Browne**: This book provides a comprehensive introduction to value investing.
+**Does it need to keep spending to stay where it is?** Compare reinvestment against growth in profits. Businesses
+feeding a large share of their cash flow back into equipment merely to hold position generate statements rather than
+wealth; [free cash flow](/articles/free-cash-flow-the-money-that-matters/) makes that gap legible.
 
-**Disclaimer**
---------------
+**Can you summarise how it earns in two sentences?** Berkshire has always said no to businesses it can't evaluate,
+which sounds humble and is mostly arithmetic: you cannot price what you can't describe. If your explanation needs four
+paragraphs of buzzwords, the edge you think you have is probably the marketing budget of whoever wrote them.
 
-Not financial advice. Investing involves risk, and it's essential to do your own research and due diligence before making any investment decisions.
+Management deserves its own column, and it lives in prose rather than in dropdown menus. Look at what owners did with
+money during previous hard years -- dividend cuts, emergency share sales, acquisitions announced just after peaks --
+all disclosed somewhere in the [annual reports](/articles/annual-reports-the-ceo-s-letter-to-shareholders/) if you read
+the older ones rather than the current glossy letter. Behaviour under pressure beats strategy decks every time.
+
+## A sequence that works without pretending to be Buffett
+
+1. Screen coarsely for survivability: profitability, cash generation, sane debt. Anything failing gets dropped fast.
+2. Pick a few you can genuinely explain and go to primary sources -- filings on SEC EDGAR and the company's own
+   investor-relations pages. Free, unfiltered, boring, correct more often than summaries.
+3. Write a falsifiable sentence: you expect a specific result by a specific date because of a specific mechanism, and
+   you're wrong if this thing happens. If you can't write that sentence, you're not early -- you're uninformed.
+4. Decide your action price *now*, in calm conditions. Waiting until a quote looks frightening to decide what you'd
+   have wanted means deciding under the influence of the number you're reacting to, which is precisely the behaviour
+   [Mr. Market](/articles/mr-market-graham-s-famous-parable/) exists to teach against.
+5. Default the majority of your money to the boring alternative --
+   [broad index funds at negligible cost](/articles/index-funds-set-it-and-forget-it/) -- and put only learning-sized
+   sums into hand-picked names. Whatever the screen says, the expected return on your study time is higher there than
+   on beating professionals at their own game.
+
+This is educational commentary on how investment screens work, not financial advice or a recommendation to buy any
+company; no screen can eliminate risk, screened names carry their own version of ordinary market risk, and every one of
+them can lose value including the perennial favourites that appear on lists like these every single year.

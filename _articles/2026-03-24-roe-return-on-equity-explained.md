@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "ROE: Return on Equity Explained"
-description: "Why Buffett loves companies with consistent high ROE."
+description: "The ratio that flatters itself: how leverage and buybacks inflate return on equity, what DuPont reveals, and what it genuinely answers."
 date: 2026-03-24
 difficulty: intermediate
 tags: ["roe", "fundamentals", "metrics", "intermediate"]
