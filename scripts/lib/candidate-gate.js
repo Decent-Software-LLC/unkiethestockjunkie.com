@@ -93,6 +93,23 @@ function checkCandidate(src, opts) {
   }
   if (/^\s*Tags:/im.test(prose)) problems.push('tags line leaked into body');
   if (/!\[/.test(body)) problems.push('markdown image embed in body (front matter carries the image)');
+  // A title restated as a body line renders as a stray sentence inside the article, since the layout
+  // prints front-matter title itself. Checked here as well as in the cleaner: the gate must not depend
+  // on the cleaning step having happened, because generation can fail between the two.
+  const fmTitleRaw = ((fm || '').match(/^title:\s*["']?(.*?)["']?\s*$/m) || [, ''])[1];
+  const fmTitleNorm = fmTitleRaw.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  // Exact whole-line equality is already the specific test; a length floor only existed to avoid matching
+  // trivial strings and had to come down so short titles ("Test Article", 11 chars normalised) are covered.
+  if (fmTitleNorm.length >= 8) {
+    for (const line of prose.split('\n')) {
+      const t = line.trim().replace(/^(?:#{1,6}\s*|\*\*)(.+?)(?:\s*\*\*)?$/, '$1');
+      if (!t) continue;
+      if (t.toLowerCase().replace(/[^a-z0-9]+/g, '') === fmTitleNorm) {
+        problems.push(`title restated as a body line: "${t.slice(0, 60)}"`);
+        break;
+      }
+    }
+  }
   if (/<!-\s/.test(body)) problems.push('HTML comment left in output');
 
   // --- links ------------------------------------------------------------------

@@ -79,4 +79,10 @@ function validateQuiz(quiz) {
   return { ok: errors.length === 0, errors };
 }
 
-module.exports = { validateQuiz, MAX_QUESTIONS, MAX_QUESTION_CHARS, MAX_OPTION_CHARS };
+// One definition of "enough questions". scripts/lib/candidate-gate.js checks published pages and
+// scripts/generate-article.js decides whether a model completion is usable; each previously carried its
+// own idea of the minimum, so a 1-question completion passed the generator and then died at the gate --
+// the two ends of one pipeline disagreeing about their contract while both looked correct locally.
+const MIN_QUESTIONS = 2;
+
+module.exports = { validateQuiz, MAX_QUESTIONS, MIN_QUESTIONS, MAX_QUESTION_CHARS, MAX_OPTION_CHARS };

@@ -22,8 +22,8 @@ const { loadArticleIndex, rankRelated, toFrontMatter } = require('./lib/related-
 // noticed. A missing binding here is a ReferenceError at generate time, which is why
 // scripts/test-prompt.js now exercises this function directly.
 const { cleanBodyText: stripScaffolding } = require('./clean-article-bodies');
-const { validateQuiz } = require('./lib/quiz');
-const { checkCandidate } = require('./lib/candidate-gate');
+const { validateQuiz, MIN_QUESTIONS } = require('./lib/quiz');
+const { checkCandidate, MIN_WORDS } = require('./lib/candidate-gate');
 
 // Configuration
 const TOPICS_FILE = path.join(__dirname, '..', 'topics.json');
@@ -304,9 +304,28 @@ ARTICLE:
 ${topic.title}
 
 ${excerpt}`;
-  const raw = await callNemotron(user, 'You output a single valid JSON array and nothing else.', 1200);
-  const parsed = parseQuizJson(raw);
-  return parsed.quiz;
+  let lastError = null;
+  // Ask twice. A small model returning one question instead of two or three is a formatting miss, not a
+  // verdict on the article, and re-asking costs seconds while discarding the topic costs the day.
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const ask = attempt === 1 ? user : `${user}
+
+Your previous answer was rejected (${lastError}). Return exactly 2 or 3 objects in the array.`;
+    let raw;
+    try {
+      raw = await callNemotron(ask, 'You output a single valid JSON array and nothing else.', 1200);
+    } catch (err) {
+      lastError = err.message;
+      continue;
+    }
+    const parsed = parseQuizJson(raw);
+    if (parsed.quiz && parsed.quiz.length >= MIN_QUESTIONS) return parsed.quiz;
+    lastError = parsed.error || `only ${parsed.quiz ? parsed.quiz.length : 0} question(s); need at least ${MIN_QUESTIONS}`;
+    // Print what actually came back. "no quiz found" with no evidence turned this into a guessing game
+    // across two deploys; the edges are usually enough to see whether the model wrote YAML, prose, or one item.
+    console.log(`   quiz attempt ${attempt} rejected (${lastError}); raw: ${JSON.stringify(String(raw).slice(0, 160))}`);
+  }
+  return null;
 }
 
 // Single place that talks to the API, so headers and timeouts cannot drift between calls.
@@ -798,8 +817,8 @@ async function main() {
       const { body, quiz: inlineQuiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
       const words = String(body || '').split(/\s+/).filter((x) => /[A-Za-z]{3,}/.test(x)).length;
 
-      if (!error && words < 200) {
-        console.log(`\u26a0\ufe0f only ${words} words returned -- looks truncated, retrying this topic`);
+      if (!error && words < MIN_WORDS) {
+        console.log(`\u26a0\ufe0f only ${words} words returned (needs ${MIN_WORDS}) -- retrying this topic with a length reminder`);
         repairNote = 'Your previous response stopped early. Output the complete article (at least 750 words of prose).';
         continue;
       }

@@ -455,5 +455,48 @@ test('corpus: no scaffolding survives in any published body', () => {
   }
 });
 
+
+test('a title restated mid-body is removed without eating the surrounding prose', () => {
+  // Transcribed from production output: quote opener, then the literal title on its own line, then body.
+  // stripTitleEcho only scans the leading block, so this survived the cleaner entirely.
+  const TITLE = 'The Power of Boring Investing: Why Unsexy Beats Exciting';
+  const src = '"Hey, I heard you bought $10 of Bitcoin last week."\n\n' + TITLE + '\n\nYou see that $10 a month in savings since you were 15? It sits there.';
+  const r = cleanBodyText(src, TITLE);
+  assert.ok(r.changes.some((c) => /restated title/.test(c)), `expected a restated-title change, got ${r.changes}`);
+  assert.ok(!r.text.includes('Unsexy Beats Exciting'), 'title text should be gone');
+  assert.ok(r.text.includes('bought $10 of Bitcoin'), 'opener must survive');
+  assert.ok(r.text.includes('It sits there.'), 'following paragraph must survive');
+});
+
+test('legitimate sentences resembling the title are not deleted', () => {
+  const TITLE = 'Understanding Compound Interest';
+  const src = 'Compound interest is the mechanism here, and understanding it changes what you save for.';
+  const r = cleanBodyText(src, TITLE);
+  assert.strictEqual(r.text.trim(), src, 'body sentence must not be treated as a restated title');
+});
+
+test('cleanBody applies the same rule to whole files', () => {
+  const src = [
+    '---',
+    'layout: article',
+    'title: "Diversification Explained For Beginners"',
+    'description: "d"',
+    'date: 2026-01-01',
+    'difficulty: beginner',
+    'tags: ["x"]',
+    '---',
+    'An opening paragraph that stands on its own.',
+    '',
+    '# Diversification Explained For Beginners',
+    '',
+    'A second paragraph after the stray heading.',
+  ].join('\n');
+  const out = cleanBody(src).text;
+  assert.ok(out.includes('An opening paragraph'), 'opening survives');
+  assert.ok(out.includes('A second paragraph'), 'second paragraph survives');
+  assert.ok(!/# Diversification Explained/.test(out), 'stray heading should be gone');
+});
+
+
 console.log(`\n${passed} passed, ${failed} failed\n`);
 process.exit(failed ? 1 : 0);

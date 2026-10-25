@@ -154,6 +154,34 @@ function stripTitleEcho(lines, title) {
 }
 
 /** Collapse runs of 3+ blank lines left behind by deletions. */
+
+/**
+ * Remove a title restated as its own line ANYWHERE in the body, not just in the leading block.
+ *
+ * stripTitleEcho() deliberately scans only the opening lines, which is right for the header duplication
+ * it was written for -- but the generator produced output where the model dropped the title a paragraph
+ * in ("Hey, I heard you bought $10 of Bitcoin last week." then the literal title, then prose), and neither
+ * cleaner nor gate noticed, so it would have rendered as a stray bold sentence inside the article.
+ */
+function stripRestatedTitle(lines, title) {
+  if (!title) return { lines, removed: false };
+  const want = NORMALISE(title);
+  // Titles that normalise away to nothing (or almost nothing) would match real sentences by accident.
+  if (!want || want.length < 8) return { lines, removed: false };
+
+  const kept = [];
+  let removed = false;
+  for (const line of lines) {
+    const t = line.trim();
+    if (!t) { kept.push(line); continue; }
+    const m = /^(?:#{1,6}\s*|\*\*)(.+?)(?:\s*\*\*)?$/.exec(t);
+    const candidate = NORMALISE(m ? m[1] : t);
+    if (candidate === want) { removed = true; continue; }
+    kept.push(line);
+  }
+  return { lines: kept, removed };
+}
+
 function tidyBlankRuns(text) {
   return text.replace(/\n{3,}/g, '\n\n').replace(/[ \t]+$/gm, '');
 }
@@ -284,6 +312,12 @@ function cleanBody(raw) {
 
   // A restated title usually drags the sibling fields with it. Run unconditionally rather than
   // only on echo.removed: models also emit the bare "key: value" rows without the heading.
+  const restatedFile = stripRestatedTitle(lines, title);
+  if (restatedFile.removed) {
+    lines = restatedFile.lines;
+    changes.push('removed restated title line');
+  }
+
   const meta = stripMetadataEcho(lines);
   if (meta.removed.length) {
     lines = meta.lines;
@@ -400,6 +434,13 @@ function cleanBodyText(text, title) {
     }
   }
 
+  // The opening-block scan above cannot see a title dropped deeper into the text by the model.
+  const restated = stripRestatedTitle(lines, title);
+  if (restated.removed) {
+    lines = restated.lines;
+    changes.push('removed restated title line');
+  }
+
   const kept = [];
   for (let i = 0; i < lines.length; i++) {
     const verdict = classifyLine(lines[i]);
@@ -420,6 +461,7 @@ function cleanBodyText(text, title) {
 /* Whole files from disk. Use cleanBodyText() for body-only text that has no fence yet. */
 module.exports = {
   cleanBody,
+  stripRestatedTitle,
   cleanBodyText,
   classifyLine,
   stripTitleEcho,

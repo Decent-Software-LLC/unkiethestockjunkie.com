@@ -260,5 +260,19 @@ test('but neither form of navigation still fails', () => {
   assert.match(reasons(src), /internal link/);
 });
 
+
+console.log('\ntitle echoed into the body');
+test('catches a front-matter title repeated as a body line', () => {
+  // Independent of the cleaner: generation can fail between cleaning and checking, and a title rendered
+  // inside the article shows up as a stray bold sentence under the real H1.
+  const src = page().replace('## Why patience beats prediction', 'Test Article\n\n## Why patience beats prediction');
+  assert.match(reasons(src), /title restated as a body line/);
+});
+test('does not fire when the title words appear inside a normal sentence', () => {
+  const src = page().replace('## Why patience beats prediction', 'This test article explains the mechanism plainly and then moves on.\n\n## Why patience beats prediction');
+  const r = ok(src);
+  assert.ok(!r.problems.some((p) => /title restated/.test(p)), r.problems.join('\n'));
+});
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
