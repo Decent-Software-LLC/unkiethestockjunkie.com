@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "PEG Ratio: Growth Adjusted Valuation"
-description: "Peter Lynch's favorite metric for comparing growth stocks."
+description: "What growth-adjusted valuation fixes, which forecast silently drives it, and why a low reading is a prompt rather than a signal."
 date: 2026-05-21
 difficulty: intermediate
 tags: ["peg-ratio", "peter-lynch", "valuation", "intermediate"]
@@ -18,51 +18,108 @@ related_articles:
   - title: "The Lynch Screener: Growth at a Reasonable Price"
     url: "/articles/the-lynch-screener-growth-at-a-reasonable-price/"
     description: "Finding fast-growing companies that aren't overpriced."
+quiz:
+  - question: "Two shares carry the same earnings multiple; one screens far cheaper on this growth-adjusted ratio. What follows?"
+    options:
+      - "Nothing until you know which growth forecast produced it and over what horizon"
+      - "The cheaper screening name is the better purchase"
+      - "Both are fairly valued by definition"
+      - "The higher reading proves the company pays dividends"
+    answer: 0
+    why: "Next-year estimates, five-year consensus and realised history generate different values for the same price, so the screen has already chosen for you. Relative cheapness here measures assumptions, and payout policy is unrelated."
+  - question: "Why do rebounding companies often produce flattering growth-adjusted readings?"
+    options:
+      - "Percentage growth from a depressed base looks large while weakness persists"
+      - "Their auditors approve larger valuations after losses"
+      - "Declines automatically improve balance sheet quality"
+      - "Analysts stop covering them during recoveries"
+    answer: 0
+    why: "Growth measured against an awful comparison period is arithmetically impressive without indicating restored health. Approval processes, balance-sheet mechanics and coverage decisions do not create the distortion."
+  - question: "Which question does this ratio structurally fail to answer?"
+    options:
+      - "How much capital the promised growth consumes to produce"
+      - "What the current share price is"
+      - "Whether the company reports quarterly results"
+      - "Where the company is incorporated"
+    answer: 0
+    why: "Rapid expansion funded by heavy reinvestment or borrowing can destroy value per unit of growth while still scoring attractively. Price, reporting cadence and domicile are all visible without touching the ratio."
 ---
 
-**Disclaimer: Not financial advice. Investing involves risk.**
+The PEG ratio is an attempt to fix the most obvious flaw in the earnings multiple -- that eighteen times profit means
+different things depending on what those profits are doing next. The construction is simple: take the trailing or
+forward multiple and divide by a growth rate expressed as a plain number rather than a percentage, so twenty-five times
+earnings growing twenty-five becomes one, while the same multiple against eight becomes roughly three. Popularised by
+Peter Lynch as shorthand for paying a fair price for growth rather than any price, its appeal is obvious: it makes
+expensive-looking stocks comparable. Its failure modes are equally obvious once you look at what the division quietly
+assumes.
 
-Imagine you're at a music festival, and your favorite artist is about to release a new album. The hype is real, and everyone wants a piece of the action. But, how do you know if the tickets are worth the price? In the stock market, investors face a similar dilemma when evaluating companies with high growth potential. That's where the PEG Ratio comes in – a powerful tool to help you gauge whether a company's stock price is justified by its growth prospects. In this article, we'll break down the PEG Ratio, explore its significance, and provide real-world examples to help you become a more informed investor.
+## Two companies, identical multiples
 
-The PEG Ratio, short for Price-to-Earnings-Growth Ratio, is a valuation metric that helps investors assess whether a company's stock price is reasonable relative to its expected growth rate. It's calculated by dividing the Price-to-Earnings (P/E) Ratio by the company's expected growth rate. The formula looks like this:
+Both trade at twenty-five times earnings. One is expected to grow profit about 25% a year; the other about 8%.
 
-PEG Ratio = P/E Ratio / Expected Growth Rate
+| | Multiple | Assumed growth | Ratio |
+|---|--:|--:|--:|
+| Company A | 25× | 25 | **about 1.0** |
+| Company B | 25× | 8 | **about 3.1** |
 
-For example, if a company has a P/E Ratio of 20 and an expected growth rate of 10%, its PEG Ratio would be 2 (20 ÷ 10%). A lower PEG Ratio indicates that the company's stock price might be undervalued relative to its growth prospects, while a higher PEG Ratio suggests the opposite.
+Read on the folklore reading, A is reasonably priced and B looks dear. Nothing in that table should make you confident,
+because every input came from a forecast and none of the qualities that decide outcomes appear anywhere in it. If A's
+growth arrives through borrowed money, temporary pricing, or a competitor's disaster, the flattering ratio described a
+year rather than a business. Growth rates are not properties of companies; they're claims about futures that were
+drafted by someone.
 
-As a teenager, you're likely familiar with the concept of growth and potential. You're constantly learning, developing new skills, and exploring your interests. Similarly, companies with high growth potential can be exciting investment opportunities. By understanding the PEG Ratio, you'll be better equipped to evaluate these companies and make informed decisions about your investments.
+## Where the ratio misleads hardest
 
-Peter Lynch, a legendary investor and former Fidelity Magellan Fund manager, emphasized the importance of investing in companies with strong growth potential. He advocated for a "growth at a reasonable price" (GARP) approach, which involves seeking companies with high growth rates and reasonable valuations. Lynch's philosophy is simple: invest in what you know and understand.
+**It depends entirely on which growth number you fed it.** Next-year estimate, five-year consensus, the last three
+years' actuals, management's own target -- each produces a different answer for the same share price, sometimes by a
+factor of two. Any screen advertising "low PEG names" has made that choice silently on your behalf, usually selecting
+whatever produced the prettiest list. Ask which horizon, which source, whose model.
 
-To grasp the PEG Ratio, it's essential to understand the following concepts:
+**Base effects flatter the fastest growers.** A company rebounding from a collapse can post spectacular percentage
+growth precisely because the comparison period was awful, producing a tempting ratio right when the underlying franchise
+is weakest. [Percentages hide their own denominators](/articles/earnings-growth-the-engine-of-stock-prices/), and this
+ratio divides by one of them.
 
-* **Price-to-Earnings (P/E) Ratio**: A valuation metric that compares a company's stock price to its earnings per share.
-* **Expected Growth Rate**: A forecast of a company's future earnings growth rate.
-* **Growth Investing**: An investment strategy that focuses on companies with high growth potential.
+**Cyclicals invert it.** Commodity and shipping producers at the top of a cycle combine strong current profit with
+analysts extrapolating recent momentum, generating cheap-looking readings just before normalisation. The earnings
+multiple's trap repeats, amplified by optimism in the denominator.
 
-Let's consider two companies: Amazon (AMZN) and Walmart (WMT).
+**Quality is invisible to it.** Two businesses growing 20% can differ completely in how much capital that growth costs,
+how defensible margins are, and whether the growth requires borrowing. Returns actually earned on reinvested capital do
+most of the explanatory work
+[-- decomposition shows why](/articles/roe-return-on-equity-explained/) -- and neither version appears in the division.
+A business growing quickly by destroying value per unit of growth scores beautifully.
 
-* **Amazon**: With a P/E Ratio of 70 and an expected growth rate of 20%, Amazon's PEG Ratio would be approximately 3.5 (70 ÷ 20%). This suggests that Amazon's stock price might be relatively expensive compared to its growth prospects.
-* **Walmart**: With a P/E Ratio of 20 and an expected growth rate of 5%, Walmart's PEG Ratio would be approximately 4 (20 ÷ 5%). This indicates that Walmart's stock price might be relatively expensive compared to its growth prospects.
+**Dividends, buybacks, leverage and payout policy are absent.** A flat-profit company returning cash generously can
+reward holders while scoring appallingly here; a leveraged non-payer can score brilliantly. Comparisons across
+industries inherit all of these differences plus accounting variation, which is why ranking by this ratio across
+sectors mostly ranks business models.
 
-Keep in mind that these examples are hypothetical and for illustrative purposes only.
+**Negative or near-zero growth makes it meaningless.** With a zero or negative denominator the ratio collapses into
+nonsense, and screens frequently exclude such names entirely -- quietly deleting entire categories of investment from
+whichever portfolio you later regret not owning.
 
-To practice calculating the PEG Ratio, try the following exercise:
+## Use the instinct, skip the number
 
-1. Choose a company you're interested in, such as Apple (AAPL) or Netflix (NFLX).
-2. Look up the company's P/E Ratio and expected growth rate using online resources like Yahoo Finance or Google Finance.
-3. Calculate the PEG Ratio using the formula: PEG Ratio = P/E Ratio / Expected Growth Rate
-4. Compare the PEG Ratio to industry averages or benchmarks to determine if the company's stock price is relatively expensive or cheap.
+What survives scrutiny isn't the ratio; it's the habit behind it -- never judge a multiple without a view on the future
+it presupposes. Turn it into questions with documentary answers. Over what horizon does this growth run, and who wrote
+that figure? How much of it comes from demand versus prices versus costs versus fewer shares outstanding? What has to
+be true operationally for it to arrive, and what evidence supports each piece? What does the growth cost in capital --
+compare reinvestment requirements against profit growth, since growth bought with debt at unfavourable terms converts
+into mediocre returns even when the headline rate impresses
+[-- cash generation exposes the gap](/articles/free-cash-flow-the-money-that-matters/). Sensitivity beats point
+estimates: halve the growth assumption, raise the required return slightly, and see whether the case survives. Cases
+that survive only their own best scenario were never cases.
 
-* The PEG Ratio is a valuation metric that helps investors assess whether a company's stock price is reasonable relative to its growth prospects.
-* A lower PEG Ratio indicates that a company's stock price might be undervalued, while a higher PEG Ratio suggests the opposite.
-* Peter Lynch's growth investing approach emphasizes the importance of investing in companies with strong growth potential and reasonable valuations.
-* To calculate the PEG Ratio, you need to know a company's P/E Ratio and expected growth rate.
+If you keep the arithmetic anyway, treat sub-one readings as a prompt for reading rather than a purchase signal, stay
+within a peer group where cost structures resemble each other, name the horizon and source out loud -- and be able to
+explain, in ordinary sentences, why this particular company's growth is likely and sustainable. That explanation is the
+actual analysis; the ratio is a way of noticing you haven't written one yet, which
+[valuation work](/articles/fundamental-analysis-finding-intrinsic-value/) covers properly. Nobody who beat markets did
+it by sorting a column, and nobody who lost badly avoided it either -- the people who got hurt had stopped asking what
+sat beneath the number.
 
-If you're interested in learning more about the PEG Ratio and growth investing, check out the following resources:
-
-* **"Beating the Street" by Peter Lynch**: A classic investing book that provides insights into Lynch's investment approach and philosophy.
-* **"The Intelligent Investor" by Benjamin Graham**: A timeless investing classic that covers various valuation metrics, including the P/E Ratio.
-* **"The Little Book of Common Sense Investing" by John C. Bogle**: A straightforward guide to investing in index funds and understanding valuation metrics.
-
-Remember, investing involves risk, and it's essential to do your own research and consider your own financial goals and risk tolerance before making any investment decisions.
+This is educational explanation of a valuation shortcut, not investment advice or a recommendation of any kind. Every
+multiple and percentage above is invented round-number arithmetic used to show relationships, no company is named
+because forecasts and ratios expire the moment they publish, forecasts are frequently wrong, and any holding can lose
+value including one screening as cheaply as this one can make a stock appear.

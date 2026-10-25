@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Insider Trading: Legal vs Illegal"
-description: "Understanding what insiders can and cannot do with company stock."
+description: "Where lawful insider activity ends and illegal trading begins -- material, non-public, and the duty that decides it."
 date: 2026-04-01
 difficulty: intermediate
 tags: ["insider-trading", "regulations", "ethics", "intermediate"]
@@ -18,59 +18,113 @@ related_articles:
   - title: "The Icahn Screener: Finding Value in Disruption"
     url: "/articles/the-icahn-screener-finding-value-in-disruption/"
     description: "Identifying undervalued companies ripe for change."
+quiz:
+  - question: "Which feature separates unlawful insider trading from merely being well informed?"
+    options:
+      - "A duty not to use information that has not reached the public"
+      - "Whether the trader made a profit"
+      - "Whether the trade was executed quickly"
+      - "Whether the company was listed abroad"
+    answer: 0
+    why: "The offence combines material information, still non-public, held subject to an obligation not to exploit it -- ordinarily through employment, a relationship of trust, or improper receipt. Profits, speed and listing venues are irrelevant to whether the duty existed."
+  - question: "Why does an executive purchasing shares with personal money carry more weight than a sale?"
+    options:
+      - "Sellers have many innocent motives; buyers comparatively few"
+      - "Buys are always larger than sells"
+      - "Sales must be approved by the exchange"
+      - "Purchases cannot be reversed"
+    answer: 0
+    why: "A sale might reflect tax bills, a property deposit or simple diversification, whereas choosing to add personal money at market signals some degree of conviction -- though optimism and optics weaken even that inference."
+  - question: "You hear about an upcoming store closure from your part-time job before any announcement. What follows?"
+    options:
+      - "Do not trade on it and do not pass it along"
+      - "Trading is permitted once a rival store confirms the rumour"
+      - "It becomes fair game after a week has passed"
+      - "Only direct employees are ever covered by these rules"
+    answer: 0
+    why: "Internal circulation is not public disclosure, and liability can follow both the person who leaks and the recipient who trades knowing its origin. Elapsed time without publication changes nothing, and coverage does not depend on payroll status."
 ---
 
-Imagine you're at school, and your friend's parent is the CEO of a popular gaming company. They mention that the company is about to release a new game that's going to be a huge hit. Your friend tells you about it, and you're tempted to buy the company's stock because you think it's going to go up in value. But is that okay? This scenario is related to insider trading, a complex topic that's essential to understand as you learn about investing.
+Most talk about insider trading is vague enough to be useless -- "someone knew something" -- which is unfortunate,
+because the actual line between legal and illegal is specific, learnable, and closer to a teenager's life than the
+movie version suggests. The short version: trading while holding **material non-public information you owe a duty not
+to use** is illegal. Almost every confusing case turns on those three loaded words, and plenty of perfectly lawful
+trading looks identical from the outside.
 
-Insider trading refers to the buying or selling of a company's stock by someone who has access to confidential information about the company. This information can be about upcoming events, financial results, or other sensitive data that could affect the stock price. Insider trading can be both legal and illegal, depending on the circumstances.
+## The three conditions have to be present together
 
-As a teenager, you might not be investing in stocks yet, but understanding insider trading is crucial for your future. As you start to invest, you'll need to know what's allowed and what's not. Moreover, insider trading affects the integrity of the financial markets, which can impact the economy as a whole. By learning about insider trading, you'll become a more informed investor and a more responsible citizen.
+**Material** means information likely to change a reasonable investor's mind -- an unannounced earnings collapse, a
+failed drug trial, a takeover in motion, a major contract lost. Rumours about whether the CEO likes the new office
+decor are not material; whether the auditor just resigned might be. Materiality is a judgment made after the fact by
+people with opinions, so treat any borderline case as one to stay out of rather than test.
 
-### Insider Trading Laws
+**Non-public** means not yet released to the market at large. Company press releases, regulatory filings and earned
+statements make information public; a group chat does not. A detail that circulates among employees before the press
+release is still non-public even though lots of people know it -- spread inside a company is not publication. This
+surprises people constantly.
 
-In the United States, the Securities and Exchange Commission (SEC) regulates insider trading through the Securities Exchange Act of 1934. The law prohibits trading on material nonpublic information (MNPI), which is information that's not publicly available and could affect the stock price.
+**A duty not to use it.** This is the piece beginners omit, and it's what separates a crime from being observant. The
+classic case is an employee or officer trading on what they know because of their position. It extends to outsiders who
+*receive* the information knowing it was disclosed improperly -- passing a tip doesn't launder it, and the recipient's
+liability generally follows from the tipper's breach plus some personal benefit involved. There's also the
+misappropriation route: trading on information stolen from its source, such as a lawyer's client list or a printer's
+documents, can violate the law even where the trader owed no duty to shareholders at all.
 
-### Legal Insider Trading
+Put together, the question isn't "did I have an edge?" Having an edge is the entire point of investing. The question is
+whether the edge comes from information you were entrusted with or took.
 
-Company insiders, such as executives and directors, are allowed to buy and sell the company's stock, but they must follow specific rules. They must report their trades to the SEC and disclose their holdings. This is called "insider reporting."
+## What insiders are allowed to do
 
-### Illegal Insider Trading
+Executives buy and sell their own company's shares constantly, legally, and the mechanics are visible if you want to
+watch them. Officers and major holders report transactions publicly within a couple of business days on a standard SEC
+form, filed through the regulator's own electronic system -- searchable, free, and used by professionals precisely
+because the trades are disclosed rather than hidden. Many companies additionally confine insider dealing to open windows
+between quarterly reports, closing the door before results land so that nobody can trade on numbers still internal.
+Those blackout calendars exist because the underlying problem is real, not ceremonial.
 
-Trading on MNPI without proper authorization is considered illegal insider trading. This includes tipping others about the information or using it to trade for personal gain.
+There's also a structured route: pre-committed written plans adopted at times when the person isn't holding material
+non-public information, specifying quantities and timing in advance so future trades execute mechanically. The rules
+permit that specifically because planning while clean differs from improvising while informed -- a distinction worth
+internalising generally, since it's the same logic behind setting your own purchase rules before you have an opinion
+about price. Sellers who claim a plan always sound convenient until you notice the plan predates the news, which is
+exactly what a regulator checks and what an interested reader should ask. Affiliates reselling restricted stock face
+their own separate conditions, another reminder that "what am I allowed to sell" depends on how the shares arrived.
 
-### Example: Martha Stewart
+## Why disclosed insider buying is weaker evidence than it looks
 
-In 2003, Martha Stewart, the famous businesswoman, was accused of insider trading. She sold her ImClone Systems stock after receiving information from her broker that the company's CEO was selling his shares. Stewart claimed she had a pre-existing agreement to sell the stock, but the SEC charged her with insider trading. She eventually settled the case and paid a fine.
+Retail commentary treats cluster buying by executives as a signal, and it contains a real asymmetry worth keeping:
+insiders sell for many innocent reasons -- taxes, a house, diversification, a divorce, a plan maturing -- so a single
+sale carries little information. Buying with personal cash is closer to conviction, because there are fewer benign
+reasons to buy your own stock at market. But conviction isn't a return forecast: executives are frequently wrong about
+their own companies and reliably optimistic about them, and some purchases are gestures timed for optics -- support the
+share price during a soft stretch, generate a headline. Use disclosed activity as a tiebreaker on a business you can
+already explain, never as the thesis itself. Anyone offering an insider-tracking subscription as an alpha source is
+selling you a filing feed with formatting.
 
-### Tesla and Elon Musk
+## The part that actually involves you
 
-In 2018, Elon Musk tweeted about taking Tesla private, which caused the stock price to surge. The SEC investigated Musk for potential insider trading, but he claimed he was simply expressing his opinion. The case was eventually settled, with Musk agreeing to step down as Tesla's chairman.
+You don't need a corner office to get near this. Teenagers work. If your weekend job is at a retailer, a warehouse, a
+delivery contractor, a hospital front desk or a bank's mailroom, you may encounter information ahead of the public --
+store closures, an acquisition rumour circulating internally, a customer list, a shipment that didn't arrive. Trading on
+it would raise the same questions regardless of your age or how junior the role, and ignorance of the rules isn't much
+comfort afterwards. The practical rule is boring and reliable: information acquired through a job, a family member's
+job, a school project, an internship, a friendship or an online group where somebody clearly shouldn't have posted it is
+information you don't trade on and don't pass along -- the person receiving a tip usually isn't protected by their
+ignorance of where it came from.
 
-### Theranos and Elizabeth Holmes
+Also distrust the reverse confidence: "my cousin's boyfriend works in finance" is not research, and content creators
+advertising access to special knowledge are typically selling subscriptions, with any genuine insight priced into the
+share long before it reaches a caption. Study what's public instead: [the annual report](/articles/annual-reports-the-ceo-s-letter-to-shareholders/)
+and the audited statements inside it, [valuation reasoning](/articles/fundamental-analysis-finding-intrinsic-value/)
+you can defend in your own words, and
+[screening discipline](/articles/the-buffett-screener-finding-wonderful-companies/) that doesn't require knowing
+anything anybody else doesn't. Rehearse judgments somewhere consequences-free first --
+[paper trading runs the sequence end to end](/articles/paper-trading-practice-without-risk/) -- and let curiosity about
+why a share moved become curiosity about the business rather than about who knew first. When information is genuinely
+public, everyone pays the same price for it simultaneously, which is the only kind worth acting on.
 
-Theranos, a healthcare company, was accused of insider trading in 2018. The company's CEO, Elizabeth Holmes, was charged with using confidential information to trade the company's stock. The case is ongoing.
-
-Imagine you're a journalist working for a financial news outlet. You receive a tip about a company's upcoming merger, but it's not publicly announced yet. What would you do?
-
-* A) Write an article about the merger
-* B) Buy the company's stock
-* C) Ignore the tip and wait for the official announcement
-* D) Report the tip to your editor
-
-The correct answer is C) Ignore the tip and wait for the official announcement. As a journalist, you have a responsibility to maintain confidentiality and avoid using MNPI for personal gain.
-
-* Insider trading can be both legal and illegal, depending on the circumstances
-* Company insiders must follow specific rules when buying or selling the company's stock
-* Trading on material nonpublic information (MNPI) without proper authorization is considered illegal insider trading
-* Insider trading laws are in place to maintain the integrity of the financial markets
-
-**Not Financial Advice**
--------------------------
-
-This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
-
-* "Insider Trading" by the Securities and Exchange Commission (SEC)
-* "The Insider Trading Handbook" by the Financial Industry Regulatory Authority (FINRA)
-* "Insider Trading: A Review of the Literature" by the Journal of Financial Economics
-
-By understanding insider trading, you'll become a more informed investor and a more responsible citizen. Remember, investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+This page is general education -- not legal advice, and not financial advice about what to buy or sell. Enforcement turns on specific
+facts that no summary can anticipate: regulators and prosecutors have pursued corporate insiders and complete outsiders
+alike, penalties can include heavy financial consequences and imprisonment, and any situation resembling trading on
+confidential information deserves qualified professional counsel rather than an article like this one. Nor does lawful
+behaviour make investing safe -- even fully public, carefully researched positions can lose money.
