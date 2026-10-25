@@ -13,7 +13,7 @@ const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
 
-const { checkSite, inputFiles, MANIFEST_REL } = require('./lib/site-freshness');
+const { checkSite, inputFiles, manifestPath, MANIFEST_REL } = require('./lib/site-freshness');
 
 let passed = 0;
 const failures = [];
@@ -26,7 +26,7 @@ function assert(cond, msg) { if (!cond) throw new Error(msg); }
 function sha(text) { return crypto.createHash('sha256').update(text).digest('hex'); }
 
 /** Build a minimal repository-shaped directory and return its path. */
-function fixture({ articles = { 'a.md': 'body a\n' }, guides = {}, extra = {}, manifest = undefined, makeSite = true } = {}) {
+function fixture({ articles = { 'a.md': 'body a\n' }, guides = {}, extra = {}, manifest = undefined, legacyManifest = undefined, makeSite = true } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sitefresh-'));
   const write = (rel, text) => {
     const abs = path.join(root, rel);
@@ -40,7 +40,11 @@ function fixture({ articles = { 'a.md': 'body a\n' }, guides = {}, extra = {}, m
     fs.mkdirSync(path.join(root, '_site'), { recursive: true });
     fs.writeFileSync(path.join(root, '_site', 'index.html'), '<html>ok</html>');
     if (manifest !== undefined) {
-      fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), typeof manifest === 'string' ? manifest : JSON.stringify(manifest));
+      fs.writeFileSync(path.join(root, MANIFEST_REL), typeof manifest === 'string' ? manifest : JSON.stringify(manifest));
+    }
+    if (legacyManifest !== undefined) {
+      // Pre-move location, inside the build output. Still read, so an existing checkout keeps validating.
+      fs.writeFileSync(path.join(root, '_site', '.build-manifest.json'), JSON.stringify(legacyManifest));
     }
   }
   return root;
@@ -70,14 +74,35 @@ test('refuses to trust an unmarked _site (built outside our pipeline)', () => {
 
 test('fresh when the manifest matches every input byte-for-byte', () => {
   const root = fixture({ guides: { 'g.md': 'guide\n' }, extra: { '_config.yml': 'title: x\n' } });
-  fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), JSON.stringify(manifestFor(root)));
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(manifestFor(root)));
   const res = checkSite({ root });
   assert(res.status === 'fresh', `expected fresh, got ${res.status}: ${res.detail}`);
 });
 
+test('manifest lives outside _site and both locations are understood', () => {
+  // Pinning a CI failure: Jekyll runs as root in the build container, so a manifest written inside _site could not
+  // be created by the following Node step (EACCES) and the whole validation chain died.
+  assert(!MANIFEST_REL.startsWith('_site'), 'the primary manifest must not live in the build output');
+  const root = fixture({ makeSite: false });
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(manifestFor(root)));
+  // No _site at all is still untrustworthy even with a manifest present.
+  assert(checkSite({ root }).status === 'missing', 'a manifest without a build proves nothing');
+});
+
+test('a manifest from the older in-_site location is still honoured', () => {
+  const root = fixture({ legacyManifest: undefined });
+  // Build marker written where this project used to put it (inside _site), before permissions forced the move.
+  const r1 = fixture({});
+  fs.mkdirSync(path.join(r1, '_site'), { recursive: true });
+  fs.writeFileSync(path.join(r1, '_site', 'index.html'), '<html></html>');
+  fs.writeFileSync(path.join(r1, '_site', '.build-manifest.json'), JSON.stringify(manifestFor(r1)));
+  assert(checkSite({ root: r1 }).status === 'fresh', 'legacy location must still be accepted');
+  void root;
+});
+
 test('stale when one article body changed after the build', () => {
   const root = fixture({});
-  fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), JSON.stringify(manifestFor(root)));
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(manifestFor(root)));
   fs.writeFileSync(path.join(root, '_articles', 'a.md'), 'TOTALLY NEW CONTENT\n');
   const res = checkSite({ root });
   assert(res.status === 'stale', `expected stale, got ${res.status}`);
@@ -86,7 +111,7 @@ test('stale when one article body changed after the build', () => {
 
 test('stale when a brand-new article appears that the build never saw', () => {
   const root = fixture({});
-  fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), JSON.stringify(manifestFor(root)));
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(manifestFor(root)));
   fs.writeFileSync(path.join(root, '_articles', 'brand-new.md'), 'hello\n');
   const res = checkSite({ root });
   assert(res.status === 'stale', `expected stale, got ${res.status}`);
@@ -96,7 +121,7 @@ test('stale when a brand-new article appears that the build never saw', () => {
 test('stale when a file the build used has been deleted', () => {
   const root = fixture({ articles: { 'a.md': 'body a\n', 'b.md': 'body b\n' } });
   const man = manifestFor(root);
-  fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), JSON.stringify(man));
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(man));
   fs.rmSync(path.join(root, '_articles', 'b.md'));
   const res = checkSite({ root });
   assert(res.status === 'stale', `expected stale, got ${res.status}`);
@@ -106,7 +131,7 @@ test('stale when a file the build used has been deleted', () => {
 test('touching a file without editing it does NOT count as unbuilt work', () => {
   const original = 'body a\n';
   const root = fixture({ articles: { 'a.md': original } });
-  fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), JSON.stringify(manifestFor(root)));
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(manifestFor(root)));
   // Same bytes, deliberately older-looking then newer mtime -- what test-rewrite-body.js effectively does.
   const past = new Date(Date.now() - 60_000);
   fs.utimesSync(path.join(root, '_articles', 'a.md'), past, past);
@@ -136,7 +161,7 @@ test('inputFiles covers content dirs and _config.yml but not scripts or caches',
 test('front matter-only edit still registers as stale (hashes see every byte)', () => {
   const before = '---\ntitle: "Old"\ndifficulty: beginner\n---\n\nbody\n';
   const root = fixture({ articles: { 'a.md': before } });
-  fs.writeFileSync(path.join(root, '_site', MANIFEST_REL), JSON.stringify(manifestFor(root)));
+  fs.writeFileSync(path.join(root, MANIFEST_REL), JSON.stringify(manifestFor(root)));
   fs.writeFileSync(path.join(root, '_articles', 'a.md'), before.replace('beginner', 'advanced'));
   assert(checkSite({ root }).status === 'stale', 'a difficulty change alters rendered output and must be caught');
 });

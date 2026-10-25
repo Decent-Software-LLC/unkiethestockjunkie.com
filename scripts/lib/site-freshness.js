@@ -20,7 +20,19 @@ const path = require('path');
 const crypto = require('crypto');
 
 const ROOT = path.join(__dirname, '..', '..');
-const MANIFEST_REL = '.build-manifest.json';
+// Kept OUTSIDE _site on purpose. Jekyll runs as root inside the build container, so anything the pipeline needs to
+// write afterwards has to live somewhere the runner user can actually touch -- writing into _site failed CI with
+// EACCES on the very next step. Both locations are still read so an existing manifest is not orphaned.
+const MANIFEST_REL = '.site-build-manifest.json';
+const MANIFEST_CANDIDATES = [MANIFEST_REL, path.join('_site', '.build-manifest.json')];
+
+/** First readable manifest path (relative to root), or null. */
+function manifestPath(root) {
+  for (const rel of MANIFEST_CANDIDATES) {
+    try { fs.accessSync(path.join(root, rel), fs.constants.R_OK); return rel; } catch (e) { /* try next */ }
+  }
+  return null;
+}
 
 // Directories whose contents appear in rendered output. Deliberately excludes scripts/, tests and node_modules:
 // they cannot affect HTML, and counting them would fail the check for changes that are irrelevant to it.
@@ -70,10 +82,10 @@ function checkSite(opts = {}) {
   const site = path.join(root, '_site');
   if (!fs.existsSync(site)) return { status: 'missing', site, detail: 'no _site build found' };
 
-  const manifestPath = path.join(site, MANIFEST_REL);
+  const manRel = manifestPath(root);
   let manifest;
   try {
-    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    manifest = JSON.parse(fs.readFileSync(path.join(root, manRel), 'utf8'));
   } catch (e) {
     return {
       status: 'unmarked',
@@ -128,4 +140,4 @@ function requireFreshSite(suiteName) {
   process.exit(1);
 }
 
-module.exports = { checkSite, requireFreshSite, inputFiles, MANIFEST_REL, INPUT_DIRS, INPUT_FILES };
+module.exports = { checkSite, requireFreshSite, inputFiles, manifestPath, MANIFEST_REL, MANIFEST_CANDIDATES, INPUT_DIRS, INPUT_FILES };

@@ -17,7 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const { inputFiles, MANIFEST_REL } = require('./lib/site-freshness');
+const { inputFiles, MANIFEST_REL, MANIFEST_CANDIDATES } = require('./lib/site-freshness');
 
 function main() {
   const root = process.cwd();
@@ -27,10 +27,16 @@ function main() {
       files[rel] = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, rel))).digest('hex');
     } catch (e) { /* vanished mid-run: omitting it makes the next check report it as deleted */ }
   }
-  const dest = path.join(root, '_site', MANIFEST_REL);
-  if (!fs.existsSync(path.dirname(dest))) {
-    console.error('_site does not exist yet -- build first, then mark' );
+  if (!fs.existsSync(path.join(root, '_site'))) {
+    console.error('_site does not exist yet -- build first, then mark');
     process.exit(1);
+  }
+  const dest = path.join(root, MANIFEST_REL);
+  // Remove any manifest left inside the build output by an older version of this script. It cannot be written
+  // there anyway (root-owned), and leaving a stale copy behind would make the checker trust outdated evidence.
+  for (const rel of MANIFEST_CANDIDATES) {
+    if (rel === MANIFEST_REL) continue;
+    try { fs.rmSync(path.join(root, rel), { force: true }); } catch (e) { /* root-owned: harmless, still preferred-away */ }
   }
   fs.writeFileSync(dest, JSON.stringify({ generatedAt: new Date().toISOString(), count: Object.keys(files).length, files }, null, 0));
   console.log(`marked _site as built from ${Object.keys(files).length} content files`);
