@@ -48,7 +48,12 @@ const BUDGETS = [
 const MINIMUMS = [
   { name: 'names a real company or ticker', re: /\b(?:AAPL|MSFT|TSLA|KO|DIS|NFLX|AMC|Costco|Apple|Nike|Disney|Amazon|Google|Microsoft|McDonald)/i, min: 10 },
   { name: 'contains a concrete dollar amount', re: /\$\s?\d/, min: 40 },
-  { name: 'states investing involves risk', re: /not financial advice|investing involves risk|educational purposes only/i, min: 95 }
+  // Detects PRESENCE of a risk disclosure, not its exact wording. Hard enforcement of disclosure language belongs to
+  // scripts/lib/candidate-gate.js, which requires both an "not financial/investment advice" statement and a risk term
+  // per page; this corpus-level floor exists to catch bulk generation shipping undisclosed content, so accepting
+  // honest variants matters more than pinning a phrase. It previously matched only "not financial advice", which made
+  // pages saying "not investment advice" look undocumented and dipped the corpus under its own floor when copy varied.
+  { name: 'states investing involves risk', re: /not (?:financial|investment) advice|investing involves risk|educational purposes only|(?:can lose|may lose|risk of losing)[^.]{0,40}\b(?:money|value)\b/i, min: 95 }
 ];
 
 const reportOnly = process.argv.includes('--report');

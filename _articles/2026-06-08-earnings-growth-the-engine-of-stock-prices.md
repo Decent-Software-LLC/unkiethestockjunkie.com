@@ -18,50 +18,121 @@ related_articles:
   - title: "Income Statement: Revenue, Expenses, Profits"
     url: "/articles/income-statement-revenue-expenses-profits/"
     description: "How to read the story of a company's profitability."
+quiz:
+  - question: "Profits rose 15% while revenue rose 4%. What does that gap require?"
+    options:
+      - "Investigation into margins, costs, financial structure or the comparison base"
+      - "Celebration; it proves accelerating demand"
+      - "Nothing; profit always grows faster than sales"
+      - "A new accountant to redo the arithmetic"
+    answer: 0
+    why: "Demand alone would move revenue and profit together, so the difference came from somewhere else -- scale on fixed costs, restructuring, buybacks, or a flattering starting figure. Profit outrunning sales is common enough that it is not automatically suspicious, but it is never automatic proof of demand."
+  - question: "You pay thirty times current earnings. Over five years profits double while sentiment cools to fifteen times. Ignoring dividends, the share price does what?"
+    options:
+      - "Ends roughly where it began"
+      - "Doubles, because earnings doubled"
+      - "Falls by exactly half immediately"
+      - "Is unaffected by the multiple"
+    answer: 0
+    why: "Thirty times old earnings equals fifteen times twice the earnings, so the whole operational win was absorbed by the falling multiple. That is the arithmetic behind needing expectations on your side as well as results."
+  - question: "Which growth component raises earnings per share without improving the underlying business at all?"
+    options:
+      - "Repurchasing shares so the same profit is split fewer ways"
+      - "Winning customers who keep returning"
+      - "Raising prices that customers accept"
+      - "Selling more units in existing markets"
+    answer: 0
+    why: "Buybacks shrink the denominator of the per-share calculation while total profit stands still. Repeat customers, accepted price increases and higher volumes all involve real commercial progress."
 ---
 
-Imagine you're a teenager with a lemonade stand, and your goal is to grow your business and make more money. To do this, you focus on increasing sales, reducing costs, and innovating your product. As your business grows, more people become interested in investing in your lemonade stand. This is similar to how companies work, and one key driver of their stock prices is earnings growth. In this article, we'll explore what earnings growth is, why it matters, and how it affects stock prices.
+A share price is two things multiplied together: profit attributable to each share, and the multiple buyers will pay
+for it. Almost every headline about a stock moving on results is a story about one of those two changing -- and
+understanding which one moved is more useful than knowing the number went up. Decomposed honestly, an equity holding
+earns its return from three sources and nothing else: cash paid out while you waited, growth in profits per share, and
+the multiple widening or narrowing. The first two are largely in the company's control. The third belongs to whoever
+shows up next with an opinion and an order.
 
-Earnings growth refers to the increase in a company's profits over time. It's a fundamental metric that investors use to evaluate a company's financial health and potential for future growth. Earnings growth is calculated by comparing a company's net income (profits) from one period to another, usually quarter-over-quarter or year-over-year.
+## Where reported growth actually comes from
 
-As a teenager, you might be thinking, "Why does earnings growth matter to me?" Well, if you're interested in investing in the stock market or starting your own business, understanding earnings growth is crucial. It can help you make informed decisions about where to invest your money or how to grow your own business. Plus, many companies that experience strong earnings growth can provide jobs, create new products, and contribute to the overall economy.
+Growth in earnings per share is an aggregate, and the ingredients have very different quality. Pull them apart before
+being impressed:
 
-Here are some key concepts related to earnings growth:
+**More units sold.** Demand doing what demand does. The most durable ingredient when it reflects customers who keep
+returning rather than a promotion that rented them once.
 
-* **Revenue growth**: An increase in a company's sales or revenue.
-* **Margin expansion**: An increase in a company's profit margins, which can be achieved by reducing costs or increasing prices.
-* **Earnings per share (EPS)**: A company's net income divided by the number of outstanding shares.
-* **Growth rate**: The rate at which a company's earnings are increasing over time.
+**Higher prices held.** Look for this in gross margin persisting across several periods rather than in a press release
+about premium products; [the income statement shows where price ends and cost begins](/articles/income-statement-revenue-expenses-profits/).
+Pricing power is the rarest ingredient and the hardest to fake.
 
-Let's look at some examples:
+**Costs removed.** Real money, with a hard floor: you can only cut to zero once. A company whose recent streak of beats
+came from closing facilities and trimming staff has bought one or two good years, not a permanent rate of increase.
 
-* **Amazon**: Amazon's revenue growth has been impressive, with a 5-year compound annual growth rate (CAGR) of 20%. This growth has been driven by the expansion of its e-commerce platform, cloud computing services, and advertising business.
-* **Netflix**: Netflix's earnings growth has been fueled by its increasing subscriber base and revenue from its streaming services. However, the company faces intense competition from other streaming services, which can impact its earnings growth.
-* **Walmart**: Walmart's earnings growth has been driven by its efforts to expand its e-commerce platform, improve its supply chain efficiency, and reduce costs.
+**Fewer shares outstanding.** Buybacks raise earnings *per share* with no operational improvement whatsoever -- the same
+profit divided among fewer claims. Sometimes that is excellent capital allocation and sometimes it is borrowed money
+spent flattering the metric your screen is sorted by, so check the financing section of the
+[cash flow statement](/articles/free-cash-flow-the-money-that-matters/) and the share-count line rather than trusting
+the growth figure alone.
 
-Let's say you're considering investing in a company called "GreenTech," which produces solar panels. You want to evaluate its earnings growth potential. Here's what you can do:
+**Accounting and one-offs.** Tax settlements, legal provisions reversed, asset sales, a pension assumption nudged,
+an acquisition whose purchase price allocated itself conveniently favourably. All legitimate entries; none of them
+describes what happened selling the product last quarter.
 
-1. Research GreenTech's financial statements and find its revenue and net income for the past 5 years.
-2. Calculate its revenue growth rate and earnings growth rate using the formulas:
-	* Revenue growth rate = (Current year's revenue - Previous year's revenue) / Previous year's revenue
-	* Earnings growth rate = (Current year's net income - Previous year's net income) / Previous year's net income
-3. Evaluate GreenTech's growth rates compared to its industry peers and the overall market.
-4. Consider factors that could impact GreenTech's earnings growth, such as changes in government policies, competition, and technological advancements.
+The tell worth memorising: **earnings outrunning revenue**. If profits climb 15% while sales climb 4%, something other
+than demand produced the difference -- margin leverage from scale, restructuring, financial engineering, or a
+favourable base. Investigation required, celebration premature.
 
-Here are the main lessons from this article:
+## The arithmetic nobody puts on the slide
 
-* Earnings growth is a key driver of stock prices and a fundamental metric for evaluating a company's financial health.
-* Revenue growth, margin expansion, and earnings per share are important concepts related to earnings growth.
-* Companies with strong earnings growth can provide jobs, create new products, and contribute to the overall economy.
-* Evaluating earnings growth involves researching a company's financial statements, calculating growth rates, and considering external factors that can impact its growth.
+Two identities cause a disproportionate amount of beginner losses.
 
-If you want to learn more about earnings growth and investing, here are some resources:
+**Base effects make percentages lie by omission.** Growth percentages depend entirely on the starting number. A
+company rebuilding from a collapsed base can post spectacular growth for two years while remaining smaller and less
+profitable than it was four years ago; a mature business adding steadily prints unexciting digits. Always ask what the
+denominator used to be, and read percentage changes next to absolute figures pulled from the filings themselves rather
+than from whichever site summarised them.
 
-* **"A Random Walk Down Wall Street" by Burton G. Malkiel**: A comprehensive book on investing and the stock market.
-* **"The Intelligent Investor" by Benjamin Graham**: A classic book on value investing and long-term wealth creation.
-* **"Investopedia"**: A online resource that provides articles, tutorials, and courses on investing and personal finance.
+**Paying for growth sets your own ceiling.** If a stock trades at thirty times current earnings and profits double over
+five years while enthusiasm cools to fifteen times, the price lands exactly where it started -- thirty times old earnings
+becomes fifteen times twice the earnings. Nothing about being right on the business rescued the position, because the
+expectation you were buying had already consumed the gain. Reverse case: buy at ten times and hold through disappointing
+growth plus stable sentiment and outcomes improve. A rich multiple does not assure a poor outcome and a cheap one does not
+deliver the opposite; what changes is how much has to go right, and that is the variable beginners never price. This is
+where valuation judgment earns its keep
+[-- estimating what the stream is worth](/articles/fundamental-analysis-finding-intrinsic-value/) instead of admiring
+its slope.
 
-**Disclaimer**
---------------
+There's also a supply constraint on growth itself. A business can only compound from its own retained profits at roughly
+[return on equity multiplied by the share kept](/articles/roe-return-on-equity-explained/). Announced ambitions beyond
+that ceiling require outside capital at whatever terms the market dictates that month, which is precisely when terms are
+worst and promised growth most often arrives late and dilutive.
 
-This article is for educational purposes only and should not be considered as financial advice. Investing in the stock market involves risk, and it's essential to do your own research, set clear goals, and consult with a financial advisor before making any investment decisions.
+## Expectations versus estimates
+
+Reported numbers describe a finished period and cannot be argued with. Estimates describe somebody's guess about an
+unfinished one, produced by analysts whose employers sell research to institutions that trade on the answers, and
+published consensus mostly measures agreement among people watching the same data. Trading reactions to
+"expectations" are reactions to a shared forecast being wrong in one direction -- which means a company can grow
+profits and fall in the same afternoon legitimately, an event that confuses beginners annually forever after it happens.
+
+Useful posture: build your own two scenarios (this goes right because of this mechanism; this goes wrong if this
+happens) rather than adopting a stranger's central case, and decide what you'd want to pay in each before the quote
+moves. Numbers quoted second-hand in any summary -- including this one -- are transcriptions subject to staleness and
+typos; verify against primary filings before acting.
+
+## A five-minute routine
+
+1. Pull five columns of revenue and net income from the filing, not from a chart, and compute year-over-year and
+   start-to-end growth with the division shown so you can recheck it.
+2. Compute per-share growth alongside total-profit growth. A persistent gap between the two is the fingerprint of
+   buybacks rather than commercial progress.
+3. Compare margin levels across the same five years. Rising profits on collapsing margins is a different animal from
+   rising profits on rising margins even though both scan as growth.
+4. Note anything non-operating mentioned once in the notes -- litigation resolved, tax settled, property sold -- and
+   mentally subtract it to see what remains.
+5. Write one falsifiable sentence describing why the next three years should resemble the last five. If you can't, the
+   growth curve you're admiring is functioning as decoration.
+
+This is educational explanation of a financial concept, not investment advice or a recommendation of any kind. Every
+figure here is invented round-number arithmetic illustrating relationships, no company is named because published
+growth rates expire the moment they print, prior profit growth does not promise future price gains, and any holding can
+lose value including one whose earnings keep climbing.
