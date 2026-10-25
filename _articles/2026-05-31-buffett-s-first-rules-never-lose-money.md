@@ -18,50 +18,108 @@ related_articles:
   - title: "The Buffett Screener: Finding Wonderful Companies"
     url: "/articles/the-buffett-screener-finding-wonderful-companies/"
     description: "How to find companies that meet Buffett's investment criteria."
+quiz:
+  - question: "An investment falls 50%. What gain is required just to return to where it started?"
+    options:
+      - "100%"
+      - "50%"
+      - "75%"
+      - "It depends on the interest rate"
+    answer: 0
+    why: "Recovering from half of the original base requires doubling whatever remains, which is arithmetic rather than a forecast. The same percentage measured from two different bases produces these uneven numbers."
+  - question: "Which situation most directly turns an ordinary paper decline into a forced sale?"
+    options:
+      - "Investing borrowed money that carries a margin call"
+      - "Buying through a broker with no advertising budget"
+      - "Recording the purchase price in a notebook"
+      - "Owning shares across several industries"
+    answer: 0
+    why: "Borrowed money adds a deadline set by the lender, so the dip decides when you exit regardless of your thesis. Note-taking, diversification and broker marketing do not create sell obligations."
+  - question: "What does buying with a margin of safety actually protect against?"
+    options:
+      - "Being wrong about growth, margins or interest rates"
+      - "Ever having to pay taxes on a gain"
+      - "The stock exchange changing its opening hours"
+      - "Owning more than one company at a time"
+    answer: 0
+    why: "Paying below a conservative value estimate leaves room for reasonable errors in your assumptions. Tax rules, trading sessions and holding several names are unrelated to the gap between price and estimated worth."
 ---
 
-**Buffett's First Rule: Never Lose Money**
-=====================================================
+"Rule No. 1: Never lose money. Rule No. 2: Never forget rule No. 1." It's the most quoted line attached to Warren
+Buffett and the most commonly misread one, because taken literally it's impossible -- Berkshire has posted losing
+years, sold positions at losses, and Buffett has described specific purchases as mistakes in his own shareholder
+letters. A rule that its own author breaks is not a prediction about outcomes. It's a warning about **asymmetry**.
 
-Imagine you're playing a game where you can either win or lose money. Sounds like a no-brainer, right? But, what if I told you that one of the most successful investors in history, Warren Buffett, has a simple yet powerful rule to avoid losing money in the game of investing? In this article, we'll dive into Buffett's first rule, "Never Lose Money," and explore why it's essential for you to understand as a young investor.
+The asymmetry is arithmetic, not attitude. Losses hurt more than equivalent gains heal, and the deeper the hole the
+more improbable the climb out. An investment that falls 20% needs a 25% gain to get back to even. Down 50%, it needs
+100%. Down 75%, it needs 300%. Those aren't opinions or historical returns -- they're the same percentage measured
+from two different bases. So the job isn't avoiding red numbers; every ordinary holding goes red regularly, and
+[how far and how often](/articles/risk-and-reward-the-investing-balance/) is predictable enough to plan around. The
+job is avoiding the specific events from which recovery takes longer than your patience, your timeline, or your
+account's life expectancy.
 
-Buffett's first rule is not just about avoiding losses but also about being mindful of the potential downsides of an investment. It's about thinking critically about the risks involved and making informed decisions to minimize those risks. In Buffett's own words, "Rule No. 1: Never lose money. Rule No. 2: Never forget rule No. 1."
+## What causes permanent loss
 
-As a teenager, you might be thinking, "Why do I care about investing?" Well, here's the thing: investing is a crucial part of building wealth over time. By starting early and learning about smart investing strategies, you can set yourself up for financial success in the future. Plus, understanding how to manage risk can help you make better decisions in all areas of life, not just investing.
+Mark-downs are routine. Permanent loss has a short list of causes, and none of them is "the stock market fell":
 
-So, how does Buffett's first rule work in practice? Here are some key concepts to grasp:
+**Overpaying.** The price you paid determines what future performance has to overcome. A wonderful business bought
+at a silly price can still be a terrible investment, which is why "I like the company" is not an analysis. The
+[value estimation behind that claim](/articles/fundamental-analysis-finding-intrinsic-value/) is hard, and honest
+versions of it come with a range rather than a number.
 
-* **Risk management**: This is the process of identifying, assessing, and mitigating potential risks in an investment. Think of it like wearing a seatbelt while driving – you're taking steps to protect yourself from potential harm.
-* **Margin of safety**: This refers to the buffer zone between the price you pay for an investment and its true value. Having a margin of safety means you're less likely to lose money if the investment doesn't perform as expected.
-* **Circle of competence**: This is the idea that you should only invest in areas where you have a deep understanding of the industry, company, or asset. Sticking to your circle of competence helps you avoid making reckless decisions.
+**Leverage.** Borrowed money converts a survivable dip into a forced sale. Margin amplifies both directions and adds
+a deadline: the lender's call arrives whether or not you believe in the thesis. This is the closest thing to the
+literal reading of "never lose money," and it's why a beginner account should leave margin switched off entirely.
 
-Let's look at some examples of how Buffett's first rule has played out in real life:
+**Being forced to sell.** Money you need next spring for a car repair cannot live in something that might be down
+a third in March. This is the failure mode that actually gets teenagers disqualified -- not bad stock selection, but
+investing money on a deadline, then selling whatever the calendar demands at whatever price the day offers.
 
-* **Coca-Cola**: In the late 1980s, Buffett invested heavily in Coca-Cola, a company he understood well. He had a margin of safety, as the stock price was low compared to its true value. When the stock price skyrocketed, Buffett's investment paid off big time.
-* **Long-Term Capital Management**: In the late 1990s, a hedge fund called Long-Term Capital Management (LTCM) made some reckless bets on the market. They ignored Buffett's first rule and lost billions of dollars. Ouch!
+**Not knowing what you own.** Fandom is not insight. Using a company's product tells you something real about
+demand and nothing at all about pricing power, capital allocation, or debt. Sticking inside
+[a circle you can actually judge](/articles/the-buffett-screener-finding-wonderful-companies/) is about refusing to
+bet on things whose failure modes you can't describe.
 
-Here's a fun exercise to help you practice applying Buffett's first rule:
+**Fraud and deterioration.** Both are invisible right up until they're priced in. Audited statements reduce this
+risk without eliminating it -- reading them is [how you check](/articles/free-cash-flow-the-money-that-matters/),
+not how you become certain.
 
-1. Choose a company you're interested in investing in (e.g., a favorite tech company).
-2. Research the company's financials, products, and industry trends.
-3. Estimate the company's true value based on your research.
-4. Compare your estimate to the current market price.
-5. If the market price is higher than your estimate, consider whether there's a margin of safety.
+## Margin of safety, properly understood
 
-Here are the main lessons from Buffett's first rule:
+The phrase comes from Benjamin Graham, whose [Mr. Market parable](/articles/mr-market-graham-s-famous-parable/) makes
+the underlying idea vivid: a quotation is an offer, not a verdict. A margin of safety means paying meaningfully
+below your conservative estimate of what the whole business would cost to buy privately, so that being wrong about
+growth, margins or interest rates doesn't wipe you out.
 
-* Never lose money is not just a slogan – it's a mindset.
-* Risk management is crucial in investing.
-* Having a margin of safety can protect you from losses.
-* Stick to your circle of competence to avoid reckless decisions.
+Two honest caveats that get skipped in the motivational version. First, a discount relative to a bad estimate isn't
+safety -- it's a value trap with better paperwork. Second, waiting for a large enough discount in a market that
+rarely offers one mostly produces waiting. The realistic application for someone starting out is position size: keep
+any single unproven idea small enough that being completely wrong costs tuition rather than the whole project, which
+is the same logic behind the [learning budget in the starter portfolio walkthrough](/guides/building-your-first-portfolio/).
 
-Want to learn more about Warren Buffett and his investing philosophy? Check out these resources:
+And note where Buffett's own practical advice lands when he's describing what an ordinary person should actually do.
+Repeatedly in interviews and shareholder letters he has said the sensible default is a low-cost broad index fund
+held for decades -- famously leaving instructions for a trustee to put the bulk of his wife's inheritance in an
+S&P 500 index fund with the remainder in short-term government bonds. Not "never lose money." The aphorism describes
+his temperament under concentration; the recommendation for everyone else is boring diversification, which
+[index funds explain in plain terms](/articles/index-funds-set-it-and-forget-it/), plus
+[investing on a schedule instead of guessing entries](/articles/dollar-cost-averaging-smooth-out-the-bumps/).
 
-* **"The Essays of Warren Buffett: Lessons for Corporate America"** by Warren Buffett and Lawrence Cunningham
-* **"The Little Book of Common Sense Investing"** by John C. Bogle
-* **"Security Analysis"** by Benjamin Graham and David Dodd
+## The readable version of the rule
 
-**Disclaimer**
---------------
+Rewritten so it survives contact with reality:
 
-Please keep in mind that this article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and there are no guarantees of returns. Always do your own research and consult with a financial advisor before making investment decisions.
+- Never take a position whose worst credible outcome you can't afford to hold through.
+- Never borrow to invest while you're still learning what normal losses feel like.
+- Never let money with a deadline sit in anything that can gap down before the deadline.
+- Never skip understanding how a business earns, just because you like its products.
+- Assume some of your picks disappoint; size them so the disappointing ones teach instead of ending things.
+
+That framing keeps the useful paranoia and drops the paralysis. Read alongside his
+[actual biography](/articles/warren-buffett-s-story-from-paperboy-to-billionaire/), including the periods when
+Berkshire lagged the market for years, the rule stops looking like a promise about never showing a loss and starts
+looking like what it is: a refusal to be destroyed by an outcome you could have anticipated.
+
+This is educational commentary on an investor's stated philosophy, not financial advice or a recommendation to buy
+anything Buffett or anyone else owns. Percentages here are arithmetic illustrations rather than forecasts, his
+companies have had losing periods, and any security can lose value including one you understand perfectly.

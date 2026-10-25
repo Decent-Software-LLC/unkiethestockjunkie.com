@@ -18,47 +18,116 @@ related_articles:
   - title: "Cash Flow Statement: Following the Money"
     url: "/articles/cash-flow-statement-following-the-money/"
     description: "Why cash flow is the ultimate truth in business."
+quiz:
+  - question: "Why must the two columns of a balance sheet always add up?"
+    options:
+      - "Every asset was funded either by creditors or by owners"
+      - "Auditors round the numbers until they match"
+      - "The stock exchange requires identical totals"
+      - "Inflation cancels out across the two sides"
+    answer: 0
+    why: "Assets are things held, and somebody supplied the money for them: a lender expecting repayment or an owner who does not get repaid. Those two claims together equal everything owned. Rounding rules and trading sessions have nothing to do with the identity."
+  - question: "What does shareholders' equity on a balance sheet measure?"
+    options:
+      - "A historical accounting residue left after liabilities"
+      - "The price you should expect to pay for the whole company"
+      - "This quarter's revenue minus costs"
+      - "Cash available to spend tomorrow"
+    answer: 0
+    why: "It accumulates contributed capital plus profits kept over time, adjusted by accounting rules -- not a valuation, not this period's trading result, and not a cash balance."
+  - question: "Which liability often signals good news rather than trouble?"
+    options:
+      - "Deferred revenue collected before delivering the service"
+      - "Overdue payments owed to suppliers"
+      - "A bank loan coming due next month with no cash behind it"
+      - "An unpaid legal judgment"
+    answer: 0
+    why: "Money received ahead of the work means customers paid first, and growth there can be better demand evidence than reported sales. Late supplier payments, unfunded maturities and unpaid judgments all describe obligations the company cannot meet comfortably."
 ---
 
-Imagine you're the manager of your school's student store. You have to keep track of the money you make from selling snacks, the amount you owe to suppliers, and the value of the store itself. That's kind of like what a company's balance sheet does. It shows the financial health of a business at a specific point in time. As a future investor, understanding the balance sheet is crucial to making informed decisions. In this article, we'll break down the key concepts, provide real-world examples, and give you a chance to try it yourself.
+A balance sheet is a photograph, not a video. It reports what a company owned and owed **on one date** -- the last
+day of a quarter -- which is why every one carries a date instead of a period. The
+[income statement](/articles/income-statement-revenue-expenses-profits/) covers a span of months; this is the frozen
+frame before and after which everything moved. Compare two companies' frames without noticing they were taken in
+different seasons and you're comparing noise.
 
-A balance sheet is a financial statement that lists a company's assets, liabilities, and equity at a specific point in time. It's called a "balance" sheet because the total value of assets must equal the total value of liabilities and equity. Think of it like a seesaw: one side has assets, and the other side has liabilities and equity.
+## The identity, and why it isn't optional
 
-As a teenager, you might not be investing in the stock market yet, but understanding the balance sheet will help you make informed decisions when you start. Imagine you're considering investing in your favorite clothing brand. By looking at their balance sheet, you can see if they have a lot of debt, if they're generating cash, and if they're growing their business. This information can help you decide if it's a good investment or not.
+**Assets = liabilities + shareholders' equity**
 
-Let's break down the main ideas:
+Not convention. Logic. Everything a company holds had to be paid for by somebody: either a creditor who expects it
+back, or an owner who doesn't. Creditors' claims sit on the right as liabilities; whatever remains is the owners'
+residual claim, booked as equity. Add both sources and you've accounted for every dollar of stuff on the left. If a
+summary you're reading has columns that refuse to add up, distrust the transcription rather than the company --
+second-hand figures frequently don't balance, which is a good argument for opening the filing yourself.
 
-* **Assets**: These are the things a company owns or controls, like cash, inventory, buildings, or equipment. Think of assets like the money in your piggy bank or the value of your phone.
-* **Liabilities**: These are the debts or obligations a company has, like loans, credit card debt, or money owed to suppliers. Think of liabilities like the money you owe your parents for that new video game.
-* **Equity**: This is the value of the company itself, like the amount of money invested by shareholders or the profit retained by the business. Think of equity like the value of your lemonade stand.
+One misconception to delete immediately: **equity is not "the value of the company."** It's a historical residue --
+money owners contributed plus profits kept over the years, minus distributions, adjusted by accounting rules. What
+the stock market thinks the business is worth is a different number entirely (price times shares outstanding), and
+the gap between the two is the market's forecast of earnings nobody has produced yet. A company trading far above
+book isn't mispriced; a company trading below it isn't automatically cheap.
 
-Let's look at a real-world example. Suppose you're considering investing in Nike, the popular sports brand. By looking at their balance sheet, you can see:
+## How to actually read the layout
 
-* Assets: Nike has $32 billion in cash and short-term investments, $6 billion in inventory, and $3 billion in property and equipment.
-* Liabilities: Nike has $2 billion in short-term debt and $10 billion in long-term debt.
-* Equity: Nike has $22 billion in shareholder equity, which represents the value of the company itself.
+The left side is ordered by **how fast it becomes cash**: money in the bank, invoices customers haven't paid,
+inventory, equipment and buildings, then intangibles and goodwill. The right side is ordered by **who gets paid
+first and when**: supplier bills and short-term borrowings, then long-term debt, then owners last of all. That
+ordering is the liquidation script -- which is exactly why shareholders are described as residual claimants and why
+"a good company" and "a safe share certificate" are separate questions.
 
-This information can help you understand Nike's financial health and make a more informed investment decision.
+Illustrative numbers for a small craft business, so every figure ties:
 
-Let's say you have a small business selling handmade crafts online. You have:
+| Assets | Amount | | Liabilities & equity | Amount |
+|---|--:|---|---|--:|
+| Cash | \$100 | | Loan from family | \$150 |
+| Inventory | \$50 | | **Total liabilities** | **\$150** |
+| Equipment | \$200 | | Owner's equity | \$200 |
+| **Total assets** | **\$350** | | **Total liabilities + equity** | **\$350** |
 
-* Assets: $100 in cash, $50 in inventory, and $200 in equipment.
-* Liabilities: $50 in debt to your parents for startup costs.
-* Equity: $200 in shareholder equity (your own investment).
+Borrow another \$100 to buy a second oven and both sides grow together: assets \$450, funding \$150 loan + \$100 new
+debt + \$200 equity. Sell goods out of the stock line and those dollars leave inventory and arrive in cash -- the composition shifts
+while both sides stay level. Any margin earned on top is what actually grows the frame, showing up as cash plus a
+bigger **retained earnings** line inside equity. Years of that compounding is how self-funded companies get big without ever asking anyone
+for money, and it's visible as a single row growing steadily down the right column.
 
-Create a simple balance sheet using these numbers. Remember, the total value of assets must equal the total value of liabilities and equity.
+## Where each side stretches the truth
 
-* A balance sheet shows a company's financial health at a specific point in time.
-* Assets are the things a company owns or controls.
-* Liabilities are the debts or obligations a company has.
-* Equity is the value of the company itself.
-* Understanding the balance sheet is crucial to making informed investment decisions.
+Book values are accounting positions, not appraisals. Four places where the gap between "on the books" and "actually
+worth" gets wide enough to matter:
 
-**Not Financial Advice**
--------------------------
+**Inventory** is carried at cost until sold. Stock nobody wants keeps sitting there looking like an asset until
+someone finally writes it down. Inventory climbing faster than sales deserves an explanation -- either the company
+expects demand that hasn't arrived, or it's slow to admit demand left.
 
-This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+**Receivables** assume customers pay. Some fraction won't, and the size of that fraction is an estimate made by the
+company being graded on it.
 
-* [Investopedia: Balance Sheet](https://www.investopedia.com/terms/b/balancesheet.asp)
-* [SEC: Financial Statements](https://www.sec.gov/fast-answers/answers-financialstmtshtm.html)
-* [The Balance: How to Read a Balance Sheet](https://www.thebalance.com/how-to-read-a-balance-sheet-35775)
+**Equipment and buildings** are recorded at purchase price less depreciation, which describes tax-flavoured history
+rather than today's market. Buildings often appraise well above book; specialised machinery can be worth scrap metal
+and still carry a large figure.
+
+**Goodwill and intangibles** deserve special suspicion in acquisition-heavy industries. Goodwill is the premium paid
+over what acquired assets were worth on paper, and it stays at that value until management concedes something is
+wrong -- the concession is called an impairment, and it arrives late by construction. When most of a company's
+assets are intangible, the cushion behind your shares is thinner than headline equity implies.
+
+Not every liability is bad news. **Deferred revenue** -- cash collected before delivering the service -- appears as
+an obligation and is quietly favourable: customers paid in advance, and the work still has to happen. Growing
+deferred revenue is often better demand evidence than the reported sales figure for the same quarter.
+
+## Five minutes of checks before moving on
+
+Cash versus debt maturing within twelve months answers the question that ends careers: can it make this month's
+payments? Then watch the trend lines in the filing's own comparison columns -- rising short-term borrowings across
+successive dates, equity growing through retained profits (genuine) versus through issuing shares (your slice getting
+thinner), the maturity ladder of long-term debt, and how much of the asset side is intangible. If total equity has
+gone negative, resist the reflex: some asset-light businesses that bought back enormous amounts of stock run with
+tiny or negative book equity indefinitely. [Debt-to-equity makes sense of leverage in context](/articles/debt-to-equity-measuring-financial-health/),
+and [return on equity explains why shrinking the equity line can flatter a ratio](/articles/roe-return-on-equity-explained/).
+For the movement behind the still image, follow the actual money in the
+[cash flow statement](/articles/cash-flow-statement-following-the-money/).
+
+This is educational explanation of a financial statement, not investment advice; the worked figures are invented
+round numbers chosen so the arithmetic is checkable, and no company is named because book values shift every reporting
+period. A tidy balance sheet reduces one kind of risk and leaves the rest untouched: assets can be overstated, forecasts
+can be wrong, and any holding can lose value including one whose books look conservative.

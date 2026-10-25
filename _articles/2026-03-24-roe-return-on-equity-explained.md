@@ -18,51 +18,115 @@ related_articles:
   - title: "Income Statement: Revenue, Expenses, Profits"
     url: "/articles/income-statement-revenue-expenses-profits/"
     description: "How to read the story of a company's profitability."
+quiz:
+  - question: "Two companies report the same return on equity. What should you compare next?"
+    options:
+      - "How much debt each one carries"
+      - "Which one has the longer company name"
+      - "How many employees each company hired last quarter"
+      - "Which one updates its website more often"
+    answer: 0
+    why: "The same total can come from fat margins with little borrowing or from razor-thin margins propped up by heavy leverage, and those face very different risks. Website polish, employee counts and name length carry no information about how the ratio was built."
+  - question: "A company buys back a large block of shares and its reported return on equity jumps. Profits are unchanged. What happened?"
+    options:
+      - "The denominator shrank, so the same profit scored higher"
+      - "Sales genuinely accelerated"
+      - "Competitors stopped competing"
+      - "The tax authority reduced its rate"
+    answer: 0
+    why: "Repurchasing stock reduces owners' equity, and a smaller denominator lifts any ratio whose numerator is unchanged. Faster sales, weaker rivalry or a lower tax rate would all move profit itself, which did not happen here."
+  - question: "Roughly what sets the ceiling on growth a company can fund purely from retained profits?"
+    options:
+      - "Its return on equity multiplied by the share of profit it keeps"
+      - "The number of shares issued this year"
+      - "Its revenue divided by employee count"
+      - "The age of its chief executive"
+    answer: 0
+    why: "Reinvested earnings compound at the rate they earn, so growth without new outside money equals return on equity times the reinvestment rate. Share counts, productivity per head and management demographics do not set that limit."
 ---
 
-Imagine you're the owner of a lemonade stand. You invested $100 to start the business, and after a year, you made a profit of $20. That's a 20% return on your investment! Now, imagine you want to grow your lemonade stand into a huge company. To do that, you'll need to know how to measure the performance of your business. One key metric to track is the Return on Equity (ROE). In this article, we'll break down what ROE is, why it matters to teens, and how to calculate it with real-world examples.
+Return on equity answers the question a shareholder actually cares about: **for every dollar owners have left in
+this business, how much profit does management produce from it?** Net income divided by shareholders' equity,
+usually as a percentage. Simple formula, and the single most commonly misread number on a financial page -- because
+the same ROE can be produced by a genuinely excellent business or by nothing more adventurous than debt.
 
-Return on Equity (ROE) is a financial metric that shows how much profit a company generates from the money shareholders have invested in it. It's calculated by dividing the company's net income by its total shareholder equity. ROE is usually expressed as a percentage.
+The numerator comes from the [income statement](/articles/income-statement-revenue-expenses-profits/), the
+denominator from the [balance sheet](/articles/reading-the-balance-sheet-assets-liabilities-equity/), which is why
+understanding each of those first makes this one easy instead of mystical.
 
-As a teenager, you might not be investing in the stock market yet, but understanding ROE can help you make informed decisions when you do start investing. ROE can give you an idea of how well a company is using its resources to generate profits. It's like checking the report card of a company to see how well it's performing.
+## The calculation
 
-Imagine you're considering investing in a company that makes your favorite video games. If the company has a high ROE, it might be a good sign that it's using its resources efficiently to create popular games and make a profit. On the other hand, if the ROE is low, it might be a red flag that the company is struggling to generate profits.
+A small printing business has \$2,000 of owner's equity sitting in equipment and working capital, and earns \$360
+in the year. Return on equity is 360 ÷ 2,000 = about 18%. Compare it against the alternative uses of that \$2,000:
+what the money would earn parked in a savings account, or what a broad index fund delivered over the same stretch.
+Profitability in isolation tells you little; profitability relative to what else that capital could be doing is the
+whole point.
 
-To understand ROE, you need to know the following key concepts:
+So far so reasonable. Now the traps.
 
-* **Net Income**: The company's total earnings after deducting all expenses.
-* **Shareholder Equity**: The total amount of money invested in the company by shareholders.
-* **ROE Formula**: Net Income ÷ Shareholder Equity = ROE
+## Debt flatters this number mechanically
 
-For example, let's say a company has a net income of $100,000 and shareholder equity of $500,000. The ROE would be:
+Break the ratio into its three parts -- the DuPont decomposition, and the reason professionals never quote raw ROE:
 
-$100,000 ÷ $500,000 = 0.20 or 20%
+**ROE = net profit margin × asset turnover × equity multiplier**
 
-Let's look at some real-world examples of companies with high and low ROE:
+Two companies both showing 20%:
 
-* **High ROE**: Amazon has a high ROE of around 25%. This means that for every dollar invested in Amazon, the company generates 25 cents in profit.
-* **Low ROE**: Tesla has a relatively low ROE of around 5%. This might be because the company is investing heavily in research and development, which can reduce its short-term profits.
+| | Margin | Turnover | Equity multiplier | ROE |
+|---|--:|--:|--:|--:|
+| Company A | 10% | 1.0× | 2.0× | 20% |
+| Company B | 2% | 2.5× | 4.0× | 20% |
 
-Let's practice calculating ROE with a simple example:
+Identical headline. Completely different animals. Company A earns ten cents per sale and carries modest debt.
+Company B survives on razor-thin margins and is levered twice as heavily -- every one of its dollars of equity backs
+four dollars of assets. Its ROE depends on keeping that borrowing continuously available and on its slim margin never
+compressing. One bad year of costs or a rise in rates and the flattering number inverts; the equity cushion absorbing
+losses is half as thick. When you see a high ROE, the useful next question is *which* of the three columns produced
+it.
 
-Suppose you invested $1,000 in a small business that made a profit of $200. The shareholder equity is $1,000 (your investment).
+The multiplier version of the same trick is faster to spot. Equity roughly \$1,000 and profit \$150 gives 15%. Spend
+\$500 buying back shares and the denominator shrinks toward \$500 while profit is broadly unchanged, so reported
+return jumps toward 30%. Nothing improved operationally; the measuring stick got shorter. Buybacks can be excellent
+capital allocation when shares are genuinely cheap -- but read the number alongside what happened to profit per
+share, not instead of it.
 
-ROE = Net Income ÷ Shareholder Equity
-= $200 ÷ $1,000
-= 0.20 or 20%
+## Four ways to read it badly
 
-* ROE measures a company's profitability from shareholder equity.
-* A high ROE indicates a company is using its resources efficiently to generate profits.
-* A low ROE might indicate a company is struggling to generate profits.
-* ROE is just one metric to consider when evaluating a company's performance.
+- **Across industries.** Utilities, banks and retailers structurally run different leverage and inventory cycles, so
+  comparing their returns against each other ranks business models rather than quality. Compare a company against
+  its own history and its closest competitors.
+- **In one year only.** Inventory glut, one lawsuit, an unusual tax benefit -- any of these bends a single year. Three
+  or five years of the same column, trending, is information. One column is noise.
+- **With near-zero equity.** Repurchased-out equity can make the denominator tiny, producing absurd figures -- and if
+  equity is negative (more debt than assets), the ratio flips sign and means nothing at all. Check that the
+  denominator still resembles invested capital.
+- **As proof of a moat.** High returns attract competitors. The interesting follow-up is whether the return survives
+  competition, which is visible in margins and reinvestment rates over time rather than in the ratio itself.
 
-* Investopedia: Return on Equity (ROE)
-* The Motley Fool: What Is Return on Equity?
-* Forbes: How To Calculate Return On Equity (ROE)
+## What it's genuinely good for
 
-**Disclaimer**
---------------
+Used carefully, ROE answers two questions few others do.
 
-This article is for educational purposes only and should not be considered as financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+**Can this business fund its own growth?** Reinvested profits compound at roughly `reinvestment rate × ROE`. A
+business earning 18% that keeps 75% of profit can grow around 13--14% a year without issuing shares or borrowing --
+self-funded expansion, which tends to survive credit crunches. Same profit, distributing most of it, cannot grow
+without asking someone for money. Two similarly profitable companies with different policies deserve very different
+valuations.
 
-By understanding ROE, you'll be better equipped to make informed investment decisions and track the performance of your favorite companies. Remember, investing is a long-term game, and it's essential to be patient, informed, and cautious when making investment decisions.
+**Is retained profit being wasted?** If a company hoards equity while earning barely more than cash yields, every
+dollar it retains is a dollar that could have come back to owners. Persistent low returns plus refusal to pay them
+out is the pattern worth questioning, and management's answer usually lives in the
+[annual report letter](/articles/annual-reports-the-ceo-s-letter-to-shareholders/) where they have to defend it in
+prose rather than ratios.
+
+For context, return on equity sits inside a family of similar measures. Return on assets ignores financing entirely,
+and return on invested capital strips out non-operating items to ask what the operating machinery earns -- all three
+should travel together. A single flattering ROE surrounded by flat sibling returns is a hint that the difference came
+from the balance sheet rather than the business. Whatever metric you reach for, insist on inputs from filings you've
+opened yourself; every figure quoted second-hand in an article, including any on this site, is somebody else's
+transcription and can be stale or wrong.
+
+This is educational explanation of a financial ratio, not investment advice or a recommendation of any kind. All
+figures shown are invented round numbers used to make the arithmetic checkable, and no company is named because ratio
+levels change every reporting period. High historical returns do not protect you: shares can fall and you can
+lose money on a business that looked excellently run right up until it didn't.

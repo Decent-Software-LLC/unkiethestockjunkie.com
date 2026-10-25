@@ -18,64 +18,115 @@ related_articles:
   - title: "Annual Reports: The CEO's Letter to Shareholders"
     url: "/articles/annual-reports-the-ceo-s-letter-to-shareholders/"
     description: "How to read and learn from annual reports like Buffett does."
+quiz:
+  - question: "Why is depreciation added back in the operating section?"
+    options:
+      - "No cheque was written for it this year"
+      - "The tax authority refunds it"
+      - "It counts as borrowing"
+      - "Shareholders approved it"
+    answer: 0
+    why: "The equipment was paid for in an earlier period, so this year's depreciation is an accounting spread rather than a payment. Adding it back removes a charge that never reduced cash."
+  - question: "Operating cash flow sits near zero while financing activities show large positive inflows. What does that pattern usually mean?"
+    options:
+      - "Borrowing or share sales are funding day-to-day operations"
+      - "The company has become more profitable"
+      - "Depreciation just fell to zero"
+      - "Customers are paying faster than before"
+    answer: 0
+    why: "Money arriving from lenders or equity holders covering routine trading means operations are not self-funding. Faster collections or lower charges would show up in the operating section itself, not the financing one."
+  - question: "Investing activities show a large negative number in a given year. The correct reading is mostly determined by what?"
+    options:
+      - "Whether operating activities generated enough to cover it"
+      - "Whether the board replaced the CEO"
+      - "Whether the stock exchange reclassified the shares"
+      - "Whether revenue grew at all during the quarter"
+    answer: 0
+    why: "Buying capacity normally makes this section negative and is healthy when trading covers it. A shortfall covered by new debt is a different situation entirely, so the comparison across sections decides the meaning."
 ---
 
-Imagine you're the manager of a lemonade stand. You've got a lot of money coming in from sales, but you've also got expenses like cups, sugar, and lemons. How do you keep track of all that money? That's where a cash flow statement comes in. It's like a report card for your lemonade stand's finances, showing where your money is coming from and where it's going. In this article, we'll explore what a cash flow statement is, why it matters, and how to read one.
+The income statement is an opinion computed under accounting rules. The cash flow statement is the audit of that
+opinion, and it's the only one of the three statements you cannot talk your way into. Profit can be manufactured
+with estimates -- depreciation schedules, revenue recognition, what counts as an "expense" versus an "investment."
+Cash either arrived or it didn't. Companies have reported years of rising earnings while quietly running out of
+money, and when that ends it usually ends with shareholders last in line.
 
-A cash flow statement is one of the three main financial statements that companies use to report their financial performance. The other two are the income statement and the balance sheet. The cash flow statement shows the inflows and outflows of cash and cash equivalents over a specific period of time. It's divided into three main sections:
+This statement sits in the audited section of the [annual report](/articles/annual-reports-the-ceo-s-letter-to-shareholders/)
+and answers a narrow question with unusual honesty: **where did cash come from, where did it go, and does the
+answer add up?** It must reconcile to the balance-sheet cash line at both ends of the period, which is why the
+statement is such a good lie detector -- the [balance sheet](/articles/reading-the-balance-sheet-assets-liabilities-equity/)
+catches you if the totals don't tie.
 
-* **Operating activities**: This section shows the cash flows related to a company's core business operations, such as cash received from customers and cash paid to suppliers.
-* **Investing activities**: This section shows the cash flows related to a company's investments, such as buying or selling assets.
-* **Financing activities**: This section shows the cash flows related to a company's financing, such as borrowing money or issuing stock.
+## The three sections
 
-As a teenager, you might not be running a lemonade stand or a big corporation, but you're probably thinking about your future. You might be wondering how to manage your own finances, or how to invest in the stock market. Understanding cash flow statements can help you make informed decisions about your own money and investments. It's also an important skill to have if you're interested in pursuing a career in finance or business.
+**Operating activities** starts from net income and reverses everything that never involved a cheque. Depreciation
+gets added back, because the machine was paid for in some earlier year and this year's charge is just accounting
+spread. Then working-capital movements appear: customers who haven't paid yet (receivables) are profit you don't
+hold, stock piling up in a warehouse is cash turned into inventory, and paying suppliers later keeps money inside
+this quarter. The result is what trading actually produced rather than what accountants concluded.
 
-Let's break down some key concepts related to cash flow statements:
+**Investing activities** is long-lived stuff: property, plant, equipment, acquisitions, and proceeds from selling
+any of it. This section is usually negative, and normally that's fine -- negative here means the business bought
+capacity. What matters is whether operating activities covered it. A company spending more on equipment than it
+earns from customers has chosen growth funded by someone else's money, which shows up in the next section.
 
-* **Cash inflows**: These are the amounts of cash that a company receives from its operations, investments, or financing activities.
-* **Cash outflows**: These are the amounts of cash that a company pays out for its operations, investments, or financing activities.
-* **Net change in cash**: This is the total change in a company's cash balance over a specific period of time.
+**Financing activities** is the capital structure: borrowings drawn and repaid, shares issued, dividends paid,
+buybacks executed. Big positive numbers here paired with weak operating numbers deserve suspicion -- that's
+borrowing to fund operations, which works exactly until it stops working. Buybacks and dividends are real cash
+leaving the building too; they count here, not on the income statement.
 
-Here's an example:
+Add the three sections and you get the net change in cash. Add that to opening cash and you should read straight
+off the balance sheet. If a summary you're reading can't do that arithmetic, whoever wrote it hasn't read the
+statement.
 
-Let's say your lemonade stand has the following cash flows:
+## All three sections at once
 
-* Cash inflows: $100 from sales, $50 from a loan from your parents
-* Cash outflows: $20 for cups, $30 for sugar and lemons
-* Net change in cash: $100 + $50 - $20 - $30 = $100
+Illustrative numbers for a small delivery business, chosen so every figure is checkable. Opening cash \$2,000.
 
-This means that your lemonade stand has a net increase in cash of $100.
+| Section | Movement | Why |
+|---|--:|---|
+| Net income | \$1,500 | Starting point |
+| Add back depreciation | +\$600 | No cheque written this year |
+| Receivables rose | −\$400 | Invoiced, not collected |
+| Inventory rose | −\$300 | Cash became spare parts |
+| Payables rose | +\$200 | Paid a supplier later than usual |
+| **Operating total** | **+\$1,600** | Real cash from trading |
+| Equipment purchase | −\$1,100 | Second-hand van |
+| Old laptop sold | +\$100 | Asset disposal |
+| **Investing total** | **−\$1,000** | Net capacity bought |
+| Loan drawn | +\$1,500 | Bank financing |
+| Loan repayment | −\$300 | Scheduled principal |
+| Owner distribution | −\$200 | Money out of the business |
+| **Financing total** | **+\$1,000** | Net new funding |
+| **Net change in cash** | **+\$1,600** | 1,600 − 1,000 + 1,000 |
+| **Closing cash** | **\$3,600** | 2,000 + 1,600 |
 
-Let's look at a real-world example of a cash flow statement from a big company like Apple.
+Now diagnose it. Trading generated \$1,600 and the van cost \$1,000, so the business funded its own expansion and
+didn't need the loan -- debt drawn into a healthy operation is a choice, often about cheap money rather than
+necessity. Watch the \$400 of receivables: profit counted that sale, cash says otherwise, and if that gap widens
+every quarter while sales grow, something is being recognised that may never arrive. Notice also how much
+accounting judgement lives inside the first section -- which is precisely why the reconciliation is worth reading
+rather than skipping.
 
-In 2020, Apple's cash flow statement showed:
+## Four patterns worth knowing cold
 
-* Operating activities: $122 billion in cash inflows, $44 billion in cash outflows
-* Investing activities: $12 billion in cash outflows for purchases of property and equipment
-* Financing activities: $22 billion in cash inflows from issuance of debt
+- **Positive profit, persistently negative operating cash flow.** Earnings keep appearing while cash goes out the
+  door. Look hard at receivables and inventory, then at what management calls "timing."
+- **Borrowing dressed as growth.** Financing positive, operating flat or negative, revenue climbing. Revenue bought
+  on credit isn't the same as demand. When refinancing gets expensive this reverses violently.
+- **Capex quietly relabelled as investing.** If costs that used to sit in operating expenses show up as investments
+  instead, operating cash improves without any business changing. Some of it is legitimate accounting; watch for
+  the jump and ask what got reclassified.
+- **A large "other" line.** Where detail disappears, look for it in the footnotes. Statements are read bottom-up
+  by anyone trying to make something look better.
 
-Apple's net change in cash was $108 billion.
+Read the reconciliation at the bottom against the balance sheet's cash figures before believing anything above it,
+and remember that free cash flow -- operating cash minus capital expenditure -- is the derived number that decides
+whether dividends and buybacks are funded by the business or by the capital markets
+[free cash flow explains the mechanics](/articles/free-cash-flow-the-money-that-matters/). For the companion
+view, the [income statement](/articles/income-statement-revenue-expenses-profits/) shows the accrual story the
+cash statement exists to check.
 
-Here's a hands-on activity to help you practice reading a cash flow statement:
-
-1. Choose a publicly traded company that interests you, such as Tesla or Nike.
-2. Go to the company's investor relations website and find their latest cash flow statement.
-3. Identify the three main sections of the cash flow statement: operating, investing, and financing activities.
-4. Calculate the net change in cash for the company.
-
-Here are the main lessons from this article:
-
-* A cash flow statement shows the inflows and outflows of cash and cash equivalents over a specific period of time.
-* It's divided into three main sections: operating, investing, and financing activities.
-* Understanding cash flow statements can help you make informed decisions about your own money and investments.
-* It's an important skill to have if you're interested in pursuing a career in finance or business.
-
-**Not financial advice**
-
-If you want to learn more about cash flow statements and financial analysis, here are some resources to check out:
-
-* **"Financial Intelligence" by Karen Berman and Joe Knight**: This book provides a comprehensive overview of financial analysis and cash flow statements.
-* **"The Cash Flow Statement" by Investopedia**: This article provides a detailed explanation of cash flow statements and how to read them.
-* **"Financial Statement Analysis" by Subramanyam and Wild**: This textbook provides a thorough analysis of financial statements, including cash flow statements.
-
-Remember, investing involves risk, and it's always important to do your own research and consult with a financial advisor before making any investment decisions.
+This is an explanation of how to read a financial statement, not investment advice; nothing here recommends any
+company, the worked example uses invented round numbers to make the arithmetic checkable, and any security can
+lose value regardless of how tidy its cash flows look.
