@@ -34,30 +34,38 @@ An ETF fixes that. You buy one thing and get a slice of hundreds at once.
 
 ## What an ETF actually is
 
-An ETF is a basket of assets, stocks, bonds, gold, that trades on an exchange like a single stock. Someone built the basket, and when you buy a share you own a sliver of everything in it.
+An ETF is a basket of assets -- stocks, bonds, gold -- that trades on an exchange like a single stock. Someone built the basket, and when you buy a share you own a sliver of everything in it.
 
-A mutual fund does something similar, with one practical difference that matters when you're starting out: a mutual fund prices once a day, after the market closes at 4pm ET. An ETF has a price that moves all day, so you can act while the market is open instead of placing an order and hoping tomorrow's number looks sane.
+A mutual fund does something similar, with one practical difference that matters when you're starting out: a mutual fund prices once a day, after the market closes at 4pm ET. An ETF has a price that moves all day, so you can act while the market is open instead of placing an order and hoping tomorrow's number looks sane. See [how index funds differ](/articles/index-funds-set-it-and-forget-it/) -- the underlying idea is the same and the wrapper is what changes.
 
 ## Why the bundling part is the whole point
 
 Put $200 into one company and you're betting on one company. Good earnings, fine. One bad quarter, a lawsuit, a founder who goes off the rails, and you feel all of it.
 
-Put $200 into a total-market ETF and you own roughly the entire US stock market, thousands of companies. Any single one blowing up barely registers on your statement. That's diversification, and it isn't a strategy you have to be smart enough to execute. It comes pre-assembled.
+Put $200 into a total-market ETF and you own roughly the entire US stock market, thousands of companies. Any single one blowing up barely registers on your statement. That's diversification, and it isn't a strategy you have to be smart enough to execute. It comes pre-assembled. [This page goes deeper on what bundling protects you from and what it leaves untouched](/articles/diversification-don-t-put-all-your-eggs-in-one-basket/), which is worth reading before you decide two funds are automatically more diversified than one.
 
 Four words worth knowing:
 
 * **Diversification** spreading across many things so no single one can sink you.
-* **Indexing** copying a list like the S&P 500 instead of guessing which names win.
+* **Indexing** copying a list like the S&P 500 instead of guessing which names win -- [here's how that list gets made](/articles/what-is-the-s-p-500-and-why-should-you-care/).
 * **Liquidity** being able to sell during market hours rather than waiting.
 * **Expense ratio** what they charge you every year to hold it, usually well under 1%.
 
 ## Three real ones, with their actual fees
 
-* **Vanguard Total Stock Market (VTI)**, ~3,600 US companies, expense ratio around 0.03%. On $1,000 held for a year, that's about thirty cents.
+* **Vanguard Total Stock Market (VTI)**, roughly 3,600 US companies, expense ratio around 0.03%. On $1,000 held for a year, that's about thirty cents.
 * **iShares Core U.S. Aggregate Bond (AGG)**, a broad pile of US government and corporate bonds, around 0.03%. Bonds here exist to make the ride less violent, not to make you rich.
 * **SPDR Gold Shares (GLD)**, tracks the price of gold. Around 0.40%, noticeably pricier than the other two. Gold produces nothing; it just moves, which is why most people keep it a small slice.
 
-That 0.03% versus 0.40% gap is the part nobody mentions and the part worth checking. See [Diversification: Don't Put All Your Eggs in One Basket](/articles/diversification-don-t-put-all-your-eggs-in-one-basket/) for what it compounds into.
+That 0.03% versus 0.40% gap is the part nobody mentions and the part worth checking. Fees are charged against the fund's assets, not billed to you, so a costlier fund must out-earn the cheaper one just to tie -- and comparing two products from the same company often shows that exact gap sitting there openly, which is why reading the fee line takes ten seconds and pays better than reading any article about it.
+
+## Things that surprise people afterwards
+
+Two overlapping funds are frequently one bet. A total-market fund and an S&P 500 fund share most of their contents, so buying both doubles up on the biggest companies rather than widening anything. Checking overlap means opening each fund's top-holdings list, which publishers print precisely because regulators require disclosure.
+
+The traded price and the value of the contents can drift apart. Normally the gap is trivial; during a stampede -- market closures, a foreign market shut, an asset class nobody will quote -- a thinly traded ETF can change hands meaningfully away from the sum of its holdings. Popular names rarely suffer this. Obscure ones do, and the obscure ones are usually also the expensive ones with almost nobody else trading them, so check the spread quoted next to the price before assuming the number is real.
+
+Tiny funds get closed. When a fund never attracts assets, the sponsor liquidates it, you receive cash, and any embedded gain can become a taxable event at an inconvenient moment. Fund size and age are published alongside the fee for exactly this reason.
 
 ## If you had $1,000
 
@@ -69,10 +77,12 @@ One boring way to do it:
 
 The classic version swaps that third bucket to gold (GLD). Either way the logic is identical: three buckets that don't all crash on the same day.
 
-That split is an illustration, not advice. The right mix depends on whether you need the money next year for a car or in forty years for a house, see [Asset Allocation: Balancing Stocks and Bonds](/articles/asset-allocation-balancing-stocks-and-bonds/).
+That split is an illustration, not advice. The right mix depends on whether you need the money next year for a car or in forty years for a house, see [Asset Allocation: Balancing Stocks and Bonds](/articles/asset-allocation-balancing-stocks-and-bonds/). Splitting the purchase across several months instead of one day is its own kind of protection, and [regular contributions handle that without judgement calls](/articles/dollar-cost-averaging-smooth-out-the-bumps/).
 
 ## Do this today, with zero dollars
 
-Open a paper-trading app, Webull, Thinkorswim, or Investopedia's simulator all do it. Buy yourself $1,000 of imaginary VTI. Check it once a day for two weeks and write down how you feel when it drops 3%.
+Open a paper-trading app, Webull, Thinkorswim, or Investopedia's simulator all do it. Buy yourself $1,000 of imaginary VTI. Check it once a day for two weeks and write down how you feel when it drops.
 
-That's the actual skill. Picking the fund takes ninety seconds. Sitting still while it's red is the hard part, and it's free to practice right now.
+That's the actual skill. Picking the fund takes ninety seconds. Sitting still while it's red is the hard part, and it's free to practice right now -- [paper trading explains how to run that rehearsal so it transfers](/articles/paper-trading-practice-without-risk/), and [the first-portfolio walkthrough](/guides/building-your-first-portfolio/) covers the sequencing once money is involved. Expect movement along the way; [risk and reward](/articles/risk-and-reward-the-investing-balance/) puts honest numbers around how far ordinary holdings swing.
+
+This is education about how these products work, not financial advice. No fund named here is recommended, funds can lose money, and past returns do not predict future ones.

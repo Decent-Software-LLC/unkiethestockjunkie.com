@@ -40,6 +40,8 @@ So Apple, Microsoft and Nvidia share a sector but not an industry. Apple sells h
 
 There are 11 official sectors under the GICS system, which is the one almost every fund company and broker uses. You'll see them listed if you ever open a screener or a sector ETF page.
 
+One thing to know about an official list: it gets edited. Classification follows how a company makes its money, so when a business's revenue mix shifts far enough, the provider moves it between sectors and thousands of funds adjust their exposure without any press release aimed at you. Index providers have also bounced individual names between consumer buckets more than once over exactly that question. Sector membership is a judgement about today's business model, not a law of nature.
+
 ## Real buckets and who's in them
 
 * **Technology**, Apple, Microsoft, Nvidia, with software, hardware and semiconductors as distinct industries underneath.
@@ -53,12 +55,18 @@ Two words that look alike and behave nothing alike: *discretionary* and *staples
 
 Because sector is the hidden correlation. Two stocks can be totally unrelated businesses and still trade like twins if they share a sector and a macro trigger, interest rates crush regional banks and mortgage companies together regardless of their fundamentals.
 
+It also explains why two portfolios with identical holdings counts behave differently. A fund holding four hundred names that lean heavily toward one corner of the market is not nearly as spread out as the name count suggests, and weight matters more than breadth -- the ten largest positions in a popular index fund can outweigh everything below them combined, which [the page on how that index is built](/articles/what-is-the-s-p-500-and-why-should-you-care/) spells out. Weighting choice is part of it too: an equal-weight version of the same list gives little companies the same influence as giants and behaves noticeably differently in both directions.
+
+Sectors are equally useful for reading news. Energy headlines track a commodity, utilities track the cost of borrowing, retailers track wages and consumer mood. Once a story is tagged to a bucket you can usually predict which names get sold before you check, which is the difference between reacting to coverage and understanding it. [Reading financial news](/articles/reading-financial-news-separating-signal-from-noise/) is the same skill pointed at daily noise, and [growth versus value](/articles/growth-stocks-vs-value-stocks/) is the other axis investors use to sort the same companies.
+
+There is a version of this that applies before you own anything. Teen hiring skews toward consumer discretionary -- restaurants, shops, amusement parks, retail -- which is precisely the group that cuts hours first when spending tightens. Earning most of your money in one industry while keeping all your savings in the same industry is a double bet on whether people feel like spending, and noticing it is more useful than picking a ticker.
+
 Check this yourself in five minutes. Open any free charting tool and plot a semiconductor name against a bank over the last two years. Different shapes. Same-ish shape within each group. That clustering is the thing a sector map makes visible, and it's the reason [Diversification: Don't Put All Your Eggs in One Basket](/articles/diversification-don-t-put-all-your-eggs-in-one-basket/) talks about buckets rather than headcount.
 
 ## Do this today, for free
 
 Go to a brokerage site, any of them, Webull, Fidelity, Schwab, and find the "Screener" or "Sector" tab. Look up the 11 sectors and see which has performed best over the past year. Note the number. Then set the range to five years and note that one too.
 
-Those two lists are almost never the same. That's the entire lesson in one screen: sector leadership rotates, and whatever feels obvious right now is usually already expensive. If you want to own everything without judging which sector wins next, that's what [ETFs: Instant Diversification Made Easy](/articles/etfs-instant-diversification-made-easy/) is for.
+Those two lists are almost never the same. That's the entire lesson in one screen: sector leadership rotates, and whatever feels obvious right now is usually already expensive. [A screener is the fastest way to run that comparison yourself](/articles/stock-screeners-finding-your-first-investment/), since it turns "which industries are actually profitable" into a query instead of a vibe. If you want to own everything without judging which sector wins next, that's what [ETFs: Instant Diversification Made Easy](/articles/etfs-instant-diversification-made-easy/) is for, and if you decide you do want a single-bucket bet, [check how much movement you are signing up for](/articles/risk-and-reward-the-investing-balance/) before committing more than you can watch sit red for months.
 
 *Educational content, not financial advice. Investing involves risk, including the possibility that you lose money, and no sector has ever come with a guarantee.*

@@ -207,7 +207,7 @@ function generateImagePrompt(topic) {
 }
 
 // Utility: Generate article content using NVIDIA Nemotron 3 Nano Omni 30B (reasoning)
-async function generateArticleContent(topic) {
+async function generateArticleContent(topic, repairNote) {
   if (!NVIDIA_API_KEY) {
     console.error('❌ NVIDIA_API_KEY not set!');
     console.error('Get a free API key at https://build.nvidia.com/');
@@ -232,7 +232,7 @@ async function generateArticleContent(topic) {
             },
             {
               role: "user",
-              content: prompt
+              content: repairNote ? `${prompt}\n\nREMINDER FROM THE PUBLISHER:\n${repairNote}` : prompt
             }
           ],
           temperature: 0.7,
@@ -539,24 +539,56 @@ function linkPoolFor(topic) {
   return [...shuffled, ...guides].join(', ');
 }
 
-// Pull the JSON quiz the prompt appends after ===QUIZ===. Parsing is strict on purpose: a malformed
-// or missing quiz rejects the candidate rather than publishing an article section that renders empty.
+// Locate the JSON quiz the model appends after the article.
+//
+// The first version required a literal `===QUIZ===` delimiter line and it discarded every candidate in
+// the first real production run that merely punctuated a separator differently ("## Quiz", bolded,
+// trailing colon). Throwing away good prose over a delimiter is a bad trade, so the marker is now
+// optional: what is required is a structurally valid question array, validated strictly regardless of
+// how the model chose to label it.
+function findQuizArray(text) {
+  const MAX_SPAN = 9000;
+  let best = null;
+  for (let s = 0; s < text.length; s++) {
+    if (text[s] !== '[') continue;
+    let depth = 0, end = -1, inStr = false, esc = false;
+    for (let i = s; i < Math.min(text.length, s + MAX_SPAN); i++) {
+      const c = text[i];
+      if (esc) { esc = false; continue; }
+      if (c === '\\') { esc = true; continue; }
+      if (c === '"') { inStr = !inStr; continue; }
+      if (inStr) continue;
+      if (c === '[') depth++;
+      else if (c === ']') { depth--; if (depth === 0) { end = i; break; } }
+    }
+    if (end < 0) continue;
+    const slice = text.slice(s, end + 1);
+    if (!slice.includes('"question"')) continue;
+    let parsed;
+    try { parsed = JSON.parse(slice); } catch (e) { continue; }
+    if (!Array.isArray(parsed) || !parsed.length) continue;
+    // Keep the LAST structurally plausible array: the quiz belongs at the end, and an earlier match
+    // typically means the model echoed the example shape from the prompt instructions.
+    if (parsed.every((o) => o && typeof o === 'object' && o.question && Array.isArray(o.options))) best = { quiz: parsed, at: s };
+  }
+  return best;
+}
+
+function stripTrailingFence(b) {
+  return String(b).replace(/\s*```[a-zA-Z]*\s*$/g, '').replace(/[ \t]*={2,}[ \t]*$/, '').trim();
+}
+
+// Pull the JSON quiz out of a raw completion, returning the body without it.
 function splitQuiz(raw) {
   const text = String(raw || '');
-  const idx = text.search(/^\s*={3,}\s*QUIZ\s*={3,}\s*$/im);
-  if (idx === -1) return { body: text.trim(), quiz: null, error: 'no ===QUIZ=== section found' };
-  const body = text.slice(0, idx).trim();
-  const m = text.slice(idx).match(/\[[\s\S]*\]/);
-  if (!m) return { body, quiz: null, error: '===QUIZ=== present but no JSON array after it' };
-  let parsed;
-  try {
-    parsed = JSON.parse(m[0]);
-  } catch (e) {
-    return { body, quiz: null, error: `quiz JSON unparseable: ${e.message}` };
-  }
-  const v = validateQuiz(parsed);
-  if (!v.ok) return { body, quiz: null, error: `quiz invalid: ${v.errors.join('; ')}` };
-  return { body, quiz: parsed };
+  const found = findQuizArray(text);
+  if (!found) return { body: stripTrailingFence(text), quiz: null, error: 'no structurally valid quiz JSON array found' };
+  const v = validateQuiz(found.quiz);
+  if (!v.ok) return { body: stripTrailingFence(text.slice(0, found.at)), quiz: null, error: `quiz invalid: ${v.errors.join('; ')}` };
+  const head = stripTrailingFence(text.slice(0, found.at));
+  // Drop the label line ("## Quiz", "===QUIZ===:", "**Quiz:**") if still attached to the body.
+  const body = head.replace(/(^|\n)[ \t]*[=#*_~-]{0,8}\s*quiz\b[^\n]*$/i, '$1').trimEnd();
+  return { body, quiz: found.quiz };
 }
 
 function yamlQuote(s) {
@@ -682,16 +714,24 @@ async function main() {
   // a site read by minors twice in a row.
   const MAX_ATTEMPTS = Number(process.env.GENERATE_ATTEMPTS || 3);
   const tried = new Set(generatedData.generated);
-  if (topic && topic.title) tried.add(topic.title);
+  let usedTopic = false;
   let published = null;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS && !published; attempt++) {
-    const candidates = topics.filter((tp) => !tried.has(tp.title) && !articleExists(tp));
-    if (!candidates.length) {
-      console.log('⚠️ No unused topics remain to try.');
-      break;
+    let candidate;
+    if (attempt === 1 && topic && !usedTopic) {
+      // The log already announced this selection; honouring it avoids the confusing "Selected: X"
+      // followed by attempts on entirely unrelated topics.
+      candidate = topic;
+      usedTopic = true;
+    } else {
+      const candidates = topics.filter((tp) => !tried.has(tp.title) && !articleExists(tp));
+      if (!candidates.length) {
+        console.log('⚠️ No unused topics remain to try.');
+        break;
+      }
+      candidate = candidates[Math.floor(Math.random() * candidates.length)];
     }
-    const candidate = candidates[Math.floor(Math.random() * candidates.length)];
     tried.add(candidate.title);
     console.log(`\n🎲 Attempt ${attempt}/${MAX_ATTEMPTS}: "${candidate.title}" (${candidate.difficulty})`);
 
@@ -705,24 +745,50 @@ async function main() {
       }
     };
 
-    let raw;
-    try {
-      raw = await generateArticleContent(candidate);
-    } catch (err) {
-      console.log(`❌ generation failed, trying another topic: ${err.message}`);
-      cleanup();
-      continue;
+    // A candidate gets two generations of the SAME topic before it is abandoned. The first production
+    // run discarded three articles outright: two over a mis-punctuated delimiter and one that came back
+    // at 179 words after a 503. Those are transient model failures, not bad topics -- re-running costs one
+    // API call, while switching topics throws away a good选题 and burns the day's attempts.
+    let accepted = null;
+    let repairNote = null;
+    for (let sub = 1; sub <= 2 && !accepted; sub++) {
+      let raw;
+      try {
+        raw = await generateArticleContent(candidate, repairNote || undefined);
+      } catch (err) {
+        console.log(`❌ generation failed: ${err.message}`);
+        break;
+      }
+
+      const { body, quiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
+      const words = String(body || '').split(/\s+/).filter((x) => /[A-Za-z]{3,}/.test(x)).length;
+
+      if (!error && words < 200) {
+        // Almost always a truncated completion rather than a genuinely short article.
+        console.log(`⚠️ only ${words} words returned -- looks truncated, retrying this topic`);
+        repairNote = 'Your previous response stopped early. Output the complete article (at least 750 words of prose), then the quiz JSON array.';
+        continue;
+      }
+      if (error) {
+        console.log(`⚠️ ${error}${sub === 1 ? ' -- retrying this topic' : ''}`);
+        // Print the edges of what actually came back. Without this the log says only "no quiz found",
+        // which cannot be acted on, and the first debugging step becomes a guess.
+        console.log(`   raw starts: ${JSON.stringify(String(raw).slice(0, 180))}`);
+        console.log(`   raw ends:   ${JSON.stringify(String(raw).slice(-180))}`);
+        repairNote = 'Your previous response was rejected: ' + error + '. After the article, output a line containing ===QUIZ=== and then a single valid JSON array of 2 or 3 question objects.';
+        continue;
+      }
+      accepted = { body, quiz };
     }
 
-    const { body, quiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
-    if (error) {
-      console.log(`❌ rejected before writing: ${error}`);
+    if (!accepted) {
+      console.log('❌ no usable completion for this topic; moving on');
       cleanup();
       continue;
     }
 
     const date = new Date();
-    const markdown = generateMarkdownFile(candidate, body, imagePath, date, quiz);
+    const markdown = generateMarkdownFile(candidate, accepted.body, imagePath, date, accepted.quiz);
     const filename = `${formatDate(date)}-${generateSlug(candidate.title)}.md`;
     const filepath = path.join(ARTICLES_DIR, filename);
     fs.writeFileSync(filepath, markdown);
@@ -740,7 +806,6 @@ async function main() {
       cleanup();
       continue;
     }
-
     console.log(`\n✅ Article saved and gated: ${filename} (${verdict.stats.words} words, ${verdict.stats.internalLinks} internal links)`);
     for (const w of verdict.warnings) console.log(`   ! verify before trusting: ${w}`);
     if (imagePath) console.log(`🎨 Image: ${imagePath}`);
@@ -752,7 +817,9 @@ async function main() {
 
   if (!published) {
     console.error('\n❌ No candidate passed the pre-publication gate. Nothing was written or published.');
-    process.exit(1);
+    // Distinct from a crash. Publishing nothing because the work was not good enough is the gate
+    // functioning, and the workflow renders it as a warning rather than a broken scheduled job.
+    process.exit(2);
   }
   
   console.log('\n🎉 Article generation complete!');

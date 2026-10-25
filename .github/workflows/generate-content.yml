@@ -28,11 +28,24 @@ jobs:
       # The generator gates its own output and exits non-zero when no candidate survives, deleting
       # rejected files so they cannot be committed. It tries up to 3 topics per run (GENERATE_ATTEMPTS);
       # a run that publishes nothing is a successful run of a correct pipeline, not a failure to publish.
+      # Exit codes are meaningful: 0 published something, 2 nothing cleared the gate (expected outcome,
+      # not an outage -- rendered as a warning), anything else is a genuine failure worth alerting on.
       - name: Generate new article
-        run: npm run generate
+        id: gen
+        continue-on-error: true
+        run: |
+          set +e
+          npm run generate
+          rc=$?
+          echo "exit_code=$rc" >> $GITHUB_OUTPUT
+          if [ "$rc" -gt 2 ]; then exit "$rc"; fi
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           GENERATE_ATTEMPTS: '3'
+
+      - name: Note when nothing qualified
+        if: steps.gen.outputs.exit_code == '2'
+        run: echo "::warning::No generated candidate cleared the pre-publication gate today. Nothing was published. Check the Gate step log above for the rejection reasons." 
 
       - name: Check for changes
         id: check_changes
