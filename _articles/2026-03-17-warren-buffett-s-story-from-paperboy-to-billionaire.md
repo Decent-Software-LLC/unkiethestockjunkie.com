@@ -18,39 +18,108 @@ related_articles:
   - title: "Benjamin Graham: The Father of Value Investing"
     url: "/articles/benjamin-graham-the-father-of-value-investing/"
     description: "Meet Warren Buffett's teacher and author of The Intelligent Investor."
+quiz:
+  - question: "Berkshire Hathaway began as which kind of investment?"
+    options:
+      - "A badly run textile company he later called a mistake"
+      - "An insurance group built from scratch"
+      - "A candy chain bought at a discount"
+      - "A newspaper chain inherited from Graham"
+    answer: 0
+    why: "He took control of a failing New England textile mill in 1965 and repeatedly described that purchase as a poor decision which nonetheless became the vehicle for everything afterwards."
+  - question: "Why does his American Express purchase after the 1964 scandal illustrate the stated method?"
+    options:
+      - "Customers kept using the card whatever the shares were doing"
+      - "The government guaranteed the company's losses"
+      - "It paid an unusually large dividend that year"
+      - "Insiders were legally barred from selling"
+    answer: 0
+    why: "The reasoning was that everyday card usage -- the underlying economics -- continued while the market priced the company as finished. Government guarantees, one-off dividends and trading restrictions played no part in the case."
+  - question: "What does the timing of when most of his wealth arrived demonstrate?"
+    options:
+      - "Returns had been compounding since childhood, so late decades dwarfed early ones"
+      - "Investors generally get luckier after retirement"
+      - "Large fortunes arrive almost entirely in a single year"
+      - "Taxes are lower for older shareholders"
+    answer: 0
+    why: "Most of the money landed well past the sixth decade because steady growth applied across a very long stretch compounds unevenly toward the end. Age-related luck, one-year windfalls and tax brackets do not explain that shape."
 ---
 
-**Not Financial Advice:** This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+Warren Buffett was born in Omaha in 1930 and became the most widely followed investor of the past century. That
+makes his career a case study rather than a saint's life, and the instructive part isn't the size of the fortune --
+it's the order things happened in. Nearly every habit worth copying appeared long before the money did, and so did
+the errors he has since admitted to in public.
 
-Imagine being a billionaire before the age of 50. Sounds like a dream, right? Well, Warren Buffett made it a reality. From delivering newspapers as a teenager to becoming one of the most successful investors in history, Warren Buffett's story is a fascinating one. In this article, we'll explore his journey, investment philosophy, and key concepts that can help you become a better investor.
+## The part that actually matters at sixteen
 
-Warren Buffett is a value investor, which means he looks for undervalued companies with strong fundamentals and potential for long-term growth. He's the chairman and CEO of Berkshire Hathaway, a multinational conglomerate holding company. Buffett's investment philosophy is centered around the concept of "Mr. Market," a fictional character who offers him opportunities to buy or sell companies at various prices.
+His earliest jobs were newspaper rounds, which he saved rather than spent, and he bought his first shares around age eleven -- three
+Cities Service preferred issues, partly with money from his sister. Then the price fell to roughly $27 from about
+$38, he panicked, sold, and watched it recover above $40. Every adult finance professional knows how that story
+ends; eleven-year-old Buffett learned it the expensive way, and the lesson -- that a price move tells you nothing
+about whether you were right -- is exactly the one [Mr. Market](/articles/mr-market-graham-s-famous-parable/) teaches
+in parable form.
 
-You might wonder why you should care about Warren Buffett's story. Well, here's the thing: investing is a crucial part of securing your financial future. By learning from Buffett's experiences and philosophies, you can develop a solid understanding of investing and make informed decisions about your own money. Plus, who wouldn't want to become a billionaire, right?
+Everything else about the timeline follows from starting absurdly early with unremarkable sums. He studied under
+[Benjamin Graham](/articles/benjamin-graham-the-father-of-value-investing/) at Columbia Business School in the early
+1950s, worked briefly for him, and in 1956 raised about \$105,000 -- mostly from relatives and friends -- to run the
+Buffett Partnership Ltd. It compounded well for a decade. In 1965 he took control of Berkshire Hathaway, a failing
+New England textile company, an acquisition he has repeatedly described as a bad decision that eventually became the
+vehicle for everything else. That's the second useful thing: the defining asset began as a mistake.
 
-1. **Value Investing**: Buffett looks for companies that are undervalued by the market. He believes that these companies have the potential to increase in value over time, making them a good investment.
-2. **Long-Term Focus**: Buffett is known for his patient approach to investing. He's not interested in making quick profits; instead, he focuses on long-term growth and stability.
-3. **Mr. Market**: Buffett's fictional character, Mr. Market, represents the stock market. He views Mr. Market as a business partner who offers him opportunities to buy or sell companies at various prices.
-4. **Margin of Safety**: Buffett always looks for a margin of safety when investing. This means he wants to ensure that the company he's investing in has a strong financial foundation and can withstand economic downturns.
+The 1970s brought the shift that made the fortune possible. Under Graham the discipline was buying statistically
+cheap businesses -- cigar butts, one last puff free. Charlie Munger, then becoming Berkshire's vice chairman, argued
+for paying a fair price for genuinely good businesses instead. The 1972 purchase of See's Candies through Blue Chip
+Stamps became the standard example: it wasn't cheap by cigar-butt standards, but it needed little capital and could
+raise prices without losing customers, and Berkshire kept the cash it produced. Later came Washington Post shares
+bought while Watergate panic was hammering the stock in 1973, and an aggressive stake in GEICO while the insurer was
+near collapse in the mid-1970s. American Express got the same treatment after the 1964 Salad Oil scandal blew up its
+reputation -- roughly \$13 million committed while everyone else assumed the card was finished, on the reasoning that
+customers kept using it regardless of what the shares were doing. The Coca-Cola position of 1988, costing roughly
+\$1.3 billion, followed the same template: understand the product economics, ignore the mood of the tape.
 
-1. **Coca-Cola**: In 1988, Buffett invested $1.3 billion in Coca-Cola stock. At the time, the company was facing challenges, and its stock price had dropped. However, Buffett saw the potential for long-term growth and invested heavily. Today, Coca-Cola is one of Berkshire Hathaway's most valuable holdings.
-2. **American Express**: In 1964, Buffett invested in American Express after the company faced a major crisis. He saw the potential for the company to recover and invested $13 million. Today, American Express is one of the largest financial services companies in the world.
+Then the honesty section, which the reverent versions skip. Berkshire missed Amazon for years -- a failure of
+comprehension more than conviction. A large IBM bet from 2011 failed to reward holders the way he expected. Salomon
+Brothers nearly imploded in 1991 over a trading-law violation and Buffett flew in to clean it up publicly. He bought
+airline stocks in 2016 calling them consumer franchises, then sold them during the 2020 panic at losses. ConocoPhillips
+was bought near a cyclical peak and written off as a timing error. None of this undermines the record; it establishes
+that the record includes being wrong often and sizing positions so that being wrong didn't end anything -- which is
+the practical reading of [never losing money](/articles/buffett-s-first-rules-never-lose-money/).
 
-Imagine you're Warren Buffett, and you're looking to invest in a company. Research a company that you think has potential for long-term growth. Consider the following factors:
+## The arithmetic you should actually take from it
 
-* Financials: Is the company profitable? Does it have a strong balance sheet?
-* Management: Is the management team experienced and capable?
-* Industry: Is the industry growing, and is the company well-positioned to take advantage of this growth?
+The single most underrated fact in the whole story: the great majority of his wealth arrived after his sixtieth
+birthday. Not because he got better late -- because the compounding had been running since childhood, and growth rates
+held together across decades do something linear saving never can. The mechanism is on
+[this page if you want the numbers](/articles/compound-interest-the-eighth-wonder-of-the-world/).
 
-Write down your thoughts and reasons for investing in the company. Then, imagine that you're Mr. Market, and you're offering the company to Warren Buffett at various prices. Would you buy or sell the company at each price point?
+For someone sixteen or seventeen the transferable advantages are unglamorous and available immediately:
 
-* Warren Buffett's story is a testament to the power of value investing and long-term focus.
-* Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
-* Key concepts to consider when investing include value investing, long-term focus, Mr. Market, and margin of safety.
-* Research and due diligence are crucial when evaluating investment opportunities.
+**Time, which he cannot buy more of.** Decades of horizon beat superior judgment fairly often, provided the money
+stays put through the unpleasant stretches. Most beginners give that edge back by moving cash around after a bad
+quarter.
 
-1. **"The Intelligent Investor" by Benjamin Graham**: This classic book is a must-read for any investor. It provides a comprehensive guide to value investing and long-term wealth creation.
-2. **"Warren Buffett's Letters to Shareholders"**: This collection of letters provides insight into Buffett's investment philosophy and strategies.
-3. **"Berkshire Hathaway's Annual Reports"**: Reading Berkshire Hathaway's annual reports can provide valuable insights into Buffett's investment decisions and philosophies.
+**No institutional constraints.** No benchmark to track, no quarter-end report, no clients redeeming in a panic, no
+career risk from owning something unfashionable. Professional managers lose money managing perception; you don't have
+that job.
 
-Remember, investing is a journey, and it's essential to be patient, disciplined, and informed. By learning from Warren Buffett's story and philosophies, you can develop a solid understanding of investing and make informed decisions about your own money.
+**A real informational niche.** You know which products teenagers actually keep using and which are marketing weather
+before any analyst does. Using something isn't investment insight -- plenty of enthusiastic users owned companies they
+shouldn't have -- but noticing *decline* early is genuine and free.
+
+What you cannot copy is the capital structure. Berkshire's insurance operations hand it money today that it doesn't
+have to pay out until claims arrive, and that float is why enormous concentrated bets were survivable. Nobody has that
+arrangement in a custodial account, so concentration behaves completely differently when your downside is a personal
+budget rather than an insurer's reserve. Which is precisely why the boring recommendation is the honest one:
+[inexpensive broad index funds held for decades](/articles/index-funds-set-it-and-forget-it/), with whatever curiosity
+money you want allocated to learning on individual names inside
+[a screener's guardrails](/articles/the-buffett-screener-finding-wonderful-companies/).
+
+He still lives in the Omaha house he bought in 1958, spends almost nothing personally on the trappings, and pledged
+the overwhelming majority of his fortune to philanthropy led by the Bill & Melinda Gates Foundation. Whatever you make
+of that morally, it makes one thing hard to argue with: for him the game was never primarily the money, which is why
+waiting decades was possible. Copy the patience mechanics, not the personality -- and read primary sources where you
+can, starting with his own shareholder letters, because every biographer including this one is summarising.
+
+This is educational commentary on a public figure's documented career, not financial advice or a recommendation to buy
+what he owns; prices and dates shown are widely reported figures rounded for readability and can be checked against
+filings, and any holding -- including his best-known ones -- can lose value.
