@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "The Graham Screener: Finding Bargain Stocks"
-description: "How to find stocks trading below their intrinsic value."
+description: "Graham's actual published defensive criteria, what each filter is for, and where a rules-based value screen fails."
 date: 2026-03-18
 difficulty: intermediate
 tags: ["benjamin-graham", "screeners", "value-investing", "intermediate"]
@@ -18,45 +18,120 @@ related_articles:
   - title: "Mr. Market: Graham's Famous Parable"
     url: "/articles/mr-market-graham-s-famous-parable/"
     description: "Understanding market irrationality through Graham's story."
+quiz:
+  - question: "Why does combining the earnings multiple with the price-to-book multiple add information?"
+    options:
+      - "Weakness on one measure must be offset by strength on the other"
+      - "It removes the need to check debt levels"
+      - "Both measures always move together anyway"
+      - "It guarantees the company pays a dividend"
+    answer: 0
+    why: "Two imperfect yardsticks -- profit and recorded capital -- have to both come out favourably, so a flattering earnings figure cannot hide an inflated book value. Leverage still needs separate examination, the measures frequently diverge, and neither has any bearing on payout policy."
+  - question: "What does passing every criterion tell you?"
+    options:
+      - "The name deserves reading; it says nothing about improvement ahead"
+      - "The stock is certain to rise"
+      - "Its accounts contain no errors"
+      - "It is the best available investment anywhere"
+    answer: 0
+    why: "Screens filter on reported history and can flag cheap-but-dying businesses, overstated receivables and impaired goodwill alike. Passing marks a candidate for investigation in filings, not a purchase decision."
+  - question: "Which companies are structurally disadvantaged by a rule centred on price versus book value?"
+    options:
+      - "Businesses whose value sits in contracts, code and brands"
+      - "Manufacturers owning heavy plant"
+      - "Utilities with regulated rate bases"
+      - "Banks holding largely monetary assets"
+    answer: 0
+    why: "Intangible-heavy firms carry little recorded capital, so the denominator is small and the ratio permanently high even when the franchise is excellent. Asset-heavy sectors supply exactly the large book values such rules are built to compare against."
 ---
 
-**Not Financial Advice:** This article is for educational purposes only. Investing involves risk, and it's essential to do your own research and consider your own financial goals before making any investment decisions.
+Unlike almost every other named screening method on the internet, Benjamin Graham's criteria really were published, in
+print, with numbers attached. That difference matters more than it sounds: a rules list you can read is a rules list you
+can disagree with, test, and -- crucially -- know where it will fail. His defensive-investor standard comes from
+*The Intelligent Investor*; the enterprising variant adds the more aggressive bargain hunt described in
+*Security Analysis* and covered [under his own profile here](/articles/benjamin-graham-the-father-of-value-investing/).
 
-Imagine you're at a garage sale, and you stumble upon a brand-new, still-in-the-box pair of sneakers for 50% off the original price. You know they're worth more, but the seller is willing to let them go for a steal. That's basically what Benjamin Graham's stock screener helps you find in the stock market – undervalued companies with growth potential. In this article, we'll explore what the Graham Screener is, why it matters to teens, and how to use it to find bargain stocks.
+## The published defensive criteria, and what each one is for
 
-The Graham Screener is a stock screen developed by Benjamin Graham, a legendary investor and mentor to Warren Buffett. It's a set of criteria that helps identify undervalued companies with a margin of safety, meaning they have a lower risk of losing value. The screener looks for companies with:
+Graham split investors into two types by temperament rather than ambition: the defensive investor wants freedom from
+watching portfolios closely; the enterprising one is willing to do unusual work for unusual results. The defensive
+filter asks for:
 
-* Low price-to-earnings (P/E) ratio
-* Low price-to-book (P/B) ratio
-* High dividend yield
-* Strong financial health
-* Low debt
+- **Adequate size.** Small issues were historically less liquid and less scrutinised; size was never a claim about
+  quality, only about survivability and information.
+- **Sufficiently strong current assets** -- traditionally around two dollars of current assets for every dollar of
+  current liabilities. A crude solvency sniff test, fully computable from the two lines
+  [the balance sheet explains](/articles/reading-the-balance-sheet-assets-liabilities-equity/).
+- **Earnings stability:** positive reported earnings across roughly a decade. Not profitability excellence -- survival.
+- **Dividend continuity:** an uninterrupted record stretching back years, on the theory that a board unwilling to cut a
+  dividend has been pressured to keep the underlying cash flow honest.
+- **Modest earnings growth,** explicitly modest. Demanding rapid growth reintroduces exactly the forecasting he wanted
+  the defensive investor to avoid.
+- **A moderate price relative to earnings**, commonly summarised around fifteen times recent average earnings.
+- **A moderate price relative to book**, commonly summarised around one-and-a-half times, with a composite shortcut:
+  the earnings multiple times the book multiple not exceeding roughly twenty-two-and-a-half. The logic of the product is
+  elegant -- pay little measured against profit *and* against recorded capital, so weakness in one measure has to be
+  covered by genuine strength in the other. The full argument for when book value means anything, and when it doesn't,
+  is [on its own page](/articles/price-to-book-ratio-asset-based-valuation/).
 
-As a teenager, you might not be thinking about investing just yet, but it's essential to start learning about it. The earlier you start, the more time your money has to grow. Imagine having a head start on your financial goals, whether it's saving for college, a car, or a dream vacation. By understanding the Graham Screener, you'll gain a valuable tool to help you make informed investment decisions and potentially achieve your financial goals faster.
+For the enterprising investor there is also the famous deep-value case: buy when market capitalisation sits meaningfully
+below net current assets -- current assets minus *all* liabilities -- sometimes framed around two-thirds of that figure.
+Run the arithmetic on hypothetical figures: roughly \$150 million of current assets and roughly \$90 million of total
+liabilities leaves about \$60 million of net working capital; two-thirds is around \$40 million; ten million shares
+outstanding puts the action price near four dollars. Below that, liquidation economics rather than optimism decide
+whether you lose money. Such setups have become scarce, and when one appears on no news, the probability is high that
+something specific is wrong rather than that everyone missed it.
 
-Let's break down the main ideas behind the Graham Screener with examples:
+## Why passing isn't the signal people think it is
 
-* **Low P/E Ratio:** A P/E ratio shows how much investors are willing to pay for each dollar of earnings. A low P/E ratio (e.g., 10) means investors are paying less for each dollar of earnings compared to a high P/E ratio (e.g., 20). This could indicate undervaluation.
-* **Low P/B Ratio:** The P/B ratio compares the stock price to the company's book value (total assets minus liabilities). A low P/B ratio (e.g., 1.5) means the stock price is lower than the company's book value, which could indicate undervaluation.
-* **High Dividend Yield:** A high dividend yield means the company is paying out a larger portion of its earnings as dividends. This can be attractive to investors seeking regular income.
-* **Strong Financial Health:** A company with strong financial health has a solid balance sheet, generates consistent earnings, and has a low debt-to-equity ratio.
-* **Low Debt:** Companies with low debt are less likely to default on their obligations and have more flexibility to invest in growth opportunities.
+A screen encodes a hypothesis about what makes outcomes favourable. This one says: cheap relative to measured profit and
+recorded assets, plus boring evidence of durability, should produce better results over time than buying whatever is
+popular. Across long stretches and large baskets, that proposition has support. Per name, it produces three categories
+nobody advertises:
 
-Let's look at a real-world example:
+**Cheap and improving** -- the objective, invisible in advance.
 
-* **Company A:** A well-established retail company with a P/E ratio of 12, P/B ratio of 1.8, dividend yield of 3.5%, and a debt-to-equity ratio of 0.5. The company has a strong track record of consistent earnings and a solid balance sheet.
-* **Company B:** A trendy tech startup with a P/E ratio of 50, P/B ratio of 3.5, dividend yield of 0%, and a debt-to-equity ratio of 1.5. The company has high growth potential but also high risks.
+**Cheap because it's dying.** Structural decline looks identical to temporary pessimism on a screen, and worse-looking
+numbers arrive later, when you've already bought. Margin of safety is supposed to protect against being wrong about the
+first group while guaranteeing nothing about the second
+[-- see the valuation discussion](/articles/fundamental-analysis-finding-intrinsic-value/).
 
-Using the Graham Screener, Company A would likely pass the criteria, indicating it might be undervalued and a potential bargain stock. Company B, on the other hand, would likely fail the criteria due to its high P/E ratio, high debt, and lack of dividend yield.
+**Cheap because the balance sheet lies.** Receivables that never convert, inventory nobody wants at any price, goodwill
+from a deal gone wrong. Every screen trusts accounting inputs. Debt levels deserve their own scrutiny, since the
+difference between a bargain and a solvent-looking insolvency usually lives
+[in the leverage column](/articles/debt-to-equity-measuring-financial-health/).
 
-Now it's your turn to try the Graham Screener! Choose a company you're interested in and look up its financial data. Calculate its P/E ratio, P/B ratio, and debt-to-equity ratio. Research its dividend yield and financial health. Does the company pass the Graham Screener criteria? What does this tell you about its potential as a bargain stock?
+There's a structural issue specific to our period. Rules built around price relative to book weight capital-intensive,
+asset-heavy businesses heavily, because those are the firms whose equity is large enough to make the denominator
+interesting. Economies that create value through contracts, code, brands and habits carry very little recorded capital,
+so they either fail the test outright or look expensive forever. Apply a vintage filter rigidly in a modern market and
+you'll often end up owning yesterday's business models, chosen precisely because their assets were easy to count.
+That is not an argument against the discipline -- it's an argument for knowing which decades it flatters.
 
-* The Graham Screener helps identify undervalued companies with a margin of safety.
-* The screener looks for companies with low P/E and P/B ratios, high dividend yield, strong financial health, and low debt.
-* Understanding the Graham Screener can help you make informed investment decisions and potentially achieve your financial goals faster.
-* Investing involves risk, and it's essential to do your own research and consider your own financial goals before making any investment decisions.
+The flip side deserves saying too, because this site covers both approaches: a quality screen hunting demonstrated high
+returns systematically skips everything a value screen likes, since durable performers get re-rated long ago. Ask the
+same question of each -- does this rule describe a reason outcomes should improve, or does it merely describe what won
+recently?
 
-* **"The Intelligent Investor" by Benjamin Graham:** A classic investing book that provides a comprehensive guide to value investing.
-* **"Security Analysis" by Benjamin Graham and David Dodd:** A detailed guide to analyzing stocks and bonds.
-* **"The Little Book of Value Investing" by Christopher Browne:** A beginner's guide to value investing and the Graham Screener.
-* **Investopedia's Graham Screener Tutorial:** A step-by-step guide to using the Graham Screener.
+## Making it operational without paying anyone
+
+Free screeners expose the necessary fields: trailing earnings multiple, price to book, current ratio, dividend history,
+long-term debt against equity, earnings record length. Set the criteria deliberately, export the candidates, then leave
+the tool entirely. The screening layer is coarse sieving; the judgement happens in filings, notes and last year's
+letters, where you find out whether the cheap earnings included a tax settlement or a factory sale.
+
+Two habits matter more than tuning thresholds. First, keep your own written record of why each candidate looked
+attractive, including the mechanism and the observation that would prove you wrong -- otherwise the position becomes
+whatever story is most comfortable in hindsight. Second, hold the disposition Mr. Market teaches rather than adopting
+the crowd's mood along with its prices: an offer to sell you a decent business cheaply is an event to evaluate, not a
+verdict to obey, and the same quote that tempts you to buy should be readable as temptation to sell in six months.
+
+Treat every threshold as arguable, including his -- interest-rate environments, share-buyback norms and asset mix have
+moved since these rules were written, and someone who cannot explain why a cutoff is two rather than five is repeating
+superstition with a citation. Read the original books where possible; secondary summaries drift, including this one, and
+published statistics quoted anywhere without a date attached expire faster than the paper they're printed on.
+
+This is educational explanation of a published investment method, not investment advice or a recommendation to buy
+anything. Screens select on reported figures that can be stale or misleading, cheap stocks can and do fall further,
+passing a filter is not a signal to purchase, and any holding can lose money regardless of how conservative its ratios
+looked on the day you bought it.
