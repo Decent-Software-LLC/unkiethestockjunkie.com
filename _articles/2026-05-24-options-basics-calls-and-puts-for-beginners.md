@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Options Basics: Calls and Puts for Beginners"
-description: "Introduction to stock options and how they work."
+description: "Rights versus obligations, why a contract can lose on a day the shares rise -- and what a reader under eighteen can realistically do about it."
 date: 2026-05-24
 difficulty: advanced
 tags: ["options", "derivatives", "advanced", "advanced"]
@@ -18,47 +18,105 @@ related_articles:
   - title: "Dividend Aristocrats: 25+ Years of Rising Payments"
     url: "/articles/dividend-aristocrats-25-years-of-rising-payments/"
     description: "Companies that have increased dividends for decades."
+quiz:
+  - question: "Who bears obligation without choice in an options trade?"
+    options:
+      - "The seller, who must perform if the buyer elects to exercise"
+      - "The buyer, who must extend the contract upon expiry"
+      - "The clearing house, which sets opening prices daily"
+      - "Nobody, since contracts void automatically"
+    answer: 0
+    why: "Buyers hold rights; sellers accept duties and post collateral accordingly. Buyers walk away from out-of-the-money contracts freely, the clearing house guarantees settlement rather than choosing direction, and performance is enforceable."
+  - question: "A purchased call loses money although the shares rose slightly. Most plausible cause?"
+    options:
+      - "Time value decayed and expectations for future movement contracted"
+      - "Exchanges cancel profitable contracts after midday"
+      - "Dividends were declared during the holding period"
+      - "Contract specifications changed to shorter multiples"
+    answer: 0
+    why: "Payment for possibility erodes toward expiry and shrinks further when anticipated movement falls, sometimes overwhelming a modest favourable move. Cancellation policies, distributions and multiplier conventions do not produce this pattern."
+  - question: "What distinguishes a share's modest decline from an equivalent out-of-the-money contract's?"
+    options:
+      - "The share retains substantial value while the contract can finish worthless"
+      - "Shares settle electronically whereas contracts never do"
+      - "Contracts receive dividends during their term"
+      - "Shareholders face automatic margin calls"
+    answer: 0
+    why: "Equity ownership survives weakness as a continuing claim, whereas an unused right expires with no residual value. Settlement mechanics, distributions and margin practice differ but do not explain that asymmetry."
 ---
 
-Imagine you're at a music festival, and your favorite artist is about to perform. You really want to see them live, but the tickets are sold out. A friend offers you a "ticket option" – they'll reserve a ticket for you, but you have to decide whether to buy it from them later. If the artist's popularity increases, the ticket price might go up, and you'll be glad you have the option to buy it at a lower price. But if the artist's popularity decreases, the ticket price might drop, and you might not want to buy it anymore. This is similar to how options work in the stock market. In this article, we'll explore the basics of options, including calls and puts, and how they can be used in investing.
+An option is a tradeable promise with an expiry date. One party pays for the right to buy or sell something at an agreed
+price by a deadline; the other keeps the payment either way. That asymmetry -- buyer holds choice, seller carries
+obligation -- explains nearly everything about why this instrument produces such extreme outcomes for beginners, and it's
+worth understanding coldly before anyone shows you a screenshot of somebody's overnight gains.
 
-An option is a contract that gives the buyer the right, but not the obligation, to buy or sell an underlying asset (like a stock) at a predetermined price (strike price) before a certain date (expiration date). Options are a type of derivative, meaning their value is derived from the value of the underlying asset. There are two main types of options: calls and puts.
+Two varieties. A **call** is the right to buy at the agreed **strike**; a **put** is the right to sell at it. The purchase
+price of the contract is the **premium**. Each contract conventionally covers a hundred shares, so quoted premiums get
+multiplied by a hundred -- the first detail that surprises people watching position sizes balloon. Before expiry a contract
+holds **intrinsic value** only when immediate exercise would pay: a strike of twenty against a market at twenty-five carries
+five dollars of intrinsic worth per underlying share. Everything above that is **time value**, payment for possibility, and
+it leaks away as the deadline approaches, quickly toward the end. Prices move with two things simultaneously -- where the
+underlying trades, and how violently the market expects it to trade [-- volatility has its own explanation here](/articles/what-is-volatility-riding-the-roller-coaster/)
+-- which is why contracts can lose money on days the shares go the way you predicted, because expected movement collapsed
+while you waited.
 
-*   A **call option** gives the buyer the right to buy an underlying asset at the strike price.
-*   A **put option** gives the buyer the right to sell an underlying asset at the strike price.
+## Worked arithmetic with invented round numbers
 
-As a teenager, you might not be thinking about investing in the stock market just yet, but it's essential to understand the basics of options and how they work. Options can be a powerful tool for investors, allowing them to manage risk and potentially earn profits. By learning about options, you'll gain a deeper understanding of the stock market and be better equipped to make informed decisions when you start investing. Plus, options can be used in various ways, such as hedging (reducing risk) or speculating (trying to profit from price movements).
+A made-up share trades at twenty dollars. You have \$1,000. Path one buys fifty shares. Path two buys one call at a
+twenty-two strike for a dollar per share, meaning \$100 total, holding back the rest in cash. Suppose the share reaches
+twenty-five by expiry.
 
-Here are some key concepts to understand when it comes to options:
+| | Cost | Value at expiry | Result |
+|---|--:|--:|--:|
+| Fifty shares | \$1,000 | \$1,250 | up about \$250 |
+| One call (\$22 strike, \$1 paid) | \$100 | \$300 | up about \$200 |
 
-*   **Strike price**: The predetermined price at which the buyer can buy or sell the underlying asset.
-*   **Expiration date**: The last day the option can be exercised.
-*   **Premium**: The price of the option contract.
-*   **Underlying asset**: The security that the option is based on (e.g., a stock).
-*   **In-the-money**: When the option's strike price is favorable compared to the current market price of the underlying asset.
-*   **Out-of-the-money**: When the option's strike price is not favorable compared to the current market price of the underlying asset.
+Small capital, similar dollar gain: leverage delivered in one line of the table and omitted entirely from marketing. Flip the
+outcome and the difference inverts. Finish below the strike and the share holder still owns an asset worth most of their
+money, while the contract holder owns nothing at all [-- the loss feels worse than the arithmetic suggests, which drives
+doubling down](/articles/loss-aversion-why-losses-feel-worse-than-gains/). Multiply position size by confidence and short
+timelines become ruinous.
 
-Let's say you think the stock price of Company X (currently $50) will increase in the next few months. You buy a call option with a strike price of $55 and an expiration date in three months. If the stock price rises to $60, you can exercise your option and buy the stock at $55, then sell it at $60, earning a profit of $5 per share. However, if the stock price falls to $40, your option will expire worthless, and you'll lose the premium you paid for the option.
+Now stand on the other side. Selling that contract collects \$100 today and accepts an obligation: deliver shares at
+twenty-two whenever the buyer chooses. If the underlying doubles, the collector's loss grows without any ceiling attached,
+and proceeds from the original sale don't remotely cover it. Brokerages therefore demand collateral and approve sellers
+formally, because inexperienced writers have bankrupted themselves repeatedly across decades. Covered arrangements --
+selling calls only against shares already owned -- convert unlimited exposure into capped upside, which may or may not be a
+trade worth making, while naked selling for a beginner is not investing at all but borrowing against an optimistic future.
 
-On the other hand, let's say you own shares of Company Y (currently $100) and are worried the stock price might drop. You buy a put option with a strike price of $90 and an expiration date in two months. If the stock price falls to $80, you can exercise your option and sell your shares at $90, limiting your losses. However, if the stock price rises to $110, your option will expire worthless, and you'll lose the premium you paid for the option.
+One piece of widely repeated folklore needs retiring: the claim that most options expire worthless substantially overstates
+what exchange data shows. Plenty do expire worthless; most do not. The myth persists because it flatters both sides --
+sellers hear statistics justifying premium collection while buyers dismiss risk -- and because [statistics circulating on
+social feeds usually serve whoever posted them](/articles/paper-trading-practice-without-risk/). What matters is
+distribution rather than frequency: frequent small gains punctuated by occasional large losses describes many premium-selling
+strategies precisely, which feels like skill until one event reverses years of accumulation.
 
-Imagine you're an investor with $1,000 to invest. You think the stock price of Company Z (currently $20) will increase in the next few months. You can either:
+## The part nobody selling courses mentions
 
-A) Buy 50 shares of Company Z stock at $20 each
-B) Buy a call option with a strike price of $22 and an expiration date in three months
+Contracts are cleared through regulated exchanges with standardised terms, settlement handled by a clearing house standing
+between strangers -- useful institutional machinery, not a hint that the product suits novices. Approval is tiered by broker,
+and firms assess experience and financial capacity because realised losses arrive fast. Practically, someone under eighteen
+generally cannot hold an options position in their own name; custodial arrangements exist for ordinary securities but options
+approval almost never follows, so the realistic path for a teenager interested in this material is studying how contracts
+behave rather than trading them. Nobody's feed showing six-figure weekly returns from three-dollar contracts reflects a
+repeatable process available to new participants; those displays select survivors, often exaggerate, and monetise envy
+through subscriptions.
 
-Assuming the stock price rises to $25, calculate the potential profit for each option. Keep in mind that options involve risk, and there are no guarantees of profits.
+Study sequence that actually builds capability: paper-trade first wherever possible, since simulation teaches mechanical
+behaviour without tuition fees. Then understand payoff diagrams before strategies, and prefer reading
+[exchanges' own contract specifications](/articles/stock-market-hours-when-can-you-trade/) alongside primary documentation
+rather than secondhand explainers. Learn put-call parity conceptually -- buying a call and selling a put at identical strikes
+approximates owning the shares, which reveals how these instruments are re-packaged exposures rather than exotic new asset
+classes [-- risk versus reward framing applies throughout](/articles/risk-and-reward-the-investing-balance/). Notice that hedging claims deserve scrutiny: buying a put does insure
+against decline down to the strike, but insurance costs a premium continuously deducted whether or not disaster arrives,
+which quietly reduces long-run results during calm stretches. Anyone presenting covered-call writing as free income has not
+described the forgone rally that pays for it.
 
-*   Options are contracts that give the buyer the right, but not the obligation, to buy or sell an underlying asset at a predetermined price.
-*   Calls and puts are the two main types of options.
-*   Options can be used for hedging or speculating.
-*   Understanding options can help you make informed investment decisions.
+For readers whose actual constraint is a modest monthly surplus from a part-time job, the unglamorous truth stands: broad,
+cheap, boringly held exposure beats leveraged speculation for almost everyone, and options earn attention because payoffs
+make stories while diversified compounding makes wealth slowly enough to be unfashionable.
 
-1.  "Options: Essential Concepts and Trading Strategies" by The Options Clearing Corporation
-2.  "Trading Options For Dummies" by George Fontanills
-3.  "Options Trading: The Hidden Reality" by Charles M. Cottle
-
-**Disclaimer**
---------------
-
-This article is for educational purposes only and should not be considered as financial advice. Investing in options involves risk, and there are no guarantees of profits. It's essential to do your own research, consult with a financial advisor, and understand the risks involved before making any investment decisions.
+This is educational explanation of derivative contracts, not financial advice, an offer, a solicitation or a recommendation
+to trade anything; every figure is invented round-number arithmetic supplied so calculations can be checked independently,
+no security or platform is endorsed, eligibility depends on rules set by brokers and regulators, and options can lose their
+entire value while writers can owe far more than they deposited.
