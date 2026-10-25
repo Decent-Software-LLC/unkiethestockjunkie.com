@@ -107,9 +107,10 @@ try {
     const parts = original.split(/^---[ \t]*$/m);
     const body = parts.slice(2).join('---').replace(/^\n+/, '').replace(/\s+$/, '');
     const doc = rewriteBody(`_articles/${FIXTURE}`, body + '\n', {});
-    // Compared trimmed: the tool intentionally normalises the file's final newline, so a committed
-    // file lacking one legitimately differs by exactly that byte. Everything else must match.
-    assert.strictEqual(doc.trimEnd(), original.trimEnd(), 'round-trip did not reproduce the committed bytes');
+    // Exact, not trimmed: content files are normalised to a single trailing newline, so there is no legitimate
+    // remaining difference. The previous comparison used trimEnd(), which quietly excused any amount of trailing
+    // whitespace drift -- and had been letting 20+ files without a final newline slip past.
+    assert.strictEqual(doc, original, 'round-trip did not reproduce the committed bytes');
   });
 
   test('output parses as front matter with matching delimiters', () => {
@@ -131,6 +132,77 @@ try {
       fs.writeFileSync(abs, original);
     }
   });
+  const QUIZ_BLOCK = [
+    'quiz:',
+    '  - question: "Which line sits directly below operating income?"',
+    '    options: ["Net income", "Gross profit", "Revenue", "Cost of goods sold"]',
+    '    answer: 0',
+    '    why: "Interest and taxes are deducted after operating income, so net income is the next rung down."',
+    '',
+  ].join('\n');
+  const quizFile = tmp('rb-quiz.yml', QUIZ_BLOCK);
+
+  test('front matter contaminated by a keyless quiz list cannot survive a rewrite', () => {
+    // Real failure mode: an earlier caller passed a bare list, so the page carried orphan "- question:" rows with
+    // no quiz: key above them. keptLines copied them into the scalar region AND appended a fresh block, leaving two
+    // quizzes in invalid YAML -- which local tools accepted while Jekyll loaded no quiz at all.
+    const contaminated = original.replace(/\n(?:[ \t]+- question:[\s\S]*?)(?=\n[a-z_]+:|\n---)/m, '\n')
+      .replace(/^quiz:[ \t]*$/m, '- question: "Orphaned row from a lost key?"\n  options:\n    - "a"\n    - "b"\n    - "c"\n    - "d"\n  answer: 0\n  why: "orphan"');
+    fs.writeFileSync(abs, contaminated);
+    const doc = rewriteBody(`_articles/${FIXTURE}`, 'Fresh prose.\n', { quiz: QUIZ_BLOCK });
+    const fm = doc.split(/^---[ \t]*$/m)[1];
+    assert.strictEqual((fm.match(/^quiz:[ \t]*$/gm) || []).length, 1, 'exactly one quiz key');
+    assert.ok(!/^-\s/m.test(fm), `no column-0 sequence debris may remain:\n${fm}`);
+    assert.strictEqual((fm.match(/^ {2}- question:/gm) || []).length, 1, 'the supplied quiz, once');
+    assert.ok(doc.includes(origTitle), 'identity keys must survive recovery from corruption');
+  });
+
+  test('--quiz text missing its key throws rather than publishing a quiz-less page', () => {
+    const bare = QUIZ_BLOCK.split('\n').slice(1).join('\n');
+    const before = fs.readFileSync(abs, 'utf8');
+    assert.throws(() => rewriteBody(`_articles/${FIXTURE}`, 'Prose.\n', { quiz: bare }), /must begin with "quiz:"/);
+    assert.strictEqual(fs.readFileSync(abs, 'utf8'), before, 'a rejected call must not touch the file');
+  });
+
+  test('supplying the same body and quiz twice reproduces identical bytes', () => {
+    const first = rewriteBody(`_articles/${FIXTURE}`, 'Stable prose.\n', { quiz: QUIZ_BLOCK });
+    fs.writeFileSync(abs, first);
+    const second = rewriteBody(`_articles/${FIXTURE}`, 'Stable prose.\n', { quiz: QUIZ_BLOCK });
+    assert.strictEqual(second, first, 're-supplying a file its own content must be a no-op');
+  });
+
+  fs.unlinkSync(quizFile);
+  test('corpus sweep -- every article and guide round-trips byte-for-byte', () => {
+    // The single-fixture version of this guarantee was blind in a way that hid a real bug for weeks: FIXTURE is
+    // whichever file happens to sort first and carries a quiz, so renaming one unrelated article moved the fixture
+    // and instantly exposed a junction difference no run had ever seen. Property checks over generated content have
+    // to cover the corpus, not a sample chosen by accident.
+    const rels = [
+      ...fs.readdirSync(path.join(__dirname, '../_articles')).map((f) => `_articles/${f}`),
+      ...fs.readdirSync(path.join(__dirname, '../_guides')).map((f) => `_guides/${f}`),
+    ].filter((f) => f.endsWith('.md'));
+    assert.ok(rels.length >= 100, `sweep must cover the corpus, saw only ${rels.length} files`);
+    // Guard against a silent no-op sweep: an empty _guides directory would otherwise leave this test measuring
+    // only articles while still printing a green tick.
+    assert.ok(rels.some((r) => r.startsWith('_guides/')), 'sweep must include guides, whose structured front matter is where real damage happened');
+
+    const offenders = [];
+    let quizzed = 0;
+    for (const rel of rels) {
+      const text = fs.readFileSync(path.join(__dirname, '..', rel), 'utf8');
+      const { fields, body } = rewriteBody.splitDocument(text);
+      if (/^quiz:[ \t]*$/m.test(fields)) quizzed++;
+      const doc = rewriteBody.assembleDocument(fields, body, {});
+      if (doc !== text) {
+        const a = doc.split('\n'), b = text.split('\n');
+        let i = 0; while (i < Math.min(a.length, b.length) && a[i] === b[i]) i++;
+        offenders.push(`${rel} @line ${i + 1}: emitted ${JSON.stringify((a[i] || '').slice(0, 50))} vs committed ${JSON.stringify((b[i] || '').slice(0, 50))}`);
+      }
+    }
+    assert.deepStrictEqual(offenders, [], `re-supplying committed content must be a no-op:\n      ${offenders.slice(0, 6).join('\n      ')}`);
+    assert.ok(quizzed >= 40, `sweep should be exercising quizzes on done articles, found ${quizzed}`);
+  });
+
 } finally {
   fs.writeFileSync(abs, original);          // restore the real article
   fs.unlinkSync(bodyFile);

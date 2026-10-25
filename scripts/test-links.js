@@ -19,12 +19,7 @@ const path = require('path');
 
 const SITE = path.join(__dirname, '..', '_site');
 
-if (!fs.existsSync(SITE)) {
-  console.log('\nlink integrity\n');
-  console.log('  - skipped: no _site build (run `npm run build`)');
-  console.log('\n0 passed, 0 failed\n');
-  process.exit(0);
-}
+require('./lib/site-freshness').requireFreshSite('link integrity');
 
 let passed = 0;
 let failed = 0;

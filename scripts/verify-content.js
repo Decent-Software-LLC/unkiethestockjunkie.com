@@ -6,6 +6,7 @@
 // shipped them if I had trusted my own recall. Same class of error catches a minors-facing finance
 // site worst of all -- an invented expense ratio or hallucinated fund name reads perfectly.
 const fs = require('fs');
+const { scanClaims } = require('./lib/content-rules');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
@@ -107,15 +108,12 @@ function verify(files, opts = {}) {
     }
 
     // --- financial claims (minors-facing) ---------------------------------
-    const hard = [/guaranteed returns?/i, /\brisk[- ]free\b/i, /get rich quick/i, /can'?t lose money/i, /tax[- ]free growth/i];
-    for (const re of hard) {
-      const hit = re.exec(body);
-      if (hit && !/not |never |no such|myth|debunk|doesn'?t exist|scam/i.test(body.slice(Math.max(0, hit.index - 140), hit.index + 200))) {
-        problems.push(`${label}: prohibited claim "${hit[0]}" (no negation nearby)`);
-      }
-    }
-    if (/join \d[\d,]*\+|thousands of (teens|students|investers|investors)|\b\d+k readers\b/i.test(body)) {
-      problems.push(`${label}: fabricated social proof`);
+    // Shared rule set with scripts/test-claims.js via scripts/lib/content-rules.js, including its context-aware
+    // sanctions. This gate used to keep its own cruder list, which flagged "risk-free rate" -- the actual name of the
+    // Treasury benchmark in the Sharpe ratio -- while missing rules the CI suite had refined, so which checker ran
+    // decided what shipped. One definition now governs both.
+    for (const msg of scanClaims({ text: body, raw: body, page: label }).violations) {
+      problems.push(msg);
     }
 
     // --- voice (advisory unless --strict) ----------------------------------

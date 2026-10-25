@@ -44,11 +44,22 @@ const DROPPED = ['quiz', 'related_articles'];
 
 function keptLines(fields) {
   const out = [];
-  let stop = false;
+  let dropping = false;
   for (const line of fields.split('\n')) {
-    // Stop at the first block-valued key (related_articles:, quiz:) -- those are replaced wholesale.
-    if (/^[a-z_]+:\s*$/.test(line)) { stop = true; continue; }
-    if (stop) { if (/^\s/.test(line)) continue; stop = false; }
+    // Only the two keys we re-supply are treated as blocks to drop. This used to be a pattern -- any "key:" with an
+    // empty value started a skip region -- which meant guides lost their entire `steps:` block whenever this tool
+    // touched them, since steps is exactly such a key. Explicit over inferred: the corpus sweep found three guides
+    // whose structured front matter would have been destroyed.
+    const key = /^([a-z_]+):[ \t]*$/.exec(line);
+    if (key && DROPPED.includes(key[1])) { dropping = true; continue; }
+    if (dropping) {
+      if (/^\s/.test(line)) continue;    // still inside the dropped block's indentation
+      dropping = false;                    // next top-level key: normal handling resumes below
+    }
+    // Column-0 sequence debris: a list row with no key above it. Legitimate sequences in this corpus are always
+    // indented beneath their key, so anything at column 0 is leftover from a write that lost its `quiz:` key --
+    // copied verbatim before, which produced pages carrying two quizzes in YAML Jekyll refused to load.
+    if (/^-\s/.test(line)) { dropping = true; continue; }
     const k = /^([a-z_]+):/.exec(line);
     if (k && DROPPED.includes(k[1])) continue;
     out.push(line);
@@ -56,29 +67,49 @@ function keptLines(fields) {
   return out.filter((l) => l.trim() !== '');
 }
 
-module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
-  const fm = committedFrontMatter(rel);
-  const header = keptLines(fm.fields);
+/**
+ * Split a document into front-matter fields and body using ONE definition of the fence.
+ * Previously "what counts as front matter" was re-derived separately by the writer, the validators and the
+ * progress tracker, which is how files passed local checks while Jekyll loaded none of their quiz.
+ */
+function splitDocument(text) {
+  const m = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(\r?\n[\s\S]*)?$/.exec(text);
+  if (!m) throw new Error('no front-matter fence');
+  return { raw: m[0], fields: m[1], body: (m[2] || '').replace(/^\r?\n/, '') };
+}
+
+/** Pure assembly: front-matter fields in, finished document out. No filesystem access, so the whole corpus can be checked without touching it. */
+function assembleDocument(fmFields, bodyText, extraBlocks = {}) {
+  const header = keptLines(fmFields);
   const blocks = [];
   for (const key of ['quiz', 'related_articles']) {
-    if (extraBlocks[key]) blocks.push(extraBlocks[key].trim());
+    if (!extraBlocks[key]) continue;
+    const text = extraBlocks[key].trim();
+    // Callers must hand over a complete block including its key. A bare list used to be pasted in as-is, which
+    // produced front matter with no `quiz:` key at all: local validators still found the questions (their parsers
+    // are forgiving about shape) while Jekyll dropped the quiz entirely, so the page shipped looking fine with no
+    // quiz on it. Fail loudly at the boundary instead.
+    if (!text.startsWith(`${key}:`)) {
+      throw new Error(`${key} block must begin with "${key}:" -- got "${text.split('\n')[0].slice(0, 40)}"`);
+    }
+    blocks.push(text);
   }
   if (!blocks.some((b) => b.startsWith('related_articles:'))) {
     // Same protection as quiz: never drop committed related links because a caller forgot the flag.
-    const m = /^(related_articles:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fm.fields);
+    const m = /^(related_articles:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fmFields);
     if (m) blocks.push(m[1].trim());
   }
   if (!blocks.some((b) => b.startsWith('quiz:'))) {
     // Same protection as related_articles: a voice rewrite that supplies no new quiz must
     // keep the authored one. Without this, `--body` alone silently deleted every quiz on
     // the page it touched, which is exactly how several articles lost their quizzes.
-    const m = /^(quiz:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fm.fields);
+    const m = /^(quiz:[\s\S]*?)(?=^[a-z_]+:|(?![\s\S]))/m.exec(fmFields);
     if (m) blocks.push(m[1].trim());
   }
   // Keep reused blocks in their committed relative order. Always emitting quiz-then-related made an
   // unchanged rewrite reshuffle front matter, producing noisy diffs on pages nobody was editing.
   const orderOf = (key) => {
-    const i = fm.fields.search(new RegExp('^' + key + ':[ \\t]*$', 'm'));
+    const i = fmFields.search(new RegExp('^' + key + ':[ \\t]*$', 'm'));
     return i < 0 ? Number.MAX_SAFE_INTEGER : i;
   };
   blocks.sort((a, b) => {
@@ -86,7 +117,16 @@ module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
     const kb = b.startsWith('quiz:') ? 'quiz' : 'related_articles';
     return orderOf(ka) - orderOf(kb);
   });
-  const doc = '---\n' + header.concat(blocks).join('\n') + '\n---\n' + bodyText.replace(/^\n+/, '').replace(/\s+$/, '') + '\n';
+  // Exactly one blank line between the closing fence and the prose. Some committed files had none and one had two,
+  // which made re-supplying a file its own body produce a diff at the junction -- so every edit of a finished
+  // article looked like a content change. Emitting a fixed separator makes the round trip byte-exact and lets the
+  // test suite assert that invariant over the whole corpus instead of over whichever fixture sorted first.
+  return '---\n' + header.concat(blocks).join('\n') + '\n---\n\n' + bodyText.replace(/^\n+/, '').replace(/\s+$/, '') + '\n';
+}
+
+module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
+  const fm = committedFrontMatter(rel);
+  const doc = assembleDocument(fm.fields, bodyText, extraBlocks);
   const abs = path.join(ROOT, rel);
   fs.writeFileSync(abs, doc);
   return doc;
@@ -105,6 +145,9 @@ function recordRewrite(rel) {
   data.slugs[slug].at = new Date().toISOString().slice(0, 10);
   fs.writeFileSync(MANIFEST, JSON.stringify(data, null, 1) + '\n');
 }
+
+module.exports.splitDocument = splitDocument;
+module.exports.assembleDocument = assembleDocument;
 
 if (require.main === module) {
   const argv = process.argv.slice(2);

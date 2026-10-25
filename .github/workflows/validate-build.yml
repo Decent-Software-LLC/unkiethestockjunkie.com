@@ -47,6 +47,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
+      - name: Record what the build was made from
+        # Suites that grade rendered HTML compare content hashes against this manifest instead of trusting that
+        # _site is current. Without it they would either skip silently or audit output that predates the content.
+        run: node scripts/mark-site-built.js
+
       - name: Run tests
         run: npm test
 

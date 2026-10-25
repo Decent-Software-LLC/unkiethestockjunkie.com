@@ -23,62 +23,15 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = path.join(__dirname, '..', '_site');
+// Rules live in scripts/lib/content-rules.js, shared with scripts/verify-content.js. Keeping a second copy here
+// is how the two checkers drifted: each flagged things the other missed, so which checker ran decided what shipped.
+const { scanClaims } = require('./lib/content-rules');
 
-if (!fs.existsSync(SITE)) {
-  console.log('\nfinancial claims\n');
-  console.log('  - skipped: no _site build (run `npm run build`)');
-  console.log('\n0 passed, 0 failed\n');
-  process.exit(0);
-}
+// A stale _site used to be graded as if it were current: the only guard was existence, so suites reported
+// every assertion passing against HTML generated before the content being checked existed.
+require('./lib/site-freshness').requireFreshSite('financial claims');
 
-const FORBIDDEN = [
-  { id: 'fabricated-audience', re: /join \d[\d,]*\+|thousands of (?:readers|teens|students)|most students (?:invest|agree)/i, why: 'invented social proof on a site with no analytics to back it' },
-  { id: 'guaranteed-outcome', re: /\bguarantee[ds]? (?:your )?(?:returns?|profits?|gains?|success)\b/i, why: 'no investment outcome can be guaranteed' },
-  { id: 'risk-free', re: /\b(?:completely safe|zero risk|risk[- ]free (?:returns?|growth|gains?))\b/i, why: 'contradicts the required risk disclosure' },
-  { id: 'get-rich', re: /\bget rich (?:quick|fast)\b|\bsecret[s]? to (?:wealth|riches)\b/i, why: 'the exact framing the site argues against' },
-  { id: 'promised-wealth', re: /\bwill make you (?:wealthy|rich)\b/i, why: 'predictive claim about a reader\'s finances' },
-  { id: 'tax-free-promise', re: /\btax[- ]free (?:returns?|gains?|growth)\b/i, why: 'custodial accounts are taxable; this would mislead' },
-  { id: 'ai-selfreference', re: /^\s*(?:As an AI|I cannot assist|Language model)/im, why: 'generator leakage reached production once already' }
-];
 
-/** Sanctioned exceptions: pattern id -> predicate(pagePath, matchedText) => boolean. */
-const SANCTIONS = {
-  'guaranteed-outcome': (page, match, context) => {
-    // A quiz wrong-answer deliberately states the misconception, which is the whole point of a
-    // distractor. Scoped tightly: find the <button> the phrase sits inside and require it to be
-    // an option that is NOT marked correct. A broad window test would also sanction the phrase
-    // appearing in body prose.
-    if (!page.startsWith('articles/')) return false; // NB: rel has no leading slash
-    if (!context) return false;
-    const at = context.lastIndexOf(match.replace(/\s+/g, ' ').trim().slice(0, 12));
-    const before = at === -1 ? context : context.slice(0, at);
-    const lastBtn = before.lastIndexOf('<button');
-    // Must not return early when there is no <button>: prose contexts (the warning case below)
-    // legitimately have none, and an early exit here silently disabled that branch.
-    if (lastBtn !== -1) {
-      const btnTag = before.slice(lastBtn, before.indexOf('>', lastBtn) + 1);
-      if (/class="[^"]*quiz-option/.test(btnTag) && !btnTag.includes('is-correct')) return true;
-    }
-
-    // Second sanctioned case: teaching readers to recognise a scam requires naming the scam's
-    // phrasing, so an article asking whether an ad "named a specific guaranteed return" is doing
-    // the right thing, not making a promise. Sanction only interrogative or fraud-vocabulary
-    // context, and refuse it if the same window also asserts availability -- that combination is
-    // the genuinely harmful case and must still fail.
-    if (!context) return false;
-    const at2 = context.lastIndexOf(match.replace(/\s+/g, ' ').trim().slice(0, 12));
-    const around = context.slice(Math.max(0, at2 - 220), at2 + 280);
-    const warningContext = /[?]/.test(around) ||
-      /\b(?:did they|do they|whether|ask yourself|watch for|red flag|scam|advert|promis)/i.test(around);
-    const asserting = /\b(?:you (?:get|will get|receive)|we (?:offer|guarantee)|it (?:guarantees|offers))\b/i.test(around);
-    return warningContext && !asserting;
-  },
-
-  'fabricated-audience': (page, match, context) =>
-    // Prose about William O'Neil's published system, not our readership.
-    page.startsWith('screeners/oneil') && /O'Neil|investors/.test(context),
-
-};
 
 let passed = 0;
 let failed = 0;
@@ -115,23 +68,9 @@ for (const f of pages) {
     .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ');
   const text = visible.replace(/<[^>]+>/g, ' ');
 
-  for (const rule of FORBIDDEN) {
-    const re = new RegExp(rule.re.source, rule.re.flags.includes('g') ? rule.re.flags : rule.re.flags + 'g');
-    let m;
-    while ((m = re.exec(text))) {
-      // Sanctions inspect RAW markup around the match: they ask structural questions
-      // ("is this inside a non-correct quiz option?") that vanish once tags are stripped.
-      // Locate the phrase in raw itself - text and raw have unrelated offsets after stripping.
-      const at = raw.indexOf(m[0].replace(/\s+/g, ' ').trim());
-      const contextRaw = at === -1 ? '' : raw.slice(Math.max(0, at - 500), at + 500);
-      const sanction = SANCTIONS[rule.id];
-      if (sanction && sanction(rel, m[0], contextRaw)) {
-        sanctionedCount++;
-        continue;
-      }
-      violations.push(`${rel}: [${rule.id}] "${m[0]}" — ${rule.why}`);
-    }
-  }
+  const scan = scanClaims({ text, raw, page: rel });
+  violations.push(...scan.violations);
+  sanctionedCount += scan.sanctioned;
 }
 
 test(`no unsanctioned financial claims across ${pages.length} pages`, () => {
@@ -151,7 +90,7 @@ test('every disclaimer-bearing page keeps its disclaimer', () => {
   if (missing.length) throw new Error(`\n   no disclaimer: ${missing.slice(0, 10).join('\n   ')}`);
 });
 
-if (sanctionedCount) console.log(`  (${sanctionedCount} matched-but-sanctioned occurrence(s), see SANCTIONS in this file)`);
+if (sanctionedCount) console.log(`  (${sanctionedCount} matched-but-sanctioned occurrence(s), see SANCTIONS in scripts/lib/content-rules.js)`);
 
 console.log(`\n${passed} passed, ${failed} failed\n`);
 process.exit(failed ? 1 : 0);

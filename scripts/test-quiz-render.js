@@ -26,7 +26,8 @@ function skip(reason) {
   process.exit(0);
 }
 
-if (!fs.existsSync(FIXTURE)) skip('no _site build found (run `npm run build` first)');
+require('./lib/site-freshness').requireFreshSite('quiz render');
+if (!fs.existsSync(FIXTURE)) skip('fixture page missing from _site');
 
 let JSDOM;
 try {
