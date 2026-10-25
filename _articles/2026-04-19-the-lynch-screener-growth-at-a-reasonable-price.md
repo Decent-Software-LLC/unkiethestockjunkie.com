@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "The Lynch Screener: Growth at a Reasonable Price"
-description: "Finding fast-growing companies that aren't overpriced."
+description: "What he actually wrote about growth at a reasonable price, what the preset named after him invented, and how the famous phrase got flattened."
 date: 2026-04-19
 difficulty: intermediate
 tags: ["peter-lynch", "screeners", "growth-investing", "intermediate"]
@@ -18,46 +18,96 @@ related_articles:
   - title: "The Graham Screener: Finding Bargain Stocks"
     url: "/articles/the-graham-screener-finding-bargain-stocks/"
     description: "How to find stocks trading below their intrinsic value."
+quiz:
+  - question: "What is the 'Lynch Screener' referenced by many tools?"
+    options:
+      - "A preset built loosely around his published ideas, not a filter he published"
+      - "An official checklist released by his former employer"
+      - "A regulator-approved qualification for growth funds"
+      - "A software licence sold with his books"
+    answer: 0
+    why: "He wrote about combining growth and price; sites attach his name to whatever thresholds they prefer. No authoritative checklist exists, and no regulator certifies investment styles."
+  - question: "Why did he caution against chasing the fastest apparent growth rates?"
+    options:
+      - "Extreme rates attract competition and mean-revert once comparison bases normalise"
+      - "Rapid growers are legally barred from issuing dividends"
+      - "High growth automatically means negative operating cash flow"
+      - "Auditors cannot verify revenue above certain growth thresholds"
+    answer: 0
+    why: "Spectacular rates invite rivals and look far better measured against depressed earlier periods, whereas durable mid-range growth compounds reliably. Dividend permission, cash-flow sign and auditability are unrelated to growth level."
+  - question: "In the original formulation, what does using a product personally provide?"
+    options:
+      - "An early vantage point from which research begins, not a substitute for it"
+      - "Insider status exempting you from due diligence"
+      - "Proof that margins are expanding"
+      - "Automatic exemption from capital gains treatment"
+    answer: 0
+    why: "Customer-level observation can precede reported results, but says nothing about profitability, concentration or price. Employment brings duties rather than immunity, margin trends require filings, and tax treatment is independent of familiarity."
 ---
 
-Imagine you're at the mall, and you see a new store opening up. It's packed with people, and everyone's buzzing about the latest gadgets. You think to yourself, "This store is going to be huge!" But, as you look closer, you notice the prices are a bit steep. You start to wonder, "Is it worth paying a premium for this trendy store?" This is similar to what happens in the stock market when investors look for growth stocks. They want to find companies that are growing fast, but not overpaying for them. That's where the Lynch Screener comes in – a tool to help you find growth at a reasonable price.
+There is no official "Lynch Screener." Peter Lynch never published a filter anyone has to satisfy; the name gets attached
+loosely to whatever collection of growth-and-price settings a screening site happens to favour. What he actually left
+behind, from running one of the most successful large funds on record, from the late 1970s until 1990 and from two
+books written afterward, is a way of thinking: growth matters, price matters, the two must be considered together, and
+ordinary people who notice things before institutions do have a real -- if narrow -- advantage. Anyone presenting his
+name alongside fixed thresholds is selling a preset, not quoting an authority.
 
-The Lynch Screener is a stock screen developed by Peter Lynch, a legendary investor and former manager of the Fidelity Magellan Fund. Lynch is known for his "invest in what you know" philosophy, which encourages investors to look for opportunities in companies they understand and use in their daily lives. The screener is designed to identify growth stocks that are reasonably priced, based on a set of criteria that Lynch developed.
+## The central idea worth keeping
 
-As a teenager, you might not be investing in the stock market just yet, but it's essential to understand how it works and how to make informed decisions about your money. The Lynch Screener is a valuable tool to learn about growth investing and how to evaluate companies. By understanding how to use the screener, you'll be better equipped to make smart investment decisions in the future.
+Pay roughly in line with what growth is actually arriving. His own widely quoted phrase was "tenbagger," for shares that
+return several times over, and the arithmetic behind such outcomes is unglamorous: profit expands substantially over
+several years and the market re-rates it accordingly [-- decomposing returns shows the two engines](/articles/earnings-growth-the-engine-of-stock-prices/),
+with little room in either if you paid extravagantly at the start. This is why pairing multiple against growth rate
+survived as habit even though [the resulting ratio breaks in documented ways](/articles/peg-ratio-growth-adjusted-valuation/):
+twenty-five times earnings growing fast and twenty-five times earnings crawling are entirely different propositions, and
+a screen sorted by raw multiples ignores that distinction completely.
 
-The Lynch Screener is based on several key concepts:
+His preference was for growth that looked durable rather than spectacular. Extreme growth rates invite competition,
+attract attention, depend on single products or a handful of customers, and mean-revert violently. Consistent middle-range
+growth sustained for a decade beats a couple of spectacular years whose base then collapses under its own comparisons.
+Growth bought cheaply tends to be boring when purchased; screens rarely surface boring.
 
-* **Growth rate**: Look for companies with a high growth rate, but not too high. A growth rate of 20-30% is ideal.
-* **P/E ratio**: The price-to-earnings ratio should be reasonable, around 1-2 times the industry average.
-* **Debt-to-equity ratio**: The company should have a low debt-to-equity ratio, indicating a healthy balance sheet.
-* **Institutional ownership**: Look for companies with low institutional ownership, indicating that the stock is not overhyped.
+## Categorising beats ranking
 
-Let's look at a few examples of companies that might pass the Lynch Screener:
+Instead of one league table, the approach in those books sorts businesses into types whose analysis differs: steady slow
+growers past their prime; large established performers whose results matter more because they dominate indices; genuine
+fast expanders whose small size relative to their opportunity is the whole thesis; cyclical firms where timing and cost
+structure dominate; rescue cases dependent on survival and restructuring; and asset plays whose value sits in something
+specific like property, a stake, a patent or accumulated losses usable against future tax. Same company can move between
+categories, and each demands a different question set -- asking a turnaround to demonstrate consistent growth history
+misreads the entire situation. A screen flattens all six into numbers, so whichever type your filter happens to favour
+determines the portfolio more than any judgment you exercised. Two further observations deserve remembering because they
+cost nothing: unloved, underfollowed companies are cheaper to be right about than exhaustively covered ones, since
+everyone else's valuation work on a heavily owned stock is already in the price; and complexity is a tax on your
+attention, which is why a business whose economics survive being sketched simply has an advantage over one requiring
+models you'd need to trust somebody else to build.
 
-* **Shopify**: This e-commerce platform has a growth rate of 30%, a P/E ratio of 20, and a debt-to-equity ratio of 0.1. It's a company that many teens use and understand.
-* **Netflix**: This streaming service has a growth rate of 20%, a P/E ratio of 15, and a debt-to-equity ratio of 0.5. It's a company that many teens love and use daily.
+## "Invest in what you know," read correctly
 
-Now it's your turn to try the Lynch Screener. Choose a company you're interested in, and evaluate it based on the key concepts above. You can use online tools like Yahoo Finance or Google Finance to find the necessary data.
+The paraphrase everyone repeats got flattened into shopping advice -- use the product, buy the shares -- and the
+distortion has cost beginners a great deal of money. In the original telling, familiarity supplies the *starting point*:
+you may notice a queue lengthening, a shelf quietly disappearing, a service friends stopped renewing, months before
+published statements describe the consequences. That head start is real and it is also the least demanding part of the
+exercise. It says nothing about margins, contract concentration, inventory, competitive response, whether expansion is
+funded expensively, or the price you're paying [-- earnings quality is where enthusiasm usually hides the problems](/articles/understanding-earnings-quality-accruals-one-timers-and-the-fine-print/).
+Familiarity without evidence becomes enthusiasm with a ticker attached, and enthusiasm is how ordinary people end up
+overpaying precisely when they feel most confident. [Growth versus value framing](/articles/growth-stocks-vs-value-stocks/)
+and [the earnings multiple explained honestly](/articles/price-to-earnings-ratio-the-most-popular-metric/) cover the
+half his popularisers usually skip.
 
-* Look up the company's growth rate, P/E ratio, debt-to-equity ratio, and institutional ownership.
-* Evaluate whether the company passes the Lynch Screener criteria.
-* Consider whether you think the company is a good investment opportunity.
+A disciplined version runs roughly like this. Choose a company whose economics you can explain without notes. Estimate
+the plausible range of profit growth over several years and write down the operational reasons supporting it. Compare
+what you pay today against that range using a growth-aware multiple rather than the raw headline, staying inside a peer
+group where costs behave similarly. Check balance-sheet capacity and cash conversion, since growth financed expensively
+destroys the very thing making the stock attractive. Then specify, before purchasing, what evidence would show the thesis
+failing -- because the test of whether you understand a business is whether you can describe what would prove you wrong,
+not merely what would prove you right.
 
-Here are the main lessons to take away from the Lynch Screener:
+Screens are fine starting points provided you remember they select on reported history, meaning they systematically
+prefer yesterday's winners unless you interrogate each result. Nothing replaces reading primary documents yourself;
+that habit compounds faster than any tool setting ever will.
 
-* Growth investing involves finding companies with high growth rates, but not overpaying for them.
-* The Lynch Screener is a tool to help you evaluate growth stocks based on key criteria.
-* It's essential to understand the key concepts behind the screener, including growth rate, P/E ratio, debt-to-equity ratio, and institutional ownership.
-* Always do your own research and consider multiple perspectives before making investment decisions.
-
-If you're interested in learning more about the Lynch Screener and growth investing, here are some resources to check out:
-
-* **"Beating the Street" by Peter Lynch**: This book is a classic investing guide that explains Lynch's approach to growth investing.
-* **"The Little Book of Common Sense Investing" by John C. Bogle**: This book provides an overview of investing and explains the importance of a long-term approach.
-* **Yahoo Finance**: This online resource provides access to stock data, news, and analysis.
-
-**Disclaimer**
---------------
-
-This article is for educational purposes only and should not be considered as investment advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.
+This is educational discussion of an investing style, not financial advice or a recommendation to buy or a recommendation to buy anything;
+no fund or individual is being endorsed and illustrative figures are generic round numbers rather than quoted data.
+Investing involves risk: growth estimates are guesses dressed as arithmetic, screens select on history markets already
+priced, and holdings chosen on this reasoning routinely lose money.
