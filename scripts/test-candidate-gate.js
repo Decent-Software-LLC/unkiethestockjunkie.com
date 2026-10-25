@@ -11,7 +11,7 @@
 'use strict';
 
 const assert = require('assert');
-const { checkCandidate } = require('./lib/candidate-gate');
+const { checkCandidate, looksLikeScaffoldHeading } = require('./lib/candidate-gate');
 
 const ARTICLE_SLUGS = new Set(['dollar-cost-averaging', 'dollar-cost-averaging-smooth-out-the-bumps', 'index-funds-set-it-and-forget-it', 'risk-and-reward-the-investing-balance', 'what-is-a-dividend-getting-paid-to-own-stocks']);
 const GUIDE_SLUGS = new Set(['making-your-first-trade', 'building-your-first-portfolio']);
@@ -176,6 +176,21 @@ test('rejects scaffold headings and AI-isms', () => {
   assert.match(reasons(page('## Key Takeaways\n\nInvestors should diversify across many different holdings over years. '.repeat(12))), /scaffold heading/);
   assert.match(reasons(page("Let's explore how dividends work over decades of compounding returns for careful holders. ".repeat(12))), /meta-writing/);
   assert.match(reasons(page("As a teenager you should start early with small amounts. ".repeat(20))), /as-a-teenager/);
+});
+test('numbered generator scaffolding survives to publication no longer', () => {
+  // Verbatim headings from a page that shipped unnoticed because the anchored pattern could not see
+  // past the enumerator and the explanatory tail.
+  for (const h of ['## 1. Introduction \u2013 Hook the Reader',
+                   '## 2. What Is It? \u2013 Clear Definition and Explanation',
+                   '## 5. Key Concepts \u2013 Break Down the Main Ideas']) {
+    assert.match(reasons(page(`${h}\n\nA simulation reports whatever assumptions were entered into it carefully. `.repeat(12))),
+      /scaffold heading/, h);
+  }
+  assert.ok(looksLikeScaffoldHeading('b) Key Concepts \u2013 Examples'));
+  assert.equal(looksLikeScaffoldHeading('c. Random Sampling'), false);
+  // Over-blocking is as fatal as under-blocking here: legitimate prose headings carry enumerators too.
+  assert.equal(looksLikeScaffoldHeading('3 Ways Screens Mislead Beginners'), false);
+  assert.equal(looksLikeScaffoldHeading('Where the Comfort Comes From'), false);
 });
 test('front matter keys are required', () => {
   const noDesc = page().split('\n\n')[0].replace(/^description:.*$/m, '');

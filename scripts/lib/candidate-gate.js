@@ -31,6 +31,22 @@ const BANNED_PATTERNS = [
 // Headings named after writing instructions rather than content.
 const BANNED_HEADINGS = /^(introduction|conclusion|summary|key takeaways?|key concepts?|further reading|resources?|additional resources?|recommended reading|try it yourself|hands.on activity|real.world examples?|why (?:should teens|you should care|this matters to you)|hook the reader|clear definition|what is it|overview|bullet points)$/i;
 
+// Generator scaffolding reaches published pages with enumerators and explanatory tails attached --
+// "## 1. Introduction \u2013 Hook the Reader" passed the anchored pattern above while being unmistakably an
+// instruction left in the document. Strip the marker, allow a separator plus tail, then re-test.
+const HEADING_MARKER = /^\s*(?:\d{1,2}|[a-z]{1,3}|[ivxlcdm]{1,7})\s*[.)]\s+/i;
+
+function looksLikeScaffoldHeading(raw) {
+  const text = String(raw).replace(/[*_`]/g, '').trim();
+  const stripped = text.replace(HEADING_MARKER, '').trim();
+  if (BANNED_HEADINGS.test(stripped)) return true;
+  // Explanatory tails ("Introduction \u2013 Hook the Reader") hide the instruction behind a separator, so test
+  // the leading phrase too. Written with regex literals rather than a composed pattern: anchors embedded in a
+  // reused source silently prevented tails from ever matching during development.
+  const lead = stripped.split(/[\u2013\u2014:\u2013-]/)[0].trim().replace(/[?!.,;]+$/, '').trim();
+  return BANNED_HEADINGS.test(lead);
+}
+
 // Large magnitudes must cite a source in the same sentence, otherwise reject. Small dollar figures
 // are fine because they are arithmetic setups ("$10 a month"), not claims about the world.
 const BIG_NUMBER = /(?:\$\s?\d[\d,]*(?:\.\d+)?\s*(?:billion|million|trillion))|(?:\b\d{2,}(?:\.\d+)?\s?%)/g;
@@ -85,7 +101,7 @@ function checkCandidate(src, opts) {
   }
   for (const h of prose.matchAll(/^\s{0,3}#{1,6}\s+(.+)$/gm)) {
     const text = h[1].replace(/[*_`]/g, '').trim();
-    if (BANNED_HEADINGS.test(text)) problems.push(`scaffold heading: "## ${text}"`);
+    if (looksLikeScaffoldHeading(h[1])) problems.push(`scaffold heading: "## ${text}"`);
   }
   // Models restating metadata is the single most common leak; catch every variant.
   for (const leak of prose.matchAll(/^\s*(?:\*\s*)?(title|difficulty|tags|description|image_credit)\s*:\s*(.+)$/gim)) {
@@ -208,4 +224,4 @@ function generateSlugStatic(title) {
     .replace(/-+/g, '-');
 }
 
-module.exports = { checkCandidate, BANNED_PATTERNS, MIN_WORDS, MIN_INTERNAL_LINKS, generateSlugStatic };
+module.exports = { checkCandidate, BANNED_PATTERNS, MIN_WORDS, MIN_INTERNAL_LINKS, generateSlugStatic, looksLikeScaffoldHeading };

@@ -1,7 +1,7 @@
 ---
 layout: article
-title: "Roth vs Traditional IRA: Retirement Investing"
-description: "Tax-advantaged accounts and why teens should start early."
+title: "Roth vs Traditional: Which Account Fits When Your Income Is Low"
+description: "Why the tax question reverses at a part-time wage, what counts as earned income, and which rules trip people up later."
 date: 2026-06-04
 difficulty: advanced
 tags: ["retirement", "ira", "taxes", "advanced"]
@@ -18,57 +18,104 @@ related_articles:
   - title: "Tax-Efficient Investing: Keeping More of Your Gains"
     url: "/articles/tax-efficient-investing-keeping-more-of-your-gains/"
     description: "Strategies to minimize taxes on investment returns."
+quiz:
+  - question: "Who qualifies to contribute to these accounts?"
+    options:
+      - "Anyone with compensation from work, capped by the smaller of earnings or the annual limit"
+      - "Anyone with a bank account and a valid identification document"
+      - "Only workers aged twenty-one or older"
+      - "Anyone whose parents sign a written permission form"
+    answer: 0
+    why: "Compensation from employment sets eligibility, so allowances, gifts and investment gains do not create contribution room regardless of paperwork. Age alone neither grants nor blocks the right when earned income exists."
+  - question: "Why can the Roth structure appeal most strongly to low-wage teenagers?"
+    options:
+      - "Today's small tax bill purchases permanent tax-free treatment on decades of growth"
+      - "Teenagers are exempt from all reporting requirements"
+      - "Roth accounts guarantee higher investment returns"
+      - "Earnings may be withdrawn freely during school years"
+    answer: 0
+    why: "Locking in tax treatment while brackets are lowest is cheap, and long horizons magnify what that saves. Nothing is exempt from reporting, wrappers confer no return advantage, and early earnings access carries conditions."
+  - question: "Which should generally be assembled first?"
+    options:
+      - "An accessible cash reserve outside investment wrappers"
+      - "A retirement contribution, since penalties never apply"
+      - "A leveraged position matching expected goals"
+      - "A conversion from any pre-tax balance available"
+    answer: 0
+    why: "Near-term spending money must survive without selling investments at inconvenient moments, whereas retirement funds face restrictions if tapped early. Leverage and conversions introduce risks unrelated to short-horizon needs."
 ---
 
-**Disclaimer: Not financial advice. This article is for educational purposes only. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making any investment decisions.**
+Two accounts, identical investments inside them, opposite tax mechanics -- and the choice between them depends almost entirely
+on facts a teenager knows better than most forty-year-olds: how much you currently earn and how little you expect that figure
+to be worth in today's money later. Retirement accounts get presented as adult machinery, yet the window where one variant
+offers the largest advantage is precisely when income is lowest, which describes readers of this site uncomfortably well.
 
-Imagine you're 25 years old, fresh out of college, and starting your dream job. You're excited to begin your career, but have you thought about retirement? It may seem far away, but the sooner you start planning, the better. One way to get a head start is by understanding the difference between Roth and Traditional IRAs. In this article, we'll break down the key concepts, provide real-world examples, and give you a hands-on activity to try.
+## The structural difference
 
-An IRA, or Individual Retirement Account, is a type of savings account designed to help individuals save for retirement. There are two main types of IRAs: Roth and Traditional. Both offer tax benefits, but they work differently.
+A **Roth** account is funded with money already taxed at today's rates; qualified later withdrawals carry no further income
+tax, including growth [-- waiting is what makes the growth enormous](/articles/compound-interest-the-eighth-wonder-of-the-world/).
+A **traditional** account may reduce taxable income in the year of contribution, deferring tax until withdrawal, when both
+contributions and earnings get taxed at whatever rates apply then. Neither is universally superior; the comparison hinges on
+whether today's rate or the future rate is smaller, plus rule details most summaries skip.
 
-*   **Roth IRA:** Contributions are made with after-tax dollars, which means you've already paid income tax on the money. The funds grow tax-free, and withdrawals are tax-free if you meet certain conditions.
-*   **Traditional IRA:** Contributions are made with pre-tax dollars, reducing your taxable income for the year. The funds grow tax-deferred, but you'll pay taxes when you withdraw the money in retirement.
+For someone earning modest wages from a part-time job right now, that asymmetry points strongly in one direction. Low current
+income means low current tax cost to establish permanent tax-free treatment on decades of compounding -- paying a small bill now
+instead of a larger one later, when salaries typically rise. An unusually high earner facing a temporarily elevated bracket may
+prefer deductions immediately. Anyone claiming one option always wins has stopped reading the question.
 
-You might be thinking, "Retirement? That's decades away!" But here's the thing: the power of compound interest is on your side. By starting early, you can grow your money over time, even with small, consistent contributions. Think of it like a snowball rolling down a hill, gaining speed and size as it goes.
+## Earned income, the requirement beginners miss
 
-For example, let's say you start contributing $100 per month to a Roth IRA at age 15. Assuming a 7% annual return, you'll have around $120,000 by age 65. That's a significant head start on your retirement savings!
+Neither account accepts contributions unless you personally had compensation from work -- wages, salary, tips, documented
+self-employment income. Allowances don't qualify, pocket money from relatives doesn't qualify, investment gains don't qualify,
+and unreported cash work creates paperwork problems rather than solutions. Contribution capacity is capped by the *lesser* of
+annual earned income or a published limit that governments index regularly, so quoting any specific dollar ceiling risks
+obsolescence; consult the revenue authority's own instructions for the current year rather than paraphrasing somebody's blog.
+Because minors with legitimate jobs frequently have exactly this profile, custodial retirement accounts exist specifically for
+them, set up by a parent or guardian, owned by the young person, and locked against raiding for convenience -- a structure worth
+raising with a trusted adult if paid work exists, since the advantage comes from time rather than size and cannot be manufactured
+later.
 
-Here are the main differences between Roth and Traditional IRAs:
+## Where accounts bite
 
-*   **Contributions:** Roth IRA contributions are made with after-tax dollars, while Traditional IRA contributions are made with pre-tax dollars.
-*   **Taxes:** Roth IRA withdrawals are tax-free, while Traditional IRA withdrawals are taxed as ordinary income.
-*   **Income Limits:** Roth IRA contributions are subject to income limits, which may reduce or eliminate your ability to contribute.
-*   **Required Minimum Distributions (RMDs):** Traditional IRAs require you to take RMDs starting at age 72, while Roth IRAs do not have RMDs during the account owner's lifetime.
+**Early access.** Roth contributions already made can generally be withdrawn without additional tax or penalty because the tax
+was settled beforehand; earnings are different, potentially carrying both tax and a surcharge before qualifying ages, with
+listed exceptions nobody should assume apply to them personally. Traditional accounts treat nearly everything taken early as
+taxable income plus possible penalty outside recognised exemptions. Treating either wrapper as a convenient emergency fund is
+the classic way beginners convert long-horizon advantages into short-term regret [-- keep near-term spending money outside
+investment accounts entirely](/articles/dollar-cost-averaging-smooth-out-the-bumps/), which is why the emergency buffer belongs
+in accessible savings first.
 
-Let's look at two scenarios:
+**Timing rules beyond the headline.** Separate five-year clocks run independently -- one for earnings after the first
+contribution, another per conversion -- and satisfying age requirements without satisfying the clock produces surprise bills.
+Conversion from traditional to Roth converts untaxed dollars into this year's taxable income, which can push the marginal rate
+upward sharply; repeated conversions from large pre-tax balances interact with pro-rata calculations designed specifically to
+prevent cherry-picking which dollars get converted. Nobody executes those manoeuvres well from memory.
 
-Scenario 1: Roth IRA
+**Required withdrawals.** Traditional accounts force distributions at ages set by statute, meaning tax is eventually collected
+whether or not the money is needed; funds remaining in a designated Roth account during the owner's lifetime avoid the same
+requirement. Rules here changed recently and continue changing, so verify current ages officially rather than trusting any page
+including this one. Deductibility of traditional contributions also isn't automatic -- it depends on workplace-plan coverage and
+income levels, both indexed annually.
 
-*   You contribute $5,000 to a Roth IRA at age 20.
-*   The funds grow to $10,000 by age 30.
-*   You withdraw the $10,000 at age 60, tax-free.
+## Decisions that actually matter at sixteen
 
-Scenario 2: Traditional IRA
+Ignore optimisation nobody can perform yet and focus on what changes outcomes decades out: contributing anything at all rather
+than nothing; capturing employer matching if a workplace plan exists, since matching contributions produce instant returns dwarfing
+any tax nuance discussed here; keeping internal costs minimal through plain diversified holdings rather than expensive products
+sold to the young [-- account selection precedes product selection](/guides/building-your-first-portfolio/) and matters more
+than cleverness. Automate so behaviour stops being a monthly negotiation, and resist converting retirement money into immediate
+consumption whenever circumstances permit, since the value of these wrappers is precisely that they make impatience mildly
+expensive. Expect your answers to change as income rises; revisit comparisons whenever brackets shift, and never let tax
+efficiency drive decisions that should be driven by whether the underlying holdings make sense [-- tax drag considerations come
+after owning something sensible](/articles/tax-efficient-investing-keeping-more-of-your-gains/).
 
-*   You contribute $5,000 to a Traditional IRA at age 20.
-*   The funds grow to $10,000 by age 30.
-*   You withdraw the $10,000 at age 60, paying 24% in taxes (assuming a 24% tax bracket).
+Do the arithmetic yourself once, with invented round numbers, so the shape sticks: suppose \$1,200 contributed annually from
+fifteen through sixty-five -- total outlay around \$60,000 -- and imagine growth averaging roughly seven percent. Compounding
+supplies vastly more than the contributions themselves, reaching figures nearer half a million dollars than the tidy six-figure
+number circulating in older versions of this material, and the ratio between what you put in and what arrives is the entire
+lesson about starting early. Then flip the tax question onto your own numbers rather than anyone else's hypothetical.
 
-Use an online calculator or spreadsheet to model the following scenario:
-
-*   You start contributing $500 per month to a Roth IRA at age 18.
-*   The funds grow at an average annual return of 8%.
-*   You withdraw the funds at age 65.
-
-Compare the results to a Traditional IRA with the same contributions and growth rate. Which option provides more retirement income?
-
-Here are the main lessons:
-
-*   **Start early:** The power of compound interest is on your side.
-*   **Understand taxes:** Roth IRA contributions are made with after-tax dollars, while Traditional IRA contributions are made with pre-tax dollars.
-*   **Consider income limits:** Roth IRA contributions are subject to income limits.
-*   **Plan for RMDs:** Traditional IRAs require RMDs starting at age 72.
-
-1.  **IRS Publication 590-A:** Individual Retirement Arrangements (IRAs)
-2.  **Investopedia:** Roth IRA vs. Traditional IRA
-3.  **The Balance:** How to Choose Between a Roth and Traditional IRA
+This is educational explanation of retirement account structures -- not financial advice, tax advice or legal advice, and not a
+recommendation to open any account; limits, eligible ages and deduction conditions are legislated, amended periodically and must be confirmed from official
+revenue-authority guidance or a qualified professional, custodial arrangements involve rules binding on the adult who establishes
+them, investing involves risk, and every figure above is invented round-number arithmetic provided for checking purposes only.
