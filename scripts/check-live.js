@@ -29,6 +29,10 @@ function normalize(s) {
     .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
     .replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"')
     .replace(/[\u2013\u2014]/g, '-').replace(/\u2026/g, '...')
+    // Kramdown turns a source "--" into one en dash and "---" into one em dash, so the source side still holds two
+    // or three hyphens where the served page has one. Without collapsing runs, any sentence written with markdown
+    // dashes reports "content committed but not serving" -- a false negative that reads exactly like a failed deploy.
+    .replace(/-{2,}/g, '-')
     // Removing inline markup (<em>, <strong>) can strand a space before punctuation:
     // "it <em>safe</em>, though" -> "it safe , though" which never matches the source.
     .replace(/\s+([,.;:!?])/g, '$1')
@@ -105,6 +109,12 @@ async function selfTest() {
   if (!served.includes(pGood)) { console.error('  ✗ self-test: valid probe rejected (comparator too strict)'); bad++; }
   if (served.includes(pBad)) { console.error('  ✗ self-test: drifted probe matched (comparator too loose)'); bad++; }
   if (normalize('') !== '') { console.error('  ✗ self-test: empty input not normalized away'); bad++; }
+  // Markdown dashes must compare equal across the typographic conversion kramdown performs.
+  const dashServed = '<p>It reports what a company owned and owed on one date \u2014 the last day of a quarter \u2014 which is why every copy carries a date.</p>';
+  const dashProbe = normalize('It reports what a company owned and owed on one date --- the last day of a quarter --- which is why every copy carries a date.');
+  if (!normalize(dashServed).includes(dashProbe)) { console.error('  ✗ self-test: markdown dashes rejected after smart-character conversion (comparator too strict)'); bad++; }
+  const dashDrift = normalize('It reports what a company owned and owed on one date --- the last day of a fiscal decade --- which is why every copy carries a date.');
+  if (dashDrift && normalize(dashServed).includes(dashDrift)) { console.error('  ✗ self-test: drifted dashed sentence matched (comparator too loose)'); bad++; }
   // An empty probe must never be treated as a pass.
   if (!probeOf('## Heading only\n\n- list item\n')) { /* expected: null */ } else { console.error('  ✗ self-test: markup-only body yielded a probe'); bad++; }
   if (bad) { console.error(`\n${bad} self-test(s) failed`); process.exit(1); }
