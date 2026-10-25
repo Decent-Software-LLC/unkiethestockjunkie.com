@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Price-to-Earnings Ratio: The Most Popular Metric"
-description: "Understanding P/E and what it tells you about stock prices."
+description: "What the earnings multiple can and cannot tell you: trailing vs forward, cyclical traps, and what has to be true for a price to be fair."
 date: 2026-05-11
 difficulty: intermediate
 tags: ["pe-ratio", "valuation", "fundamentals", "intermediate"]
@@ -18,46 +18,115 @@ related_articles:
   - title: "Income Statement: Revenue, Expenses, Profits"
     url: "/articles/income-statement-revenue-expenses-profits/"
     description: "How to read the story of a company's profitability."
+quiz:
+  - question: "Why is expressing valuation as earnings yield sometimes clearer than quoting the multiple?"
+    options:
+      - "It places valuation on the same scale as other places money could go"
+      - "It removes the need to read the footnotes"
+      - "It is the only version accountants accept"
+      - "It rises whenever the share price rises"
+    answer: 0
+    why: "A percentage of profit per dollar invested can sit beside deposit rates and government paper directly, whereas a multiple needs translation first. Footnotes still matter, accountants report profit rather than choose a presentation, and the yield falls rather than rises when price climbs."
+  - question: "For a commodity producer at the top of its cycle, what does an unusually low trailing multiple often indicate?"
+    options:
+      - "Peak profits that may not repeat, flattering the denominator"
+      - "Certain undervaluation awaiting discovery"
+      - "A company that pays no dividend"
+      - "Recently issued shares"
+    answer: 0
+    why: "Cyclical booms inflate earnings, so dividing price by temporary peak profit produces a small ratio right before normalisation. Cheapness here is usually an artefact of the cycle rather than evidence of opportunity; payout policy and issuance are unrelated."
+  - question: "Two companies share the same earnings multiple. What decides which is better value?"
+    options:
+      - "Whether the profit behind the multiple is durable and productively reinvested"
+      - "Whichever has the longer trading history"
+      - "Whichever appears in more news coverage"
+      - "Which listing was created more recently"
+    answer: 0
+    why: "Identical ratios hide different earnings quality: compounding returns on capital, temporary depression, or cyclical peak profit all produce the same headline. Listing age, media volume and registration dates say nothing about durability."
 ---
 
-Imagine you're buying a lemonade stand. The owner wants $100 for it, but you're not sure if it's worth that much. You ask how much money the stand makes each year, and the owner says it makes $10. You think to yourself, "Is it worth paying $100 for a stand that only makes $10 per year?" This is similar to how investors think about buying stocks. They want to know if the price they pay is reasonable compared to the company's earnings. That's where the Price-to-Earnings (P/E) ratio comes in.
+The price-earnings ratio is one division with two meanings people constantly confuse. Mechanically it's trivial --
+**price ÷ earnings per share**, equivalently market capitalisation ÷ total net income -- and it answers "how many years
+of current profit does today's price represent?" At eighteen times profit you're paying eighteen years' worth of
+present earnings, which is why quoting the number without describing those earnings is close to worthless.
 
-The Price-to-Earnings (P/E) ratio is a metric that helps investors understand how much they're paying for a company's stock compared to its earnings. It's calculated by dividing the current stock price by the company's earnings per share (EPS). The result is a number that shows how many times investors are willing to pay for each dollar of earnings.
+## The reciprocal is the useful half
 
-P/E Ratio = Current Stock Price ÷ Earnings Per Share (EPS)
+Invert it and you get the **earnings yield**: at 20×, each dollar invested carries about five cents of annual profit
+behind it -- a 5% yield. This form is more honest than the raw multiple because it puts valuation on a scale where you
+can set it next to alternatives and ask whether the extra risk is paid for. Compare against savings-account rates,
+short-term government paper, the whole market, and the company's own history. A stock yielding 3% on profits needs
+something else going for it beyond cheapness; if the answer is growth, the number stops being a verdict and becomes one
+input into a judgment about [what the growth has to deliver](/articles/earnings-growth-the-engine-of-stock-prices/).
 
-As a teenager, you might not be investing in stocks yet, but understanding the P/E ratio can help you make informed decisions when you start investing. It's essential to know how to evaluate companies and determine if their stock prices are reasonable. This skill will serve you well in the future when you're managing your own investments.
+Also fix the mental model around the word "cheap". Two very different senses circulate online: *low-priced* versus
+*attractive relative to what you get*. They are unrelated. Something priced at ten times can be extravagant if profits
+are about to vanish; something at thirty times can be reasonable if those profits compound quickly from a durable
+position. Ratio levels alone cannot distinguish them.
 
-Think of it like buying a car. You wouldn't pay $50,000 for a car that's only worth $20,000, right? Similarly, investors don't want to overpay for a company's stock. The P/E ratio helps them determine if the price is fair.
+## Why a clean-looking P/E misleads
 
-Here are some key concepts to understand when it comes to the P/E ratio:
+The denominator is a single number produced by accounting conventions under conditions nobody re-examines, and every
+distortion below survives a screen filter silently:
 
-* **Earnings Per Share (EPS):** This is the company's profit divided by the number of outstanding shares.
-* **Current Stock Price:** This is the price of one share of the company's stock.
-* **Industry Comparison:** Compare the P/E ratio of a company to its industry average to determine if it's overvalued or undervalued.
-* **Growth Rate:** Companies with high growth rates often have higher P/E ratios because investors expect their earnings to increase in the future.
+**Cyclicals invert the signal.** A mining, shipping or commodity producer at the top of its cycle reports peak profit,
+so the multiple collapses to something flattering right before results normalise; the same industry at the bottom shows
+a grotesque multiple while profits are temporarily crushed. Rule of thumb worth internalising: for cyclical businesses,
+low historical multiples often mark optimism and high ones mark capitulation -- the opposite of how the reading behaves
+for a steady consumer staple.
 
-Let's look at two companies: Amazon (AMZN) and Walmart (WMT).
+**One-offs contaminate the year.** A settled lawsuit, a divested division, a deferred-tax reversal, an impairment. Any
+of these lives inside net income and therefore inside your denominator. Read the notes and subtract what won't repeat.
 
-* **Amazon (AMZN):** Amazon's P/E ratio is around 80, which means investors are willing to pay $80 for each dollar of earnings. This is because Amazon is growing rapidly, and investors expect its earnings to increase in the future.
-* **Walmart (WMT):** Walmart's P/E ratio is around 20, which means investors are willing to pay $20 for each dollar of earnings. This is because Walmart is a more established company with slower growth rates.
+**Negative or near-zero earnings make it meaningless.** With profit at roughly nothing, the multiple is enormous or
+undefined, and no meaningful statement follows. Growth stories priced entirely on projections should be approached
+through the projections themselves rather than through a number that can't resolve.
 
-Let's calculate the P/E ratio for a fictional company, Lemonade Inc.
+**Buybacks flatter it mechanically.** Fewer shares raise earnings per share at an unchanged price, so the multiple falls
+without progress; check whether the improvement came from operations or from the share-count line in the
+[cash flow statement](/articles/free-cash-flow-the-money-that-matters/).
 
-* **Current Stock Price:** $50
-* **Earnings Per Share (EPS):** $5
+**Accounting differences move it without changing economics.** Leasing versus owning, capitalised development costs
+versus expensing them, pension assumptions, inventory method: comparable businesses can print visibly different
+multiples while sending identical cash to the bank.
 
-P/E Ratio = $50 ÷ $5 = 10
+## Same multiple, four situations
 
-This means investors are willing to pay $10 for each dollar of earnings. Now, let's compare this to the industry average P/E ratio for lemonade stands, which is 15. This suggests that Lemonade Inc. might be undervalued.
+All trading at eighteen times trailing profit -- which is exactly why the number is a prompt rather than an answer:
 
-* The P/E ratio helps investors determine if a company's stock price is reasonable compared to its earnings.
-* A high P/E ratio doesn't necessarily mean a company is overvalued; it might be growing rapidly.
-* Compare the P/E ratio to the industry average to determine if a company is overvalued or undervalued.
-* The P/E ratio is just one metric; consider other factors like growth rate and industry trends when evaluating a company.
+| Profile | Profit situation | Reading |
+|---|---|---|
+| A | Growing steadily, high returns on the capital employed | Expensive only if the growth can't be defended |
+| B | Flat, returns barely above what capital costs | Unlikely to earn its multiple; needs luck |
+| C | Temporarily depressed by a repairable problem | The classic value setup, if genuinely repairable |
+| D | Peak profit in a boom cycle | Cheapest-looking precisely when caution is warranted |
 
-* "A Random Walk Down Wall Street" by Burton G. Malkiel
-* "The Little Book of Common Sense Investing" by John C. Bogle
-* "The Intelligent Investor" by Benjamin Graham
+Distinguishing them requires everything the ratio excludes -- margin trends, capital intensity, contract durability,
+leverage, and where reinvested money earns. That work lives in
+[fundamental analysis](/articles/fundamental-analysis-finding-intrinsic-value/), and
+[decomposing return on equity](/articles/roe-return-on-equity-explained/) into margin, turnover and leverage usually
+does more explanatory work than any multiple comparison. It's also why cross-industry ranking fails so reliably:
+capital-light sectors carry less recorded assets and fewer employees per revenue dollar, so their multiples sit
+permanently higher; the aggregate market multiple drifted upward across decades substantially because the economy's
+composition changed, not because a generation suddenly lost its minds.
 
-**Disclaimer:** Not financial advice. Investing involves risk, and it's essential to do your own research and consult with a financial advisor before making investment decisions.
+Trailing versus forward deserves one warning each. Trailing uses reported profit from a finished period -- verifiable
+against filings, backward-looking by construction. Forward uses somebody's estimate, frequently revised after the fact
+by the same people who publish it, and small changes to that estimate produce dramatic changes to the apparent
+"reasonableness" of a price. If a valuation argument depends entirely on a forecast published by someone with a
+business interest in it, you are holding a guess dressed as arithmetic.
+
+## A short protocol that keeps you honest
+
+Pull price yourself at the moment of writing; the figure moves and quotations go stale within hours. Pull net income and
+share count from the filing, run the division, and show your working so you can recheck it later. Note whether the
+profit figure includes anything non-recurring. Compute earnings yield and place it against your actual alternatives.
+Compare the multiple only against the same company's own range across several years and against a handful of genuine
+competitors with similar business models. Then write the assumption that would make today's price sensible -- specific
+enough that future results could contradict it -- plus the observation that would tell you that assumption failed. A
+ratio without such a sentence attached is functioning as decoration, and decorations survive bad evidence indefinitely.
+
+This is educational explanation of a valuation measure, not investment advice or a recommendation of any kind. No
+company is named because published multiples change daily and expire on printing, every percentage and multiple shown
+is invented round-number arithmetic used to demonstrate relationships, ratios describe reported accounting figures that
+may mislead, and any holding can lose money including one bought at a historically low multiple.

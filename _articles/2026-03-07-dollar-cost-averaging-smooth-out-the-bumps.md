@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Dollar-Cost Averaging: Smooth Out the Bumps"
-description: "How investing regularly reduces the impact of market volatility."
+description: "Fixing the contribution schedule instead of forecasting prices -- the mechanics, the real trade-off, and what it does not protect you from."
 date: 2026-03-07
 difficulty: intermediate
 tags: ["dca", "strategy", "risk-management", "intermediate"]
@@ -19,63 +19,117 @@ related_articles:
     url: "/articles/diversification-don-t-put-all-your-eggs-in-one-basket/"
     description: "Why spreading your investments reduces risk."
 quiz:
-  - question: "Investing a fixed amount monthly means you buy..."
-    options: ["Fewer shares when prices fall", "More shares when prices fall", "Always the same share count", "Only at yearly lows"]
-    answer: 1
-    why: "A constant dollar amount purchases more units at lower prices, which averages your entry without requiring any forecast."
-  - question: "Dollar-cost averaging guarantees..."
-    options: ["Profit every year", "Nothing about outcomes; it removes decisions, not risk", "Beating the market", "Automatic insurance against losses"]
-    answer: 1
-    why: "It regularizes behavior. Money invested right before a prolonged decline still loses value; the benefit is procedural, not predictive."
+  - question: "Why does the average cost per share under this method sit below the plain average of the prices paid?"
+    options:
+      - "A fixed dollar amount buys more units when prices are lower"
+      - "Brokers refund part of the difference"
+      - "Share counts rise over time"
+      - "Dividends are reinvested automatically"
+    answer: 0
+    why: "The same cheque purchases extra units cheaply and fewer units expensively, so weighting happens by construction. Broker rebates, share issuance and dividend policy are unrelated features that may or may not exist."
+  - question: "Prices climb steadily from forty to eighty while you invest the same amount monthly. Compared with investing the full sum on day one, you end up:"
+    options:
+      - "Worse off, because cash waited on the sidelines"
+      - "Better off, because averaging always wins"
+      - "Identically off; timing never matters"
+      - "Unable to compare the two approaches"
+    answer: 0
+    why: "In a straight advance, each later instalment buys fewer units than the first would have, so uncommitted money drags the result. Averaging helps only on paths involving declines, which nobody knows in advance."
+  - question: "What practical feature protects the method's main advantage?"
+    options:
+      - "Automating a contribution sized so it never needs pausing"
+      - "Choosing the calendar day that historically performed best"
+      - "Increasing the amount whenever results disappoint"
+      - "Switching funds whenever the multiple changes"
+    answer: 0
+    why: "The advantage disappears if contributions stop during drawdowns, so affordability plus automation is the load-bearing design choice. Hunting lucky dates is timing in disguise, and adding money or rotating funds on the basis of recent results reintroduces the very judgment the rule exists to remove."
 ---
 
-Imagine you're on a rollercoaster ride, and the ups and downs are making your stomach drop. That's what it can feel like when you're investing in the stock market. But what if you could smooth out those bumps and make the ride less intense? That's where dollar-cost averaging comes in. This investment strategy can help you navigate the ups and downs of the market and make the most of your money. In this article, we'll explore what dollar-cost averaging is, why it matters, and how you can use it to your advantage.
+Dollar-cost averaging is not a strategy for beating the market. It's a rule that removes a decision you're badly
+equipped to make -- when to buy -- and replaces it with a calendar. That's the honest version, and it's more useful than
+the usual pitch about smoothing risk, because averaged purchases do not reduce how much money is exposed to a falling
+market. What they reduce is the number of times you have to be brave, which for most people turns out to be the binding
+constraint.
 
-Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals, regardless of the market's performance. This means that you'll be buying more shares when prices are low and fewer shares when prices are high. By doing so, you'll be averaging out the cost of your investments over time, which can help reduce the impact of market volatility. Sticking to a schedule matters more than the amount; see [The Rule of 72](/articles/the-rule-of-72-quick-mental-math-for-investors/) for what steady contributions can become across decades, and [Index Funds: Set It and Forget It](/articles/index-funds-set-it-and-forget-it/) for the kind of holding most people pair with this approach.
+## The mechanics, computed
 
-As a teenager, you might not be thinking about investing just yet, but it's essential to start learning about it now. The earlier you start investing, the more time your money has to grow. Dollar-cost averaging can be an excellent strategy for teens because it helps you:
+Commit the same amount on the same date regardless of price. Three months of \$100 buys different quantities as the
+quote moves:
 
-* Reduce risk: By investing a fixed amount regularly, you'll be spreading out your risk over time.
-* Avoid market timing: You won't have to worry about trying to time the market or predict its ups and downs.
-* Develop a habit: Investing regularly can help you develop a habit of saving and investing, which is crucial for long-term financial success.
+| Month | Price | Shares bought |
+|---|--:|--:|
+| January | \$50 | 2.00 |
+| February | \$40 | 2.50 |
+| March | \$25 | 4.00 |
+| **Total** | | **8.50 shares for \$300** |
 
-Here are the key concepts you need to understand about dollar-cost averaging:
+Average cost per share is \$300 ÷ 8.50 ≈ \$35.29. The plain average of the three prices is \$38.33. Your effective
+purchase price sits below the simple average *by construction*, because a fixed dollar amount always buys more units
+when units are cheap and fewer when they're expensive. No forecasting required -- the arithmetic does the buying
+heavier at lower prices automatically.
 
-* **Fixed investment amount**: You invest a fixed amount of money at regular intervals, e.g., $100 every month.
-* **Regular intervals**: You invest at the same time every month, quarter, or year, regardless of the market's performance.
-* **Averaging out costs**: By investing a fixed amount regularly, you'll be averaging out the cost of your investments over time.
+That's the entire mechanism. Everything else written about this method either follows from it or contradicts it.
 
-Let's use an example to illustrate this:
+## What it genuinely fixes
 
-Suppose you invest $100 every month in a stock that costs $50 per share. In the first month, you'll buy 2 shares (100/50). In the second month, the stock price drops to $40, so you'll buy 2.5 shares (100/40). In the third month, the stock price rises to $60, so you'll buy 1.67 shares (100/60). Over time, the average cost of your shares will be lower than the average market price.
+**It kills the timing question.** You cannot research your way to knowing next month's price, and every hour spent
+trying costs returns in a different way -- through hesitation. A standing instruction converts investing from a recurring
+judgment into an administrative act, which is exactly what [volatility](/articles/what-is-volatility-riding-the-roller-coaster/)
+makes impossible to do by willpower alone.
 
-Let's look at a real-world example:
+**It matches how teenagers actually receive money.** Most eighteen-year-olds don't have \$6,000 sitting idle; they have
+a portion of each paycheque. Systematic contribution isn't a compromise strategy chosen over a lump sum -- for someone
+whose income arrives weekly or monthly, it's simply the shape the money comes in. Framing it as a clever technique
+obscures the real point, which is turning earned income into invested income before spending decisions intervene.
 
-Suppose you invested $100 every month in Amazon (AMZN) stock from 2015 to 2020. During this period, the stock price fluctuated wildly, from around $300 to over $2,000. If you had invested a lump sum of $6,000 in 2015, you would have bought around 20 shares. However, if you had invested $100 every month using dollar-cost averaging, you would have bought around 24 shares, with an average cost per share of around $450.
+**It caps regret both directions.** Buy everything today and a 30% drop feels like punishment for poor timing. Wait for
+a dip that never arrives and the rally feels like punishment for cowardice. Committing in advance means neither outcome
+was a mistake you made, which makes holding through bad stretches dramatically easier -- and time
+[in the market rather than around it](/articles/risk-and-reward-the-investing-balance/) drives most long-run results.
 
-Here's a hands-on activity to help you understand dollar-cost averaging:
+**It builds the habit while stakes are small.** Investing \$50 monthly through one unpleasant quarter teaches the
+emotional mechanics far more cheaply than discovering them after a serious amount goes in. The rehearsal argument
+[applies to paper trading too](/articles/paper-trading-practice-without-risk/), with the difference that small real
+money carries enough consequence to actually change behaviour.
 
-1. Choose a stock or ETF that you're interested in investing in.
-2. Decide on a fixed investment amount, e.g., $100.
-3. Use a spreadsheet or calculator to simulate investing $100 every month for a year.
-4. Calculate the average cost per share over the year.
-5. Compare your results with a lump sum investment.
+## What it doesn't do, and the comparison you should run
 
-Here are the main lessons from this article:
+Averaging entries raises the cash you keep uninvested during the ramp-up, and historically markets rise more often than
+they fall. So committing a windfall gradually rather than immediately has usually meant a slightly worse *average*
+outcome -- paying something for emotional durability. Two hand-checkable paths make the trade-off concrete.
 
-* Dollar-cost averaging is an investment strategy that involves investing a fixed amount of money at regular intervals.
-* It can help reduce risk, avoid market timing, and develop a habit of saving and investing.
-* By investing a fixed amount regularly, you'll be averaging out the cost of your investments over time.
-* It's essential to understand the key concepts, including fixed investment amount, regular intervals, and averaging out costs.
-* Real-world examples can help illustrate the benefits of dollar-cost averaging.
+Prices climbing 40 → 60 → 80 with \$100 committed each month: shares purchased are 2.50 + 1.67 + 1.25 = 5.42, and at the
+final price of \$80 those are worth roughly \$433 against \$300 invested. Now put the whole \$300 in at the first quote
+of \$40: 7.50 shares, worth \$600 at \$80. Waiting won nothing; time in the market did the work.
 
-Here are some resources to help you learn more about dollar-cost averaging:
+Flip it. Prices trace 40 → 20 → 10 → 20 → 40 and finish where they started. Staggered \$100 purchases across the three
+low months accumulate 2.50 + 5.00 + 10.00 = 17.50 shares; at the ending price of \$40 that's roughly \$700 on \$300,
+while a single entry at the opening \$40 ends exactly where it began. Same discipline, wildly different result --
+depending entirely on a path nobody knew in advance.
 
-* "A Random Walk Down Wall Street" by Burton G. Malkiel (book)
-* "The Little Book of Common Sense Investing" by John C. Bogle (book)
-* "Dollar-Cost Averaging" by Investopedia (article)
+Which is the actual lesson. Neither approach beats the other predictably; both beat attempting the sequence yourself,
+because choosing after the fact is how people end up buying the top of the first table and never purchasing again. When
+real money arrives in bulk -- birthday cash, a saved tax refund -- decide in advance how quickly it goes in, in calm
+conditions, and understand the cost of spreading it out. If the amount matters enough to lose sleep, keep it in short-term
+savings instead of forcing it into equities early; money needed inside a couple of years belongs somewhere its value is
+predictable, a distinction the [starter portfolio walkthrough](/guides/building-your-first-portfolio/) works through
+pile by pile.
 
-**Disclaimer**
---------------
+## Practical notes that quietly matter
 
-Not financial advice. Investing involves risk, and there are no guarantees of returns. It's essential to do your own research, consider your financial goals and risk tolerance, and consult with a financial advisor before making any investment decisions.
+Choose an amount whose absence you won't notice, because contributions that get paused during a drawdown destroy the
+only advantage the method offers. Pick a calendar date and automate through your custodian rather than relying on
+monthly motivation. Mind the friction: transaction charges and spreads bite hardest on tiny purchases, so four \$25 buys
+can cost materially more proportionally than one \$100 buy -- check what your account actually charges before choosing
+frequency, and prefer a broadly diversified fund at low ongoing cost, which
+[index funds explain](/articles/index-funds-set-it-and-forget-it/) why it comes first. Each purchase is its own lot with
+its own purchase date and price, so keep records from day one; future reporting gets tedious without them. Skip the
+tuning temptation -- there's no evidence the fifteenth behaves differently from the first, and the search for a magical
+date is timing in disguise. Finally, resist the reflex to stop when things go red: the periods when the mechanism pays
+best are precisely the ones that feel worst, which is the same psychological problem
+[compounding](/articles/compound-interest-the-eighth-wonder-of-the-world/) poses in slower motion.
+
+This is educational explanation of an investment technique, not financial advice or a recommendation to buy any
+asset; the numbers above are invented round figures chosen to make each step checkable, averages described here are
+arithmetic rather than forecasts, and systematic purchasing does not protect you from losing money -- a fund bought
+regularly can still be worth substantially less than you paid for it.
