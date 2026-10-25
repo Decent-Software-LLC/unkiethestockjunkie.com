@@ -61,7 +61,7 @@ function targets() {
     files = fs.readdirSync(path.join(ROOT, '_articles')).map((f) => `_articles/${f}`);
   } else {
     files = [...new Set(execSync('git log --name-only --pretty=format: -8', { encoding: 'utf8' })
-      .split('\n').map((s) => s.trim()).filter((f) => f.startsWith('_articles/') && f.endsWith('.md')))];
+      .split('\n').map((s) => s.trim()).filter((f) => /^_(articles|guides)\//.test(f) && f.endsWith('.md')))];
   }
   return files.filter((f) => fs.existsSync(path.join(ROOT, f)));
 }
@@ -71,7 +71,12 @@ async function checkOne(rel) {
   const probe = probeOf(bodyOf(src));
   if (!probe) return { ok: false, rel, reason: 'no probe extractable (body too short or all markup?)' };
   const slug = path.basename(rel).replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
-  const url = `${BASE}/articles/${slug}/`;
+  // Collection comes from the source path, not a guess: guides live under /guides/, articles under
+  // /articles/. Hardcoding /articles/ made every guide report as unpublished, which reads exactly like a
+  // deployment failure and is instead a broken probe -- the kind of false alarm that trains people to
+  // ignore the checker.
+  const coll = rel.startsWith('_guides/') ? 'guides' : 'articles';
+  const url = `${BASE}/${coll}/${slug}/`;
   let html;
   try {
     const res = await fetch(url, { headers: { 'cache-control': 'no-cache' } });
