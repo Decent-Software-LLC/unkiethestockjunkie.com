@@ -149,8 +149,12 @@ test('rejects markdown images embedded in the body', () => {
   assert.match(reasons(page('![hero image](/assets/images/x.jpg)\n\n' + 'Words about markets that go on for a while here. '.repeat(20))), /image embed in body/);
 });
 test('requires real internal links', () => {
-  const stripped = page().replace(/\]\(\/(?:articles|guides)\/[^)]+\)/g, '](#)');
-  assert.match(reasons(stripped), /valid internal link/);
+  // Both navigation channels removed: in-prose links flattened AND the front-matter list emptied,
+  // because _layouts/article.html renders related_articles as a visible Related Articles grid.
+  const stripped = page()
+    .replace(/\]\(\/(?:articles|guides)\/[^)]+\)/g, '](#)')
+    .replace('related_articles:\n  - dollar-cost-averaging\n', '');
+  assert.match(reasons(stripped), /internal link/);
 });
 test('requires both halves of the closing disclosure', () => {
   const noAdvice = page().replace('not financial advice', 'worth reading again');
@@ -213,6 +217,47 @@ test('a rejected candidate fails for exactly the reasons under test', () => {
   const kinds = r.problems.map((p) => p.split(':')[0].slice(0, 12)).sort();
   assert.ok(r.problems.some((p) => /too short/.test(p)), 'thin page must fail on length');
   assert.ok(kinds.every((k) => /too short|only \d+ vali|no quiz bl|missing |closing p/.test(k) || true), 'reasons should stay readable');
+});
+
+console.log('\nquiz completion parsing (the call that fixed the missing-quiz failures)');
+const { parseQuizJson } = require('./generate-article.js');
+const GOOD_Q = '[{"question":"Q one?","options":["A","B","C"],"answer":0,"why":"Because."},{"question":"Q two?","options":["A","B","C"],"answer":2,"why":"Because."}]';
+test('accepts a bare array, fenced arrays, and chatty wrappers', () => {
+  for (const raw of [GOOD_Q, '```json\n' + GOOD_Q + '\n```', 'Here you go:\n' + GOOD_Q + '\nHope that helps!']) {
+    const r = parseQuizJson(raw);
+    assert.ok(r.quiz, `should have parsed: ${raw.slice(0, 30)}`);
+    assert.strictEqual(r.quiz.length, 2);
+  }
+});
+test('rejects missing, malformed, and substantively invalid quizzes', () => {
+  assert.match(parseQuizJson('No quiz here.').error, /no JSON question array/i);
+  assert.match(parseQuizJson('[{question:1}]').error, /no JSON question array/i);
+  assert.match(parseQuizJson('[{"question":"a","options":["x"]},{"question":"b","options":["y"]}]').error, /options|questions/i);
+});
+test('bank lookup returns hand-written questions by slug', () => {
+  const g = require('./generate-article.js');
+  const bank = g.readQuizBank();
+  const keys = Object.keys(bank);
+  assert.ok(keys.length > 0, 'quiz bank should not be empty');
+  assert.ok(Array.isArray(bank[keys[0]]), 'bank entry should be a question array');
+});
+
+console.log('\nnavigation may come from front matter');
+test('an article with no prose links but rich related_articles passes', () => {
+  // _layouts/article.html renders page.related_articles as a Related Articles grid, so navigation exists
+  // even when the writer trusted the template instead of wiring links into sentences.
+  const src = page()
+    .replace('## Why patience beats prediction', 'Holding through a drawdown is easy to say and hard to do while everything you own shows red for months, which is why entry discipline and position sizing decide more outcomes than selection does, and why the boring fund you forgot about regularly beats the account you watched every morning. Sitting still is a skill, and practising it costs nothing while the numbers are pretend.')
+    .replace(/\]\(\/(?:articles|guides)\/[^)]+\)/g, '](#)')
+    .replace('  - dollar-cost-averaging\n', '  - title: A\n    url: "/articles/risk-and-reward-the-investing-balance/"\n  - title: B\n    url: "/articles/dollar-cost-averaging-smooth-out-the-bumps/"\n  - title: C\n    url: "/articles/what-is-a-dividend-getting-paid-to-own-stocks/"\n');
+  const r = ok(src);
+  assert.ok(r.ok, r.problems.join('\n'));
+  assert.strictEqual(r.stats.internalLinks, 0);
+  assert.ok(r.stats.relatedArticles >= 3);
+});
+test('but neither form of navigation still fails', () => {
+  const src = page().replace(/\]\((?:\/articles|\/guides)\/[^)]+\)/g, '](#)');
+  assert.match(reasons(src), /internal link/);
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

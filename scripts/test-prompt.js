@@ -212,13 +212,14 @@ test('demits body-only output so metadata cannot leak into prose', () => {
   assert.match(p, /do not (write|output)[^]{0,80}(yaml|front matter)|do NOT write a YAML block/i);
 });
 
-test('requires a machine-parseable quiz instead of silently publishing none', () => {
-  // The generator previously never emitted a quiz at all, which is why whole tiers have zero quizzes.
+test('article brief drops the quiz request the model never honoured', () => {
+  // The single-request design asked for a trailing JSON quiz in every run of the first gated deploy and
+  // received it in none -- all three rejections ended on the disclaimer line. Asking separately over the
+  // finished text gets it in one call and yields better questions, so the article brief must stop asking
+  // (dead instructions dilute the ones that matter, and this one cost ~400 characters of attention).
   const p = beginner();
-  assert.match(p, /===QUIZ===/, 'quiz section marker not requested');
-  assert.match(p, /"answer"/, 'quiz answer field not specified');
-  assert.match(p, /"why"/, 'quiz explanation field not specified');
-  assert.match(p, /exactly 2 or 3 questions/i);
+  assert.doesNotMatch(p, /===QUIZ===/, 'article brief still requests the quiz inline');
+  assert.match(p, /stop\. Do not add a sign-off/i, 'no explicit end-of-output instruction');
 });
 
 test('injects real slugs and forbids inventing URLs', () => {

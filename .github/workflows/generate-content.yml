@@ -25,11 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # The generator gates its own output and exits non-zero when no candidate survives, deleting
-      # rejected files so they cannot be committed. It tries up to 3 topics per run (GENERATE_ATTEMPTS);
-      # a run that publishes nothing is a successful run of a correct pipeline, not a failure to publish.
-      # Exit codes are meaningful: 0 published something, 2 nothing cleared the gate (expected outcome,
-      # not an outage -- rendered as a warning), anything else is a genuine failure worth alerting on.
+      # Exit codes carry meaning: 0 published something, 2 means no candidate cleared the gate (an
+      # expected outcome, not an outage -- surfaced as a warning), anything else is a crash worth waking
+      # someone up for. Do not let either of those collapse into a plain `run:` failure or a silent pass.
       - name: Generate new article
         id: gen
         continue-on-error: true
@@ -37,64 +35,71 @@ jobs:
           set +e
           npm run generate
           rc=$?
-          echo "exit_code=$rc" >> $GITHUB_OUTPUT
-          if [ "$rc" -gt 2 ]; then exit "$rc"; fi
+          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
+          exit 0
         env:
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          NVIDIA_API_KEY: *** secrets.NVIDIA_API_KEY }}
           GENERATE_ATTEMPTS: '3'
 
       - name: Note when nothing qualified
         if: steps.gen.outputs.exit_code == '2'
-        run: echo "::warning::No generated candidate cleared the pre-publication gate today. Nothing was published. Check the Gate step log above for the rejection reasons." 
+        run: echo "::warning::No generated candidate cleared the pre-publication gate today. Nothing was published -- read the generator log above for the rejection reasons."
 
-      - name: Check for changes
-        id: check_changes
+      - name: Fail on generator crash
+        if: steps.gen.outputs.exit_code != '0' && steps.gen.outputs.exit_code != '2'
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "changes=true" >> $GITHUB_OUTPUT
-          else
-            echo "changes=false" >> $GITHUB_OUTPUT
-          fi
+          echo "::error::Generator exited ${{ steps.gen.outputs.exit_code }} (not 0 or 2). That is a crash, not a rejected draft."
+          exit 1
 
-      # Independent re-check, deliberately NOT trusting the generator's own verdict. This exists because
-      # publishing used to be unconditional: whatever the model returned was committed to main and a Pages
-      # build was requested, with a `continue-on-error` heuristic as the only review. Two consecutive
-      # unattended articles then reached a minors-facing site carrying fabricated dollar figures, leaked
-      # front matter merged into prose, broken self-links and no risk framing. Validate Build does not
-      # cover this, because Pages deploys regardless of whether that workflow passes.
-      - name: Gate new articles (blocking)
-        if: steps.check_changes.outputs.changes == 'true'
+      # Publication is driven by the manifest the generator writes ONLY when a candidate passes its own
+      # gate -- never by "did the working tree change". A `git status --porcelain` test plus `git add -A`
+      # previously committed a 64KB orphan illustration whose article had died on a 503 (d1fde08), because
+      # the API helper called process.exit(1) and skipped cleanup. Re-checking here instead of trusting the
+      # generator's self-assessment keeps the two checks independent.
+      - name: Gate and stage the published article
+        id: publish
         run: |
-          files=$(git ls-files --others --exclude-standard -- _articles | tr '\n' ' ')
-          if [ -z "$files" ]; then
-            echo "no new article files; nothing to gate"
+          set -e
+          if [ ! -f .generate-result.json ]; then
+            echo "no publish manifest written; nothing qualified"
+            git clean -fdq _articles assets/images || true
             exit 0
           fi
-          echo "gating: $files"
-          node scripts/check-candidate.js $files
+          file=$(node -p 'JSON.parse(require("fs").readFileSync(".generate-result.json","utf8")).file || ""')
+          image=$(node -p 'JSON.parse(require("fs").readFileSync(".generate-result.json","utf8")).image || ""')
+          if [ -z "$file" ] || [ ! -f "$file" ]; then
+            echo "::error::publish manifest names a file that does not exist: '$file'"
+            exit 1
+          fi
+          echo "gating $file"
+          node scripts/check-candidate.js "$file"
+          node scripts/verify-content.js "$file"
+          git add "$file"
+          if [ -n "$image" ]; then git add "$image"; fi
+          # Whatever else is untracked under these paths is debris from a discarded attempt.
+          git clean -fdq _articles assets/images || true
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+          echo "published_file=$file" >> "$GITHUB_OUTPUT"
 
-      # Advisory only by design: percentages and headline figures get listed for a human, and the
-      # blocking decision for dollar magnitudes lives in the gate above. A heuristic must not be able to
-      # silently stop publication, or the first false positive trains everyone to delete the step.
+      # Advisory by design: figures get listed for a human, while the blocking judgement for unsourced
+      # dollar magnitudes lives in the gate. A heuristic must not be able to halt publication silently --
+      # the first false positive trains everyone to delete the step.
       - name: List numeric claims needing human verification
+        if: steps.publish.outputs.committed == 'true'
         continue-on-error: true
-        run: |
-          newest=$(ls -t _articles/*.md | head -1)
-          echo "reviewing $newest"
-          node scripts/review-numbers.js "$newest"
+        run: node scripts/review-numbers.js "${{ steps.publish.outputs.published_file }}"
 
       - name: Commit and push new article
-        if: steps.check_changes.outputs.changes == 'true'
+        if: steps.publish.outputs.committed == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A
           git commit -m "📝 Auto-generated article: $(date +'%Y-%m-%d')"
           git pull --rebase
           git push
 
       - name: Trigger GitHub Pages rebuild
-        if: steps.check_changes.outputs.changes == 'true'
+        if: steps.publish.outputs.committed == 'true'
         uses: actions/github-script@v7
         with:
           script: |

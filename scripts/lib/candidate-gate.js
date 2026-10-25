@@ -103,8 +103,14 @@ function checkCandidate(src, opts) {
     if (!pool.has(slug)) problems.push(`link to non-existent page ${whole}`);
     else seen.add(slug);
   }
-  if (seen.size < MIN_INTERNAL_LINKS) {
-    problems.push(`only ${seen.size} valid internal link(s); need at least ${MIN_INTERNAL_LINKS}`);
+  // Prose links are desirable but the layout already renders a Related Articles block from front matter,
+  // so an article carrying >=3 resolvable related_articles has real navigation. Requiring in-prose links
+  // anyway rejected good generated pages whose only sin was trusting the template -- a false positive that
+  // costs a day's publication. Links that DO appear must still resolve.
+  const fmRelated = (((fm || '').match(/^related_articles:[\s\S]*?(?=^[a-z_]+:|(?![\s\S]))/m) || [''])[0]
+    .match(/^[ \t]+-[ \t]*\S/gm) || []).length; // each list item is one entry, bare slug or title/url pair
+  if (seen.size < MIN_INTERNAL_LINKS && fmRelated < MIN_INTERNAL_LINKS) {
+    problems.push(`only ${seen.size} in-prose internal link(s) and ${fmRelated} related_articles entry(ies); need at least ${MIN_INTERNAL_LINKS} of either`);
   }
   // A page linking to itself is always a generation artifact.
   const self = /\/articles\/([a-z0-9-]+)\/?\)/g;
@@ -171,7 +177,7 @@ function checkCandidate(src, opts) {
   // `why:` sits as its own key inside the question mapping (no leading dash), so match either shape.
   else if (!/^[ \t]*(?:-\s*)?why:/m.test(qText)) problems.push('quiz question missing an explanation ("why:")');
 
-  return { ok: problems.length === 0, problems, warnings, stats: { words: w, internalLinks: seen.size, headings } };
+  return { ok: problems.length === 0, problems, warnings, stats: { words: w, internalLinks: seen.size, relatedArticles: fmRelated, headings } };
 }
 
 // Local copy to keep this module dependency-free and testable in isolation;

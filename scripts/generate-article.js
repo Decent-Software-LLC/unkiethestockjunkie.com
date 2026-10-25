@@ -28,6 +28,12 @@ const { checkCandidate } = require('./lib/candidate-gate');
 // Configuration
 const TOPICS_FILE = path.join(__dirname, '..', 'topics.json');
 const GENERATED_TOPICS_FILE = path.join(__dirname, '..', 'generated-topics.json');
+const PUBLISH_RESULT_FILE = path.join(__dirname, '..', '.generate-result.json');
+const QUIZ_BANK_FILE = path.join(__dirname, 'quiz-content.json');
+
+function readQuizBank() {
+  try { return JSON.parse(fs.readFileSync(QUIZ_BANK_FILE, 'utf8')); } catch (e) { return {}; }
+}
 const ARTICLES_DIR = path.join(__dirname, '..', '_articles');
 const IMAGES_DIR = path.join(__dirname, '..', 'assets', 'images', 'articles');
 const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY;
@@ -206,77 +212,123 @@ function generateImagePrompt(topic) {
   return `${basePrompt}${specific}`;
 }
 
-// Utility: Generate article content using NVIDIA Nemotron 3 Nano Omni 30B (reasoning)
-async function generateArticleContent(topic, repairNote) {
-  if (!NVIDIA_API_KEY) {
-    console.error('❌ NVIDIA_API_KEY not set!');
-    console.error('Get a free API key at https://build.nvidia.com/');
-    process.exit(1);
-  }
+// ---------------------------------------------------------------------------
+// Model calls
+//
+// Two separate completions per article instead of one mega-request. The first gated run made this
+// obvious: asked for an article AND a trailing JSON quiz in a single 6,000-character prompt, the model
+// returned the article every time and the quiz never -- all three rejected completions ended on the
+// disclaimer line, and none used the injected slug list. Long briefs get partially obeyed. Asking for
+// the quiz alone, over the finished text, gets it in one shot and produces better questions because
+// the writer can see what the article actually argues.
+// ---------------------------------------------------------------------------
 
-  const prompt = generateArticlePrompt(topic, linkPoolFor(topic));
-  
-  // Retry up to 3 times on 503 (worker limit) or 429 (rate limit)
-  for (let attempt = 1; attempt <= 3; attempt++) {
+const SYSTEM_CONTRACT = `You write financial education for unkiethestockjunkie.com, read mostly by 16- and
+17-year-olds in the US who have a part-time job, a licence and money doing nothing in a savings account.
+They are not a demographic to flatter; they are readers who quit the second something sounds like school.
+
+Hard output rules, which the publisher enforces mechanically:
+- Emit exactly what is asked for and nothing else. No preamble, no meta-commentary, no sign-off to the reader.
+- Never write YAML, "---" fences, a "# Title" heading, or restate a title/description/difficulty/tags.
+  Code assembles front matter; any copy of it in your prose gets published as garbage.
+- Internal links must be copied character-for-character from the list you are given. Never invent,
+  shorten, guess or modify a URL. If the list has nothing relevant, include no links.
+- Do not reuse example sentences from these instructions as your own sentences.`;
+
+async function callNemotron(userContent, systemText, maxTokens) {
+  if (!NVIDIA_API_KEY) throw new Error('NVIDIA_API_KEY not set');
+  for (let attempt = 0; ; attempt++) {
     try {
-      console.log(`📝 Generating article content (attempt ${attempt})...`);
-      
-      const response = await axios.post(
-        'https://integrate.api.nvidia.com/v1/chat/completions',
-        {
-          model: "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-          messages: [
-            {
-              role: "system",
-              content: "You are an expert financial educator writing for teenagers aged 13-18. Your tone is friendly, encouraging, and educational. You explain complex investing concepts in simple terms with real-world examples. You emphasize that investing involves risk and this is educational content only, not financial advice."
-            },
-            {
-              role: "user",
-              content: repairNote ? `${prompt}\n\nREMINDER FROM THE PUBLISHER:\n${repairNote}` : prompt
-            }
-          ],
-          temperature: 0.7,
-          top_p: 0.9,
-          max_tokens: 8192,
-          stream: false,
-          // Free-tier Nemotron reasoning spends most of its wall-clock budget writing
-          // reasoning_content that we discard -- full-length article requests exceeded the
-          // 300s axios timeout before returning any content (verified live). Thinking off
-          // returns in seconds; the prose quality on graded output was unchanged for our
-          // use case and reliability is the difference between working and not.
-          chat_template_kwargs: { enable_thinking: false }
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${NVIDIA_API_KEY}`,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          timeout: 300000 // Reasoning models think before answering
-        }
-      );
-
+      const response = await apiPost({
+        model: 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning',
+        messages: [
+          { role: 'system', content: systemText },
+          { role: 'user', content: userContent }
+        ],
+        temperature: 0.7,
+        top_p: 0.9,
+        max_tokens: maxTokens || 8192,
+        stream: false,
+        // Free-tier Nemotron reasoning spends most of its budget writing reasoning_content we discard:
+        // full-length requests exceeded the 300s timeout without ever returning prose (verified live).
+        // Thinking off returns in seconds and graded quality on our output was unchanged.
+        chat_template_kwargs: { enable_thinking: false }
+      });
       if (response.data && response.data.choices && response.data.choices[0]) {
         return response.data.choices[0].message.content;
-      } else {
-        throw new Error('Unexpected response format from NVIDIA API');
       }
+      throw new Error('Unexpected response format from NVIDIA API');
     } catch (error) {
-      const status = error.response?.status;
+      const status = error.response && error.response.status;
+      // Throttling is routine here, not exceptional -- the free tier reports "Worker local total request
+      // limit reached (56/16)" under load. A 30s give-up meant busy days published nothing at all.
       if ((status === 503 || status === 429) && attempt < 3) {
-        const waitSec = attempt * 30; // 30s, 60s
-        console.log(`⚠️ ${status} error, retrying in ${waitSec}s...`);
+        const waitSec = [60, 120, 180][attempt] + Math.floor(Math.random() * 20);
+        console.log(`\u26a0\ufe0f ${status} (worker exhausted), backing off ${waitSec}s...`);
         await delay(waitSec * 1000);
         continue;
       }
-      console.error('❌ Error generating content:', error.message);
-      if (error.response) {
-        console.error('Response status:', error.response.status);
-        console.error('Response data:', error.response.data);
-      }
-      process.exit(1);
+      // Throws rather than process.exit(): an earlier version called process.exit(1) from inside this
+      // helper on the final 503, which killed the script mid-loop, skipped candidate cleanup, and let
+      // the workflow commit an orphan illustration for an article that was never written (d1fde08).
+      throw error;
     }
   }
+}
+
+async function generateArticleContent(topic, repairNote) {
+  const brief = generateArticlePrompt(topic, linkPoolFor(topic));
+  const user = repairNote
+    ? `${brief}\n\nPUBLISHER REMINDER (a previous attempt was rejected):\n${repairNote}`
+    : brief;
+  return callNemotron(user, SYSTEM_CONTRACT);
+}
+
+// One short focused request for the quiz. Returns a validated array or null -- callers fall back to the
+// hand-written bank in scripts/quiz-content.json before ever publishing a page without questions.
+async function generateQuizDraft(topic, bodyText) {
+  const excerpt = String(bodyText || '').slice(0, 5200);
+  const user = `Write the end-of-article quiz for the article below.
+
+Return ONE JSON array and nothing else -- no prose, no code fences, no explanation. Exactly 2 or 3 objects, each shaped:
+{"question":"...","options":["...","...","..."],"answer":0,"why":"..."}
+
+Rules that get checked mechanically:
+- "answer" is the zero-based index of the correct option.
+- Every question tests a mechanism or a consequence stated in the article, not trivia like a year or a name.
+- Wrong options must be believable to someone who half-read it. Never "all of the above" or "none of the above".
+- No option may promise safety, guarantees, tax benefits or insurance against losses.
+- "why" is one plain sentence saying why that option is right.
+
+ARTICLE:
+${topic.title}
+
+${excerpt}`;
+  const raw = await callNemotron(user, 'You output a single valid JSON array and nothing else.', 1200);
+  const parsed = parseQuizJson(raw);
+  return parsed.quiz;
+}
+
+// Single place that talks to the API, so headers and timeouts cannot drift between calls.
+async function apiPost(payload) {
+  return axios.post('https://integrate.api.nvidia.com/v1/chat/completions', payload, {
+    headers: {
+      Authorization: `Bearer ${NVIDIA_API_KEY}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    timeout: 300000
+  });
+}
+
+// Parse a completion that is supposed to be just a JSON array. Tolerates code fences and a sentence of
+// chit-chat around it, because models add those; stays strict about the array itself.
+function parseQuizJson(text) {
+  const found = findQuizArray(String(text || ''));
+  if (!found) return { quiz: null, error: 'no JSON question array found in response' };
+  const v = validateQuiz(found.quiz);
+  if (!v.ok) return { quiz: null, error: v.errors.join('; ') };
+  return { quiz: found.quiz, error: null };
 }
 
 // Utility: Generate article prompt
@@ -382,17 +434,11 @@ SUBSTANCE AND SAFETY (these are checked mechanically before anything is publishe
   the publication floor is enforced mechanically and thin pages are discarded, so err long.
   No emoji, no exclamation marks.
 
-OUTPUT FORMAT (strict -- the parser is dumb and code adds the front matter for you)
+OUTPUT FORMAT (strict -- code adds the front matter for you)
 Line 1 onward: the article body only. Do NOT write a YAML block, "---" fences, a "# Title" line,
 or restate the title/description/difficulty/tags; those are added by code and any copy of them in
-your prose is published as garbage. When the article ends, write this on its own line:
-
-===QUIZ===
-
-then one JSON array of exactly 2 or 3 questions, each object shaped like
-{"question":"...","options":["...","...","..."],"answer":0,"why":"..."}
-with "answer" the zero-based index of the correct option and "why" one plain sentence explaining
-it. Nothing after the JSON.
+your prose is published as garbage. When you are finished, stop. Do not add a sign-off, a summary of what you wrote, or anything addressed
+to the publisher.
 
 TECHNICAL
 Difficulty: ${topic.difficulty}. ${difficultyNote}${investorContext}`;
@@ -735,20 +781,9 @@ async function main() {
     tried.add(candidate.title);
     console.log(`\n🎲 Attempt ${attempt}/${MAX_ATTEMPTS}: "${candidate.title}" (${candidate.difficulty})`);
 
-    const imagePath = await generateImage(candidate);
-    await delay(2000);
-
-    const cleanup = () => {
-      if (imagePath) {
-        const abs = path.join(ROOT_DIR, imagePath.replace(/^\//, ''));
-        if (fs.existsSync(abs)) fs.unlinkSync(abs);
-      }
-    };
-
-    // A candidate gets two generations of the SAME topic before it is abandoned. The first production
-    // run discarded three articles outright: two over a mis-punctuated delimiter and one that came back
-    // at 179 words after a 503. Those are transient model failures, not bad topics -- re-running costs one
-    // API call, while switching topics throws away a good选题 and burns the day's attempts.
+    // Text first, illustration last. Images used to be generated before a single word was validated, so
+    // every rejected candidate left a 60KB orphan behind -- one reached main as a committed file with no
+    // article at all (d1fde08). Cost and cleanup both get simpler when nothing exists until the prose passes.
     let accepted = null;
     let repairNote = null;
     for (let sub = 1; sub <= 2 && !accepted; sub++) {
@@ -756,39 +791,66 @@ async function main() {
       try {
         raw = await generateArticleContent(candidate, repairNote || undefined);
       } catch (err) {
-        console.log(`❌ generation failed: ${err.message}`);
+        console.log(`\u274c generation failed: ${err.message}`);
         break;
       }
 
-      const { body, quiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
+      const { body, quiz: inlineQuiz, error } = splitQuiz(cleanArticleContent(raw, candidate.title));
       const words = String(body || '').split(/\s+/).filter((x) => /[A-Za-z]{3,}/.test(x)).length;
 
       if (!error && words < 200) {
-        // Almost always a truncated completion rather than a genuinely short article.
-        console.log(`⚠️ only ${words} words returned -- looks truncated, retrying this topic`);
-        repairNote = 'Your previous response stopped early. Output the complete article (at least 750 words of prose), then the quiz JSON array.';
+        console.log(`\u26a0\ufe0f only ${words} words returned -- looks truncated, retrying this topic`);
+        repairNote = 'Your previous response stopped early. Output the complete article (at least 750 words of prose).';
         continue;
       }
       if (error) {
-        console.log(`⚠️ ${error}${sub === 1 ? ' -- retrying this topic' : ''}`);
-        // Print the edges of what actually came back. Without this the log says only "no quiz found",
-        // which cannot be acted on, and the first debugging step becomes a guess.
+        // The quiz is fetched separately now, so a missing array here is no longer fatal -- only a truly
+        // empty or unusable completion should cost a topic.
         console.log(`   raw starts: ${JSON.stringify(String(raw).slice(0, 180))}`);
         console.log(`   raw ends:   ${JSON.stringify(String(raw).slice(-180))}`);
-        repairNote = 'Your previous response was rejected: ' + error + '. After the article, output a line containing ===QUIZ=== and then a single valid JSON array of 2 or 3 question objects.';
-        continue;
       }
-      accepted = { body, quiz };
+      accepted = { body: body || String(raw || ''), quiz: inlineQuiz };
     }
 
-    if (!accepted) {
-      console.log('❌ no usable completion for this topic; moving on');
-      cleanup();
+    if (!accepted || accepted.body.trim().length < 200) {
+      console.log('\u274c no usable completion for this topic; moving on');
       continue;
     }
 
+    // Quiz sourcing is graded: hand-written bank entry for this slug (human-authored, safest), else the
+    // question set the article prompt happened to return, else one focused model call about the finished
+    // text. Only if all three fail does the candidate die -- and it dies on a stated reason, not a mystery.
+    let quiz = accepted.quiz;
+    if (!quiz) {
+      const slug = generateSlug(candidate.title);
+      const bank = readQuizBank()[slug];
+      if (bank && validateQuiz(bank).ok) {
+        quiz = bank;
+        console.log('   used hand-written quiz from scripts/quiz-content.json');
+      }
+    }
+    if (!quiz) {
+      try {
+        quiz = await generateQuizDraft(candidate, accepted.body);
+        if (quiz) console.log(`   generated quiz separately (${quiz.length} questions)`);
+      } catch (err) {
+        console.log(`   quiz call failed: ${err.message}`);
+      }
+    }
+    if (!quiz) {
+      console.log('\u274c no quiz available from bank, inline output, or the dedicated call; skipping topic');
+      continue;
+    }
+
+    const imagePath = await generateImage(candidate);
+    const removeImage = () => {
+      if (!imagePath) return;
+      const abs = path.join(ROOT_DIR, imagePath.replace(/^\//, ''));
+      if (fs.existsSync(abs)) fs.unlinkSync(abs);
+    };
+
     const date = new Date();
-    const markdown = generateMarkdownFile(candidate, accepted.body, imagePath, date, accepted.quiz);
+    const markdown = generateMarkdownFile(candidate, accepted.body, imagePath, date, quiz);
     const filename = `${formatDate(date)}-${generateSlug(candidate.title)}.md`;
     const filepath = path.join(ARTICLES_DIR, filename);
     fs.writeFileSync(filepath, markdown);
@@ -800,10 +862,10 @@ async function main() {
     });
 
     if (!verdict.ok) {
-      console.log(`❌ gate rejected ${filename} -- deleted, will not be committed`);
-      for (const pr of verdict.problems) console.log(`      - ${pr}`);
+      console.log('\u274c gate rejected ' + filename + ' -- deleted, will not be committed');
+      for (const pr of verdict.problems) console.log('      - ' + pr);
       fs.unlinkSync(filepath);
-      cleanup();
+      removeImage();
       continue;
     }
     console.log(`\n✅ Article saved and gated: ${filename} (${verdict.stats.words} words, ${verdict.stats.internalLinks} internal links)`);
@@ -813,6 +875,14 @@ async function main() {
     generatedData.generated.push(candidate.title);
     saveGeneratedTopics(generatedData);
     published = { filename, filepath, imagePath, warnings: verdict.warnings };
+    // Machine-readable record of what was actually produced. The workflow commits these paths and only
+    // these paths; "git add -A" after a half-finished run is what put a stray image on main.
+    fs.writeFileSync(PUBLISH_RESULT_FILE, JSON.stringify({
+      published: true, title: candidate.title, slug: generateSlug(candidate.title),
+      file: `_articles/${filename}`, image: imagePath || null,
+      words: verdict.stats.words, internalLinks: verdict.stats.internalLinks,
+      warnings: verdict.warnings, at: new Date().toISOString()
+    }, null, 2));
   }
 
   if (!published) {
@@ -822,11 +892,9 @@ async function main() {
     process.exit(2);
   }
   
-  console.log('\n🎉 Article generation complete!');
-  console.log(`📄 File: ${filepath}`);
-  if (imagePath) {
-    console.log(`🎨 Image: ${imagePath}`);
-  }
+  console.log('\nArticle generation complete.');
+  console.log('File: ' + published.filepath);
+  if (published.imagePath) console.log('Image: ' + published.imagePath);
   console.log(`\nNext steps:`);
   console.log(`1. Read ${published.filename} -- the gate blocks structural failures, it does not confirm taste`);
   console.log(`2. Check any figure flagged above against a real source`);
@@ -851,6 +919,10 @@ module.exports = {
   // Pre-publication plumbing, exported so scripts/test-candidate-gate.js can exercise the parse/emit
   // path without an API key -- the same reason generateMarkdownFile is exported.
   splitQuiz,
+  parseQuizJson,
+  generateQuizDraft,
+  readQuizBank,
+  SYSTEM_CONTRACT,
   quizToYaml,
   linkPoolFor,
   readSlugs,
