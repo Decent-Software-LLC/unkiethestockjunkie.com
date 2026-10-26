@@ -251,7 +251,15 @@ async function callNemotron(userContent, systemText, maxTokens) {
         chat_template_kwargs: { enable_thinking: false }
       });
       if (response.data && response.data.choices && response.data.choices[0]) {
-        return response.data.choices[0].message.content;
+        const choice = response.data.choices[0];
+        // Recorded because "the model writes short pages" and "our token budget cut it off" look identical
+        // from the outside and need opposite fixes. Tonight's run discarded six drafts measuring 134-491
+        // words against an 8192-token ceiling; logging the stop reason across runs tells truncation apart
+        // from genuine terseness instead of guessing from the word count alone.
+        if (choice.finish_reason && choice.finish_reason !== 'stop') {
+          console.log(`\u26a0\ufe0f finish_reason=${choice.finish_reason} after ${(String(choice.message.content || '').length)} characters`);
+        }
+        return choice.message.content;
       }
       throw new Error('Unexpected response format from NVIDIA API');
     } catch (error) {
@@ -444,9 +452,10 @@ SUBSTANCE AND SAFETY (these are checked mechanically before anything is publishe
   source are the single most common way this pipeline has published false information.
 - End with one short plain paragraph that includes the phrase "not financial advice" AND says
   plainly that money can be lost. One sentence each is fine. No heading for it.
-- 2-5 headings, only where the thought actually changes. Paragraphs 1-4 sentences. At least 750
-  words of actual prose, which is roughly six or seven substantial paragraphs plus your headings --
-  the publication floor is enforced mechanically and thin pages are discarded, so err long.
+- Build the page to this shape, because totals go wrong while plans do not: one opening paragraph,
+  then 4 sections of at least 150 words each under its own heading, then the closing disclosure
+  paragraph. Roughly 800 words of real prose. The publication floor is enforced mechanically and
+  thin pages are discarded whole, so err long -- headings never count toward the total.
   No emoji, no exclamation marks.
 
 OUTPUT FORMAT (strict -- code adds the front matter for you)
