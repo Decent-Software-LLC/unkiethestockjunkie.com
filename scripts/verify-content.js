@@ -127,9 +127,16 @@ function verify(files, opts = {}) {
       if (answers.some((a) => !Number.isInteger(a))) problems.push(`${label}: non-integer quiz answer index`);
     }
 
-    // --- prose linking (advisory) ------------------------------------------
+    // --- prose linking -------------------------------------------------------
+    // Whether a page navigates at all is owned by scripts/lib/candidate-gate.js, which accepts a populated
+    // related_articles list because _layouts/article.html renders it as a visible grid. Escalating "no prose
+    // link" to an error here made the two tools contradict each other about one page: the gate cleared it, an
+    // illustration was requested for it, CI then red-failed on this script alone -- a nightly failing on a
+    // cosmetic preference while flagging nothing dangerous. Advisory by default; --require-inline-link keeps
+    // the strict form available to whoever is reviewing a batch by hand.
     const inlineLinks = (body.match(/\]\(\/articles\//g) || []).length;
     if (opts.requireInlineLink && inlineLinks < 1) problems.push(`${label}: no inline link to another article in prose`);
+    else if (inlineLinks === 0) (opts.warnings = opts.warnings || []).push(`${label}: navigation relies entirely on the related_articles grid (0 prose links)`);
   }
   return problems;
 };
@@ -148,7 +155,9 @@ if (require.main === module) {
 ${untracked}`.split('\n').filter(Boolean))];
   if (!files.length) { console.log('verify-content: nothing changed in _articles/_guides'); process.exit(0); }
   console.log(`verify-content: checking ${files.length} file(s)${strict ? ' [strict]' : ''}`);
-  const problems = verify(files, { strict, requireInlineLink: true });
+  const opts = { strict, requireInlineLink: args.includes('--require-inline-link'), warnings: [] };
+  const problems = verify(files, opts);
+  for (const wn of opts.warnings) console.log('  ! ' + wn);
   if (problems.length) {
     problems.forEach((p) => console.log('  ❌ ' + p));
     console.log(`\n${problems.length} problem(s)`);

@@ -315,5 +315,52 @@ test('verify-content checks brand-new untracked drafts, not only edited ones', (
   assert.match(out, /non-existent page/, 'draft was checked but its dead link was not reported');
 });
 
+const LONG_SENTENCE = 'A bond quoted above face value delivers the same coupon on a smaller effective stake, which is why two notes sharing an advertised rate can answer completely differently when the reference yield moves overnight, and nobody at the brokerage counter volunteers that arithmetic.';
+const FM_NAV = [
+  '---', 'layout: article', 'title: "Navigation Probe"', 'description: "A probe page used by tests."',
+  'date: 2026-11-05', 'difficulty: beginner', 'tags: ["testing", "bonds"]',
+  'related_articles:', '  - title: One\n    url: "/articles/index-funds-set-it-and-forget-it/"',
+  '  - title: Two\n    url: "/articles/risk-and-reward-the-investing-balance/"',
+  '  - title: Three\n    url: "/articles/what-is-a-dividend-getting-paid-to-own-stocks/"',
+  'quiz:', '  - question: "What does the probe say?"', '    options: ["The right thing", "A wrong thing", "Another wrong thing"]',
+  '    answer: 0', '    why: "Because that is the mechanism described."', '  - question: "What does it leave out?"',
+  '    options: ["Nothing at all", "The price you actually paid", "Only taxes", "Just fees"]', '    answer: 1',
+  '    why: "Purchase price decides the effective return, not the advertised coupon.",', '---',
+].join('\n');
+const NO_LINK_BODY = Array.from({ length: 14 }, () => LONG_SENTENCE).join(' ') +
+  '\n\nThis is educational explanation of how prices respond to rates, not financial advice; investing involves risk including possible loss of the money you put in.';
+
+test('the gate and the audit agree on what counts as navigation', () => {
+  // Root cause of the first red production run: the generator wrote front-matter navigation and no prose links.
+  // check-candidate.js cleared it (related_articles renders as a visible grid), an illustration was requested,
+  // and verify-content.js --requireInlineLink then failed the build for the same page. Two definitions of one
+  // rule; the pipeline could not be green unless one of them stopped pretending to speak for the other.
+  const src = `${FM_NAV}\n\n${NO_LINK_BODY}\n`;
+  const verdict = withProbe('zz-registry-probe-navnav', src, (rel) => ({
+    gate: checkCandidate(src, { articleSlugs: PAGES.articles, guideSlugs: PAGES.guides }),
+    audit: verify([rel]),
+  }));
+  assert.ok(verdict.gate.ok, `gate rejected a navigable page: ${verdict.gate.problems.join(' | ')}`);
+  assert.strictEqual(verdict.gate.stats.internalLinks, 0, 'fixture must have no prose links');
+  assert.ok(verdict.gate.stats.relatedArticles >= 3, 'fixture needs real front-matter navigation');
+  assert.deepStrictEqual(verdict.audit.filter((p) => /inline link/.test(p)), [],
+    'audit contradicts the gate on navigation -- the divergence that turned the nightly red');
+});
+
+test('strict link review still exists as an explicit opt-in', () => {
+  const problems = withProbe('zz-registry-probe-strict', `${FM_NAV}\n\n${NO_LINK_BODY}\n`,
+    (rel) => verify([rel], { requireInlineLink: true }));
+  assert.ok(problems.some((p) => /inline link/.test(p)), '--require-inline-link must still report the omission');
+});
+
+test('removing every navigation channel is rejected by both tools', () => {
+  const orphanFm = FM_NAV.split('\n').filter((l) => !/^(related_articles:|  - title:|    url:)/.test(l)).join('\n');
+  const src = `${orphanFm}\n\n${NO_LINK_BODY}\n`;
+  const gate = checkCandidate(src, { articleSlugs: PAGES.articles, guideSlugs: PAGES.guides });
+  assert.ok(gate.problems.some((p) => /internal link/i.test(p)), `gate accepted an orphan: ${gate.problems.join(' | ')}`);
+  const audit = withProbe('zz-registry-probe-orphan', src, (rel) => verify([rel], { requireInlineLink: true }));
+  assert.ok(audit.some((p) => /inline link/.test(p)), 'strict audit accepted an orphan');
+});
+
 console.log(`\n${passed} passed, ${failed} failed\n`);
 process.exit(failed ? 1 : 0);
