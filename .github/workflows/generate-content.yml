@@ -1,8 +1,15 @@
 name: Generate Daily Content
 
+# Manual dispatch only, deliberately. At corpus completion every tier reported remaining: 0
+# (beginner 41/41, intermediate 32/32, advanced 30/30), so topic selection had no gaps left to fill -- the
+# queue driving an unattended cron would have been publishing net-new pages competing with articles that
+# were rewritten specifically to avoid duplicating each other. The gate still blocks defect classes, but a
+# gate cannot decide whether a page should exist; that judgment belongs to a human pressing the button.
+# Re-enable scheduling by restoring:
+#   schedule:
+#     - cron: '17 10 * * *'
+# only alongside a queue with genuine gaps and an approval step ahead of the commit.
 on:
-  schedule:
-    - cron: '17 10 * * *'
   workflow_dispatch:
 
 jobs:

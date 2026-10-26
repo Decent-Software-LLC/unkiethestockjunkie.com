@@ -25,7 +25,9 @@ Visit: **https://unkiethestockjunkie.com** (configure your domain)
 
 ### Content
 - 📰 **100+ Curated Topics** covering investing basics to advanced strategies
-- 🤖 **AI-Powered Articles** generated daily using NVIDIA Nemotron 3 Nano Omni 30B
+- 🤖 **AI-assisted drafting** via NVIDIA Nemotron 3 Nano Omni 30B -- dispatched manually and gated.
+  Every completion must clear `scripts/lib/candidate-gate.js` (sourcing, quiz, internal links, disclosure,
+  voice) before anything reaches `main`; unattended scheduling was retired once all three tiers filled
 - 🎨 **Custom Illustrations** created with NVIDIA FLUX.3 Image Klein
 - 📚 **Three Difficulty Levels** - beginner, intermediate, advanced
 - 🔗 **Related Articles** each article links three matches by shared tags and level

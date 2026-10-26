@@ -163,10 +163,13 @@ test('backlog means queued and unwritten, never both', () => {
 });
 
 test('every currently published topic is excluded from real backlog', () => {
-  const topics = JSON.parse(fs.readFileSync(path.join(ROOT, 'topics.json'), 'utf8'));
-  const list = Array.isArray(topics) ? topics : topics.topics;
+  // Driven off the archive rather than the live queue: after the completion review all seven retained briefs
+  // are deliberately unwritten, so the queue itself can no longer demonstrate that dedupe recognises live
+  // pages -- the archived briefs contain the ones that were published before the review.
+  const fs = require('fs');
+  const list = JSON.parse(fs.readFileSync(path.join(ROOT, 'topics-archive.json'), 'utf8')).topics;
   const publishedByCanonical = list.filter((t) => PAGES.articles.has(titleSlug(t.title)));
-  assert.ok(publishedByCanonical.length >= 1, 'expected topics whose titles map onto live pages');
+  assert.ok(publishedByCanonical.length >= 1, 'expected archived briefs whose titles map onto live pages');
   const back = new Set(registry.backlogSlugs({ topics: list, pages: PAGES }).map((b) => b.slug));
   for (const t of publishedByCanonical) {
     assert.ok(!back.has(titleSlug(t.title)), `live page /articles/${titleSlug(t.title)}/ still offered as backlog`);

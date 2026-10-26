@@ -6,7 +6,7 @@ name: Validate Build
 # you find out from a 404 or a half-rendered site, not from CI.
 #
 # This job closes that gap: it builds on every push and pull request, fails loudly, and
-# runs the same checks the daily automation can produce.
+# runs the same checks the content generator produces.
 
 on:
   push:

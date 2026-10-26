@@ -1,0 +1,1644 @@
+{
+  "archivedAt": "2026-11-05",
+  "note": "Cleared at corpus completion. All three tiers report remaining: 0 (beginner 41/41, intermediate 32/32, advanced 30/30), so topic selection had no gaps left to fill and anything generated would compete with pages rewritten to be non-redundant. These briefs are kept for reference -- many are sound ideas for an adult-oriented audience -- but reasons record why each was not published here. Restore by merging back into topics.json only when a real gap appears.",
+  "publishedCorpusAtTimeOfReview": {
+    "articles": 103,
+    "guides": 3,
+    "byTier": {
+      "beginner": {
+        "total": 41,
+        "done": 41,
+        "remaining": 0
+      },
+      "intermediate": {
+        "total": 32,
+        "done": 32,
+        "remaining": 0
+      },
+      "advanced": {
+        "total": 30,
+        "done": 30,
+        "remaining": 0
+      }
+    }
+  },
+  "topics": [
+    {
+      "title": "Your First $100: A Step-by-Step Investing Plan for Teens",
+      "difficulty": "beginner",
+      "tags": [
+        "first-investment",
+        "action-plan",
+        "teen-investing",
+        "beginner"
+      ],
+      "description": "A practical walkthrough of turning your first hundred dollars into a real investment, from account to first trade.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Why Starting at 18 Beats Starting at 30: The Compounding Gap",
+      "difficulty": "beginner",
+      "tags": [
+        "compound-interest",
+        "starting-early",
+        "long-term",
+        "beginner"
+      ],
+      "description": "Two investors, the same returns, a 12-year head start - the numbers that make early starting unbeatable.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "why-time-in-the-market-beats-timing-the-market",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "How to Read a Stock Ticker Like a Pro",
+      "difficulty": "beginner",
+      "tags": [
+        "tickers",
+        "market-data",
+        "quotes",
+        "beginner"
+      ],
+      "description": "Price, volume, spread, 52-week range - decoding every number on a stock quote.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:stock-ticker-symbols-decoding-the-abbreviations (title similarity 0.33)"
+      ],
+      "nearest_published_slug": "stock-ticker-symbols-decoding-the-abbreviations",
+      "nearest_score": 0.33
+    },
+    {
+      "title": "Stock Market Crash Survival Guide: What to Do When Everything Falls",
+      "difficulty": "beginner",
+      "tags": [
+        "crashes",
+        "panic",
+        "psychology",
+        "beginner"
+      ],
+      "description": "A calm, practical playbook for staying the course when the market drops 20% or more.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "stock-market-hours-when-can-you-trade",
+      "nearest_score": 0.29
+    },
+    {
+      "title": "Fintech 101: How Apps Changed Investing Forever",
+      "difficulty": "beginner",
+      "tags": [
+        "fintech",
+        "robinhood",
+        "apps",
+        "beginner"
+      ],
+      "description": "Fractional shares, zero commissions, and gamification - what broker apps did to investing culture.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "How Much Should You Have Saved by Age 25, 30, and 40?",
+      "difficulty": "beginner",
+      "tags": [
+        "savings-milestones",
+        "personal-finance",
+        "planning",
+        "beginner"
+      ],
+      "description": "Benchmark numbers for net worth and emergency funds at key life stages - and how to catch up if you're behind.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "what-is-the-s-p-500-and-why-should-you-care",
+      "nearest_score": 0.22
+    },
+    {
+      "title": "The Psychology of Losses: Why Losing Money Hurts Twice as Much",
+      "difficulty": "beginner",
+      "tags": [
+        "behavioral-finance",
+        "loss-aversion",
+        "psychology",
+        "beginner"
+      ],
+      "description": "Prospect theory and loss aversion, and how to design rules that protect you from your own brain.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "loss-aversion-why-losses-feel-worse-than-gains",
+      "nearest_score": 0.22
+    },
+    {
+      "title": "Dividend Stocks vs Growth Stocks: Which Should You Own?",
+      "difficulty": "beginner",
+      "tags": [
+        "dividends",
+        "growth",
+        "stock-types",
+        "beginner"
+      ],
+      "description": "Income versus appreciation - matching the right stock type to your goals and age.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:growth-stocks-vs-value-stocks (title similarity 0.40)"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.4
+    },
+    {
+      "title": "What Happens Inside the Stock Exchange: From Click to Trade",
+      "difficulty": "beginner",
+      "tags": [
+        "exchanges",
+        "order-matching",
+        "market-microstructure",
+        "beginner"
+      ],
+      "description": "Follow your buy order from your phone to the matching engine in under a second.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:stock-market-hours-when-can-you-trade (title similarity 0.31)"
+      ],
+      "nearest_published_slug": "stock-market-hours-when-can-you-trade",
+      "nearest_score": 0.31
+    },
+    {
+      "title": "How to Open a Brokerage Account (Without the Confusion)",
+      "difficulty": "beginner",
+      "tags": [
+        "brokerage",
+        "accounts",
+        "setup",
+        "beginner"
+      ],
+      "description": "Account types, paperwork, and fees - a plain-English guide to getting started with a real account.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "paper-trading-practice-without-risk",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "The Power of Boring Investing: Why Unsexy Beats Exciting",
+      "difficulty": "beginner",
+      "tags": [
+        "index-funds",
+        "consistency",
+        "boring-investing",
+        "beginner"
+      ],
+      "description": "Why the least exciting portfolio is usually the one that wins over 20 years.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "Understanding Inflation: The Silent Thief of Your Savings",
+      "difficulty": "beginner",
+      "tags": [
+        "inflation",
+        "purchasing-power",
+        "cash",
+        "beginner"
+      ],
+      "description": "Why cash under the mattress loses value every year, and which assets historically beat inflation.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "bulls-vs-bears-understanding-market-trends",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "Stock Splits Explained: Why Apple and Nvidia Keep Splitting",
+      "difficulty": "beginner",
+      "tags": [
+        "stock-splits",
+        "share-price",
+        "liquidity",
+        "beginner"
+      ],
+      "description": "What splits actually change (and what they don't), and why companies do them.",
+      "verdict": "archived",
+      "reasons": [
+        "fabrication-bait:brief demands point-in-time or named-company figures this site bans"
+      ],
+      "nearest_published_slug": "stock-splits-when-companies-multiply-your-shares",
+      "nearest_score": 0.27
+    },
+    {
+      "title": "The 50/30/20 Rule: Budgeting for Future Investors",
+      "difficulty": "beginner",
+      "tags": [
+        "budgeting",
+        "personal-finance",
+        "savings-rate",
+        "beginner"
+      ],
+      "description": "A simple budget framework that makes investing automatic instead of a sacrifice.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:the-rule-of-72-quick-mental-math-for-investors (title similarity 0.33)"
+      ],
+      "nearest_published_slug": "the-rule-of-72-quick-mental-math-for-investors",
+      "nearest_score": 0.33
+    },
+    {
+      "title": "What Is a Short Squeeze? (And Why Meme Stocks Explode)",
+      "difficulty": "beginner",
+      "tags": [
+        "short-squeeze",
+        "meme-stocks",
+        "gamstop",
+        "beginner"
+      ],
+      "description": "The mechanics behind GameStop and AMC, and why short interest can turn into a rocket.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:what-is-a-short-squeeze-and-why-meme-stocks-explode (title similarity 0.83)"
+      ],
+      "nearest_published_slug": "what-is-a-short-squeeze-and-why-meme-stocks-explode",
+      "nearest_score": 0.83
+    },
+    {
+      "title": "Reading the News: How Headlines Move Markets",
+      "difficulty": "beginner",
+      "tags": [
+        "financial-news",
+        "media",
+        "market-reaction",
+        "beginner"
+      ],
+      "description": "Which headlines actually matter, which are noise, and how to avoid trading on fear.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "reading-financial-news-separating-signal-from-noise",
+      "nearest_score": 0.27
+    },
+    {
+      "title": "Your Investment Timeline: What to Do at Every Age",
+      "difficulty": "beginner",
+      "tags": [
+        "life-cycle",
+        "planning",
+        "ages",
+        "beginner"
+      ],
+      "description": "A decade-by-decade roadmap from first paycheck to retirement, with model allocations.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "stock-screeners-finding-your-first-investment",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Why 'Time in the Market' Beats 'Timing the Market'",
+      "difficulty": "beginner",
+      "tags": [
+        "market-timing",
+        "history",
+        "data",
+        "beginner"
+      ],
+      "description": "The math on missing the best 10 trading days in a 20-year period - it will ruin your returns.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:why-time-in-the-market-beats-timing-the-market (title similarity 0.73)"
+      ],
+      "nearest_published_slug": "why-time-in-the-market-beats-timing-the-market",
+      "nearest_score": 0.73
+    },
+    {
+      "title": "How to Think About Risk Like an Investor",
+      "difficulty": "beginner",
+      "tags": [
+        "risk",
+        "volatility",
+        "drawdowns",
+        "beginner"
+      ],
+      "description": "Risk isn't how much a stock bounces - it's the chance you never get your money back.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "10-k-filings-the-investor-s-goldmine",
+      "nearest_score": 0.22
+    },
+    {
+      "title": "The Cost of Doing Nothing: Opportunity Cost in Investing",
+      "difficulty": "beginner",
+      "tags": [
+        "opportunity-cost",
+        "inflation",
+        "action",
+        "beginner"
+      ],
+      "description": "What your money earns sitting idle, and why 'waiting for the right moment' is expensive.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Understanding Fees: The Hidden Tax on Your Portfolio",
+      "difficulty": "beginner",
+      "tags": [
+        "fees",
+        "expense-ratio",
+        "costs",
+        "beginner"
+      ],
+      "description": "Expense ratios, commission-free myths, and how small fees compound into six figures.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "rebalancing-keeping-your-portfolio-on-track",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "What Is a Market Index? (S&P 500, Dow, Nasdaq Compared)",
+      "difficulty": "beginner",
+      "tags": [
+        "indices",
+        "sp-500",
+        "dow",
+        "beginner"
+      ],
+      "description": "How indices are built, weighted, and why they're the yardstick for everything else.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:stock-exchanges-nyse-vs-nasdaq-explained (title similarity 0.33)"
+      ],
+      "nearest_published_slug": "stock-exchanges-nyse-vs-nasdaq-explained",
+      "nearest_score": 0.33
+    },
+    {
+      "title": "Investing Mistakes Every Beginner Makes (And How to Avoid Them)",
+      "difficulty": "beginner",
+      "tags": [
+        "mistakes",
+        "checklist",
+        "behavior",
+        "beginner"
+      ],
+      "description": "Chasing hot stocks, overtrading, panic selling - the classic rookie errors with fixes.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:index-funds-set-it-and-forget-it (title similarity 0.36)"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.36
+    },
+    {
+      "title": "How to Use a Watchlist Like a Professional",
+      "difficulty": "beginner",
+      "tags": [
+        "watchlist",
+        "research",
+        "process",
+        "beginner"
+      ],
+      "description": "Building, pruning, and actually acting on a watchlist without falling in love with tickers.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": null,
+      "nearest_score": 0
+    },
+    {
+      "title": "The Rule of 4 Percent: Can You Really Retire on Your Portfolio?",
+      "difficulty": "beginner",
+      "tags": [
+        "retirement",
+        "withdrawal-rate",
+        "safe-income",
+        "beginner"
+      ],
+      "description": "Where the famous 4% rule came from, when it works, and when it breaks.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "rebalancing-keeping-your-portfolio-on-track",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "What Are ETFs Really? (A Deeper Look Under the Hood)",
+      "difficulty": "beginner",
+      "tags": [
+        "etfs",
+        "creation-redemption",
+        "arbitrage",
+        "beginner"
+      ],
+      "description": "How creation units and arbitrage keep ETF prices glued to their net asset value.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "etfs-instant-diversification-made-easy",
+      "nearest_score": 0.15
+    },
+    {
+      "title": "Understanding the Economic Calendar: Earnings, CPI, and Fed Days",
+      "difficulty": "beginner",
+      "tags": [
+        "economic-calendar",
+        "cpi",
+        "fomc",
+        "beginner"
+      ],
+      "description": "The handful of data releases that move markets, and how to prepare for them.",
+      "verdict": "archived",
+      "reasons": [
+        "fabrication-bait:brief demands point-in-time or named-company figures this site bans"
+      ],
+      "nearest_published_slug": "understanding-earnings-quality-accruals-one-timers-and-the-fine-print",
+      "nearest_score": 0.27
+    },
+    {
+      "title": "How to Keep Investing When You're Busy (or Lazy)",
+      "difficulty": "beginner",
+      "tags": [
+        "automation",
+        "drip",
+        "habits",
+        "beginner"
+      ],
+      "description": "Set-and-forget systems - auto-transfers, DCA, DRIPs - that invest for you on autopilot.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "The Truth About 'Hot Tips' and Stock Picking Advice",
+      "difficulty": "beginner",
+      "tags": [
+        "tips",
+        "social-media",
+        "due-diligence",
+        "beginner"
+      ],
+      "description": "Why tips from friends, influencers, and forums rarely work - and what to do instead.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "What Is a Portfolio? Building Your First One",
+      "difficulty": "beginner",
+      "tags": [
+        "portfolio",
+        "diversification",
+        "first-portfolio",
+        "beginner"
+      ],
+      "description": "How many stocks is enough, what a starter portfolio looks like, and when to add complexity.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "rebalancing-keeping-your-portfolio-on-track",
+      "nearest_score": 0.22
+    },
+    {
+      "title": "How Interest Rates Affect Stock Prices",
+      "difficulty": "beginner",
+      "tags": [
+        "interest-rates",
+        "fed",
+        "discounting",
+        "beginner"
+      ],
+      "description": "The transmission mechanism from the Fed's chair to your portfolio's valuation.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:earnings-growth-the-engine-of-stock-prices (title similarity 0.33)"
+      ],
+      "nearest_published_slug": "earnings-growth-the-engine-of-stock-prices",
+      "nearest_score": 0.33
+    },
+    {
+      "title": "Understanding 'Beta': How Much Risk You're Actually Taking",
+      "difficulty": "beginner",
+      "tags": [
+        "beta",
+        "market-risk",
+        "measure",
+        "beginner"
+      ],
+      "description": "What beta means, how to calculate it, and how to check your portfolio's total exposure.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:beta-measuring-market-sensitivity (title similarity 0.31)"
+      ],
+      "nearest_published_slug": "beta-measuring-market-sensitivity",
+      "nearest_score": 0.31
+    },
+    {
+      "title": "The Investor's Checklist: 10 Questions Before You Buy Any Stock",
+      "difficulty": "beginner",
+      "tags": [
+        "checklist",
+        "due-diligence",
+        "process",
+        "beginner"
+      ],
+      "description": "A repeatable pre-purchase checklist that turns impulse buys into deliberate decisions.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "10-k-filings-the-investor-s-goldmine",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "What Is an IPO? Should You Buy One?",
+      "difficulty": "beginner",
+      "tags": [
+        "ipo",
+        "new-listings",
+        "retail-access",
+        "beginner"
+      ],
+      "description": "How initial public offerings work, why retail investors usually lose on day one, and the rare exceptions.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "what-is-the-s-p-500-and-why-should-you-care",
+      "nearest_score": 0.29
+    },
+    {
+      "title": "Understanding Sector Rotation: Where Money Flows Over Time",
+      "difficulty": "beginner",
+      "tags": [
+        "sectors",
+        "rotation",
+        "business-cycle",
+        "beginner"
+      ],
+      "description": "Which sectors lead in recoveries, expansions, and slowdowns - and how to notice the shifts.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "what-is-a-sector-understanding-industry-groups",
+      "nearest_score": 0.25
+    },
+    {
+      "title": "How to Handle a Winning Stock: Hold, Trim, or Run?",
+      "difficulty": "beginner",
+      "tags": [
+        "position-management",
+        "winners",
+        "discipline",
+        "beginner"
+      ],
+      "description": "Frameworks for deciding when to let a winner run and when to lock in gains.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "The Difference Between Price and Value (Really)",
+      "difficulty": "beginner",
+      "tags": [
+        "price-vs-value",
+        "intrinsic-value",
+        "foundations",
+        "beginner"
+      ],
+      "description": "Why a stock's sticker price and its worth are different things - and how to estimate the latter.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "Investing With a Partner or Spouse: Avoiding Financial Fights",
+      "difficulty": "beginner",
+      "tags": [
+        "joint-investing",
+        "relationships",
+        "communication",
+        "beginner"
+      ],
+      "description": "Risk tolerance mismatches, account ownership, and rules of engagement for couples who invest together.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "What Is 'Alpha' and Why Nobody Consistently Gets It",
+      "difficulty": "intermediate",
+      "tags": [
+        "alpha",
+        "active-management",
+        "benchmarks",
+        "intermediate"
+      ],
+      "description": "The search for market-beating returns, the evidence against it, and what alpha would have to look like.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "alpha-generating-excess-returns",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Free Cash Flow Yield: The Ratio Wall Street Hopes You Ignore",
+      "difficulty": "intermediate",
+      "tags": [
+        "free-cash-flow",
+        "fcf-yield",
+        "valuation",
+        "intermediate"
+      ],
+      "description": "Why FCF yield beats earnings yield for spotting cheap, cash-generative companies.",
+      "verdict": "archived",
+      "reasons": [
+        "fabrication-bait:brief demands point-in-time or named-company figures this site bans",
+        "overlap:free-cash-flow-the-money-that-matters (title similarity 0.38)"
+      ],
+      "nearest_published_slug": "free-cash-flow-the-money-that-matters",
+      "nearest_score": 0.38
+    },
+    {
+      "title": "The Efficient Market Hypothesis: Are Markets Really Efficient?",
+      "difficulty": "intermediate",
+      "tags": [
+        "efficient-markets",
+        "evidence",
+        "debate",
+        "intermediate"
+      ],
+      "description": "The three forms of EMH, the evidence for and against, and what it means for your strategy.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "famous-market-crashes-lessons-from-history",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "How to Value a Company Using Comparable Companies",
+      "difficulty": "intermediate",
+      "tags": [
+        "comps",
+        "relative-valuation",
+        "multiples",
+        "intermediate"
+      ],
+      "description": "Building a comp set, picking the right multiples, and sanity-checking a stock's price.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "the-buffett-screener-finding-wonderful-companies",
+      "nearest_score": 0.29
+    },
+    {
+      "title": "Understanding 'Moats' in Practice: 5 Real Examples",
+      "difficulty": "intermediate",
+      "tags": [
+        "moats",
+        "competitive-advantage",
+        "case-studies",
+        "intermediate"
+      ],
+      "description": "Network effects, switching costs, brands, and scale - identified in real companies.",
+      "verdict": "archived",
+      "reasons": [
+        "fabrication-bait:brief demands point-in-time or named-company figures this site bans"
+      ],
+      "nearest_published_slug": "paper-trading-practice-without-risk",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "The S&P 500 Index Rebalancing: What Happens When Stocks Are Added or Removed",
+      "difficulty": "intermediate",
+      "tags": [
+        "index-rebalancing",
+        "sp-500",
+        "passive-flows",
+        "intermediate"
+      ],
+      "description": "The mechanical buying and selling that surrounds index changes, and who profits from it.",
+      "verdict": "archived",
+      "reasons": [
+        "fabrication-bait:brief demands point-in-time or named-company figures this site bans"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "How to Read a Cash Flow Statement Like an Auditor",
+      "difficulty": "intermediate",
+      "tags": [
+        "cash-flow-statement",
+        "financial-statements",
+        "red-flags",
+        "intermediate"
+      ],
+      "description": "Operating, investing, and financing cash flows - and the discrepancies that reveal trouble.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:cash-flow-statement-following-the-money (title similarity 0.40)"
+      ],
+      "nearest_published_slug": "cash-flow-statement-following-the-money",
+      "nearest_score": 0.4
+    },
+    {
+      "title": "Value Investing in the Tech Era: Does It Still Work?",
+      "difficulty": "intermediate",
+      "tags": [
+        "value-investing",
+        "tech",
+        "factor",
+        "intermediate"
+      ],
+      "description": "The value premium's long slump, why intangible assets broke the old formulas, and modern fixes.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:benjamin-graham-the-father-of-value-investing (title similarity 0.31)"
+      ],
+      "nearest_published_slug": "benjamin-graham-the-father-of-value-investing",
+      "nearest_score": 0.31
+    },
+    {
+      "title": "Understanding 'Quality' as an Investment Factor",
+      "difficulty": "intermediate",
+      "tags": [
+        "quality-factor",
+        "roe",
+        "factors",
+        "intermediate"
+      ],
+      "description": "High-ROE, low-debt, stable-earnings stocks - the factor that survived every downturn.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "understanding-earnings-quality-accruals-one-timers-and-the-fine-print",
+      "nearest_score": 0.29
+    },
+    {
+      "title": "How Activist Investors Actually Work (And When They Help)",
+      "difficulty": "intermediate",
+      "tags": [
+        "activism",
+        "icahn",
+        "shareholder-rights",
+        "intermediate"
+      ],
+      "description": "The playbook from 13D filings to board seats - and the evidence on whether activism creates value.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "sec-filings-the-transparency-that-protects-investors",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "The Hidden Costs of Trading: Slippage, Spreads, and Market Impact",
+      "difficulty": "intermediate",
+      "tags": [
+        "trading-costs",
+        "slippage",
+        "execution",
+        "intermediate"
+      ],
+      "description": "Why your real cost per trade is higher than the commission, and how to minimize it.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:the-hidden-costs-of-trading-slippage-spreads-and-market-impact (title similarity 0.88)"
+      ],
+      "nearest_published_slug": "the-hidden-costs-of-trading-slippage-spreads-and-market-impact",
+      "nearest_score": 0.88
+    },
+    {
+      "title": "How to Build a Simple Stock Screener (With Free Tools)",
+      "difficulty": "intermediate",
+      "tags": [
+        "screeners",
+        "finviz",
+        "process",
+        "intermediate"
+      ],
+      "description": "Step-by-step screener setups for value, growth, and quality strategies using free tools.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "stock-screeners-finding-your-first-investment",
+      "nearest_score": 0.29
+    },
+    {
+      "title": "Understanding 'Dead Money': Stocks That Go Nowhere for Years",
+      "difficulty": "intermediate",
+      "tags": [
+        "dead-money",
+        "opportunity-cost",
+        "stagnation",
+        "intermediate"
+      ],
+      "description": "Why some blue chips flatline for a decade, how to spot them early, and when to cut.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "The Art of the Investment Memo: Writing It Down Before You Buy",
+      "difficulty": "intermediate",
+      "tags": [
+        "investment-memo",
+        "process",
+        "accountability",
+        "intermediate"
+      ],
+      "description": "A one-page memo template that forces clarity on thesis, risks, and exit conditions.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "stock-screeners-finding-your-first-investment",
+      "nearest_score": 0.15
+    },
+    {
+      "title": "How to Evaluate Management: Signs of Good and Bad Stewards",
+      "difficulty": "intermediate",
+      "tags": [
+        "management",
+        "capital-allocation",
+        "governance",
+        "intermediate"
+      ],
+      "description": "Capital allocation track records, insider behavior, and the red flags in 10-K language.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "diversification-don-t-put-all-your-eggs-in-one-basket",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "Understanding 'Float' and Why Small-Float Stocks Move So Wildly",
+      "difficulty": "intermediate",
+      "tags": [
+        "float",
+        "short-squeeze",
+        "volatility",
+        "intermediate"
+      ],
+      "description": "How limited tradable shares amplify moves - the mechanic behind squeeze candidates.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "The Barbell Strategy: Pairing Extreme Safety With Extreme Risk",
+      "difficulty": "intermediate",
+      "tags": [
+        "barbell",
+        "tail-risk",
+        "allocation",
+        "intermediate"
+      ],
+      "description": "Taleb's approach: mostly ultra-safe assets with a small slice of high-conviction bets.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:graham-s-net-net-strategy-extreme-value (title similarity 0.31)"
+      ],
+      "nearest_published_slug": "graham-s-net-net-strategy-extreme-value",
+      "nearest_score": 0.31
+    },
+    {
+      "title": "Understanding 'Factor Tilts': Tilting Your Index Fund Toward What You Believe",
+      "difficulty": "intermediate",
+      "tags": [
+        "factor-investing",
+        "tilts",
+        "smart-beta",
+        "intermediate"
+      ],
+      "description": "How to express a view on value, momentum, or quality without leaving the passive world.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "index-funds-set-it-and-forget-it",
+      "nearest_score": 0.14
+    },
+    {
+      "title": "The History of the Dot-Com Bubble: A Case Study in Excess",
+      "difficulty": "intermediate",
+      "tags": [
+        "dot-com",
+        "bubbles",
+        "history",
+        "intermediate"
+      ],
+      "description": "How multiples stretched, which signals were visible in real time, and what today's market owes the lesson.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:the-dot-com-bubble-when-pets-com-went-to-zero (title similarity 0.31)"
+      ],
+      "nearest_published_slug": "the-dot-com-bubble-when-pets-com-went-to-zero",
+      "nearest_score": 0.31
+    },
+    {
+      "title": "How to Read a 13F: What Big Investors Are Really Holding",
+      "difficulty": "intermediate",
+      "tags": [
+        "13f",
+        "institutional-ownership",
+        "filings",
+        "intermediate"
+      ],
+      "description": "Decoding institutional holdings filings - with the big caveats about lag and what's excluded.",
+      "verdict": "archived",
+      "reasons": [
+        "fabrication-bait:brief demands point-in-time or named-company figures this site bans"
+      ],
+      "nearest_published_slug": "sec-filings-the-transparency-that-protects-investors",
+      "nearest_score": 0.22
+    },
+    {
+      "title": "Understanding 'Earnings Quality': Accruals, One-Timers, and the Fine Print",
+      "difficulty": "intermediate",
+      "tags": [
+        "earnings-quality",
+        "accruals",
+        "forensic-accounting",
+        "intermediate"
+      ],
+      "description": "Spotting the difference between earnings from real cash and earnings from accounting choices.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:understanding-earnings-quality-accruals-one-timers-and-the-fine-print (title similarity 0.82)"
+      ],
+      "nearest_published_slug": "understanding-earnings-quality-accruals-one-timers-and-the-fine-print",
+      "nearest_score": 0.82
+    },
+    {
+      "title": "The Case for (and Against) Concentrated Portfolios",
+      "difficulty": "intermediate",
+      "tags": [
+        "concentration",
+        "diversification",
+        "debate",
+        "intermediate"
+      ],
+      "description": "Buffett's 5-stock argument versus the math of ruin - finding your own risk line.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "buffett-s-portfolio-lessons-from-current-holdings",
+      "nearest_score": 0.15
+    },
+    {
+      "title": "How to Use Options for Protection (Not Gambling)",
+      "difficulty": "intermediate",
+      "tags": [
+        "options",
+        "protection",
+        "covered-calls",
+        "intermediate"
+      ],
+      "description": "Covered calls, protective puts, and collars - practical insurance for stock holders.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "options-basics-calls-and-puts-for-beginners",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "Understanding 'Insider Buying' as a Signal",
+      "difficulty": "intermediate",
+      "tags": [
+        "insiders",
+        "signals",
+        "filings",
+        "intermediate"
+      ],
+      "description": "Why cluster insider buys matter more than any single trade, and how to track them.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:understanding-insider-buying-as-a-signal (title similarity 0.67)"
+      ],
+      "nearest_published_slug": "understanding-insider-buying-as-a-signal",
+      "nearest_score": 0.67
+    },
+    {
+      "title": "The Math of Diversification: How Many Stocks Eliminate Most Risk?",
+      "difficulty": "intermediate",
+      "tags": [
+        "diversification",
+        "idiosyncratic-risk",
+        "math",
+        "intermediate"
+      ],
+      "description": "The classic result: 20-30 uncorrelated stocks capture nearly all diversification benefit.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "cryptocurrency-vs-stocks-key-differences",
+      "nearest_score": 0.29
+    },
+    {
+      "title": "How to Rebalance Without Triggering a Tax Bill",
+      "difficulty": "intermediate",
+      "tags": [
+        "rebalancing",
+        "taxes",
+        "strategy",
+        "intermediate"
+      ],
+      "description": "Harvesting losses, directing new contributions, and other ways to reset drift tax-efficiently.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "paper-trading-practice-without-risk",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Understanding 'Crowded Trades' and When to Worry",
+      "difficulty": "intermediate",
+      "tags": [
+        "crowding",
+        "positioning",
+        "risk",
+        "intermediate"
+      ],
+      "description": "How to measure when too many people own the same idea - and what unwinds look like.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "bulls-vs-bears-understanding-market-trends",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "The Investor's Diary: Why Journaling Your Trades Works",
+      "difficulty": "intermediate",
+      "tags": [
+        "journaling",
+        "process",
+        "self-review",
+        "intermediate"
+      ],
+      "description": "A simple trade journal format that turns every position into a lesson, win or lose.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "10-k-filings-the-investor-s-goldmine",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "How to Evaluate a Dividend's Safety (Beyond the Yield)",
+      "difficulty": "intermediate",
+      "tags": [
+        "dividends",
+        "payout-ratio",
+        "dividend-safety",
+        "intermediate"
+      ],
+      "description": "Payout ratio, FCF coverage, and dividend growth history - the real test of a sustainable pay.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:how-to-evaluate-a-dividend-s-safety-beyond-the-yield (title similarity 0.71)"
+      ],
+      "nearest_published_slug": "how-to-evaluate-a-dividend-s-safety-beyond-the-yield",
+      "nearest_score": 0.71
+    },
+    {
+      "title": "Understanding 'Mean Reversion' in Stock Prices",
+      "difficulty": "intermediate",
+      "tags": [
+        "mean-reversion",
+        "momentum",
+        "factors",
+        "intermediate"
+      ],
+      "description": "Why stretched valuations tend to snap back - and the times when they don't.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:earnings-growth-the-engine-of-stock-prices (title similarity 0.33)"
+      ],
+      "nearest_published_slug": "earnings-growth-the-engine-of-stock-prices",
+      "nearest_score": 0.33
+    },
+    {
+      "title": "The Cost of Leverage: Why Borrowing to Invest Usually Backfires",
+      "difficulty": "intermediate",
+      "tags": [
+        "leverage",
+        "margin",
+        "risk",
+        "intermediate"
+      ],
+      "description": "Margin calls, interest drag, and the asymmetry that makes leveraged losses permanent.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "peter-lynch-invest-in-what-you-know",
+      "nearest_score": 0.14
+    },
+    {
+      "title": "Understanding 'The Spread': Bid, Ask, and What You Really Pay",
+      "difficulty": "intermediate",
+      "tags": [
+        "bid-ask",
+        "liquidity",
+        "market-structure",
+        "intermediate"
+      ],
+      "description": "How the spread works in liquid vs illiquid names, and how order types control what you pay.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "bulls-vs-bears-understanding-market-trends",
+      "nearest_score": 0.22
+    },
+    {
+      "title": "The Value of Patience: Case Studies in Waiting for a Great Company",
+      "difficulty": "intermediate",
+      "tags": [
+        "patience",
+        "conviction",
+        "case-studies",
+        "intermediate"
+      ],
+      "description": "Famous positions that required years of holding through doubt - and what made them work.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.15
+    },
+    {
+      "title": "How to Build a 'Sleep Well at Night' Portfolio",
+      "difficulty": "intermediate",
+      "tags": [
+        "portfolio-design",
+        "risk-tolerance",
+        "sleep",
+        "intermediate"
+      ],
+      "description": "Matching allocation to your actual emotional limits, not your stated ones.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "rebalancing-keeping-your-portfolio-on-track",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Understanding 'Liquidity Risk': When You Can't Exit",
+      "difficulty": "advanced",
+      "tags": [
+        "liquidity",
+        "risk",
+        "exits",
+        "advanced"
+      ],
+      "description": "Illiquid positions, frozen markets, and why exitability is a feature, not an afterthought.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "beta-measuring-market-sensitivity",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Monte Carlo Simulations: Stress-Testing Your Retirement Plan",
+      "difficulty": "advanced",
+      "tags": [
+        "monte-carlo",
+        "simulation",
+        "retirement",
+        "advanced"
+      ],
+      "description": "Running thousands of market paths to estimate your odds of running out of money.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:monte-carlo-simulations-stress-testing-your-retirement-plan (title similarity 0.67)"
+      ],
+      "nearest_published_slug": "monte-carlo-simulations-stress-testing-your-retirement-plan",
+      "nearest_score": 0.67
+    },
+    {
+      "title": "The Black-Litterman Model: Blending Your Views With the Market",
+      "difficulty": "advanced",
+      "tags": [
+        "black-litterman",
+        "portfolio-optimization",
+        "views",
+        "advanced"
+      ],
+      "description": "How institutional investors formally combine market equilibrium with their own forecasts.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "famous-market-crashes-lessons-from-history",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "Understanding 'Correlation Breakdowns' in Crises",
+      "difficulty": "advanced",
+      "tags": [
+        "correlation",
+        "crises",
+        "diversification",
+        "advanced"
+      ],
+      "description": "Why diversification fails exactly when you need it, and how to hedge the hedge.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "bulls-vs-bears-understanding-market-trends",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "The Yield Curve: The Best (and Worst) Predictor of Recessions",
+      "difficulty": "advanced",
+      "tags": [
+        "yield-curve",
+        "recession",
+        "macro",
+        "advanced"
+      ],
+      "description": "Inversions, steepenings, and the lag - what the curve actually tells you.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "how-to-evaluate-a-dividend-s-safety-beyond-the-yield",
+      "nearest_score": 0.13
+    },
+    {
+      "title": "How to Use Put-Call Parity (And Why It Matters)",
+      "difficulty": "advanced",
+      "tags": [
+        "options",
+        "put-call-parity",
+        "pricing",
+        "advanced"
+      ],
+      "description": "The fundamental options identity, arbitrage, and what violations reveal.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "free-cash-flow-the-money-that-matters",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "Understanding 'Greeks': Delta, Gamma, Vega, and Theta",
+      "difficulty": "advanced",
+      "tags": [
+        "greeks",
+        "options",
+        "risk",
+        "advanced"
+      ],
+      "description": "The four sensitivities that define an options position's behavior.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "bulls-vs-bears-understanding-market-trends",
+      "nearest_score": 0.15
+    },
+    {
+      "title": "The Kelly Criterion: Optimal Betting (And Why You Shouldn't Use Full Kelly)",
+      "difficulty": "advanced",
+      "tags": [
+        "kelly-criterion",
+        "position-sizing",
+        "math",
+        "advanced"
+      ],
+      "description": "The math of optimal bet sizing, its brutal assumptions, and fractional Kelly in practice.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": null,
+      "nearest_score": 0
+    },
+    {
+      "title": "How to Value a Business Using DCF (A Worked Example)",
+      "difficulty": "advanced",
+      "tags": [
+        "dcf",
+        "valuation",
+        "discounting",
+        "advanced"
+      ],
+      "description": "A complete discounted cash flow on a real company, with sensitivity analysis on every assumption.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "Understanding 'Tail Risk' and How to Hedge It",
+      "difficulty": "advanced",
+      "tags": [
+        "tail-risk",
+        "hedges",
+        "volatility",
+        "advanced"
+      ],
+      "description": "Fat tails, the 2008 and 2020 examples, and cheap insurance structures for portfolios.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "beta-measuring-market-sensitivity",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "The Arbitrage Pricing Theory: A Multi-Factor Alternative to CAPM",
+      "difficulty": "advanced",
+      "tags": [
+        "apt",
+        "factor-models",
+        "theory",
+        "advanced"
+      ],
+      "description": "How APT explains returns with macro factors instead of one beta - and where it falls short.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": null,
+      "nearest_score": 0
+    },
+    {
+      "title": "How to Read an Options Chain (Without Getting Lost)",
+      "difficulty": "advanced",
+      "tags": [
+        "options",
+        "chains",
+        "implied-vol",
+        "advanced"
+      ],
+      "description": "Strikes, expiries, IV skew, and open interest - a field guide to the options page.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "paper-trading-practice-without-risk",
+      "nearest_score": 0.15
+    },
+    {
+      "title": "The Efficient Frontier: Building Optimal Portfolios",
+      "difficulty": "advanced",
+      "tags": [
+        "efficient-frontier",
+        "mean-variance",
+        "optimization",
+        "advanced"
+      ],
+      "description": "Markowitz's framework, the minimum-variance portfolio, and the pitfalls of input error.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "compound-interest-the-eighth-wonder-of-the-world",
+      "nearest_score": 0.14
+    },
+    {
+      "title": "Understanding 'Implied Volatility' and the Volatility Smile",
+      "difficulty": "advanced",
+      "tags": [
+        "implied-volatility",
+        "smile",
+        "options",
+        "advanced"
+      ],
+      "description": "What IV prices in, why the smile is skewed, and how to trade the shape.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "understanding-leveraged-etfs-the-math-that-eats-returns",
+      "nearest_score": 0.27
+    },
+    {
+      "title": "How to Construct a Market-Neutral Strategy",
+      "difficulty": "advanced",
+      "tags": [
+        "market-neutral",
+        "long-short",
+        "hedge",
+        "advanced"
+      ],
+      "description": "Pair trades, beta hedging, and the risks that remain even when the market is flat.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey",
+        "overlap:why-timing-the-market-is-nearly-impossible (title similarity 0.36)"
+      ],
+      "nearest_published_slug": "why-timing-the-market-is-nearly-impossible",
+      "nearest_score": 0.36
+    },
+    {
+      "title": "The Fama-French Factors: The Academic Workhorses",
+      "difficulty": "advanced",
+      "tags": [
+        "fama-french",
+        "factors",
+        "academic",
+        "advanced"
+      ],
+      "description": "Market, size, value, profitability, and investment - the five-factor model explained.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": null,
+      "nearest_score": 0
+    },
+    {
+      "title": "How to Think About 'Regime Change' in Markets",
+      "difficulty": "advanced",
+      "tags": [
+        "regimes",
+        "macro",
+        "adaptation",
+        "advanced"
+      ],
+      "description": "Detecting shifts between inflation, growth, and liquidity regimes - and repositioning for each.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "international-investing-beyond-us-markets",
+      "nearest_score": 0.18
+    },
+    {
+      "title": "Understanding 'Leveraged ETFs': The Math That Eats Returns",
+      "difficulty": "advanced",
+      "tags": [
+        "leveraged-etfs",
+        "volatility-decay",
+        "daily-reset",
+        "advanced"
+      ],
+      "description": "Why 3x funds don't deliver 3x over a year - the volatility drag, with real numbers.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:understanding-leveraged-etfs-the-math-that-eats-returns (title similarity 0.71)"
+      ],
+      "nearest_published_slug": "understanding-leveraged-etfs-the-math-that-eats-returns",
+      "nearest_score": 0.71
+    },
+    {
+      "title": "How to Use 'Pairs Trading' to Bet on Relative Value",
+      "difficulty": "advanced",
+      "tags": [
+        "pairs-trading",
+        "statistical-arbitrage",
+        "cointegration",
+        "advanced"
+      ],
+      "description": "Finding cointegrated pairs, measuring the spread, and managing the trade.",
+      "verdict": "archived",
+      "reasons": [
+        "audience-mismatch:sits outside the 16-17 reader journey"
+      ],
+      "nearest_published_slug": "growth-stocks-vs-value-stocks",
+      "nearest_score": 0.2
+    },
+    {
+      "title": "Understanding 'The Volatility Risk Premium'",
+      "difficulty": "advanced",
+      "tags": [
+        "volatility-premium",
+        "varp",
+        "options",
+        "advanced"
+      ],
+      "description": "Why implied vol usually exceeds realized vol - and how sellers harvest the difference.",
+      "verdict": "archived",
+      "reasons": [
+        "overlap:what-is-volatility-riding-the-roller-coaster (title similarity 0.33)"
+      ],
+      "nearest_published_slug": "what-is-volatility-riding-the-roller-coaster",
+      "nearest_score": 0.33
+    },
+    {
+      "title": "How to Stress-Test a Portfolio Like a Risk Manager",
+      "difficulty": "advanced",
+      "tags": [
+        "stress-testing",
+        "risk-management",
+        "scenarios",
+        "advanced"
+      ],
+      "description": "Historical, hypothetical, and reverse stress tests - the three lenses a CRO would use on your holdings.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "rebalancing-keeping-your-portfolio-on-track",
+      "nearest_score": 0.17
+    },
+    {
+      "title": "The Theory (and Reality) of Random Walks",
+      "difficulty": "advanced",
+      "tags": [
+        "random-walk",
+        "predictability",
+        "efficient-markets",
+        "advanced"
+      ],
+      "description": "What the random walk hypothesis claims, the evidence that prices mostly follow it, and the exceptions that matter.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": null,
+      "nearest_score": 0
+    },
+    {
+      "title": "How to Build a Personal 'Factor Model' of Your Returns",
+      "difficulty": "advanced",
+      "tags": [
+        "factor-models",
+        "attribution",
+        "returns",
+        "advanced"
+      ],
+      "description": "Decomposing your portfolio's gains into market, value, momentum, and luck - and learning what actually worked.",
+      "verdict": "archived",
+      "reasons": [
+        "low-priority:duplicate ground under different wording, or breadth without a reader who needs it"
+      ],
+      "nearest_published_slug": "alpha-generating-excess-returns",
+      "nearest_score": 0.17
+    }
+  ]
+}
