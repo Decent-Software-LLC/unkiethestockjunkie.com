@@ -17,6 +17,10 @@ quiz:
     options: ["Dividends begin", "More previously restricted shares become sellable", "Trading halts briefly", "Ticker changes"]
     answer: 1
     why: "Sudden supply increase meeting unchanged demand tends to weigh on price, which is why the expiry date is worth knowing in advance."
+  - question: "Purchasing in the first minutes after a listing tends to work against newcomers because..."
+    options: ["The opening quote already prices in the enthusiasm that allocations were rationed around", "The exchange mechanically doubles the reference price", "Newly listed shares carry compulsory payouts", "Sellers must later refund any excess paid"]
+    answer: 0
+    why: "Allocation happens before public trading at a set price, and whatever scarcity survives into the open belongs to whoever queued earlier. Paying the discovery premium is a choice available to nobody at the start and to almost everyone a minute later."
 related_articles:
   - title: "What is the S&P 500 and Why Should You Care?"
     url: "/articles/what-is-the-s-p-500-and-why-should-you-care/"

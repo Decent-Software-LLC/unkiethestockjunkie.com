@@ -17,6 +17,10 @@ quiz:
     options: ["The company will double next year", "The market has mispriced a real business", "Stock prices always rise", "Dividends beat everything"]
     answer: 1
     why: "The whole value thesis is that price and worth diverge, and eventually close the gap. If the market is simply right, there's nothing to buy."
+  - question: "A fund described as following a particular investment style is best understood as..."
+    options: ["Expressing its manager's stated preferences, which can drift without anyone breaking a rule", "Legally barred from owning fast-growing businesses", "Prohibited from distributing any realised gains", "Automatically obliged to charge below-average fees"]
+    answer: 0
+    why: "Style words describe intent, not custody arrangements. Holdings migrate toward whatever has been working while the marketing label stays put, which is why the periodic holdings list is worth more attention than the description beside it."
 related_articles:
   - title: "Benjamin Graham: The Father of Value Investing"
     url: "/articles/benjamin-graham-the-father-of-value-investing/"

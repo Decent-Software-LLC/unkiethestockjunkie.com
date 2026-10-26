@@ -27,6 +27,10 @@ quiz:
     options: ["Tax-free", "Usually taxed as ordinary income, unlike longer holds", "Taxed at a lower long-term rate", "Always penalized by the SEC"]
     answer: 1
     why: "Holding period, not profit size, sets the rate in US taxable accounts. Identical gains can produce different bills purely by date."
+  - question: "Spectacular long-run averages quoted in investment articles tend to mislead because..."
+    options: ["The interval and the holdings were selected after discovering which ones produced the number", "Exchanges certify those figures annually", "They deliberately omit only bond returns", "Failed companies are always included automatically"]
+    answer: 0
+    why: "Choosing the window and the winners after the fact guarantees an impressive result for someone. The informative version states the period in advance and includes everything that started it, including names that did not finish."
 ---
 
 Someone holds an index fund for twenty-two years and someone else holds the identical fund for nine weeks, and both describe themselves as investors. The distinction that actually matters isn't personality or bravery, it's calendar: when the money must exist in spendable form. Everything else follows from that constraint, including whether equities are appropriate at all.

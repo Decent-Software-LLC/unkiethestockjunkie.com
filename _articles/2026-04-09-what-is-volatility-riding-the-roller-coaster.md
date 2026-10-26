@@ -17,6 +17,10 @@ quiz:
     options: ["Single stocks in crashes", "Long-term bonds when rates rise fast", "Savings accounts", "Index funds"]
     answer: 1
     why: "Fixed payments lose present value as alternatives improve; low recent fluctuation is not the same absence as hazard."
+  - question: "Knowing roughly how badly a holding has behaved in its worst months is useful mainly for..."
+    options: ["Deciding how much of it you can own and still act normally", "Predicting which month the next fall arrives", "Eliminating the need to read anything else", "Guaranteeing a smaller loss than the market average"]
+    answer: 0
+    why: "Dispersion estimates describe the spread of plausible outcomes, upside included; they carry no timing information. Their practical value is forcing the sizing decision while you are calm instead of during the event itself."
 related_articles:
   - title: "Risk and Reward: The Investing Balance"
     url: "/articles/risk-and-reward-the-investing-balance/"

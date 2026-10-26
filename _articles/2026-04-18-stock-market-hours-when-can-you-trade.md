@@ -17,6 +17,10 @@ quiz:
     options: ["It sets your broker's fees", "Markets gap mechanically, so avoid panic-trading the initial spike", "Only banks may trade then", "Trading halts company-wide"]
     answer: 1
     why: "Algorithms reprice in milliseconds. Buying the first spike buys the peak of a move already made against you."
+  - question: "A significant headline released after trading closes typically produces..."
+    options: ["A gap at the next open rather than an orderly path through the prices in between", "An automatic halt until officials clear the news", "Repricing confined exclusively to large institutional accounts", "No measurable effect, since nothing transacts overnight"]
+    answer: 0
+    why: "Participants reprice all at once when the bell rings, because the auction sits empty meanwhile. That jumps over intermediate levels, meaning stop orders sitting in between execute wherever the reopening lands, not where they were placed."
 related_articles:
   - title: "What is the S&P 500 and Why Should You Care?"
     url: "/articles/what-is-the-s-p-500-and-why-should-you-care/"

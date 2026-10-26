@@ -17,6 +17,10 @@ quiz:
     options: ["The internet was a passing fad", "Overvalued companies can be badly priced while the underlying trend is real", "Founders should never raise capital", "Only profitable startups survive"]
     answer: 1
     why: "The technology kept spreading and some survivors grew enormous. Bad prices and bad ideas are separate failures, and confusing them causes both over-buying and total exit."
+  - question: "The precondition that recurs before major market collapses is..."
+    options: ["Widespread conviction that prices cannot fall much further from here", "Regulators temporarily suspending disclosure requirements", "Companies becoming legally unable to publish results", "Exchanges permanently cancelling a market's sessions"]
+    answer: 0
+    why: "Every episode in this history had participants certain the usual downside no longer applied, which is what allows leverage and stretched valuations to accumulate unnoticed until positions have to be exited simultaneously."
 related_articles:
   - title: "Dow Jones: The Original Stock Index"
     url: "/articles/dow-jones-the-original-stock-index/"
