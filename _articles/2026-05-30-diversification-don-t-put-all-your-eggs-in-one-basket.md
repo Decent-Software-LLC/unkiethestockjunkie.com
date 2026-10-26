@@ -17,6 +17,10 @@ quiz:
     options: ["Ten shares of one sneaker company", "Funds covering many industries and company sizes", "Five crypto coins", "One very large bank"]
     answer: 1
     why: "Diversification is about owning things that don't all sink together, not merely owning several tickers."
+  - question: "The genuine price paid for spreading money across many holdings is that..."
+    options: ["Your single best performer barely moves the overall result", "All long-term growth is removed", "Every gain becomes tax-exempt", "The allocation must legally be rebuilt quarterly"]
+    answer: 0
+    why: "Averaging across many positions suppresses the contribution of whichever one worked spectacularly. Diversification is insurance against being wrong, and premiums are supposed to feel expensive when nothing goes wrong."
 related_articles:
   - title: "ETFs: Instant Diversification Made Easy"
     url: "/articles/etfs-instant-diversification-made-easy/"

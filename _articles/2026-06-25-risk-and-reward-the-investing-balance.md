@@ -17,6 +17,10 @@ quiz:
     options: ["A well-run fund", "You haven't identified the risk yet, or someone is selling", "A government guarantee", "An efficient market"]
     answer: 1
     why: "If such an asset existed, buying pressure would raise its price until the excess return disappeared. Free lunches attract arbitrage and vanish."
+  - question: "The expected return on a position can rise for two fundamentally different reasons: better prospects, or..."
+    options: ["More of the possible downside being carried by you personally", "A longer published operating history", "A minimum margin set by the listing venue", "Compulsory sharing of profits with employees"]
+    answer: 0
+    why: "Auction prices reveal only what buyers collectively demand, not why. The extra reward attached to one security usually compensates for somebody accepting more of the uncertain tail -- separating compensation from luck is the core habit this page teaches."
 related_articles:
   - title: "Investing Myths Debunked"
     url: "/articles/investing-myths-debunked/"

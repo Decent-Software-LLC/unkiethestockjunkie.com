@@ -17,6 +17,10 @@ quiz:
     options: ["Reliable analysis", "Emotional framing meant to prompt quick action", "Verified insider activity", "A pending dividend"]
     answer: 1
     why: "They describe size of a move and manufacture urgency. They add no information beyond the percentage change already printed."
+  - question: "By the time a mainstream article explains why prices moved that day..."
+    options: ["The trading that acted on the information has generally already occurred", "Prices are legally frozen until the story publishes", "Only credentialed professionals may trade for the rest of the session", "The move becomes permanent under exchange rules"]
+    answer: 0
+    why: "Explanation follows the transaction. Reading causation afterwards feels like insight and rarely converts into anything tradable, which is why the page treats reaction to fresh releases rather than retrospective narrative as worth attention."
 related_articles:
   - title: "Stock Screeners: Finding Your First Investment"
     url: "/articles/stock-screeners-finding-your-first-investment/"

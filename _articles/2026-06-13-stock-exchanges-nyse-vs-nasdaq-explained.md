@@ -17,6 +17,10 @@ quiz:
     options: ["Always being profitable", "Meeting ongoing price, float and shareholder thresholds", "Auditing only every five years", "Board approval per trade"]
     answer: 1
     why: "Continued listing depends on quantitative standards; breach starts cure periods and eventually delisting, quietly removing weak names."
+  - question: "The reputational distinction between the two major US venues rests chiefly on..."
+    options: ["Their separate origins -- one built around designated specialists, the other around competing dealers quoting electronically", "One holding a monopoly on listing profitable enterprises", "Official guarantees attached to quoted prices", "Authorities assigning industries to particular venues"]
+    answer: 0
+    why: "Two different solutions to the same problem -- who stands ready to trade -- left two cultures of liquidity provision. Neither ancestry implies a safer investment today, which is why the practical consequences matter more than the pedigree."
 related_articles:
   - title: "Understanding the Stock Market: A Playground for Investors"
     url: "/articles/understanding-the-stock-market-a-playground-for-investors/"

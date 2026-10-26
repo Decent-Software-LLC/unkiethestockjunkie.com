@@ -17,6 +17,10 @@ quiz:
     options: ["One was a larger company", "Amazon's drop sat on growing real profits; GameStop's surge came from trading positioning", "One paid dividends", "Nothing meaningful"]
     answer: 1
     why: "Identical chart shapes hide different mechanisms. Confusing a valuation collapse with a squeeze is a common and expensive beginner error."
+  - question: "Rather than predicting tops and bottoms, the usable version of this advice asks beginners to..."
+    options: ["Commit in advance to repeatable rules about amounts, timing and position size", "Await confirmation from commentators before acting", "Follow one admired company's shares obsessively", "Copy whatever was bought most recently in public forums"]
+    answer: 0
+    why: "Judgement deteriorates precisely when feelings are strongest, so decisions belong on rails laid while calm. Rules survive an argument with emotion; intentions, revisited mid-move, do not."
 related_articles:
   - title: "What is the S&P 500 and Why Should You Care?"
     url: "/articles/what-is-the-s-p-500-and-why-should-you-care/"

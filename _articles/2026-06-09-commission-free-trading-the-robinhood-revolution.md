@@ -27,6 +27,10 @@ quiz:
     options: ["Commissions", "Fund expense ratios", "Account-opening fees", "Dividend reinvestment charges"]
     answer: 1
     why: "An annual percentage charge applies every year regardless of trading frequency, quietly outweighing per-trade fees forever."
+  - question: "Interfaces engineered around frequent interaction tend to damage results because..."
+    options: ["They make acting feel routine, and every action carries a cost someone absorbs", "Regulations levy a fee for each screen tap", "They are technically unable to display holdings concentration", "They support fractional units exclusively"]
+    answer: 0
+    why: "Friction used to be protection: completing a trade required deliberate effort, so casual impulses died unfinished. Remove the friction and the impulse completes, paying spread and timing costs each time it does."
 ---
 
 Trading commissions went from double-digit dollars per order to zero, and nobody argues that this was bad. The complications arrived afterward, because a business that stopped charging visibly still has payroll, and the replacements are harder to see than the fee they displaced. Zero is a genuine improvement plus a marketing achievement simultaneously, and holding both thoughts is the point.

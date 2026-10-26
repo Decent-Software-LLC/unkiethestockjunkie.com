@@ -27,6 +27,10 @@ quiz:
     options: ["Professional short sellers only", "Late-arriving buyers, often via short-dated options", "Brokerage employees", "Long-term index holders"]
     answer: 1
     why: "Options expire worthless if timing misses even when direction is eventually right; headlines record fund pain while quiet contract losses go untold."
+  - question: "Selling a share short differs from owning it chiefly because the short seller..."
+    options: ["Must repurchase later at whatever price then exists, with no upper limit on that cost", "Can never lose more than the initial deposit", "Receives fixed fees administered by the venue", "Gains automatic protection while prices climb rapidly"]
+    answer: 0
+    why: "Buying caps worst-case outcomes at the amount spent and leaves upside open. Shorting reverses both halves: gain bounded by a fall to nothing, loss extending with every rally -- an obligation whose worst case has no arithmetic ceiling."
 ---
 
 A stock nobody likes gets bought anyway, and everyone who bet against it discovers they must buy too, at whatever price strangers now demand. Prices move faster than fundamentals can explain because the movement was never about the business. Stories like this surface repeatedly and always arrive attached to screenshots of people who got rich, which is precisely why the mechanism deserves understanding rather than fandom.

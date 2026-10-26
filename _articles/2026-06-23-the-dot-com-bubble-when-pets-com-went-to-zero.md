@@ -17,6 +17,10 @@ quiz:
     options: ["Most technology never works", "Real adoption still requires a sensible entry price", "Only large firms innovate", "Growth always lowers returns"]
     answer: 1
     why: "Broadband spread exactly as predicted while share prices collapsed. Adoption and valuation are unrelated questions."
+  - question: "Businesses that came through the 2000 collapse intact tended to share which trait?"
+    options: ["Cash arriving from customers who were paying for something", "Growth forecasts describing enormous future attention", "Large financing rounds announced in advance", "Websites that loaded faster than competitors'"]
+    answer: 0
+    why: "The bust separated enterprises with receipts from narratives awaiting receipts. Everything on the other side of this list was also abundant among the companies that disappeared, which is the point of studying the survivors instead of the headlines."
 related_articles:
   - title: "Nasdaq: Where Tech Giants Live"
     url: "/articles/nasdaq-where-tech-giants-live/"

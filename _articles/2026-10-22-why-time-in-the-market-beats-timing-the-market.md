@@ -27,6 +27,10 @@ quiz:
     options: ["About double (~$34k)", "About triple (~$52k vs ~$17k)", "Exactly the same", "Only slightly more"]
     answer: 1
     why: "Compounding is exponential: doubling duration more than doubles outcomes because early contributions earn for far longer."
+  - question: "Staying invested through everything stops being good guidance when it means..."
+    options: ["Holding a specific deteriorating business purely because exiting would feel like admitting defeat", "Experiencing any single year in which the broad market finished lower", "Declining to move distributions into a savings account immediately", "Owning fewer holdings than a typical index contains"]
+    answer: 0
+    why: "Patience is defined against temporary weakness in something diversified, not loyalty to a fading enterprise. Confusing endurance with refusal to revise is how a reasonable long-term plan protects a bad position until very little remains."
 ---
 
 The most expensive sentence in investing is *I'll get in when it looks less scary*, because by the time something looks less scary, the part you wanted to buy has typically already happened. Staying invested is duller than predicting and has outperformed prediction so consistently across decades that entire industries built on forecasting still lose to people who simply never left. The mechanism isn't mystical, it's arithmetic plus human timing instincts working against each other.
