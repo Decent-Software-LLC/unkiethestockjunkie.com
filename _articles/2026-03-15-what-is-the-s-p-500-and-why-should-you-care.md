@@ -17,6 +17,10 @@ quiz:
     options: ["Treats all 500 names equally", "Can be dominated by a handful of giants", "Rises whenever most members rise", "Excludes technology"]
     answer: 1
     why: "Largest positions often control roughly a third of the weight, so one holding can behave like a concentrated bet despite looking diversified."
+  - question: "Money placed behind a typical large-company US index ends up..."
+    options: ["Concentrated in bigger domestic firms roughly in proportion to their size, with little else", "Spread across every listed company nationwide", "Balanced automatically across stocks, bonds and property", "Divided evenly between companies on every continent"]
+    answer: 0
+    why: "Size weighting means a modest number of very large constituents steer most of the movement, and a domestic equity list carries neither smaller domestic firms nor other asset types unless deliberately added."
 related_articles:
   - title: "Market Orders vs Limit Orders"
     url: "/articles/market-orders-vs-limit-orders/"

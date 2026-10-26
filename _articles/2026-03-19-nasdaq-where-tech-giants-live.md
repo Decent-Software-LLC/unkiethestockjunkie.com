@@ -27,6 +27,10 @@ quiz:
     options: ["Broad diversification across US business", "Size-weighted exposure dominated by a few large names", "Equal ownership of every listed company", "A bond substitute"]
     answer: 1
     why: "Capitalization weighting forces concentration into recent winners, so a handful of mega-cap positions drive most of the return."
+  - question: "A heavily technology-weighted index disappoints its owners more often than its record suggests because..."
+    options: ["Prices already assume continued excellence from its largest members", "It is prohibited from holding other industries", "Trading halts there are unusually frequent", "Payouts are compulsory and drain value each quarter"]
+    answer: 0
+    why: "Past leadership gets capitalised into today's valuation, so satisfying expectations merely matches what is embedded in the price. Sector rules, halt frequency and payout policy have nothing to do with that gap."
 ---
 
 Apple, Nvidia, Tesla and Netflix all trade on the same exchange, and so do Starbucks, Costco and a few thousand companies nobody has heard of. Knowing which venue a ticker lives on answers quieter questions than headlines ask: why some names gap violently overnight, what actually drives index-fund buying, and why a stock's home market is not the place your order gets filled.

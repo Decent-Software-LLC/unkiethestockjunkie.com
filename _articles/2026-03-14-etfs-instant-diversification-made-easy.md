@@ -17,6 +17,10 @@ quiz:
     options: ["ETFs trade all day like stocks", "ETFs can't lose money", "ETFs always pay dividends", "ETFs are only sold to adults"]
     answer: 0
     why: "Mutual funds price once per day after the market closes. ETFs change price all day, so you can buy or sell while the market is open."
+  - question: "Buying a single share of an exchange-traded fund guarantees..."
+    options: ["Nothing about breadth -- you own whatever the underlying list holds, which may be one narrow theme", "Instant spread across hundreds of unrelated businesses", "A price fixed until the market closes", "A lower tax bill on any gain"]
+    answer: 0
+    why: "Bundling multiplies line items inside one wrapper; whether those line items overlap each other depends entirely on the list being tracked. A one-sector fund packaged neatly is still one bet."
 related_articles:
   - title: "Index Funds: Set It and Forget It"
     url: "/articles/index-funds-set-it-and-forget-it/"

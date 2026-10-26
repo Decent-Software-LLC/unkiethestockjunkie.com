@@ -17,6 +17,10 @@ quiz:
     options: ["A forward split", "A reverse split driven by exchange minimum-price rules", "A dividend increase", "A buyback announcement"]
     answer: 1
     why: "Consolidation restores compliance optics while the underlying decline continues; repeated reversals are classic distress markers."
+  - question: "If doubling the share count halves the price without changing value, why do boards still split?"
+    options: ["A friendlier sticker price attracts buyers who mistake a low number for cheapness", "It legally raises reported profit per share", "It removes the obligation to publish accounts", "It swaps ordinary shares into debt"]
+    answer: 0
+    why: "The gesture targets perception. Investors who read a smaller quote as an entry opportunity rather than identical economics are precisely the audience a split courts, and app interfaces reward that misreading."
 related_articles:
   - title: "Compound Interest: The Eighth Wonder of the World"
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"

@@ -17,6 +17,10 @@ quiz:
     options: ["Lower taxes always", "Owners generally lose only what they invested", "No paperwork required", "They avoid all regulation"]
     answer: 1
     why: "The liability wall separates the business's debts from owners' personal assets, which is what lets thousands of strangers own small pieces safely."
+  - question: "Day-to-day control of a huge listed company sits with..."
+    options: ["Managers hired by a board that holders technically elect", "Whoever holds the largest personal account", "The exchange where the shares trade", "The custodian storing the paper"]
+    answer: 0
+    why: "Ownership is an economic claim, not an operating role. The ballot that nominally transfers control happens rarely, goes unused by most holders, and selects priorities rather than decisions."
 related_articles:
   - title: "What is a Stock? A Teen's First Guide"
     url: "/articles/what-is-a-stock-a-teen-s-first-guide/"

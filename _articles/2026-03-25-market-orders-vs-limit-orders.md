@@ -17,6 +17,10 @@ quiz:
     options: ["True", "False"]
     answer: 1
     why: "It guarantees speed, not price. You get whatever it costs right now, which can move against you between clicking and filling."
+  - question: "Placing a limit order far below the current quote exposes you mainly to..."
+    options: ["Never being filled while the price continues without you", "Guaranteeing a worse execution than a market order would give", "Automatic double execution once trading reopens", "Transforming your holding into a secured loan"]
+    answer: 0
+    why: "A limit is an instruction not to pay more, and instructions can go unexecuted. The cost of that protection is missing trades entirely, which feels far worse when the move continues without a position attached."
 related_articles:
   - title: "What is the S&P 500 and Why Should You Care?"
     url: "/articles/what-is-the-s-p-500-and-why-should-you-care/"

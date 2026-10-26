@@ -17,6 +17,10 @@ quiz:
     options: ["Future payouts are contractually protected", "Board discipline so far, with no guarantee against cuts", "It pays no taxes", "Its share price cannot fall"]
     answer: 1
     why: "Dividends are discretionary decisions reviewed every quarter, and boards cut them when cash gets tight, famously and suddenly."
+  - question: "What an admired, long-established company genuinely gains from its history is..."
+    options: ["Evidence it outlasted conditions that removed comparable rivals, which is not proof it always will", "A share price insulated from serious declines", "Exemption from new competition", "A guarantee attached to its published accounts"]
+    answer: 0
+    why: "Survival through hard stretches is real information and still not a forecast. Auditors examine records rather than bless prospects, and nothing about size suspends competitive entry."
 related_articles:
   - title: "Compound Interest: The Eighth Wonder of the World"
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"
