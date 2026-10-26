@@ -19,7 +19,8 @@ const { execFileSync } = require('child_process');
 const { collectionSlugs } = require('./lib/page-registry');
 
 const ROOT = path.join(__dirname, '..');
-const PAGES = ['faq.md', 'contact.md', 'newsletter.md', 'about.md', 'articles.md', 'index.html'];
+const PAGES = ['faq.md', 'contact.md', 'about.md', 'articles.md', 'index.html', 'privacy.md'];
+const READER_PAGES = PAGES;
 const CHROME = ['_layouts/home.html', '_includes/footer.html', '_includes/header.html'];
 const MAILBOX = 'hello@unkiethestockjunkie.com';
 
@@ -117,7 +118,7 @@ function buildRouteSet() {
 
 test('reader-facing pages make no publishing-cadence promise the repository cannot keep', () => {
   const offences = [];
-  for (const page of [...PAGES, ...CHROME]) {
+  for (const page of [...READER_PAGES, ...CHROME]) {
     const text = unwrapLiquid(read(page));
     for (const { re, why } of CADENCE_PATTERNS) {
       const m = re.exec(text);
@@ -132,7 +133,7 @@ test('no page attributes words to a reader who never said them', () => {
   // decoration, and this audience is minors -- the one group whose invented endorsement we cannot
   // walk back with an errata note.
   const offences = [];
-  for (const page of [...PAGES, ...CHROME]) {
+  for (const page of [...READER_PAGES, ...CHROME]) {
     const text = read(page);
     if (/<cite>/i.test(text)) offences.push(`${page}: <cite> attribution present`);
     if (/"/.test(text) && /blockquote/i.test(text) && /—|--\s*[A-Z][a-z]+,?\s*\d{1,2}/.test(text)) {
@@ -209,23 +210,109 @@ test('FAQ answers survive a reader with JavaScript disabled', () => {
   }
 });
 
-test('newsletter page describes reality instead of a product that was never built', () => {
-  const text = read('newsletter.md');
+test('no page sells email delivery that nobody operates', () => {
+  const forbidden = [
+    /straight to your inbox/i,
+    /unsubscribe link/i,
+    /subscribe now/i,
+    /sign up today/i,
+    /delivered daily/i,
+    /new (article|lesson)s?[^<]{0,30}inbox/i,
+  ];
   const offences = [];
-  for (const re of [/unsubscribe link/i, /straight to your inbox/i, /sign up today/i, /subscribe now/i]) {
-    const m = re.exec(text);
-    if (m) offences.push(m[0]);
+  for (const page of [...READER_PAGES, ...CHROME]) {
+    const text = unwrapLiquid(read(page));
+    for (const re of forbidden) {
+      const m = re.exec(text);
+      if (m) offences.push(`${page}: "${m[0]}"`);
+    }
   }
-  if (offences.length) throw new Error(`promises email functionality that does not exist: ${offences.join(', ')}`);
-  if (!/no mailing list/i.test(text)) throw new Error("does not state plainly that no mailing list exists");
-  if (!/\/feed\.xml/.test(text)) throw new Error('offers no working alternative such as the RSS feed');
+  if (offences.length) throw new Error(`email promises without a mailer behind them: ${offences.join('; ')}`);
+
+  // Removing the promises is only honest if something that works was left in their place.
+  if (!/\/feed\.xml/.test(unwrapLiquid(read('_layouts/home.html')))) {
+    throw new Error('homepage offers no working subscription route (RSS) after dropping the mailing-list pitch');
+  }
+});
+
+test('the newsletter page stays deleted', () => {
+  // It sold subscriptions to a list that never existed, complete with an invented teen testimonial.
+  // Re-adding it should be a decision, not a leftover from an old branch or editor buffer.
+  if (fs.existsSync(path.join(ROOT, 'newsletter.md'))) {
+    throw new Error('newsletter.md is back -- there is still no mailing list to advertise');
+  }
+  const references = [];
+  for (const page of [...READER_PAGES, ...CHROME]) {
+    if (/\/newsletter\b/.test(read(page))) references.push(page);
+  }
+  if (references.length) throw new Error(`links point at the deleted page: ${references.join(', ')}`);
+});
+
+test('privacy policy describes this codebase rather than a template', () => {
+  const text = read('privacy.md');
+
+  // Verbatim phrases from the version that described software this site does not run. Each one is a
+  // claim of collection; reinstating any of them means a tracker was added without rewriting the policy.
+  const removed = [
+    'Anonymous Analytics',
+    'If enabled, we use Google Analytics',
+    'Opt-out of analytics tracking',
+    'We use minimal cookies',
+    'Contact Form Submissions',
+    'Understand which articles are most helpful',
+  ];
+  const reintroduced = removed.filter((phrase) => text.includes(phrase));
+  if (reintroduced.length) throw new Error(`stale collection claims are back: ${reintroduced.join(' | ')}`);
+
+  // Nothing may claim analytics while none exists in the shipped source.
+  const TRACKER_RE = /googletagmanager|gtag\(|google-analytics|plausible\.io|fathom|umami/i;
+  const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
+  const trackerFiles = ['assets', '_includes', '_layouts']
+    .flatMap(walk)
+    .filter((f) => /\.(js|html)$/.test(f) && TRACKER_RE.test(read(path.relative(ROOT, f))));
+  if (!trackerFiles.length && /\banalytics\b/i.test(text) && !/no analytics|nothing else from Google|no Analytics/i.test(text)) {
+    throw new Error('policy mentions analytics but the site ships none');
+  }
+
+  const required = [
+    [/server logs|hosting logs/i, 'hosting log disclosure'],
+    [/fonts\.(googleapis|google)\.com|Google.*webfonts|webfonts/i, 'third-party font disclosure'],
+    [/local storage/i, 'device-side storage disclosure'],
+    [/forwarded|forwarding/i, 'what happens to emailed content'],
+    [/deletion|deleted/i, 'route for asking removal'],
+    [/not directed at children under 13/i, 'age framing consistent with the audience'],
+  ];
+  const missing = required.filter(([re]) => !re.test(text)).map(([, why]) => why);
+  if (missing.length) throw new Error(`undisclosed reality: ${missing.join('; ')}`);
+});
+
+test('screener pages disclose the provenance and age of every number they print', () => {
+  const files = fs.readdirSync(path.join(ROOT, 'screeners')).filter((f) => f.endsWith('.html') && f !== 'index.html');
+  if (files.length < 6) throw new Error(`only ${files.length} screener pages found; expected one per strategy`);
+
+  const lib = read('assets/js/fundamentals.js');
+  if (!/function realDataLabel\(/.test(lib)) throw new Error('no central data-age label helper');
+  if (!/isStale/.test(lib.slice(lib.indexOf('function realDataLabel')))) {
+    throw new Error('label helper ignores staleness -- old data would still read as current');
+  }
+
+  const offenders = [];
+  for (const file of files) {
+    const text = read(path.join('screeners', file));
+    if (!text.includes('realDataLabel(')) offenders.push(`${file}: status line never reports data age`);
+    if (/Real data as of /.test(text)) offenders.push(`${file}: unqualified "Real data as of" wording restored`);
+    if (!/Where these numbers come from/i.test(text)) offenders.push(`${file}: missing provenance disclosure`);
+    if (/In a production environment/i.test(text)) offenders.push(`${file}: developer-facing placeholder copy`);
+  }
+  if (offenders.length) throw new Error(offenders.join('; '));
 });
 
 test('internal links on those pages resolve to routes Jekyll emits', () => {
   const { routes } = buildRouteSet();
   const dead = [];
   let scanned = 0;
-  for (const page of [...PAGES, ...CHROME]) {
+  for (const page of [...READER_PAGES, ...CHROME]) {
     const text = unwrapLiquid(read(page));
     for (const m of text.matchAll(/href="(\/[^"#?]*)/g)) {
       scanned++;
@@ -267,7 +354,7 @@ test('marketing copy avoids the banned voice patterns', () => {
     /embark/i, /trust us/i, /in this article/i, /financial freedom/i, /get rich/i,
   ];
   const offences = [];
-  for (const page of [...PAGES, ...CHROME]) {
+  for (const page of [...READER_PAGES, ...CHROME]) {
     const text = read(page);
     for (const re of banned) {
       const m = re.exec(text);

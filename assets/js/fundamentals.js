@@ -85,6 +85,24 @@ function getDataStatus() {
 }
 
 /**
+ * The one line that tells a reader whether the figures above them are trustworthy right now.
+ *
+ * The accessor below already computed isStale, but no page rendered it: stale files kept claiming
+ * "Real data" and a weekend-old or holiday-old snapshot was indistinguishable from tonight's. Age is
+ * now stated in words in the same element that announces the data source, because a number nobody can
+ * date is a number nobody should repeat.
+ */
+function realDataLabel(status) {
+  if (!status) return '\u{1F4CA} No date attached to this data \u2014 treat every figure as unverified';
+  if (status.isStale) {
+    const days = Math.max(1, Math.round(status.ageDays));
+    return '\u26A0\uFE0F Data dated ' + status.date + ' \u2014 about ' + days +
+      ' day' + (days === 1 ? '' : 's') + ' old, so verify before quoting any of it';
+  }
+  return '\u{1F4CA} Data dated ' + status.date + ', refreshed after the last market close';
+}
+
+/**
  * Format a number for display.
  */
 function fmtB(n) {

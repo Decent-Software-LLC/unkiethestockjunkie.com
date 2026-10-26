@@ -145,7 +145,7 @@ permalink: /screeners/graham/
         </div>
 
         <div class="result-disclaimer">
-          <p><strong>Demo Mode:</strong> This is an educational demonstration that generates realistic sample data. Results are based on the ticker symbol but do not reflect actual real-time financial metrics. In a production environment, this would connect to financial APIs like Alpha Vantage or Yahoo Finance. Always verify with official sources before making investment decisions.</p>
+          <p><strong>Where these numbers come from:</strong> a public price feed refreshed after each weekday's market close and saved into the site, not fetched live while you read -- so check the dated line above before repeating any figure here. If that file cannot load, the same screen runs on invented example values so the method can still be practised. Either way this is teaching equipment rather than a quote: confirm against your broker or the company's own filings before acting on it.</p>
         </div>
       </div>
     </div>
@@ -893,11 +893,12 @@ async function analyzeStock() {
   
   const statusEl = document.getElementById('api-status');
   if (isReal) {
-    const status = getDataStatus();
-    statusEl.textContent = '📊 Real data as of ' + (status ? status.date : 'last close');
+    // Staleness used to be logged to the console only, so a month-old snapshot still announced
+    // itself as "Real data". Age now appears in the same line readers see the numbers in.
+    statusEl.textContent = realDataLabel(getDataStatus());
     statusEl.className = 'api-status';
   } else {
-    statusEl.textContent = '🎮 Demo mode — try: ' + getDemoTickers().join(', ');
+    statusEl.textContent = '🎮 Example data — invented numbers for practising the method. Try: ' + getDemoTickers().join(', ');
     statusEl.className = 'api-status';
   }
   

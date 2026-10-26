@@ -112,7 +112,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>The screeners are static pages, and the numbers behind them refresh on weekdays after the market closes, so anything you see during a session is yesterday's picture. If the data file is missing or too old, a screener falls back to obviously example values instead of passing off stale figures as current -- check the label on the page before quoting a number anywhere.</p>
+              <p>The screeners are static pages. Their numbers come from a public feed saved into the site after each weekday's close, so anything you see during a session is yesterday's picture -- and the page prints the date attached to those figures, flagging them when they have gone more than a few days old rather than letting "real data" stand unexamined. If the file cannot load at all, the same screen runs on invented example values so the method can still be practised. Read the line above the results before quoting anything.</p>
             </div>
           </div>
         </div>
