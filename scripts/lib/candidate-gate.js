@@ -17,6 +17,7 @@
 // not accept dangerous ones, because this site teaches minors about money.
 
 const { titleSlug } = require('./slug');
+const { countProseWords } = require('./prose-metrics');
 
 const BANNED_PATTERNS = [
   { id: 'as-a-teenager', re: /\bas a (?:teenage[rs]?|teen|kid|child)\b|\bat your age\b|\bwhen you get older\b|\byoung investor\b/i },
@@ -71,9 +72,7 @@ function sentences(text) {
   return text.replace(/\s+/g, ' ').match(/[^.!?]+[.!?]*/g) || [];
 }
 
-function wordCount(text) {
-  return text.split(/\s+/).filter((w) => /[A-Za-z]{3,}/.test(w)).length;
-}
+/** Length is measured by lib/prose-metrics.js -- see there for why this had to stop being a private definition. */
 
 /**
  * @param {string} src full markdown including front matter
@@ -161,7 +160,7 @@ function checkCandidate(src, opts) {
   }
 
   // --- substance --------------------------------------------------------------
-  const w = wordCount(prose.replace(/^\s*\|.*\|$/gm, ' ').replace(/#+.*$/gm, ' '));
+  const w = countProseWords(prose);
   if (w < MIN_WORDS) problems.push(`too short: ${w} words (need ${MIN_WORDS})`);
 
   const headings = (prose.match(/^\s{0,3}#{1,6}\s+\S/gm) || []).length;

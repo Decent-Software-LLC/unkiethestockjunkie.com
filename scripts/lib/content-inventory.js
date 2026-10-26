@@ -16,6 +16,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { filenameToSlug } = require('./slug');
+const { countProseWords } = require('./prose-metrics');
 
 // Banned-voice tells, counted (not asserted) so the corpus can be tracked down over time.
 const TELL_RE = /young investor|lemonade stand|Imagine you're at a|In this article|\bessential\b|\bcrucial\b|\bparamount\b|dive in|game changer|delve|embark|unlock(?:ing)? the|in today'?s fast-paced|let'?s explore/gi;
@@ -32,9 +33,11 @@ function readBody(src) {
 function normBody(src) {
   return readBody(src).replace(/\s+/g, ' ').trim();
 }
+/** Delegates to lib/prose-metrics.js. Its own definition counted 5+ letter words, reporting published pages
+ *  roughly 45% short -- progress tables listed a 502-word beginner page as 287 and a healthy corpus looked
+ *  like it contained 33 thin articles. Any number that disagrees with the gate is decoration. */
 function proseWords(body) {
-  return body.replace(/```[\s\S]*?```/g, ' ').replace(/^\s*\|.*\|$/gm, ' ')
-    .split(/\s+/).filter((w) => /[A-Za-z]{5,}/.test(w)).length;
+  return countProseWords(body);
 }
 function slugFromFile(file) {
   return filenameToSlug(file);

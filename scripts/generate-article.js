@@ -600,12 +600,10 @@ function linkPoolFor(topic) {
   return [...shuffled, ...guides].join(', ');
 }
 
-// Word metric must match scripts/lib/candidate-gate.js exactly: the generator decides whether to spend
-// another API call on a draft, and the gate decides whether it may be published. When these two counted
-// words differently, short drafts passed one and died at the other -- after costing an illustration.
-function countProseWords(text) {
-  return String(text || '').split(/\s+/).filter((x) => /[A-Za-z]{3,}/.test(x)).length;
-}
+// Word metric comes from lib/prose-metrics.js so it cannot drift from the gate again. The comment that used
+// to sit here promised it "must match scripts/lib/candidate-gate.js exactly" while counting with no stripping
+// at all -- heading-heavy drafts cleared this retry check, went to illustration, then failed the gate.
+const { countProseWords } = require('./lib/prose-metrics');
 
 /**
  * Decide what to do with one completion. Pure and exported because the bug this guards against was a
