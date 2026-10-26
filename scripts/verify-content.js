@@ -8,29 +8,21 @@
 const fs = require('fs');
 const { scanClaims } = require('./lib/content-rules');
 const path = require('path');
+const { publishedPages, nearestSlug } = require('./lib/page-registry');
+const { filenameToSlug } = require('./lib/slug');
 
 const ROOT = path.join(__dirname, '..');
 const ARTICLES = path.join(ROOT, '_articles');
 const GUIDES = path.join(ROOT, '_guides');
 
-const filesExist = (dir) => new Set(fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '')));
-
 // Broken links are the most common failure this gate catches, usually from recalling a slug instead of
 // copying it -- repeatedly inventing "investing-myths-debunked-should-you-believe-the-hype" for a file
 // titled simply "Investing Myths Debunked". Suggesting the closest real slug turns each miss into a
 // one-second fix instead of a hunt through `ls`.
-function nearest(target, pool) {
-  const grams = (s) => { const g = new Set(); for (let i = 0; i < s.length - 1; i++) g.add(s.slice(i, i + 2)); return g; };
-  const a = grams(target); let best = null, bestScore = 0.62;
-  for (const cand of pool) {
-    const b = grams(cand);
-    let shared = 0; for (const g of a) if (b.has(g)) shared++;
-    const score = (2 * shared) / (a.size + b.size);
-    if (score > bestScore) { bestScore = score; best = cand; }
-  }
-  return best;
-}
-const slugs = { articles: filesExist(ARTICLES), guides: filesExist(GUIDES) };
+// Slug derivation, closest-match suggestions and collection separation all come from lib/page-registry.js.
+// A second copy here used to be able to disagree with the gate about what "link resolves" means.
+const nearest = nearestSlug;
+const slugs = publishedPages();
 const assets = fs.existsSync(path.join(ROOT, 'assets')) ? collectAssets(path.join(ROOT, 'assets')) : new Set();
 
 function collectAssets(dir, acc = new Set()) {
@@ -65,7 +57,7 @@ function verify(files, opts = {}) {
     }
     const text = fs.readFileSync(abs, 'utf8');
     const { fm, body, rawFm } = splitDoc(text);
-    const label = rel.replace(/^_articles\/\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+    const label = filenameToSlug(rel);
 
     // --- structure -------------------------------------------------------
     if (!fm) problems.push(`${label}: no front-matter fence`);
@@ -145,11 +137,15 @@ function verify(files, opts = {}) {
 if (require.main === module) {
   const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
   const strict = process.argv.includes('--strict');
-  const files = args.length ? args : require('child_process')
-    .execSync('git diff --name-only HEAD -- _articles _guides', { cwd: ROOT })
-    .toString()
-    .split('\n')
-    .filter(Boolean);
+  // Untracked files count as changes. `git diff --name-only HEAD` covers edits to tracked pages but omits
+  // brand-new ones -- and a newly generated article is exactly the case this gate exists for, so previously a
+  // draft sitting in _articles/ before its first `git add` was checked by nobody.
+  const changed = require('child_process')
+    .execSync('git diff --name-only HEAD -- _articles _guides', { cwd: ROOT }).toString();
+  const untracked = require('child_process')
+    .execSync('git ls-files --others --exclude-standard -- _articles _guides', { cwd: ROOT }).toString();
+  const files = args.length ? args : [...new Set(`${changed}
+${untracked}`.split('\n').filter(Boolean))];
   if (!files.length) { console.log('verify-content: nothing changed in _articles/_guides'); process.exit(0); }
   console.log(`verify-content: checking ${files.length} file(s)${strict ? ' [strict]' : ''}`);
   const problems = verify(files, { strict, requireInlineLink: true });

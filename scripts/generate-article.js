@@ -25,6 +25,8 @@ const { cleanBodyText: stripScaffolding } = require('./clean-article-bodies');
 const { validateQuiz, MIN_QUESTIONS } = require('./lib/quiz');
 const { checkCandidate, MIN_WORDS } = require('./lib/candidate-gate');
 const { loadInventory } = require('./lib/content-inventory');
+const { titleSlug, filenameToSlug } = require('./lib/slug');
+const { collectionSlugs } = require('./lib/page-registry');
 const { rankTopics } = require('./lib/topic-selector');
 
 // Configuration
@@ -53,10 +55,8 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Utility: Generate slug from title
 function generateSlug(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
+  // Shared rule (lib/slug.js): this exact behaviour named every file in _articles/, so it is canonical.
+  return titleSlug(title);
 }
 
 // Utility: Format date for filename
@@ -580,10 +580,10 @@ const GUIDE_DIR = path.join(ROOT_DIR, '_guides');
 const ASSET_IMG_DIR = path.join(ROOT_DIR, 'assets', 'images');
 
 function readSlugs(dir) {
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir)
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''));
+  // Collection membership comes from lib/page-registry.js so generation, the gate and the pre-commit audit
+  // all resolve links against the same set of pages.
+  const coll = path.basename(dir) === '_guides' ? 'guides' : 'articles';
+  return [...collectionSlugs(coll)];
 }
 
 // Deterministic pseudo-random order seeded by topic title, so a rerun of the same topic yields the
@@ -901,8 +901,9 @@ async function main() {
     // died on word count or an unsourced figure, so three FLUX calls today bought nothing.
     const dryRunMarkdown = generateMarkdownFile(candidate, accepted.body, null, new Date(), quiz);
     const proseVerdict = checkCandidate(dryRunMarkdown, {
-      articleSlugs: new Set(readSlugs(ARTICLES_DIR).filter((s) => s !== generateSlug(candidate.title))),
+      articleSlugs: new Set(readSlugs(ARTICLES_DIR)),
       guideSlugs: new Set(readSlugs(GUIDE_DIR)),
+      selfSlug: generateSlug(candidate.title),
       imageExists: () => true, // illustration deliberately absent at this stage
     });
     if (!proseVerdict.ok) {
@@ -926,8 +927,9 @@ async function main() {
     fs.writeFileSync(filepath, markdown);
 
     const verdict = checkCandidate(markdown, {
-      articleSlugs: new Set(readSlugs(ARTICLES_DIR).filter((s) => s !== generateSlug(candidate.title))),
+      articleSlugs: new Set(readSlugs(ARTICLES_DIR)),
       guideSlugs: new Set(readSlugs(GUIDE_DIR)),
+      selfSlug: filenameToSlug(filename),
       imageExists: (rel) => fs.existsSync(path.join(ROOT_DIR, rel.replace(/^\//, ''))),
     });
 

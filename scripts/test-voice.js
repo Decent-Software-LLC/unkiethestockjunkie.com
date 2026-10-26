@@ -22,6 +22,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { filenameToSlug } = require('./lib/slug');
 
 const ARTICLES_DIR = path.join(__dirname, '..', '_articles');
 const FENCE = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(\r?\n|$)/;
@@ -104,7 +105,7 @@ function main() {
       const hits = count(b.re);
       if (!hits.length) continue;
       console.log(`  ${b.name}:`);
-      hits.slice(0, 3).forEach((h) => console.log(`      ${h.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '')}`));
+      hits.slice(0, 3).forEach((h) => console.log(`      ${filenameToSlug(h)}`));
     }
     return;
   }

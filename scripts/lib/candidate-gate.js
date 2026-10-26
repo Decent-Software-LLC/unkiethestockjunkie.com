@@ -16,6 +16,8 @@
 // Policy: heuristics are ALLOWED to reject good candidates (cost: one retry, next topic) but must
 // not accept dangerous ones, because this site teaches minors about money.
 
+const { titleSlug } = require('./slug');
+
 const BANNED_PATTERNS = [
   { id: 'as-a-teenager', re: /\bas a (?:teenage[rs]?|teen|kid|child)\b|\bat your age\b|\bwhen you get older\b|\byoung investor\b/i },
   { id: 'meta-writing', re: /\bin this article\b|\bwe'?ll explore\b|\bby the end you'?ll\b|\blet'?s (?:break down|dive in|explore)\b|\bfirst we need to understand\b/i },
@@ -145,11 +147,17 @@ function checkCandidate(src, opts) {
   if (seen.size < MIN_INTERNAL_LINKS && fmRelated < MIN_INTERNAL_LINKS) {
     problems.push(`only ${seen.size} in-prose internal link(s) and ${fmRelated} related_articles entry(ies); need at least ${MIN_INTERNAL_LINKS} of either`);
   }
-  // A page linking to itself is always a generation artifact.
+  // A page linking to itself is always a generation artifact. Comparing only against the front-matter title
+  // was not enough: rewrites deliberately retitled pages while keeping filenames (and therefore permalinks),
+  // so title-derived slugs stopped matching the slug the page actually lives at and self-links passed
+  // silently. Callers that know their own filename pass selfSlug; the title comparison still catches drafts.
   const self = /\/articles\/([a-z0-9-]+)\/?\)/g;
   const fmTitleSlug = generateSlugStatic(((fm || '').match(/^title:\s*["']?(.*?)["']?\s*$/m) || [, ''])[1]);
+  const ownSlug = (opts && opts.selfSlug) || null;
   for (const m of body.matchAll(self)) {
-    if (m[1] === fmTitleSlug || m[1].endsWith('-')) problems.push(`self-referential or malformed link slug: ${m[1]}`);
+    if (m[1] === fmTitleSlug || (ownSlug && m[1] === ownSlug) || m[1].endsWith('-')) {
+      problems.push(`self-referential or malformed link slug: ${m[1]}`);
+    }
   }
 
   // --- substance --------------------------------------------------------------
@@ -213,15 +221,12 @@ function checkCandidate(src, opts) {
   return { ok: problems.length === 0, problems, warnings, stats: { words: w, internalLinks: seen.size, relatedArticles: fmRelated, headings } };
 }
 
-// Local copy to keep this module dependency-free and testable in isolation;
-// kept behaviorally identical to generateSlug() in scripts/generate-article.js.
+// Shared rule (lib/slug.js). This used to be a hand-maintained "local copy ... kept behaviorally identical
+// to generateSlug() in scripts/generate-article.js" -- it wasn't identical, which is how gap-driven topic
+// selection queued an already-published article forever and how self-link checks could compare values that
+// could never be equal.
 function generateSlugStatic(title) {
-  return String(title).toLowerCase()
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+  return titleSlug(title);
 }
 
 module.exports = { checkCandidate, BANNED_PATTERNS, MIN_WORDS, MIN_INTERNAL_LINKS, generateSlugStatic, looksLikeScaffoldHeading };

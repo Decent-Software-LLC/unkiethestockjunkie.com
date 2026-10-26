@@ -21,13 +21,12 @@ const ADVANCED_PENALTY = 0.15;
 // brief usually means the brief itself is wrong for this model, not that we need another roll.
 const MAX_FAILURES = 3;
 
+const { titleSlug } = require('./slug');
+
 function slugifyTitle(title) {
-  return String(title || '').toLowerCase()
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+  // Shared rule (lib/slug.js). Its own copy dropped apostrophes and punctuation differently from the
+  // function that actually names files, so published pages were invisible to this dedupe step.
+  return titleSlug(title);
 }
 
 // Deterministic per-day tiebreak: stable ordering within a run (reproducible logs) but different tomorrow,

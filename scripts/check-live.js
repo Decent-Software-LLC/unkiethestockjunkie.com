@@ -16,6 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { filenameToSlug } = require('./lib/slug');
 
 const ROOT = path.join(__dirname, '..');
 const BASE = process.env.SITE_URL || 'https://unkiethestockjunkie.com';
@@ -74,7 +75,7 @@ async function checkOne(rel) {
   const src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const probe = probeOf(bodyOf(src));
   if (!probe) return { ok: false, rel, reason: 'no probe extractable (body too short or all markup?)' };
-  const slug = path.basename(rel).replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+  const slug = filenameToSlug(rel);
   // Collection comes from the source path, not a guess: guides live under /guides/, articles under
   // /articles/. Hardcoding /articles/ made every guide report as unpublished, which reads exactly like a
   // deployment failure and is instead a broken probe -- the kind of false alarm that trains people to

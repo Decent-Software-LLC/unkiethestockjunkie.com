@@ -12,6 +12,7 @@
 
 const assert = require('assert');
 const { rankTopics, slugifyTitle, MAX_FAILURES, ADVANCED_PENALTY } = require('./lib/topic-selector');
+const { filenameToSlug } = require('./lib/slug');
 
 let passed = 0, failed = 0;
 function test(name, fn) {
@@ -126,7 +127,7 @@ test('slugification matches the filename the generator will actually write', () 
   assert.strictEqual(slugifyTitle('ETFs: Instant Diversification Made Easy'),
     'etfs-instant-diversification-made-easy');
   const fs = require('fs');
-  const files = fs.readdirSync('_articles').map((f) => f.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''));
+  const files = fs.readdirSync('_articles').map(filenameToSlug);
   const sample = require('../topics.json').filter((tp) => /ETFs: Instant Diversification/i.test(tp.title))[0];
   if (sample) assert.ok(files.includes(slugifyTitle(sample.title)), 'selector slug must match an on-disk article');
 });

@@ -18,6 +18,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { filenameToSlug } = require('./lib/slug');
 
 const GUIDES_DIR = path.join(__dirname, '..', '_guides');
 const SITE_DIR = path.join(__dirname, '..', '_site', 'guides');
@@ -247,7 +248,7 @@ async function headStatus(url) {
     const articleSlugs = new Set(
       fs.readdirSync(path.join(__dirname, '..', '_articles'))
         .filter((x) => x.endsWith('.md'))
-        .map((x) => x.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, ''))
+        .map((x) => filenameToSlug(x))
     );
 
     for (const [slug, entry] of Object.entries(map)) {

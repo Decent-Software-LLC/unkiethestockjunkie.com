@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { filenameToSlug } = require('./slug');
 
 // Banned-voice tells, counted (not asserted) so the corpus can be tracked down over time.
 const TELL_RE = /young investor|lemonade stand|Imagine you're at a|In this article|\bessential\b|\bcrucial\b|\bparamount\b|dive in|game changer|delve|embark|unlock(?:ing)? the|in today'?s fast-paced|let'?s explore/gi;
@@ -36,7 +37,7 @@ function proseWords(body) {
     .split(/\s+/).filter((w) => /[A-Za-z]{5,}/.test(w)).length;
 }
 function slugFromFile(file) {
-  return file.replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+  return filenameToSlug(file);
 }
 function titleFrom(fm) {
   return (((fm.match(/^title:[ \t]*(.*)/m) || [, '?'])[1] || '?').replace(/^["']|["']$/g, '')).trim();

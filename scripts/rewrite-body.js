@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { filenameToSlug } = require('./lib/slug');
 
 const ROOT = path.join(__dirname, '..');
 
@@ -137,7 +138,7 @@ module.exports = function rewriteBody(rel, bodyText, extraBlocks = {}) {
 // so "changed since baseline" could not distinguish a real editorial pass from cosmetic cleanup.
 const MANIFEST = path.join(__dirname, 'content-rewrites.json');
 function recordRewrite(rel) {
-  const slug = path.basename(rel).replace(/^\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+  const slug = filenameToSlug(rel);
   let data = { slugs: {} };
   try { data = JSON.parse(fs.readFileSync(MANIFEST, 'utf8')); } catch (e) { /* first entry */ }
   if (!data.slugs) data.slugs = {};

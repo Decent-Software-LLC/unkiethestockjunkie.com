@@ -14,6 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { filenameToSlug } = require('./lib/slug');
 
 const ROOT = path.join(__dirname, '..');
 const ARTICLES = path.join(ROOT, '_articles');
@@ -71,7 +72,7 @@ if (require.main === module) {
     const m = /^---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(\r?\n|$)/.exec(text);
     const body = m ? text.slice(m[0].length) : text;
     const items = review(body);
-    const label = rel.replace(/^_articles\/\d{4}-\d\d-\d\d-/, '').replace(/\.md$/, '');
+    const label = filenameToSlug(rel);
     console.log(`\n── ${label}: ${items.length} claim(s) needing verification`);
     total += items.length;
     // Cap output: the top-risky ones are what a reviewer will actually read.
