@@ -7,7 +7,7 @@ permalink: /contact/
 <section class="page-header">
   <div class="container">
     <h1>📬 Get in Touch</h1>
-    <p class="lead">Questions? Suggestions? Just want to say hi? Drop me a line!</p>
+    <p class="lead">One person reads this inbox. Corrections, topic requests and "you have this wrong" messages all land in the same place.</p>
   </div>
 </section>
 
@@ -16,47 +16,58 @@ permalink: /contact/
     <div class="contact-grid">
       
       <div class="contact-form-section">
-        <h2>Send a Message</h2>
-        <p>Fill out the form below and I'll get back to you as soon as possible.</p>
-        
+        <h2>Email is the only channel</h2>
+        <p><a href="mailto:hello@unkiethestockjunkie.com">hello@unkiethestockjunkie.com</a></p>
+        <p>This site is static files served by GitHub Pages, so there is no form widget here and none is planned -- a form that posts nowhere would be worse than no form at all. Mail goes straight to whoever maintains the repository. No ticketing queue, no auto-reply pretending somebody is on duty.</p>
+
         <div class="coming-soon-box">
-          <h3>🚧 Contact Form Coming Soon</h3>
-          <p>We're setting up our contact system. For now, you can reach us via:</p>
+          <h3>What gets a reply</h3>
           <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-            <li>Email: <a href="mailto:hello@unkiethestockjunkie.com">hello@unkiethestockjunkie.com</a></li>
-            <li>GitHub: <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank">github.com/Decent-Software-LLC/unkiethestockjunkie.com</a></li>
+            <li>A factual correction, ideally naming the source you checked it against</li>
+            <li>A topic request, especially something you could not find explained plainly anywhere</li>
+            <li>A broken link, missing image or page that renders badly on your device</li>
+            <li>A question about how something works in general terms</li>
           </ul>
-          <p>We typically respond within 2-3 business days.</p>
+        </div>
+
+        <div class="coming-soon-box">
+          <h3>What does not</h3>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+            <li>"Should I buy this right now?" or "when do I get out?"</li>
+            <li>Portfolio reviews, or a verdict on a purchase you already made</li>
+            <li>Brokerage logins, deposits, withdrawals, settlement or account errors</li>
+            <li>Tax or legal specifics about your own situation</li>
+          </ul>
+          <p>Not because some policy page forbids it. An answer worth acting on requires a licence, your complete circumstances and someone obliged to act in your interest. A reply from this mailbox has none of the three, so treat anything I write back as an explanation of mechanics and never as a recommendation.</p>
+        </div>
+
+        <div class="coming-soon-box">
+          <h3>Before you hit send</h3>
+          <p>Leave out anything you would not want parked in somebody's mailbox years from now: brokerage screenshots, account or username fragments, government ID numbers, your home address, your school. A first name or a handle is plenty. And if money belonging to you or your family has moved somewhere nobody agreed to, the move that helps is telling a parent, guardian or another trusted adult today -- not emailing a website about it.</p>
         </div>
       </div>
-      
+
       <div class="contact-info-section">
         <div class="info-card">
-          <h3>📧 Email</h3>
-          <p><a href="mailto:hello@unkiethestockjunkie.com">hello@unkiethestockjunkie.com</a></p>
-          <p class="info-note">Best for general questions</p>
+          <h3>⏰ When to expect word</h3>
+          <p>Usually a few days. Longer when a question means going back to the original filing before answering, which is the kind of reply worth waiting for. Nothing comes back after a week? Resend it -- forwarding a domain mailbox to a human can fail quietly on either end.</p>
         </div>
-        
+
         <div class="info-card">
           <h3>💻 GitHub</h3>
-          <p><a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank">github.com/Decent-Software-LLC/unkiethestockjunkie.com</a></p>
-          <p class="info-note">Open source! Report bugs or contribute</p>
+          <p><a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank">Open an issue on the repository</a></p>
+          <p class="info-note">Every page here is written in the open, including the checks that gate publication</p>
         </div>
-        
+
         <div class="info-card">
-          <h3>📖 The newsletter</h3>
-          <p><a href="{{ '/newsletter' | relative_url }}">One short investing explainer a day</a>, written for people who don't follow markets.</p>
-          <p class="info-note">We don't run social accounts. If that changes, it'll appear here first.</p>
+          <h3>📖 Reading instead</h3>
+          <p><a href="{{ '/articles' | relative_url }}">The article library</a> -- plain language, each page ending in questions you should be able to answer.</p>
+          <p class="info-note">No social accounts exist. If that changes, it will be stated here first.</p>
         </div>
-        
+
         <div class="info-card faq-cta">
           <h3>❓ Quick Question?</h3>
-          <p>Check our <a href="/faq">FAQ page</a> first - your question might already be answered!</p>
-        </div>
-        
-        <div class="info-card response-time">
-          <h3>⏰ Response Time</h3>
-          <p>I typically respond within 2-3 business days. Thanks for your patience!</p>
+          <p>The <a href="{{ '/faq' | relative_url }}">FAQ</a> covers what this site is, who wrote it, and what it refuses to do.</p>
         </div>
       </div>
       

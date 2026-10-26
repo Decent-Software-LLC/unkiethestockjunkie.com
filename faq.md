@@ -7,7 +7,7 @@ permalink: /faq/
 <section class="page-header">
   <div class="container">
     <h1>Frequently Asked Questions</h1>
-    <p class="lead">Got questions? Unkie's got answers!</p>
+    <p class="lead">What this site is, what it refuses to do, and who actually wrote each page.</p>
   </div>
 </section>
 
@@ -38,7 +38,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Unkie The Stock Junkie is designed for teenagers (ages 13-18) who want to learn about investing. But honestly, anyone curious about the stock market can learn here! We explain everything in plain English without the stuffy finance jargon.</p>
+              <p>Written for people roughly 16 and up who want to understand markets without a finance degree -- old enough to earn money and start deciding what happens to it, not yet expected to already know any of this. Younger readers can follow it fine with an adult alongside, and adults who never got around to learning it use these pages too. No term gets used before it is defined on the same page.</p>
             </div>
           </div>
           
@@ -48,7 +48,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Nope! Everything on this site is completely free. You don't need a brokerage account, you don't need to deposit money, and you don't need to buy anything. Just read, learn, and practice with our paper trading tools.</p>
+              <p>Nope. Every page is free, there is nothing to buy, no account to create and no deposit required. Nothing here connects to a brokerage either, so practising means writing a decision down with the reason behind it and checking back later -- <a href="{{ '/articles/paper-trading-practice-without-risk' | relative_url }}">this page</a> sets out how to run that so it teaches something instead of flattering you.</p>
             </div>
           </div>
           
@@ -58,7 +58,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Great question! Legally, you need to be 18 to open your own brokerage account. But here's the secret: you can start learning NOW, and if you're under 18, you can open a custodial account with a parent or guardian. Many successful investors started learning as teens - that's your advantage!</p>
+              <p>Opening a brokerage account in your own name takes 18 in the US. Under that, a parent or guardian can open a custodial account that holds assets for you until you take control. Waiting on paperwork is not the constraint though -- the thing an early start actually buys is more years for the same money to compound, which is arithmetic rather than a head start in talent. Learn the mechanics now, and the account becomes a formality later.</p>
             </div>
           </div>
           
@@ -68,7 +68,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Start with the basics! Check out our article <a href="/articles">"What is a Stock?"</a> to understand the fundamentals. Then explore the <a href="/screeners">investor screeners</a> to see how legends like Buffett and Graham think about stocks. Read at your own pace - there's no rush!</p>
+              <p><a href="{{ '/articles/what-is-a-stock-a-teen-s-first-guide' | relative_url }}">Start with what a share actually is</a>, then how <a href="{{ '/articles/market-cap-size-matters-in-investing' | relative_url }}">size</a> and <a href="{{ '/articles/what-is-volume-and-why-does-it-matter' | relative_url }}">volume</a> change what a price means. From there the <a href="{{ '/screeners' | relative_url }}">screeners</a> let you apply published criteria yourself rather than watching someone else apply them. Pace is yours; none of it expires.</p>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>A stock screener is like a search engine for stocks. You tell it what criteria you're looking for (like "low debt" or "high growth"), and it shows you companies that match. Think of it like filtering products on Amazon, but for stocks!</p>
+              <p>A screener filters a large list of companies down to the ones meeting conditions you set -- price below some multiple, debt under some ratio, profits rising for consecutive years. Each of ours has those conditions pre-written by whoever invented the strategy, so you are reading their rules rather than inventing thresholds you have no basis for choosing.</p>
             </div>
           </div>
           
@@ -112,7 +112,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Our screeners use delayed data for educational purposes. Stock prices change constantly during market hours, so the examples shown are snapshots for learning. Always check current data before making any investment decisions.</p>
+              <p>The screeners are static pages, and the numbers behind them refresh on weekdays after the market closes, so anything you see during a session is yesterday's picture. If the data file is missing or too old, a screener falls back to obviously example values instead of passing off stale figures as current -- check the label on the page before quoting a number anywhere.</p>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes, absolutely. Investing involves risk, and you can lose some or all of your investment. That's why we emphasize education and practice before you invest real money. The stock market goes up over the long term, but it can be volatile in the short term.</p>
+              <p>Yes, absolutely. Investing involves risk, and you can lose some or all of your investment. That's why everything here starts with education and practice before real money moves. Broad US indexes have trended upward across long stretches of history; they have also fallen by half more than once inside those stretches, and nothing obliges the next decade to behave like the last one.</p>
             </div>
           </div>
           
@@ -146,7 +146,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>These terms are often used interchangeably, but technically: "stock" refers to ownership in a company generally, while "share" refers to one unit of that ownership. You own "shares of stock" in a company. Think of it like a pizza - the whole pizza is the "stock," and each slice is a "share."</p>
+              <p>Same thing, two altitudes. The equity of a company is cut into equal units; a "share" is one of those units, and "stock" is the holding you build from them. Own 100 shares of a company with 1,000,000 outstanding and you hold a ten-thousandth of whatever is left for owners after everybody the company owes has been paid -- which is why that residual claim is the last thing to get money in a failure, not the first.</p>
             </div>
           </div>
           
@@ -156,7 +156,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Both! Save for short-term needs (emergency fund, upcoming purchases) and invest for long-term goals (retirement, college, wealth building). Savings keep your money safe but grow slowly. Investing has more risk but historically returns more over time.</p>
+              <p>Both, sorted by when the money is needed. Money you expect to spend inside a couple of years belongs somewhere boring and available -- cash you might need next spring is not an investment regardless of what it earns. Money with a decade or more before it matters is where equity risk makes sense, because short stretches can be brutal while long stretches have historically carried owners' returns upward. That second sentence is a description of history, not a promise about your account.</p>
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes! We designed this site specifically with teens in mind. We don't collect personal information, we don't allow real trading, and all content is educational. However, we always recommend teens discuss investing with a parent or guardian.</p>
+              <p>Built with that reader in mind: no accounts, no comments, no chat, nothing user-submitted, and no route from these pages into placing a real trade. Content assumes zero prior knowledge and does not soften risk to keep you reading. It still cannot substitute for an adult who knows your situation, so bring a parent or guardian into any decision involving actual money.</p>
             </div>
           </div>
           
@@ -180,7 +180,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Nope! We don't require accounts, we don't track personal data, and we don't sell information. The only data we might collect is anonymous website analytics (like which pages are popular). Read our <a href="/privacy">Privacy Policy</a> for details.</p>
+              <p>No accounts, no forms, no advertising scripts and no analytics scripts -- there is currently no third-party tracker running on these pages, so nothing here builds a profile of you. Two things still exist outside that comfort zone: your network and hosting provider keep ordinary server logs, which GitHub handles under <a href="{{ '/privacy' | relative_url }}">its own privacy statement</a>, and anything you email us sits in mail systems we do not operate. See the <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a>.</p>
             </div>
           </div>
           
@@ -190,7 +190,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Absolutely! In fact, we encourage you to share what you're learning with your parents. Investing is a great family conversation, and they might learn something too. Everything on this site is appropriate for all ages.</p>
+              <p>Nothing is hidden here. There is no private area, no saved history and no personalisation -- every page is a public URL anyone could open, so sharing what you are reading is trivial. The reverse works too: whatever you send to our mailbox leaves your device permanently, which is the part worth thinking about before writing (<a href="{{ '/contact' | relative_url }}">the contact page</a> lists what not to include).</p>
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Our articles are generated using AI (artificial intelligence) powered by NVIDIA's free API, but they're based on time-tested investing principles from legendary investors like Buffett, Graham, and Lynch. The AI helps us write faster and explain things in multiple ways, but the wisdom comes from proven strategies.</p>
+              <p>Drafts sometimes start with a language model -- an open-weights model called through NVIDIA's API -- but no page reaches the site unreviewed. Writing goes through a human editor line by line, and a publication gate blocks anything that fails checks on sourcing, fabricated figures, dead links or disclosure wording. The reasoning comes from published letters, filings and standard textbooks; the model saves typing, it does not decide what is true.</p>
             </div>
           </div>
           
@@ -214,7 +214,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>We publish new articles every day! Our automated system generates fresh educational content daily at 10:17 AM UTC. Check back regularly to see what's new.</p>
+              <p>There is no fixed schedule. New pages publish once they have been checked against primary sources, because a quota would push unverified content onto a site read by people spending their own money. Screener data refreshes on weekdays after each market close, and the whole site rebuilds automatically on GitHub Pages the moment anything is committed.</p>
             </div>
           </div>
           
@@ -224,7 +224,7 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>We're open source! Check out our <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank">GitHub repository</a> to see the code and potentially contribute. You can also suggest topics by <a href="/contact">contacting us</a>.</p>
+              <p>Free to read, with no accounts and no adverts. The code, the articles and even the checks that gate them live in our <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank">GitHub repository</a>, and pull requests are welcome. Topic requests go through the <a href="{{ '/contact' | relative_url }}">contact page</a>.</p>
             </div>
           </div>
           
@@ -234,15 +234,15 @@ permalink: /faq/
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>100% free, no catch! We use free hosting (GitHub Pages), free AI (NVIDIA's API), and open-source tools. We may add some affiliate links to books we recommend (like "The Intelligent Investor"), but that's it. Our mission is education, not profit.</p>
+              <p>No catch, and no affiliate links today -- nothing on this site earns a commission if you buy something. Hosting, the model used for drafts and the domain are paid for by whoever runs the project. Should sponsored or affiliate links ever appear, they will say so on the page they sit on and get listed in the <a href="{{ '/disclaimer' | relative_url }}">disclaimer</a> rather than hiding in a footer nobody reads.</p>
             </div>
           </div>
         </div>
         
         <div class="faq-cta">
           <h3>Still have questions?</h3>
-          <p>Can't find what you're looking for? Reach out and we'll help!</p>
-          <a href="/contact" class="btn btn-primary">Contact Unkie</a>
+          <p>Not answered above? Send it -- corrections especially.</p>
+          <a href="{{ '/contact' | relative_url }}" class="btn btn-primary">Contact Unkie</a>
         </div>
         
       </div>
@@ -369,13 +369,18 @@ permalink: /faq/
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
+  /* Answers render open by default. Only once the script marks the document do they collapse,
+     so readers with JavaScript disabled still get the full text instead of an empty accordion. */
   transition: max-height var(--transition-base);
   background: var(--bg-secondary);
 }
 
-.faq-answer.active {
+.faq-js .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.faq-js .faq-answer.active {
   max-height: 500px;
 }
 
@@ -452,6 +457,10 @@ permalink: /faq/
 </style>
 
 <script>
+// Marking the document synchronously is what arms the collapsed state; doing it inside the
+// DOMContentLoaded callback below would flash open answers shut on every load.
+document.documentElement.classList.add('faq-js');
+
 // FAQ Accordion functionality
 document.addEventListener('DOMContentLoaded', function() {
   const faqQuestions = document.querySelectorAll('.faq-question');

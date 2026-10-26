@@ -21,11 +21,11 @@ permalink: /about/
         <h3>Why This Site Exists</h3>
         <p>I created Unkie The Stock Junkie because I believe investing education shouldn't be boring, intimidating, or require a finance degree. Teenagers are smart, curious, and perfectly capable of understanding how money works - it just needs to be explained in the right way.</p>
         
-        <p>The truth is, the earlier you start learning about investing, the better. Compound interest is like a snowball rolling downhill - the sooner you start, the bigger it gets. By the time you're 30, you'll have a massive head start on your peers.</p>
+        <p>The useful variable is time, not timing. Money invested earlier spends more years earning returns on its own returns -- a deposit given forty years does work a later one cannot catch up on, whatever either of you eventually reads about which company to pick.</p>
         
         <h3>What Makes This Different</h3>
         <ul>
-          <li><strong>AI-Powered Daily Content:</strong> New articles every single day, generated with the help of AI but focused on real investing wisdom</li>
+          <li><strong>Checked Before Published:</strong> Drafts may start with AI assistance, but every page is reviewed by a human editor and cleared by automated gates that reject unsourced figures and broken links</li>
           <li><strong>Legendary Investor Strategies:</strong> Learn from the best - Buffett, Graham, Lynch, Icahn - but in language teens actually understand</li>
           <li><strong>Interactive Screeners:</strong> Practice finding stocks using the same criteria as famous investors (paper trading only!)</li>
           <li><strong>Zero Judgment:</strong> No question is too basic. We're all here to learn</li>
@@ -76,7 +76,7 @@ permalink: /about/
           <h3>📚 Content</h3>
           <ul>
             <li>100+ curated topics</li>
-            <li>Daily new articles</li>
+            <li>Pages published once verified</li>
             <li>4 investor strategies</li>
             <li>Interactive tools</li>
             <li>Free forever</li>

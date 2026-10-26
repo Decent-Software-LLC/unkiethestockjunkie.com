@@ -1,14 +1,14 @@
 ---
 layout: default
 title: "Newsletter - Get Smarter About Money"
-description: "New articles every day, straight to your inbox. No spam, just pure investing education."
+description: "There is no mailing list yet. What has to be true before this site starts asking readers for an email address, and what to use instead today."
 permalink: /newsletter/
 ---
 
 <section class="page-header newsletter-header">
   <div class="container">
-    <h1>📬 The Unkie Newsletter</h1>
-    <p class="lead">New investing lessons delivered daily. No spam, just education.</p>
+    <h1>📬 Staying Up To Date</h1>
+    <p class="lead">No mailing list exists yet, so nothing here collects your address. Here is what to use instead, and what a real list would have to solve first.</p>
   </div>
 </section>
 
@@ -18,15 +18,15 @@ permalink: /newsletter/
       
       <div class="signup-section">
         <div class="signup-card">
-          <h2>Get Smarter About Money</h2>
-          <p class="signup-subtitle">Get a new investing article every day, totally free.</p>
+          <h2>Reading right now</h2>
+          <p class="signup-subtitle">Every route below costs nothing and stores nothing about you.</p>
           
           <div class="benefits-list">
             <div class="benefit-item">
               <span class="benefit-icon">📚</span>
               <div class="benefit-text">
-                <h4>Daily Articles</h4>
-                <p>New educational content every single day</p>
+                <h4>Checked, Not Scheduled</h4>
+                <p>Pages publish after verification against primary sources, not on a quota</p>
               </div>
             </div>
             
@@ -41,24 +41,24 @@ permalink: /newsletter/
             <div class="benefit-item">
               <span class="benefit-icon">💡</span>
               <div class="benefit-text">
-                <h4>Simple Explanations</h4>
-                <p>Complex concepts made easy to understand</p>
+                <h4>Defined As You Go</h4>
+                <p>No term gets used before it is explained on the same page</p>
               </div>
             </div>
             
             <div class="benefit-item">
               <span class="benefit-icon">🆓</span>
               <div class="benefit-text">
-                <h4>100% Free</h4>
-                <p>Forever free, no credit card required</p>
+                <h4>Nothing To Buy</h4>
+                <p>No account, no premium tier, no paid plan hiding behind the free one</p>
               </div>
             </div>
           </div>
           
           <div class="coming-soon-box">
-            <h3>🚧 Coming Soon</h3>
-            <p>We're setting up our email system. Check back soon to subscribe!</p>
-            <p class="form-disclaimer">In the meantime, bookmark this page and visit daily for new articles.</p>
+            <h3>Why there is no signup box</h3>
+            <p>This site is static files on GitHub Pages. A form asking for an email address would have nowhere honest to send it, and whatever collected addresses from a readership that includes minors would need storage, deletion on request, and a suppression list -- obligations this project is not set up to honour yet. Ask for nothing until you can delete it on demand.</p>
+            <p class="form-disclaimer">Until then: <a href="{{ '/feed.xml' | relative_url }}">the RSS feed</a> works in any reader, <a href="https://github.com/Decent-Software-LLC/unkiethestockjunkie.com" target="_blank">watching the repository</a> shows changes as they are committed, and <a href="{{ '/contact' | relative_url }}">email</a> still reaches a human.</p>
           </div>
           
           <div class="trust-badges">
@@ -108,9 +108,8 @@ permalink: /newsletter/
         
         <div class="testimonial">
           <blockquote>
-            "I finally understand investing! Unkie explains things in a way that actually makes sense. Best email I get every day."
+            No testimonials appear on this site. A quote attributed to a satisfied reader would have to come from a real reader, and none has agreed to be quoted yet.
           </blockquote>
-          <cite>— Sarah, 16</cite>
         </div>
       </div>
       
@@ -124,8 +123,8 @@ permalink: /newsletter/
     
     <div class="faq-grid">
       <div class="faq-item">
-        <h4>How often will I receive emails?</h4>
-        <p>Once per day, typically in the morning (US time). You can expect a new educational article every single day.</p>
+        <h4>Is there a mailing list?</h4>
+        <p>Not yet. Nothing on this site takes an email address, and when a list exists it will require confirming your own address before it counts as subscribed, plus a working unsubscribe that removes rather than mutes you.</p>
       </div>
       
       <div class="faq-item">
@@ -135,17 +134,17 @@ permalink: /newsletter/
       
       <div class="faq-item">
         <h4>Can I unsubscribe?</h4>
-        <p>Absolutely! Every email includes an unsubscribe link. Click it anytime and you'll be removed immediately.</p>
+        <p>Nothing to unsubscribe from yet. When subscriptions open, leaving will be one click and removal means removal -- not a suppressed row kept forever.</p>
       </div>
       
       <div class="faq-item">
-        <h4>Will you spam me?</h4>
-        <p>Never. We hate spam as much as you do. You'll only receive our daily educational article and occasional important updates.</p>
+        <h4>Will you sell my address?</h4>
+        <p>There is no address to sell, which is the only promise of this kind a site can actually keep before it has a list. Anyone offering your details to advertisers is monetising the relationship between you and them, and nobody here wants that job.</p>
       </div>
       
       <div class="faq-item">
         <h4>What topics do you cover?</h4>
-        <p>Everything from investing basics (stocks, bonds, ETFs) to advanced strategies (value investing, technical analysis). We also cover legendary investors, market history, and current events explained for teens.</p>
+        <p>Everything from market basics (stocks, bonds, ETFs) to valuation methods and how investors like Buffett, Graham, Lynch and Icahn say they decide. Market history belongs here too, along with how news and earnings dates move prices -- though not same-day coverage of the news itself, which no page here pretends to do.</p>
       </div>
       
       <div class="faq-item">

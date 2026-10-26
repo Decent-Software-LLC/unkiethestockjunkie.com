@@ -8,7 +8,7 @@ permalink: /articles/
 <section class="page-header">
   <div class="container">
     <h1>📚 All Articles</h1>
-    <p class="lead">Daily investing education for smart teens. New articles every day!</p>
+    <p class="lead">Investing explained in plain language, one verified idea at a time.</p>
   </div>
 </section>
 
@@ -41,7 +41,7 @@ permalink: /articles/
         </div>
         <div class="toolbar-meta">
           <span id="results-count" class="results-count">Showing all articles</span>
-          <span class="daily-badge">🔄 New article every day</span>
+          <span class="daily-badge">🔍 Checked against sources before publishing</span>
         </div>
       </div>
     </div>

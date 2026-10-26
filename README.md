@@ -10,12 +10,12 @@
 
 Unkie The Stock Junkie is an educational website that teaches teenagers about investing through:
 
-- **Automated Daily Content**: New articles every day powered by AI
+- **Verified Articles**: Drafts may begin with AI assistance; every page is reviewed by a human editor and cleared by automated publication gates
 - **Legendary Investor Strategies**: Learn from Buffett, Graham, Lynch, and Icahn
 - **Interactive Screeners**: Practice finding stocks using famous investor criteria
-- **Teen-Friendly Explanations**: Complex concepts made simple
+- **Plain Explanations**: No term used before it is defined on the same page
 
-A Jekyll site with automated content generation powered by NVIDIA's free AI APIs.
+A Jekyll site whose content pipeline runs on demand: an editor dispatches it, a candidate gate rejects weak or unsourced drafts, and nothing reaches `main` unreviewed.
 
 ## 🚀 Live Site
 
