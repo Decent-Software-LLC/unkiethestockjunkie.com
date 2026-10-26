@@ -119,7 +119,10 @@ const load = () => {
   {
     const d = new JSDOM(html).window.document; // no scripts at all
     const prompts = Array.from(d.querySelectorAll('.quiz-prompt')).map((p) => p.textContent.trim());
-    test('questions readable without JavaScript', prompts.length === 2 && prompts[0].length > 30);
+    // Was `prompts.length === 2`, which silently encoded "every quiz has exactly two questions" and turned red
+    // the moment this fixture page gained a third -- an assertion about corpus shape masquerading as a render
+    // check. What matters is that every question's text survives without scripting.
+    test('questions readable without JavaScript', prompts.length >= 2 && prompts.every((p) => p.length > 30));
     test('noscript hint present', /Turn on JavaScript/.test(d.querySelector('section.quiz').innerHTML));
     test('feedback region is aria-live', !!d.querySelector('.quiz-feedback[aria-live="polite"]'));
     test('options are real buttons with pressed state', !!d.querySelector('button.quiz-option[aria-pressed]'));
