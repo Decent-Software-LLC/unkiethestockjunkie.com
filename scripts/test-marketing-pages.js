@@ -242,7 +242,10 @@ test('the newsletter page stays deleted', () => {
     throw new Error('newsletter.md is back -- there is still no mailing list to advertise');
   }
   const references = [];
-  for (const page of [...READER_PAGES, ...CHROME]) {
+  // Repo-wide, not just the marketing set: an article cross-link would strand readers on a 404 too.
+  const tracked = execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8' })
+    .split('\n').filter((f) => /\.(md|html)$/.test(f));
+  for (const page of tracked) {
     if (/\/newsletter\b/.test(read(page))) references.push(page);
   }
   if (references.length) throw new Error(`links point at the deleted page: ${references.join(', ')}`);
