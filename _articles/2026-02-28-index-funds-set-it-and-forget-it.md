@@ -17,6 +17,10 @@ quiz:
     options: ["Are tax deductible", "Recur annually and compound against returns", "Apply only when you sell", "Vanish in retirement accounts"]
     answer: 1
     why: "Charges deduct before compounding begins, so a small percentage gap widens into a large dollar gap across thirty or forty years."
+  - question: "The most common way a soundly chosen index fund still costs its owner money is..."
+    options: ["Being abandoned after a steep decline, mid-holding-period", "Switching into a version charging slightly less", "Holding more than one such fund in the same account", "Rebalancing the allocation once a year"]
+    answer: 0
+    why: "The vehicle removes somebody else's opinions but not yours, and the arithmetic that makes cheap broad ownership work assumes the money stays in through the parts where staying in feels foolish."
 related_articles:
   - title: "Compound Interest: The Eighth Wonder of the World"
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"

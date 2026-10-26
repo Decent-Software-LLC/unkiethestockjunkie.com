@@ -17,6 +17,10 @@ quiz:
     options: ["Directly, since markets respond to cost basis", "Not at all; anchoring to it only affects your behavior", "Only for dividends", "Only in rising markets"]
     answer: 1
     why: "Markets never see your entry. Holding for breakeven feels rational and produces losses unconnected to the investment's prospects."
+  - question: "A trendline connecting two earlier peaks tells you..."
+    options: ["Where buyers previously stepped in, with no promise they appear again", "A level the market is obliged to defend", "That large holders are protecting the price", "The exact range of the next trading session"]
+    answer: 0
+    why: "Lines summarise where transacting actually happened before. Their apparent predictive power comes mostly from being drawn after the fact, when the obvious touchpoints are already visible."
 related_articles:
   - title: "What is Volume and Why Does It Matter?"
     url: "/articles/what-is-volume-and-why-does-it-matter/"

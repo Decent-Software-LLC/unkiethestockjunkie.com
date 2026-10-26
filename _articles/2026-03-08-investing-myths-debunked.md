@@ -17,6 +17,10 @@ quiz:
     options: ["Filings are always fake", "Disclosures lag, and hidden hedges aren't shown", "They only buy bonds", "You must match their exact trade size"]
     answer: 1
     why: "Quarterly filings surface weeks old, at moved prices, without cash buffers, shorts or derivatives offsetting the visible long position."
+  - question: "Owning an admired, household-name company still fails to protect your money because..."
+    options: ["A genuinely fine business purchased at an inflated price can shed most of its value", "Famous firms only decline during recessions", "Share prices always track product quality eventually", "Well known businesses are legally prevented from failing"]
+    answer: 0
+    why: "Outcome depends on the relationship between price paid and what the business earns, not on how respectable the brand looks while you buy. Admiration is not a valuation."
 related_articles:
   - title: "Why Timing the Market is Nearly Impossible"
     url: "/articles/why-timing-the-market-is-nearly-impossible/"

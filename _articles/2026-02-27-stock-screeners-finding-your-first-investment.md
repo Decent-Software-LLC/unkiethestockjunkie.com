@@ -17,6 +17,10 @@ quiz:
     options: ["Guaranteeing winners", "Producing candidates worth researching, not purchases", "Replacing filings review", "Predicting next quarter"]
     answer: 1
     why: "It narrows thousands of names using old data. Whether a survivor deserves further reading requires documents the screen won't read for you."
+  - question: "A ready-made screener strategy published by someone else primarily encodes..."
+    options: ["That author's judgment about what looks attractive, frozen whenever it was written", "A guarantee about future results", "The listing exchange's official rules", "A checklist approved by regulators"]
+    answer: 0
+    why: "Presets are opinions wearing numbers. Knowing which thresholds earn their place, and which merely inherit someone's taste, is the difference between screening and outsourcing."
 related_articles:
   - title: "Reading Financial News: Separating Signal from Noise"
     url: "/articles/reading-financial-news-separating-signal-from-noise/"

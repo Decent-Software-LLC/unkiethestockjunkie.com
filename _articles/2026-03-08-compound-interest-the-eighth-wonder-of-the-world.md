@@ -18,6 +18,10 @@ quiz:
     options: ["Higher returns per year", "More years for early money to compound", "Lower taxes", "Guaranteed profits"]
     answer: 1
     why: "Duration beats size across decades: the earliest dollars run roughly twice as long, outweighing larger later contributions."
+  - question: "When compounding gets used to sell a plan, the usual sleight of hand is..."
+    options: ["Presenting one assumed growth rate as though it were typical", "Omitting that other asset types exist", "Claiming the account is insured by anyone", "Confusing payouts with share-price moves"]
+    answer: 0
+    why: "Every figure in the exercise rests on a stated assumption, and a single optimistic rate repeated long enough starts looking like a forecast. The interesting number is the plausible range, which marketing rarely displays."
 related_articles:
   - title: "The Rule of 72: Quick Mental Math for Investors"
     url: "/articles/the-rule-of-72-quick-mental-math-for-investors/"

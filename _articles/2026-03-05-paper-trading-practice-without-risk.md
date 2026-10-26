@@ -17,6 +17,10 @@ quiz:
     options: ["Guaranteed profits", "Better judgement before real money is at risk", "Tax deductions", "A higher credit score"]
     answer: 1
     why: "You learn how your decisions behave without paying tuition to the market."
+  - question: "A practice account flatters you mostly by..."
+    options: ["Assuming instant fills at the displayed price with no spread or hesitation", "Charging hidden commissions on every simulated order", "Refusing to track real market prices", "Requiring an adult co-signature before placing trades"]
+    answer: 0
+    why: "Real exits involve quoted spreads, sizes that move thin names, and a few seconds of not wanting to press the button. None of those appear in the simulation, so rehearsal must deliberately exclude them."
 related_articles:
   - title: "Compound Interest: The Eighth Wonder of the World"
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"
