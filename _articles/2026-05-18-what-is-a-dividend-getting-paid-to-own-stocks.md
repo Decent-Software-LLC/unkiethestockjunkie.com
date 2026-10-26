@@ -17,6 +17,10 @@ quiz:
     options: ["The stock will rise 4%", "You get about $4 a year per $100 invested", "The company pays 4% interest on your deposit", "Your gain is insured at 4%"]
     answer: 1
     why: "Yield is annual dividend divided by current price. It is not a promised return and it says nothing about what the share price does."
+  - question: "A payout that looks far richer than comparable companies usually reflects..."
+    options: ["Doubt that the current payment survives", "A promised bonus for patient holders", "Immunity to share-price declines", "Heavy buying by company insiders"]
+    answer: 0
+    why: "Yield divides the annual payout by today's price, so a falling price inflates the ratio while the distribution stays fixed. A short raising history attached to a fat number is the market hedging against a cut."
 related_articles:
   - title: "Dividend Aristocrats: 25 Years of Rising Payments"
     url: "/articles/dividend-aristocrats-25-years-of-rising-payments/"

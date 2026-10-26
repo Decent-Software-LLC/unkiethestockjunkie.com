@@ -17,6 +17,10 @@ quiz:
     options: ["The $500 one is safer", "Share count differs, so price alone means nothing", "One pays dividends", "One is newer"]
     answer: 1
     why: "Price per share depends on how many shares were cut into. A low sticker price can belong to an enormous company."
+  - question: "Two companies with identical market capitalisation can still differ most in..."
+    options: ["How easily a decent-sized order can be sold near the displayed price", "Whether either has to publish audited statements", "The currency in which their shares are quoted", "Whether ordinary holders get any vote at all"]
+    answer: 0
+    why: "Equal headline size does not guarantee equal depth. Thin trading widens the distance between quote and fill, so exiting costs more than entering even when the valuation looks the same."
 related_articles:
   - title: "Blue Chip Stocks: The Established Giants"
     url: "/articles/blue-chip-stocks-the-safe-giants/"

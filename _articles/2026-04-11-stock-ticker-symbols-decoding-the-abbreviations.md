@@ -17,6 +17,10 @@ quiz:
     options: ["Recall its abbreviation", "Search the company's full legal name and confirm the symbol", "Buy whatever trends first", "Use whichever ticker is shortest"]
     answer: 1
     why: "Different firms can share initials, and delisted symbols vanish permanently. Confirming by name avoids buying an unintended company."
+  - question: "Reading a company's ticker symbol alone tells you..."
+    options: ["Essentially nothing about how risky the business is", "Its typical daily trading volume", "How much debt sits on the balance sheet", "Whether it distributes cash to owners"]
+    answer: 0
+    why: "A symbol exists to identify a listing, not to describe performance or structure. Risk lives in filings and numbers, which is why checking a name beats recalling a label."
 related_articles:
   - title: "What is the S&P 500 and Why Should You Care?"
     url: "/articles/what-is-the-s-p-500-and-why-should-you-care/"

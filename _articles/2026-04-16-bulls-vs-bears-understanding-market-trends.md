@@ -17,6 +17,10 @@ quiz:
     options: ["Wall Street's founding families", "How each animal attacks: horns up, paws down", "Livestock auctions in the 1800s", "A New York weather superstition"]
     answer: 1
     why: "The common explanation is direction of attack. It's unproven, which is why confident stories about bears hibernating aren't trustworthy."
+  - question: "Why does climbing out of a deep decline demand a larger percentage gain than the decline itself?"
+    options: ["Because the base being multiplied shrank during the fall", "Because exchange fees rise during downturns", "Because payouts always stop in bear markets", "Because indexes delete weak members instantly"]
+    answer: 0
+    why: "Percentages apply to whatever value remains, so a fifth lost needs a quarter gained to erase. This asymmetry is arithmetic, not pessimism, and it explains why avoiding the hole outweighs planning the climb."
 related_articles:
   - title: "Why Time in the Market Beats Timing the Market"
     url: "/articles/why-time-in-the-market-beats-timing-the-market/"

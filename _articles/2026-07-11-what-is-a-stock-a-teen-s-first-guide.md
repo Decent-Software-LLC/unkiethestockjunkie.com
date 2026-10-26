@@ -17,6 +17,10 @@ quiz:
     options: ["Reporting error", "Shifted expectations about future results", "The dividend was raised", "A stock split"]
     answer: 1
     why: "Prices discount what comes next. Same results plus changed outlook moves price far more than the results themselves."
+  - question: "Buying a share through a broker normally means those shares are recorded..."
+    options: ["In your name on the company's own shareholder register", "Under your broker's custody arrangement, in street name", "As paper certificates you are responsible for storing", "On loan to the company until you decide to sell"]
+    answer: 1
+    why: "Your economic claim is unaffected, but administrative questions belong to the custodian rather than the issuer, and fractional positions often are not registered shares at all."
 related_articles:
   - title: "What Owning a Share Actually Gets You"
     url: "/articles/from-lemonade-stand-to-shareholder-understanding-business-ownership/"

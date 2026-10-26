@@ -17,6 +17,10 @@ quiz:
     options: ["The stock is a good buy", "Something significant happened, direction unknown", "Dividends are coming", "A split is planned"]
     answer: 1
     why: "Volume measures disagreement and activity, not approval. Spikes appear in collapses just as readily as in breakouts."
+  - question: "Volume printed for a session counts..."
+    options: ["Shares that changed hands, not money flowing into the stock", "The number of people who now own the company", "Dollars the company collected from investors", "Buyers still waiting for a match"]
+    answer: 0
+    why: "Every completed trade needs a buyer and a seller simultaneously, so volume records agreement to transact rather than net enthusiasm. Describing it as money arriving misreads the field entirely."
 related_articles:
   - title: "Understanding Stock Charts for Beginners"
     url: "/articles/understanding-stock-charts-for-beginners/"
