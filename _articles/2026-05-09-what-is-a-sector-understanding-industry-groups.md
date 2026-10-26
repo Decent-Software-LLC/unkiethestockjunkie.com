@@ -17,6 +17,10 @@ quiz:
     options: ["You picked bad companies", "They were probably all in one sector", "The stock market closes early", "You used a market order"]
     answer: 1
     why: "Owning twelve names that live in the same sector means one industry-wide problem hits all twelve at once. Sectors, not share count, decide your real exposure."
+  - question: "Two research sites can place the same company in different groups because..."
+    options: ["Classification schemes are human conventions containing judgment calls, not statutory categories", "One of the two sites is obliged to be incorrect", "Companies must restate their industry every few weeks", "Listing venues assign economic activity themselves"]
+    answer: 0
+    why: "Threshold decisions -- does a hardware maker with software revenue belong to information technology or communication services -- are convention plus preference. Knowing who drew the boundaries matters before treating the boundary as evidence."
 related_articles:
   - title: "ETFs: Instant Diversification Made Easy"
     url: "/articles/etfs-instant-diversification-made-easy/"

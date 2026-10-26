@@ -17,6 +17,10 @@ quiz:
     options: ["Losses when a stock falls", "Broker failure, not investment losses", "Fraud by any third party", "Tax penalties"]
     answer: 1
     why: "It protects custody if the brokerage itself collapses. A bad trade stays bad regardless of membership."
+  - question: "Judging a broker by how pleasant its app feels misses the point because..."
+    options: ["The differences that matter surface years later -- cumulative charges, transfer friction, how disputes get handled", "Interfaces are technically identical, so none offers an advantage", "Regulations forbid any charge beyond per-trade commissions", "Design choices determine which companies you are permitted to buy"]
+    answer: 0
+    why: "Screen polish is marketing spend. Custody arrangements, spread behaviour, quiet fees and the effort of moving holdings elsewhere are what eventually cost money, and none of them appear during onboarding."
 related_articles:
   - title: "Commission-Free Trading: The Robinhood Revolution"
     url: "/articles/commission-free-trading-the-robinhood-revolution/"

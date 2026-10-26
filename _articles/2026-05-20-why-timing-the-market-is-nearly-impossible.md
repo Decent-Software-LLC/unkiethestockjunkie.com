@@ -17,6 +17,10 @@ quiz:
     options: ["You profit slightly less", "You may lose money and miss the rebound", "It counts as correct anyway", "The market refunds the gap"]
     answer: 1
     why: "An early exit sits in cash through the rally back, so a correct call can still finish negative. Getting the year right and the timing wrong is a losing trade."
+  - question: "Even correctly anticipating a sharp decline usually fails to improve a personal result because..."
+    options: ["It demands a second correct call about when to come back in", "Exchanges forbid selling once a fall begins", "Holding cash automatically generates extra profit", "Predictions must be filed publicly before acting"]
+    answer: 0
+    why: "An exit without re-entry converts temporary weakness into permanent absence, and the strongest sessions frequently arrive inside the stretch that looked like continuing collapse. Being right once is only half the trade."
 related_articles:
   - title: "Investing Myths Debunked"
     url: "/articles/investing-myths-debunked/"

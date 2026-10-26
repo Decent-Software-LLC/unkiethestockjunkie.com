@@ -17,6 +17,10 @@ quiz:
     options: ["Investments doubling in 10 years", "Credit-card debt doubling in 3 years", "Fees doubling in 20 years", "Nothing can double"]
     answer: 1
     why: "Fastest doubling usually sits on the liability side, making high-rate debt repayment the best guaranteed 'return' available."
+  - question: "The mental shortcut dividing 72 by a growth rate quietly assumes..."
+    options: ["The rate repeats every single year instead of arriving unevenly across many", "Taxes never touch any kind of investment gain", "Fixed-income instruments are always the riskier choice", "Cash distributions must be spent rather than reinvested"]
+    answer: 0
+    why: "Compounding arithmetic behaves nicely under a constant rate, while real results cluster badly -- several flat years around one strong one produce the same average with a very different experience along the way."
 related_articles:
   - title: "Compound Interest: The Eighth Wonder of the World"
     url: "/articles/compound-interest-the-eighth-wonder-of-the-world/"

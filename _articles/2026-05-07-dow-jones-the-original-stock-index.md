@@ -17,6 +17,10 @@ quiz:
     options: ["It's private data", "Thirty price-weighted names may diverge from broader indexes", "It updates annually", "It excludes all tech"]
     answer: 1
     why: "During rotations the Dow and value-weighted measures move differently; a single gauge hides dispersion across sectors."
+  - question: "Comparing today's famous thirty-company average against its own historical record hides which problem?"
+    options: ["Members have been replaced repeatedly, so the group being measured keeps changing", "It includes every listed domestic company regardless of size", "Its weights are reassigned by regulators each morning", "It permanently excludes any business that becomes profitable"]
+    answer: 0
+    why: "A headline number persisting for over a century suggests continuity of content as well as name. Constituents exit through failure, acquisition and substitution, so the same label has described quite different businesses over the decades."
 related_articles:
   - title: "What is the S&P 500 and Why Should You Care?"
     url: "/articles/what-is-the-s-p-500-and-why-should-you-care/"

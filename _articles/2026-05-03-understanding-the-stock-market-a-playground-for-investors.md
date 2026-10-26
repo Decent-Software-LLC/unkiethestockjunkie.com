@@ -17,6 +17,10 @@ quiz:
     options: ["Updated earnings each day", "Supply and demand among many participants, not new facts", "Broker fee schedules", "Index committee votes"]
     answer: 1
     why: "Microsecond quoting, hedging flows and positioning generate ticks. Fundamentals anchor long horizons, rarely today's candle."
+  - question: "The long-run upward drift in broad share indexes mainly reflects..."
+    options: ["Businesses collectively earning more over time, alongside general price increases", "Traders agreeing to mark everything higher each year", "Brokers publishing more flattering charts", "Authorities purchasing equity on a schedule"]
+    answer: 0
+    why: "Ownership claims rise in value when profits rise, and nominal figures also move with the currency measuring them. Nothing about the drift implies it arrives smoothly, uniformly, or on a timetable anyone can use."
 related_articles:
   - title: "Stock Exchanges: NYSE vs NASDAQ Explained"
     url: "/articles/stock-exchanges-nyse-vs-nasdaq-explained/"
